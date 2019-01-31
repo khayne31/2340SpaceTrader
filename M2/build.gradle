@@ -1,13 +1,17 @@
-defaultTasks '<task>'
+defaultTasks 'jar'
 
 apply plugin: 'java'
 
 dependencies {
-	compile files('C:/Users/Quadr/Desktop/2340/M2/src/main/java/edu/gatech/oad/antlab/pkg1/AntLabMain.java', 'C:/Users/Quadr/Desktop/2340/M2/lib/resources.jar')
+	compile files('lib/resources.jar')
 }
 
-jar { 
-	manifest {
-		attributes 'Main-Class': ' edu.gatech.oad.antlab.pkg1.AntLabMain'
+jar {
+	archiveName = 'M2.jar'
+    manifest {
+		attributes ('Main-Class': ' edu.gatech.oad.antlab.pkg1.AntLabMain',
+            'Class-Path': '../../lib/resources.jar'
+            )
+
 	}
 }
