@@ -33,20 +33,22 @@ public class Person2 {
 	private String calc(String input) {
 	  //Person 2 put your implementation here
 		String result = "";
-		count = input.length();
-		count2 = count;
-		while (count2 > 0) {
+		int count = input.length();
+		int count2 = count;
+		String newstring = "";
+		String newstring2 = "";
+		while (count2 > 0) {	
 			Random rand = new Random();
 			int num = rand.nextInt(count2);
-			if (num != 0 && num != input.length() {
-				String newstring = input.substring(0, num - 1);
-				String newstring2 = input.substring(num + 1, count2);
+			if (num != 0 && num != input.length()) {
+				newstring = input.substring(0, num - 1);
+				newstring2 = input.substring(num + 1, count2);
 			} else if (num == 0) {
-				String newstring = "";
-				String newstring2 = input.substring(num + 1, count2);
+				newstring = "";
+				newstring2 = input.substring(num + 1, count2);
 			} else {
-				String newstring = input.substring(num + 1, count2 - 1);
-				String newstring2 = "";
+				newstring = input.substring(num + 1, count2 - 1);
+				newstring2 = "";
 			}
 			count2--;
 		}
