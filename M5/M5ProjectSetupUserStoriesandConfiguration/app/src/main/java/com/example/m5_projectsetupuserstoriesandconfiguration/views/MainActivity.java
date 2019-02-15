@@ -35,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button button = findViewById(R.id.button_name);
-        nameField = findViewById(R.id.)
+        nameField = findViewById(R.id.name_input);
     }
 
 
     public void onSavePressed(View view){
         Log.d("Test", "Button has been pressed");
+        Log.d("Test", nameField.getText().toString());
         finish();
     }
     @Override
