@@ -3,6 +3,8 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 public class User {
 
     private String name;
+    private int points;
+    private int credits;
     public User() {
     }
 
