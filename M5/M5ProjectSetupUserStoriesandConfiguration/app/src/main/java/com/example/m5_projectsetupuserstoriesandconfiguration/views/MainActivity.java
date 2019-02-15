@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button button = findViewById(R.id.button_name);
+        nameField = findViewById(R.id.)
     }
 
 
