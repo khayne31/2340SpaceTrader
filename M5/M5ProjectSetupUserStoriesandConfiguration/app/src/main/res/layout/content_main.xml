@@ -26,7 +26,6 @@
         android:id="@+id/button_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name_label"
         android:layout_marginStart="162dp"
         android:layout_marginLeft="162dp"
         android:layout_marginTop="14dp"
@@ -59,37 +58,145 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/skill_1__label"
+        android:id="@+id/pilot_label"
         android:layout_width="wrap_content"
-        android:layout_height="14dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="335dp"
+        android:layout_marginBottom="320dp"
         android:text="Pilot"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="335dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/skill_2_label"
+        android:id="@+id/fighter_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="335dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="320dp"
         android:text="Fighter"
-        tools:layout_editor_absoluteX="350dp"
-        tools:layout_editor_absoluteY="335dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trader_label"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/skill_3_label"
+        android:id="@+id/trader_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginLeft="74dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginBottom="320dp"
         android:text="Trader"
-        app:layout_constraintEnd_toStartOf="@+id/skill_2_label"
-        tools:layout_editor_absoluteY="335dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/engineer_label"
+        app:layout_constraintTop_toBottomOf="@+id/button_name" />
 
     <TextView
-        android:id="@+id/skill_5_label"
+        android:id="@+id/engineer_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginBottom="320dp"
         android:text="Engineer"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="335dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pilot_label" />
+
+    <Button
+        android:id="@+id/button_pilot_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="40dp"
+        android:text="add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilot_label" />
+
+    <Button
+        android:id="@+id/button_pilot_rmv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="45dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_pilot_add"
+        tools:text="Remove " />
+
+    <Button
+        android:id="@+id/button_engineer_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="39dp"
+        android:text="add"
+        app:layout_constraintStart_toEndOf="@+id/button_pilot_add"
+        app:layout_constraintTop_toBottomOf="@+id/engineer_label" />
+
+    <Button
+        android:id="@+id/button_trader_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="39dp"
+        android:text="add"
+        app:layout_constraintStart_toEndOf="@+id/button_engineer_add"
+        app:layout_constraintTop_toBottomOf="@+id/trader_label" />
+
+    <Button
+        android:id="@+id/button_fighter_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="36dp"
+        android:text="add"
+        app:layout_constraintStart_toEndOf="@+id/button_trader_add"
+        app:layout_constraintTop_toBottomOf="@+id/trader_label" />
+
+    <Button
+        android:id="@+id/button_engineer_rmv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="45dp"
+        android:text="remove"
+        app:layout_constraintStart_toEndOf="@+id/button_pilot_rmv"
+        app:layout_constraintTop_toBottomOf="@+id/button_engineer_add" />
+
+    <Button
+        android:id="@+id/button_fighter_rmv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="45dp"
+        android:text="remove"
+        app:layout_constraintStart_toEndOf="@+id/button_engineer_rmv"
+        app:layout_constraintTop_toBottomOf="@+id/button_trader_add" />
+
+    <Button
+        android:id="@+id/button_trader_rmv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="45dp"
+        android:text="remove"
+        app:layout_constraintStart_toEndOf="@+id/button_fighter_rmv"
+        app:layout_constraintTop_toBottomOf="@+id/button_fighter_add" />
 
 </android.support.constraint.ConstraintLayout>
