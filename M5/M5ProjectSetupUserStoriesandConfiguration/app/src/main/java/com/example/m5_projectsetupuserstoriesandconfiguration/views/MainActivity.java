@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSavePressed(View view){
         Log.d("Test", "Button has been pressed");
         Log.d("Test", nameField.getText().toString());
-        finish();
+        //finish();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

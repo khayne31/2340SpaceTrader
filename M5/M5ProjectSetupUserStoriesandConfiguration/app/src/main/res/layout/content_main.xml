@@ -58,4 +58,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/skill_1__label"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:text="Pilot"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <TextView
+        android:id="@+id/skill_2_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fighter"
+        tools:layout_editor_absoluteX="350dp"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <TextView
+        android:id="@+id/skill_3_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:text="Trader"
+        app:layout_constraintEnd_toStartOf="@+id/skill_2_label"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <TextView
+        android:id="@+id/skill_5_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Engineer"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="335dp" />
+
 </android.support.constraint.ConstraintLayout>
