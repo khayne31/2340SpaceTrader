@@ -8,6 +8,31 @@
     tools:context=".views.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <Button
+        android:id="@+id/button_engineer_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="36dp"
+        android:text="Add"
+        app:layout_constraintStart_toEndOf="@+id/button_pilot_add"
+        app:layout_constraintTop_toBottomOf="@+id/engineer_label" />
+
+    <TextView
+        android:id="@+id/point_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginRight="176dp"
+        android:text="Points: 16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_name" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -62,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="335dp"
+        android:layout_marginTop="287dp"
         android:layout_marginBottom="320dp"
         android:text="Pilot"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="67dp"
         android:layout_marginLeft="67dp"
-        android:layout_marginTop="335dp"
+        android:layout_marginTop="287dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="320dp"
@@ -104,10 +129,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
+        android:layout_marginTop="78dp"
         android:layout_marginBottom="320dp"
         android:text="Engineer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pilot_label" />
+        app:layout_constraintStart_toEndOf="@+id/pilot_label"
+        app:layout_constraintTop_toBottomOf="@+id/button_name" />
 
     <Button
         android:id="@+id/button_pilot_add"
@@ -115,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:text="add"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pilot_label" />
@@ -127,21 +154,10 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="45dp"
-        android:text="Button"
+        android:text="Remove"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_pilot_add"
-        tools:text="Remove " />
-
-    <Button
-        android:id="@+id/button_engineer_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="39dp"
-        android:text="add"
-        app:layout_constraintStart_toEndOf="@+id/button_pilot_add"
-        app:layout_constraintTop_toBottomOf="@+id/engineer_label" />
+        tools:text="Remove" />
 
     <Button
         android:id="@+id/button_trader_add"
@@ -149,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="36dp"
         android:text="add"
         app:layout_constraintStart_toEndOf="@+id/button_engineer_add"
         app:layout_constraintTop_toBottomOf="@+id/trader_label" />
@@ -160,10 +176,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="37dp"
         android:text="add"
         app:layout_constraintStart_toEndOf="@+id/button_trader_add"
-        app:layout_constraintTop_toBottomOf="@+id/trader_label" />
+        app:layout_constraintTop_toBottomOf="@+id/fighter_label" />
 
     <Button
         android:id="@+id/button_engineer_rmv"
@@ -199,12 +215,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button_fighter_add" />
 
     <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
-        app:layout_constraintTop_toBottomOf="@+id/button_engineer_rmv">
+        android:layout_width="153dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="258dp"
+        android:layout_marginRight="258dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/radioButton1"
@@ -213,7 +230,7 @@
             android:layout_weight="1"
             android:text="RadioButton"
             app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
-            app:layout_constraintTop_toBottomOf="@+id/button_engineer_rmv"/>
+            app:layout_constraintTop_toBottomOf="@+id/button_engineer_rmv" />
 
 
         <RadioButton
@@ -223,7 +240,7 @@
             android:layout_weight="1"
             android:text="RadioButton"
             app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton1"/>
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
 
         <RadioButton
             android:id="@+id/radioButton3"
@@ -232,7 +249,7 @@
             android:layout_weight="1"
             android:text="RadioButton"
             app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton1"/>
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
 
         <RadioButton
             android:id="@+id/radioButton4"
@@ -241,7 +258,7 @@
             android:layout_weight="1"
             android:text="RadioButton"
             app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton1"/>
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
     </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
