@@ -200,39 +200,48 @@
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="30d"
+        android:layout_height="30dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
+        app:layout_constraintTop_toBottomOf="@+id/button_engineer_rmv">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="RadioButton"
+            app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
+            app:layout_constraintTop_toBottomOf="@+id/button_engineer_rmv"/>
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="RadioButton" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="RadioButton"
+            app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1"/>
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="RadioButton"
+            app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1"/>
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton"
+            app:layout_constraintStart_toStartOf="@+id/button_engineer_add"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1"/>
     </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
