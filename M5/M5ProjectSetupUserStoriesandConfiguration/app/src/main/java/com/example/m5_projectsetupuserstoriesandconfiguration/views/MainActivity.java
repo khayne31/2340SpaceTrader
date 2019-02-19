@@ -50,10 +50,48 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onSavePressed(View view){
-        Log.d("Test", "Button has been pressed");
+        Log.d("Test", "Save Button has been pressed");
         Log.d("Test", nameField.getText().toString());
         //finish();
     }
+
+    public void onPilotAddPressed(View view){
+        Log.d("Test", "Pilot Add Button has been pressed");
+        //finish();
+    }
+
+    public void onPilotSubtractPressed(View view){
+        Log.d("Test", "Pilot Subtract Button has been pressed");
+        //finish();
+    }
+
+    public void onEngineerAddPressed(View view){
+        Log.d("Test", "Engineer Add Button has been pressed");
+        //finish();
+    }
+
+    public void onEngineerSubtractPressed(View view){
+        Log.d("Test", "Engineer Subtract Button has been pressed");
+        //finish();
+    }
+
+    public void onTraderAddPressed(View view){
+        Log.d("Test", "Trader Add Button has been pressed");
+        //finish();
+    }
+    public void onTraderSubtractPressed(View view){
+        Log.d("Test", "Trader Subtract Button has been pressed");
+        //finish();
+    }
+    public void onFighterAddPressed(View view){
+        Log.d("Test", "Fighter Add Button has been pressed");
+        //finish();
+    }
+    public void onFighterSubtractPressed(View view){
+        Log.d("Test", "Fighter Subtract Button has been pressed");
+        //finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
