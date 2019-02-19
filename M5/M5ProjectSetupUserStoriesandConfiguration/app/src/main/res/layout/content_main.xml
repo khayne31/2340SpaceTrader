@@ -129,13 +129,14 @@
             <!--PILOT-->
             <Button
                 android:id="@+id/button_pilot_rm"
-                android:layout_height="wrap_content"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
                 android:gravity="center"
-                android:layout_column="0"
+                android:onClick="onPilotSubtractPressed"
                 android:text="-" />
 
             <TextView
@@ -150,25 +151,27 @@
 
             <Button
                 android:id="@+id/button_pilot_add"
-                android:layout_height="wrap_content"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_weight=".25"
                 android:gravity="center"
-                android:layout_column="0"
+                android:onClick="onPilotAddPressed"
                 android:text="+" />
 
             <!--ENGINEER-->
             <Button
                 android:id="@+id/button_engineer_rm"
-                android:layout_height="wrap_content"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
+                android:layout_weight=".25"
                 android:gravity="center"
-                android:layout_column="1"
+                android:onClick="onEngineerSubtractPressed"
                 android:text="-" />
 
             <TextView
@@ -183,13 +186,14 @@
 
             <Button
                 android:id="@+id/button_engineer_add"
-                android:layout_height="wrap_content"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight=".25"
                 android:gravity="center"
-                android:layout_column="1"
+                android:onClick="onEngineerAddPressed"
                 android:text="+" />
 
         </TableRow>
@@ -229,13 +233,14 @@
             <!--PILOT-->
             <Button
                 android:id="@+id/button_trader_rm"
-                android:layout_height="wrap_content"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
                 android:gravity="center"
-                android:layout_column="0"
+                android:onClick="onTraderSubtractPressed"
                 android:text="-" />
 
             <TextView
@@ -250,13 +255,14 @@
 
             <Button
                 android:id="@+id/button_trader_add"
-                android:layout_height="wrap_content"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_weight=".25"
                 android:gravity="center"
-                android:layout_column="0"
+                android:onClick="onTraderAddPressed"
                 android:text="+" />
 
             <!--ENGINEER-->
@@ -269,7 +275,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight=".25"
                 android:gravity="center"
+<<<<<<< HEAD
                 android:onClick="onFightPtsMinusPressed"
+=======
+                android:onClick="onFighterSubtractPressed"
+>>>>>>> 4eab8ea27b0920d07991d482ba6abdcd5a21aa32
                 android:text="-" />
 
             <TextView
@@ -291,7 +301,11 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight=".25"
                 android:gravity="center"
+<<<<<<< HEAD
                 android:onClick="onFightPtsAddPressed"
+=======
+                android:onClick="onFighterAddPressed"
+>>>>>>> 4eab8ea27b0920d07991d482ba6abdcd5a21aa32
                 android:text="+" />
 
         </TableRow>

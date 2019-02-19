@@ -11,11 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-<<<<<<< HEAD
 import android.widget.TextView;
 =======
 import android.widget.Spinner;
->>>>>>> 7aec2675a547053f2edc0237f788576a986d615a
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
@@ -23,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private EditText nameField;
-<<<<<<< HEAD
     private TextView fighterptslabel;
     private TextView engineerptslabel;
     private TextView pilotptslabel;
@@ -32,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private int traderpts = 0;
     private int pilotpts = 0;
     private int engineerpts = 0;
-=======
+=====
     private Spinner spinner;
 >>>>>>> 7aec2675a547053f2edc0237f788576a986d615a
     @Override
@@ -52,22 +49,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button button = findViewById(R.id.button_name);
-<<<<<<< HEAD
+
         engineerptslabel = findViewById(R.id.engineer_pts);
         traderptslabel = findViewById(R.id.engineer_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
-=======
-        Button plusPilot = findViewById(R.id.button_pilot_add);
-        Button minusPilot = findViewById(R.id.button_pilot_rm);
-        Button plusEngin = findViewById(R.id.button_engineer_add);
-        Button minusEngin = findViewById(R.id.button_engineer_rm);
-        Button plusFighter = findViewById(R.id.button_fighter_add);
-        Button minusFighter = findViewById(R.id.button_fighter_rm);
-        Button plusTrader = findViewById(R.id.button_trader_add);
-        Button minusTrader = findViewById(R.id.button_trader_rm);
->>>>>>> 7aec2675a547053f2edc0237f788576a986d615a
-        nameField = findViewById(R.id.name_input);
+
     }
 
     public void onFightPtsAddPressed(View view){
@@ -90,11 +77,49 @@ public class MainActivity extends AppCompatActivity {
 
     
     public void onSavePressed(View view){
-        Log.d("Test", "Button has been pressed");
+        Log.d("Test", "Save Button has been pressed");
         Log.d("Test", nameField.getText().toString());
         fighterptslabel.setText("2");
         //finish();
     }
+
+    public void onPilotAddPressed(View view){
+        Log.d("Test", "Pilot Add Button has been pressed");
+        //finish();
+    }
+
+    public void onPilotSubtractPressed(View view){
+        Log.d("Test", "Pilot Subtract Button has been pressed");
+        //finish();
+    }
+
+    public void onEngineerAddPressed(View view){
+        Log.d("Test", "Engineer Add Button has been pressed");
+        //finish();
+    }
+
+    public void onEngineerSubtractPressed(View view){
+        Log.d("Test", "Engineer Subtract Button has been pressed");
+        //finish();
+    }
+
+    public void onTraderAddPressed(View view){
+        Log.d("Test", "Trader Add Button has been pressed");
+        //finish();
+    }
+    public void onTraderSubtractPressed(View view){
+        Log.d("Test", "Trader Subtract Button has been pressed");
+        //finish();
+    }
+    public void onFighterAddPressed(View view){
+        Log.d("Test", "Fighter Add Button has been pressed");
+        //finish();
+    }
+    public void onFighterSubtractPressed(View view){
+        Log.d("Test", "Fighter Subtract Button has been pressed");
+        //finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
