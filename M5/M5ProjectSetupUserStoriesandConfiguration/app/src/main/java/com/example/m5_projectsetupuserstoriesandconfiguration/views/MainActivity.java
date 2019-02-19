@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private EditText nameField;
+    private Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button button = findViewById(R.id.button_name);
+        Button plusPilot = findViewById(R.id.button_pilot_add);
+        Button minusPilot = findViewById(R.id.button_pilot_rm);
+        Button plusEngin = findViewById(R.id.button_engineer_add);
+        Button minusEngin = findViewById(R.id.button_engineer_rm);
+        Button plusFighter = findViewById(R.id.button_fighter_add);
+        Button minusFighter = findViewById(R.id.button_fighter_rm);
+        Button plusTrader = findViewById(R.id.button_trader_add);
+        Button minusTrader = findViewById(R.id.button_trader_rm);
         nameField = findViewById(R.id.name_input);
     }
 
