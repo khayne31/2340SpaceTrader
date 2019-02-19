@@ -8,6 +8,7 @@ public class User {
     private int traderPoints;
     private int fighterPoints;
     private int credits;
+    private int id;
 
     public User() {
     }
@@ -48,4 +49,9 @@ public class User {
     public int getFighterPoints() {return fighterPoints;}
 
     public void setFighterPoints() {this.fighterPoints = fighterPoints;}
+
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
+
 }

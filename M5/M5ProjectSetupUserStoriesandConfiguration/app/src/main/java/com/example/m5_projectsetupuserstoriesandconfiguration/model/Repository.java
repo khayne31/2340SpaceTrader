@@ -30,4 +30,15 @@ public class Repository {
      * Return all the Users in the system
      */
     public List<User> getAllUsers() {return allUsers;}
+
+    /**add a new user to the system
+     *
+     * @param user the user to add
+     */
+
+    public void addUser(User user) {
+        user.setId(Repository.getNextUniqueID());
+        allUsers.add(user);
+
+    }
 }
