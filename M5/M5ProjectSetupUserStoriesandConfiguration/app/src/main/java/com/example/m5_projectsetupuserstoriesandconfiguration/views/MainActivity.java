@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
@@ -18,6 +19,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private EditText nameField;
+    private TextView fighterptslabel;
+    private TextView engineerptslabel;
+    private TextView pilotptslabel;
+    private TextView traderptslabel;
+    private int fighterpts = 0;
+    private int traderpts = 0;
+    private int pilotpts = 0;
+    private int engineerpts = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +44,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button button = findViewById(R.id.button_name);
+        engineerptslabel = findViewById(R.id.engineer_pts);
+        traderptslabel = findViewById(R.id.engineer_pts);
+        pilotptslabel = findViewById(R.id.pilot_pts);
+        fighterptslabel = findViewById(R.id.fighter_pts);
         nameField = findViewById(R.id.name_input);
     }
 
+    public void onFightPtsAddPressed(View view){
+        fighterpts++;
+        fighterptslabel.setText(fighterpts + "");
+    }
+    public void onFightPtsMinusPressed(View view){
+        fighterpts--;
+        fighterptslabel.setText(fighterpts+"");
+    }
+    public void onEngineerPtsMinusPressed(View view){
+        engineerpts--;
+        engineerptslabel.setText(engineerpts+"");
+    }
 
+    public void onEngineerPtsAddPressed(View view){
+        engineerpts++;
+        engineerptslabel.setText(engineerpts+"");
+    }
+
+    
     public void onSavePressed(View view){
         Log.d("Test", "Button has been pressed");
         Log.d("Test", nameField.getText().toString());
+        fighterptslabel.setText("2");
         //finish();
     }
     @Override
