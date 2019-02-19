@@ -25,15 +25,6 @@ public class Game {
     public String toString() {
         return id;
     }
-
-
-
-
-
-
-
-
-
     }
 
 
