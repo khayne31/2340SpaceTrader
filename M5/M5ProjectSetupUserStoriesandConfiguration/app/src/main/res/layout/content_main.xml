@@ -71,15 +71,25 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:gravity="center" >
+            android:gravity="center_horizontal" >
 
             <TextView
                 android:id="@+id/point_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="right"
                 android:textColor="#FFFFFF"
-                android:text="Points: 16" />
+                android:layout_column="1"
+                android:text="Points: " />
+
+            <TextView
+                android:id="@+id/point_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textColor="#FFFFFF"
+                android:layout_column="0"
+                android:text="16" />
 
         </TableRow>>
 
