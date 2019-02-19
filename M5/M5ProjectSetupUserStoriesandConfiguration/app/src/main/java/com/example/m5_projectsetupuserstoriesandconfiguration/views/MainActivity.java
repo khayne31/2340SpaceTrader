@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-=======
 import android.widget.Spinner;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
@@ -29,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private int traderpts = 0;
     private int pilotpts = 0;
     private int engineerpts = 0;
-=====
     private Spinner spinner;
->>>>>>> 7aec2675a547053f2edc0237f788576a986d615a
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,23 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onFightPtsAddPressed(View view){
-        fighterpts++;
-        fighterptslabel.setText(fighterpts + "");
-    }
-    public void onFightPtsMinusPressed(View view){
-        fighterpts--;
-        fighterptslabel.setText(fighterpts+"");
-    }
-    public void onEngineerPtsMinusPressed(View view){
-        engineerpts--;
-        engineerptslabel.setText(engineerpts+"");
-    }
-
-    public void onEngineerPtsAddPressed(View view){
-        engineerpts++;
-        engineerptslabel.setText(engineerpts+"");
-    }
 
     
     public void onSavePressed(View view){
@@ -85,38 +65,54 @@ public class MainActivity extends AppCompatActivity {
 
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
+        pilotpts++;
+        pilotptslabel.setText(engineerpts +"");
         //finish();
     }
 
     public void onPilotSubtractPressed(View view){
         Log.d("Test", "Pilot Subtract Button has been pressed");
+        pilotpts--;
+        pilotptslabel.setText(pilotpts+"");
         //finish();
     }
 
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
+        engineerpts++;
+        engineerptslabel.setText(engineerpts+ "");
         //finish();
     }
 
     public void onEngineerSubtractPressed(View view){
         Log.d("Test", "Engineer Subtract Button has been pressed");
+        engineerpts--;
+        engineerptslabel.setText(engineerpts +"");
         //finish();
     }
 
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
+        traderpts++;
+        traderptslabel.setText(traderpts +"");
         //finish();
     }
     public void onTraderSubtractPressed(View view){
         Log.d("Test", "Trader Subtract Button has been pressed");
+        traderpts--;
+        traderptslabel.setText(traderpts +"");
         //finish();
     }
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
+        fighterpts++;
+        fighterptslabel.setText(fighterpts +"");
         //finish();
     }
     public void onFighterSubtractPressed(View view){
         Log.d("Test", "Fighter Subtract Button has been pressed");
+        fighterpts--;
+        fighterptslabel.setText(fighterpts+"");
         //finish();
     }
 

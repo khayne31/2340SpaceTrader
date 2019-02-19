@@ -275,12 +275,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight=".25"
                 android:gravity="center"
-<<<<<<< HEAD
-                android:onClick="onFightPtsMinusPressed"
-=======
-                android:onClick="onFighterSubtractPressed"
->>>>>>> 4eab8ea27b0920d07991d482ba6abdcd5a21aa32
-                android:text="-" />
+                android:onClick="onFighterSubtractPressed" />
+
 
             <TextView
                 android:id="@+id/fighter_pts"
@@ -301,12 +297,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight=".25"
                 android:gravity="center"
-<<<<<<< HEAD
-                android:onClick="onFightPtsAddPressed"
-=======
-                android:onClick="onFighterAddPressed"
->>>>>>> 4eab8ea27b0920d07991d482ba6abdcd5a21aa32
-                android:text="+" />
+                android:onClick="onFighterAddPressed" />
+
 
         </TableRow>
 
