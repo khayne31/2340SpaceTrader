@@ -148,4 +148,10 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onCreatePlayerPressed(View view){
+        Log.d("Test", "Create Player Button has been pressed");
+        
+        //finish();
+    }
 }
