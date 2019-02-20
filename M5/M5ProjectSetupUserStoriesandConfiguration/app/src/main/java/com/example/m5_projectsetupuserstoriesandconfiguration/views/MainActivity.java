@@ -31,14 +31,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView engineerptslabel;
     private TextView pilotptslabel;
     private TextView traderptslabel;
+    private TextView pointcountLabel;
     private int fighterpts = 0;
     private int traderpts = 0;
     private int pilotpts = 0;
     private int engineerpts = 0;
+    private int pointcount = 16;
     private String name;
     private Spinner difSpinner;
     private Difficulty diff;
-    private TextView infoLabel;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         fighterptslabel = findViewById(R.id.fighter_pts);
         difSpinner = findViewById(R.id.diff_select);
         nameField = findViewById(R.id.name_input);
-        infoLabel = findViewById(R.id.info);
+        pointcountLabel = findViewById(R.id.point_count); //display how many points you have left at the top of the screen
 
 
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
@@ -71,65 +74,97 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-    
-    public void onSavePressed(View view){
-        Log.d("Test", "Save Button has been pressed");
-        Log.d("Test", nameField.getText().toString());
-        //finish();
-    }
-
+    //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
-        pilotpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? pilotpts + 1: pilotpts);
+        //pilotpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? pilotpts + 1: pilotpts);
+        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+            pilotpts++;
+            pointcount--;
+        }
         pilotptslabel.setText(pilotpts +"");
+        pointcountLabel.setText(pointcount + "");
         //finish();
     }
 
     public void onPilotSubtractPressed(View view){
         Log.d("Test", "Pilot Subtract Button has been pressed");
-        pilotpts = ( pilotpts == 0 ? pilotpts: pilotpts - 1);
+        //pilotpts = ( pilotpts == 0 ? pilotpts: pilotpts - 1);
+        if (pilotpts > 0) {
+            pilotpts--;
+            pointcount++;
+        }
         pilotptslabel.setText(pilotpts+"");
+        pointcountLabel.setText(pointcount + "");
         //finish();
     }
 
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
-        engineerpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? engineerpts + 1: engineerpts);
+        //engineerpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? engineerpts + 1: engineerpts);
+        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+            engineerpts++;
+            pointcount--;
+        }
         engineerptslabel.setText(engineerpts+ "");
+        pointcountLabel.setText(pointcount + "");
         //finish();
     }
 
     public void onEngineerSubtractPressed(View view){
         Log.d("Test", "Engineer Subtract Button has been pressed");
-        engineerpts = ( engineerpts == 0 ? engineerpts: engineerpts - 1);
+        //engineerpts = ( engineerpts == 0 ? engineerpts: engineerpts - 1);
+        if (engineerpts > 0) {
+            engineerpts--;
+            pointcount++;
+        }
         engineerptslabel.setText(engineerpts +"");
+        pointcountLabel.setText(pointcount + "");
         //finish();
     }
 
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
-        traderpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? traderpts + 1: traderpts);;
+        //traderpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? traderpts + 1: traderpts);
+        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+            traderpts++;
+            pointcount--;
+        }
         traderptslabel.setText(traderpts +"");
+        pointcountLabel.setText(pointcount + "");
         //finish();
     }
     public void onTraderSubtractPressed(View view){
         Log.d("Test", "Trader Subtract Button has been pressed");
-        traderpts = ( traderpts == 0 ? traderpts: traderpts - 1);
+        //traderpts = ( traderpts == 0 ? traderpts: traderpts - 1);
+        if (traderpts > 0){
+            traderpts--;
+            pointcount++;
+        }
         traderptslabel.setText(traderpts +"");
+        pointcountLabel.setText(pointcount+ "");
         //finish();
     }
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
-        fighterpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? fighterpts + 1: fighterpts);
+        //fighterpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? fighterpts + 1: fighterpts);
+        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+            fighterpts++;
+            pointcount--;
+        }
         fighterptslabel.setText(fighterpts +"");
+        pointcountLabel.setText(pointcount+"");
         //finish();
     }
     public void onFighterSubtractPressed(View view){
         Log.d("Test", "Fighter Subtract Button has been pressed");
-        fighterpts = ( fighterpts == 0 ? fighterpts: fighterpts - 1);
+        //fighterpts = ( fighterpts == 0 ? fighterpts: fighterpts - 1);
+        if (fighterpts > 0) {
+            fighterpts--;
+            pointcount++;
+        }
         fighterptslabel.setText(fighterpts+"");
+        pointcountLabel.setText(pointcount+"");
         //finish();
     }
 
