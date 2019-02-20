@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Button button = findViewById(R.id.button_name);
 
         engineerptslabel = findViewById(R.id.engineer_pts);
-        traderptslabel = findViewById(R.id.engineer_pts);
+        traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
 
@@ -65,53 +65,53 @@ public class MainActivity extends AppCompatActivity {
 
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
-        pilotpts++;
-        pilotptslabel.setText(engineerpts +"");
+        pilotpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? pilotpts + 1: pilotpts);
+        pilotptslabel.setText(pilotpts +"");
         //finish();
     }
 
     public void onPilotSubtractPressed(View view){
         Log.d("Test", "Pilot Subtract Button has been pressed");
-        pilotpts--;
+        pilotpts = ( pilotpts == 0 ? pilotpts: pilotpts - 1);
         pilotptslabel.setText(pilotpts+"");
         //finish();
     }
 
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
-        engineerpts++;
+        engineerpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? engineerpts + 1: engineerpts);
         engineerptslabel.setText(engineerpts+ "");
         //finish();
     }
 
     public void onEngineerSubtractPressed(View view){
         Log.d("Test", "Engineer Subtract Button has been pressed");
-        engineerpts--;
+        engineerpts = ( engineerpts == 0 ? engineerpts: engineerpts - 1);
         engineerptslabel.setText(engineerpts +"");
         //finish();
     }
 
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
-        traderpts++;
+        traderpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? traderpts + 1: traderpts);;
         traderptslabel.setText(traderpts +"");
         //finish();
     }
     public void onTraderSubtractPressed(View view){
         Log.d("Test", "Trader Subtract Button has been pressed");
-        traderpts--;
+        traderpts = ( traderpts == 0 ? traderpts: traderpts - 1);
         traderptslabel.setText(traderpts +"");
         //finish();
     }
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
-        fighterpts++;
+        fighterpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? fighterpts + 1: fighterpts);
         fighterptslabel.setText(fighterpts +"");
         //finish();
     }
     public void onFighterSubtractPressed(View view){
         Log.d("Test", "Fighter Subtract Button has been pressed");
-        fighterpts--;
+        fighterpts = ( fighterpts == 0 ? fighterpts: fighterpts - 1);
         fighterptslabel.setText(fighterpts+"");
         //finish();
     }
