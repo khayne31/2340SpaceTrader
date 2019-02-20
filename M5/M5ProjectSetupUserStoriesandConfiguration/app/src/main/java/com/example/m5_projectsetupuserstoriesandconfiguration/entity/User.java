@@ -9,13 +9,19 @@ public class User {
     private int fighterPoints;
     private int credits;
     private int id;
+    private Difficulty diff;
 
     public User() {
     }
 
-    public User(String name) {
+    public User(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty diff) {
         this.name = name;
         credits = 1000;
+        fighterPoints = fPoints;
+        traderPoints = tPoints;
+        engineerPoints = ePoints;
+        pilotPoints = pPoints;
+        this.diff = diff;
     }
 
     public String getName() {

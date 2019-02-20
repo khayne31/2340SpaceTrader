@@ -17,6 +17,7 @@ import android.widget.Spinner;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.User;
 
 import java.util.Arrays;
 
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private int traderpts = 0;
     private int pilotpts = 0;
     private int engineerpts = 0;
+    private String name;
     private Spinner difSpinner;
+    private Difficulty diff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,7 +154,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onCreatePlayerPressed(View view){
         Log.d("Test", "Create Player Button has been pressed");
-        
+        if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
+            User newUser = new User(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
+            Log.d("Test", "New player successfully created!");
+        }
         //finish();
     }
 }
