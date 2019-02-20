@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
 
-        ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difSpinner.setAdapter(adapter2);
+        //ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
+        //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //difSpinner.setAdapter(adapter2);
     }
 
 
