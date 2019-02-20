@@ -275,7 +275,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight=".25"
                 android:gravity="center"
-                android:onClick="onFighterSubtractPressed" />
+                android:onClick="onFighterSubtractPressed"
+                android:text="-"/>
 
 
             <TextView
@@ -297,7 +298,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight=".25"
                 android:gravity="center"
-                android:onClick="onFighterAddPressed" />
+                android:onClick="onFighterAddPressed"
+                android:text="+"/>
 
 
         </TableRow>

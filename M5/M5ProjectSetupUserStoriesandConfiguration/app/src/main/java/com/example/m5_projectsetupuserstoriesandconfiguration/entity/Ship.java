@@ -72,7 +72,21 @@ public class Ship {
         }
     }
 
-    // private enum gadgetType
+    private enum gadgetType {
+        CB("Extra Cargo Bays (5)", "CB"),
+        NS("Navigation System", "NS"),
+        AS("Auto-Repair System", "AS"),
+        TS("Targeting System", "TS"),
+        CD("Cloaking Device", "CD");
+
+        private final String type;
+        private final String id;
+
+        gadgetType(String gType, String gID) {
+            type = gType;
+            id = gID;
+        }
+    }
 
     private shipType type;
     private int fuel;
