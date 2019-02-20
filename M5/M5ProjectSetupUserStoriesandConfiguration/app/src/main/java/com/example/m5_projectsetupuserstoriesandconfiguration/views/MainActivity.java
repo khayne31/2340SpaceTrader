@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private String name;
     private Spinner difSpinner;
     private Difficulty diff;
+    private TextView infoLabel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,19 +55,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button = findViewById(R.id.button_name);
 
         engineerptslabel = findViewById(R.id.engineer_pts);
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
-
+        difSpinner = findViewById(R.id.diff_select);
         nameField = findViewById(R.id.name_input);
+        infoLabel = findViewById(R.id.info);
 
 
-        /*ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difSpinner.setAdapter(adapter2); */
+        ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        difSpinner.setAdapter(adapter);
 
 
     }
@@ -154,9 +157,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void onCreatePlayerPressed(View view){
         Log.d("Test", "Create Player Button has been pressed");
+        /*
+        if (name.equals("")) {     //FIX THIS ITS NOT DISPLAYING IF THERES NO INPUT
+            Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
+        }
+        */
         if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
             User newUser = new User(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
             Log.d("Test", "New player successfully created!");
+            Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
         }
         //finish();
     }

@@ -9,19 +9,6 @@
     android:background="@drawable/space_ship" >
 
     <!--THE USERNAME WIDGETS-->
-    <TextView
-        android:id="@+id/username_text"
-        android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="15dp"
-        android:text="Username:"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/name_input"
-        app:layout_constraintHorizontal_bias="0.272"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/name_input"
@@ -29,75 +16,61 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginLeft="88dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginRight="110dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
+        android:hint="Input your name"
         android:inputType="textPersonName"
-        android:text="Input your name"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/username_text"
-        app:layout_constraintBottom_toTopOf="@+id/button_name"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginLeft="162dp"
-        android:layout_marginRight="162dp"
-        android:onClick="onSavePressed"
-        android:text="Save Name"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/table_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_input" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--STATS-->
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/table_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:stretchColumns="1,2,3,4"
         android:background="#80000000"
+        android:stretchColumns="1,2,3,4"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_name" >
+        app:layout_constraintTop_toBottomOf="@+id/name_input">
 
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal" >
+            android:gravity="center_horizontal">
 
             <TextView
                 android:id="@+id/point_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:textColor="#FFFFFF"
                 android:layout_column="1"
-                android:text="Points: " />
+                android:gravity="right"
+                android:text="Points: "
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/point_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="start"
-                android:textColor="#FFFFFF"
                 android:layout_column="0"
-                android:text="16" />
+                android:gravity="start"
+                android:text="16"
+                android:textColor="#FFFFFF" />
 
-        </TableRow>>
+        </TableRow>
+        >
 
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="10dp" >
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/pilot_label"
@@ -106,8 +79,8 @@
                 android:layout_column="0"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:text="Pilot" />
+                android:text="Pilot"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/engineer_label"
@@ -116,15 +89,16 @@
                 android:layout_column="1"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:text="Engineer" />
+                android:text="Engineer"
+                android:textColor="#FFFFFF" />
 
-        </TableRow>>
+        </TableRow>
+        >
 
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="25dp" >
+            android:layout_marginBottom="25dp">
 
             <!--PILOT-->
             <Button
@@ -141,13 +115,13 @@
 
             <TextView
                 android:id="@+id/pilot_pts"
-                android:layout_height="35dp"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
-                android:gravity="center"
+                android:layout_height="35dp"
                 android:layout_column="1"
+                android:layout_weight=".25"
                 android:background="#FFFFFF"
-                android:text="0"/>
+                android:gravity="center"
+                android:text="0" />
 
             <Button
                 android:id="@+id/button_pilot_add"
@@ -176,13 +150,13 @@
 
             <TextView
                 android:id="@+id/engineer_pts"
-                android:layout_height="35dp"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
-                android:gravity="center"
+                android:layout_height="35dp"
                 android:layout_column="1"
+                android:layout_weight=".25"
                 android:background="#FFFFFF"
-                android:text="0"/>
+                android:gravity="center"
+                android:text="0" />
 
             <Button
                 android:id="@+id/button_engineer_add"
@@ -201,7 +175,7 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="10dp" >
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/trader_label"
@@ -210,8 +184,8 @@
                 android:layout_column="0"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:text="Trader" />
+                android:text="Trader"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/fighter_label"
@@ -220,15 +194,16 @@
                 android:layout_column="1"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:text="Fighter" />
+                android:text="Fighter"
+                android:textColor="#FFFFFF" />
 
-        </TableRow>>
+        </TableRow>
+        >
 
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="30dp" >
+            android:layout_marginBottom="30dp">
 
             <!--PILOT-->
             <Button
@@ -245,13 +220,13 @@
 
             <TextView
                 android:id="@+id/trader_pts"
-                android:layout_height="35dp"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
-                android:gravity="center"
+                android:layout_height="35dp"
                 android:layout_column="1"
+                android:layout_weight=".25"
                 android:background="#FFFFFF"
-                android:text="0"/>
+                android:gravity="center"
+                android:text="0" />
 
             <Button
                 android:id="@+id/button_trader_add"
@@ -276,18 +251,18 @@
                 android:layout_weight=".25"
                 android:gravity="center"
                 android:onClick="onFighterSubtractPressed"
-                android:text="-"/>
+                android:text="-" />
 
 
             <TextView
                 android:id="@+id/fighter_pts"
-                android:layout_height="35dp"
-                android:layout_weight=".25"
                 android:layout_width="0dp"
-                android:gravity="center"
+                android:layout_height="35dp"
                 android:layout_column="1"
+                android:layout_weight=".25"
                 android:background="#FFFFFF"
-                android:text="0"/>
+                android:gravity="center"
+                android:text="0" />
 
             <Button
                 android:id="@+id/button_fighter_add"
@@ -299,7 +274,7 @@
                 android:layout_weight=".25"
                 android:gravity="center"
                 android:onClick="onFighterAddPressed"
-                android:text="+"/>
+                android:text="+" />
 
 
         </TableRow>
@@ -308,13 +283,14 @@
 
     <Spinner
         android:id="@+id/diff_select"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="40dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/table_layout" />
@@ -322,10 +298,27 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:onClick="onCreatePlayerPressed"
         android:text="Create Player"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diff_select" />
+
+    <TextView
+        android:id="@+id/diff_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="40dp"
+        android:text="Choose Difficulty:"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_layout" />
+
+
 
 </android.support.constraint.ConstraintLayout>
