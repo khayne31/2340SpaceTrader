@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
+
         nameField = findViewById(R.id.name_input);
 
 
