@@ -9,12 +9,16 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Spinner;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private int traderpts = 0;
     private int pilotpts = 0;
     private int engineerpts = 0;
-    private Spinner spinner;
+    private Spinner difSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
+<<<<<<< HEAD
         nameField = findViewById(R.id.name_input);
+=======
+
+        ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        difSpinner.setAdapter(adapter2);
+>>>>>>> 40bf17cb0fde739e398b8ad647b9a88581c20a73
     }
 
 
