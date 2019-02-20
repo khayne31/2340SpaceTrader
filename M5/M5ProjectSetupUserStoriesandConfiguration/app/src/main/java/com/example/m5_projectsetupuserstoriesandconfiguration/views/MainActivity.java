@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
         /*ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         difSpinner.setAdapter(adapter2); */
+
 
     }
 
