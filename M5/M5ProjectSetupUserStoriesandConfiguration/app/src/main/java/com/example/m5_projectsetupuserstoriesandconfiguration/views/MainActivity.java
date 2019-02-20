@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
-
+        nameField = findViewById(R.id.name_input);
     }
 
 
@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     public void onSavePressed(View view){
         Log.d("Test", "Save Button has been pressed");
         Log.d("Test", nameField.getText().toString());
-        fighterptslabel.setText("2");
         //finish();
     }
 
