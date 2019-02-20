@@ -55,10 +55,20 @@ public class MainActivity extends AppCompatActivity {
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
+<<<<<<< HEAD
+        nameField = findViewById(R.id.name_input);
+=======
 
+<<<<<<< HEAD
         //ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
         //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //difSpinner.setAdapter(adapter2);
+=======
+        ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        difSpinner.setAdapter(adapter2);
+>>>>>>> 40bf17cb0fde739e398b8ad647b9a88581c20a73
+>>>>>>> ae233233088bacf89f1fd169a51afd7dc0b8adc2
     }
 
 
@@ -66,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     public void onSavePressed(View view){
         Log.d("Test", "Save Button has been pressed");
         Log.d("Test", nameField.getText().toString());
-        fighterptslabel.setText("2");
         //finish();
     }
 
