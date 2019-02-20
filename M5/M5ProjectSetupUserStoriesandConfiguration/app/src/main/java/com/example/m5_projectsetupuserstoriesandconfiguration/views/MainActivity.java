@@ -55,11 +55,22 @@ public class MainActivity extends AppCompatActivity {
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
         fighterptslabel = findViewById(R.id.fighter_pts);
+<<<<<<< HEAD
         nameField = findViewById(R.id.name_input);
+=======
+
+        nameField = findViewById(R.id.name_input);
+
+
+>>>>>>> a683f64cbf80b60001b7477a2c200c66bd13fc79
 
         /*ArrayAdapter<Difficulty> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Arrays.asList(Difficulty.values()));
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+<<<<<<< HEAD
         difSpinner.setAdapter(adapter2); */
+=======
+        difSpinner.setAdapter(adapter2);
+>>>>>>> a683f64cbf80b60001b7477a2c200c66bd13fc79
 
     }
 
