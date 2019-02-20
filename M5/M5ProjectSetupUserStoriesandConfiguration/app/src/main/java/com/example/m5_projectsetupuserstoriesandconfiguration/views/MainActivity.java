@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.User;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
 
 import java.util.Arrays;
 
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     private String name;
     private Spinner difSpinner;
     private Difficulty diff;
+    private MainActivityViewModel mainVM;
+
 
 
     @Override
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         difSpinner = findViewById(R.id.diff_select);
         nameField = findViewById(R.id.name_input);
         pointcountLabel = findViewById(R.id.point_count); //display how many points you have left at the top of the screen
+        mainVM = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
 
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
@@ -198,8 +203,16 @@ public class MainActivity extends AppCompatActivity {
         }
         */
         if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
+            diff = (Difficulty) difSpinner.getSelectedItem();
+            name = nameField.getText().toString();
             User newUser = new User(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
             Log.d("Test", "New player successfully created!");
+            Log.d("Test", "Your name is " + newUser.getName());
+            mainVM.saveInfo(newUser);
+
+
+
+
             Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
         }
         else {
