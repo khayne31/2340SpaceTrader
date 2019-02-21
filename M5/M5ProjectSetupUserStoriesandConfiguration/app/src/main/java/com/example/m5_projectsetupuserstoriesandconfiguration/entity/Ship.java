@@ -98,4 +98,8 @@ public class Ship {
         this.fuel = fuel;
         this.hp = hp;
     }
+
+    public static shipType makeGnat() {
+        return shipType.GN;
+    }
 }

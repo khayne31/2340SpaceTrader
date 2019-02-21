@@ -197,26 +197,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void onCreatePlayerPressed(View view){
         Log.d("Test", "Create Player Button has been pressed");
-        /*
-        if (name.equals("")) {     //FIX THIS ITS NOT DISPLAYING IF THERES NO INPUT
+        name = nameField.getText().toString();
+
+        if (name.toString().equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
-        }
-        */
-        if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
-            diff = (Difficulty) difSpinner.getSelectedItem();
-            name = nameField.getText().toString();
-            User newUser = new User(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
-            Log.d("Test", "New player successfully created!");
-            Log.d("Test", "Your name is " + newUser.getName());
-            mainVM.saveInfo(newUser);
+        } else {
 
 
+            if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
+                diff = (Difficulty) difSpinner.getSelectedItem();
+                name = nameField.getText().toString();
+                User newUser = new User(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
+                Log.i("Test", "New player successfully created!");
+                Log.i("Confirmation", "Your name is " + newUser.getName());
+                mainVM.saveInfo(newUser);
 
 
-            Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
+            }
         }
         //finish();
     }

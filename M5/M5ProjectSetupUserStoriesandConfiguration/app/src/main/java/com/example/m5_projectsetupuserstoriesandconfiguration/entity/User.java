@@ -1,5 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.util.Log;
+
 public class User {
 
     private String name;
@@ -10,9 +12,10 @@ public class User {
     private int credits;
     private int id;
     private Difficulty diff;
+    private Ship myShip;
 
-    public User() {
-    }
+    //public User() {
+    //}
 
     public User(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty diff) {
         this.name = name;
@@ -22,6 +25,7 @@ public class User {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = diff;
+        myShip = new Ship(Ship.makeGnat(), 50, 50);
     }
 
     public String getName() {
