@@ -1,0 +1,4 @@
+#Tue Feb 19 23:55:16 EST 2019
+base.0=/Users/ananyakansal/Documents/Spring 2019/CS 2340/2340SpaceTrader/M5/M5ProjectSetupUserStoriesandConfiguration/app/build/intermediates/dex/debug/mergeDexDebug/out
+path.0=classes.dex
+renamed.0=classes.dex
