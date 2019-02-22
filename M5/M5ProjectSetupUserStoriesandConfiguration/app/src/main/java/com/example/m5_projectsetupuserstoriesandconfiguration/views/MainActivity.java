@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
     private MainActivityViewModel mainVM;
 
 
-
+    /**
+     * The start-up function for the screen
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,15 +198,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * A method to create a new player, when the Create Player Button is pressed
+     * @param view The view passed in
+     */
     public void onCreatePlayerPressed(View view){
         Log.d("Test", "Create Player Button has been pressed");
         name = nameField.getText().toString();
-
-        if (name.toString().equals("")) {
+        if (name.equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
         } else {
-
-
             if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 name = nameField.getText().toString();
@@ -211,13 +215,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + newUser.getName());
                 mainVM.saveInfo(newUser);
-
-
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
             }
         }
-        //finish();
     }
 }
