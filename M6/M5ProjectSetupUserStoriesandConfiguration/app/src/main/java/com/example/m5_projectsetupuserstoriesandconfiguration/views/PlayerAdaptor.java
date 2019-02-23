@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.User;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 
 //public class UserAdaptor extends RecyclerView.Adapter.User{
 //}

@@ -2,7 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.model;
 
 import android.util.Log;
 
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.User;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +14,14 @@ public class Repository {
 
     private static int getNextUniqueID() {return next_id++;}
 
-    private List<User> allUsers;
+    private List<Player> allPlayers;
 
 
     /**
      * Make a new Repository object
      */
     public Repository() {
-        allUsers = new ArrayList<>();
+        allPlayers = new ArrayList<>();
 
     }
 
@@ -29,16 +29,16 @@ public class Repository {
     /**
      * Return all the Users in the system
      */
-    public List<User> getAllUsers() {return allUsers;}
+    public List<Player> getAllPlayers() {return allPlayers;}
 
     /**add a new user to the system
      *
-     * @param user the user to add
+     * @param player the user to add
      */
 
-    public void addUser(User user) {
-        user.setId(Repository.getNextUniqueID());
-        allUsers.add(user);
+    public void addPlayer(Player player) {
+        player.setId(Repository.getNextUniqueID());
+        allPlayers.add(player);
 
     }
 }

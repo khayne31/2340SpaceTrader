@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.User;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
 
 import java.util.Arrays;
@@ -211,10 +211,10 @@ public class MainActivity extends AppCompatActivity {
             if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 name = nameField.getText().toString();
-                User newUser = new User(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
+                Player newPlayer = new Player(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
                 Log.i("Test", "New player successfully created!");
-                Log.i("Confirmation", "Your name is " + newUser.getName());
-                mainVM.saveInfo(newUser);
+                Log.i("Confirmation", "Your name is " + newPlayer.getName());
+                mainVM.saveInfo(newPlayer);
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();

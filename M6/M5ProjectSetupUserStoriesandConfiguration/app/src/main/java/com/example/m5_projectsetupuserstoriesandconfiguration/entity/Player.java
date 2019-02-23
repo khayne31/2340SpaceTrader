@@ -2,7 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
-public class User {
+public class Player {
 
     private String name;
     private int pilotPoints;
@@ -17,7 +17,7 @@ public class User {
     //public User() {
     //}
 
-    public User(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty diff) {
+    public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty diff) {
         this.name = name;
         credits = 1000;
         fighterPoints = fPoints;
