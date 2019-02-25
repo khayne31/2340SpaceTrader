@@ -9,11 +9,11 @@ public class CoordinateSystem {
     private final double MAX_PROB = .5;
     private String systemName;
 
-    public CoordinateSystem(int sizeSystem, String systemName){
+    public CoordinateSystem(int sizeSystem, String name){
 
         populationProb = Math.random() - MAX_PROB;
-        populationProb = populationProb > 0 ? populationProb : populationProb + .5;
-        systemName = systemName;
+        populationProb = populationProb >= 0 ? populationProb : populationProb + MAX_PROB;
+        systemName = name;
         system = new ArrayList<>();
         allPlanets = new ArrayList<>();
         generateSystem(sizeSystem);
@@ -25,11 +25,11 @@ public class CoordinateSystem {
         for(int i = 0; i < size; i++){
             system.add(new ArrayList<Planet>());
             for(int j = 0; j < size; j++){
-                if(Math.random() < populationProb){
+                if(Math.random() < populationProb && ! (system.get(i).get(j) instanceof Planet)){
                     Planet newPlanet =  new Planet(new int[] {i,j}, systemName + ++planetCounter + "");
                     system.get(i).set(j, newPlanet);
                     allPlanets.add(newPlanet);
-                } else{
+                } else if(! (system.get(i).get(j) instanceof Planet)){
                     system.get(i).set(j, null);
                 }
             }
