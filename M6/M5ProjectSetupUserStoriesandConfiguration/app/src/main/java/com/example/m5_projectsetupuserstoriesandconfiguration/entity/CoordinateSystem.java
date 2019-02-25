@@ -34,6 +34,10 @@ public class CoordinateSystem {
                 }
             }
         }
+        if(allPlanets.size() < 10){
+            populationProb += .1*populationProb;
+          generateSystem(size);
+        }
     }
 
     public String getSystemName() {
