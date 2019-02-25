@@ -1,6 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,9 +24,10 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable {
 
 
     private EditText nameField;
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private Spinner difSpinner;
     private Difficulty diff;
     private MainActivityViewModel mainVM;
+    private Player player = new Player(name,fighterpts, traderpts, pilotpts, engineerpts, diff);
+    Intent intent = new Intent();
 
 
     /**
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
         pilotptslabel.setText(pilotpts +"");
         pointcountLabel.setText(pointcount + "");
+        player.setPilotPoints(pilotpts);
         //finish();
     }
 
@@ -104,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
         pilotptslabel.setText(pilotpts+"");
         pointcountLabel.setText(pointcount + "");
+        player.setPilotPoints(pilotpts);
         //finish();
     }
 
@@ -116,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         }
         engineerptslabel.setText(engineerpts+ "");
         pointcountLabel.setText(pointcount + "");
+        player.setEngineerPoints(engineerpts);
         //finish();
     }
 
@@ -128,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         }
         engineerptslabel.setText(engineerpts +"");
         pointcountLabel.setText(pointcount + "");
+        player.setEngineerPoints(engineerpts);
         //finish();
     }
 
@@ -140,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         }
         traderptslabel.setText(traderpts +"");
         pointcountLabel.setText(pointcount + "");
+        player.setTraderPoints(traderpts);
         //finish();
     }
     public void onTraderSubtractPressed(View view){
@@ -151,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         }
         traderptslabel.setText(traderpts +"");
         pointcountLabel.setText(pointcount+ "");
+        player.setTraderPoints(traderpts);
         //finish();
     }
     public void onFighterAddPressed(View view){
@@ -162,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
         }
         fighterptslabel.setText(fighterpts +"");
         pointcountLabel.setText(pointcount+"");
+        player.setFighterPoints(fighterpts);
         //finish();
     }
     public void onFighterSubtractPressed(View view){
@@ -173,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
         }
         fighterptslabel.setText(fighterpts+"");
         pointcountLabel.setText(pointcount+"");
+        player.setFighterPoints(fighterpts);
         //finish();
     }
 
@@ -204,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onCreatePlayerPressed(View view){
         Log.d("Test", "Create Player Button has been pressed");
+        Intent moveActivities = new Intent(MainActivity.this, PostPlayerScreen.class);
         name = nameField.getText().toString();
         if (name.equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
@@ -211,14 +224,19 @@ public class MainActivity extends AppCompatActivity {
             if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 name = nameField.getText().toString();
-                Player newPlayer = new Player(name, fighterpts, traderpts, engineerpts, pilotpts, diff);
+                player.setName(name);
                 Log.i("Test", "New player successfully created!");
-                Log.i("Confirmation", "Your name is " + newPlayer.getName());
-                mainVM.saveInfo(newPlayer);
+                Log.i("Confirmation", "Your name is " + player.getName());
+                mainVM.saveInfo(player);
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
+                //Pass object to next activity
+                intent.putExtra("Player", player);
+                startActivity(moveActivities);
             } else {
                 Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
+
 }

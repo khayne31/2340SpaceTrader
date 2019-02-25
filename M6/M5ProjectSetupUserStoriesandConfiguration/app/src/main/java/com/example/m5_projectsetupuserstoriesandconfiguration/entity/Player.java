@@ -2,7 +2,9 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
 
     private String name;
     private int pilotPoints;
@@ -17,14 +19,14 @@ public class Player {
     //public User() {
     //}
 
-    public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty diff) {
+    public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty difficulty) {
         this.name = name;
         credits = 1000;
         fighterPoints = fPoints;
         traderPoints = tPoints;
         engineerPoints = ePoints;
         pilotPoints = pPoints;
-        this.diff = diff;
+        this.diff = difficulty;
         myShip = new Ship(Ship.makeGnat(), 50, 50);
     }
 
@@ -58,7 +60,7 @@ public class Player {
 
     public int getFighterPoints() {return fighterPoints;}
 
-    public void setFighterPoints() {this.fighterPoints = fighterPoints;}
+    public void setFighterPoints(int fighterPoints) {this.fighterPoints = fighterPoints;}
 
     public int getId() {return id;}
 
