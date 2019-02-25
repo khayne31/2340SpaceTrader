@@ -10,7 +10,8 @@ public class Universe {
     private ArrayList<SolarSystem> systems;
     private int sizeOfUniverse;
     private int systemsInUniverse;
-    private static final String TAG = "UniverseLogCat";
+    private static final String TAG = "UniverseResults";
+    private static final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
 
 
@@ -18,7 +19,9 @@ public class Universe {
         universe = new ArrayList<>();
         sizeOfUniverse = size >= 10 ? size : 10;
         systems = new ArrayList<>();
+        Log.d(DEBUG, "inside the universe constructor before generation");
         generateUniverse(sizeOfUniverse);
+        Log.d(DEBUG, "inside universe constructor after generation");
         systemsInUniverse = systems.size();
 
     }
@@ -28,9 +31,14 @@ public class Universe {
         ArrayList<String> listOfNames = new ArrayList<>();
         for(int j = 0; j < size; j++){
             universe.add(new ArrayList<SolarSystem>());
+            Log.d(DEBUG, "inside first for loop. j: "+j);
             for(int i =0; i < size; i++){
-                if(Math.random() < SOLAR_SYSTEM_DISTRIBUTION_PROB){
+                Log.d(DEBUG, "inside second for loop. i: "+i);
+                double k = Math.random();
+                if(k < SOLAR_SYSTEM_DISTRIBUTION_PROB){
+                    Log.d(DEBUG, "inside first if k: "+k);
                     SolarSystem currentSystem = new SolarSystem(new Random().nextInt(20)+10, new int[] {j,i});
+                    Log.d(DEBUG, "after the creation of the new SolarSystem");
                     while(listOfNames.contains(currentSystem.getSystemName()))
                         currentSystem = new SolarSystem(new Random().nextInt(20)+10, new int[] {j,i});
                     universe.get(j).add(currentSystem);
@@ -45,15 +53,19 @@ public class Universe {
 
     }
 
-    public static void generateLogCat(ArrayList<SolarSystem> universe) {
+    public void generateLogCat() {
         int count = 10;
+        int sum = 0;
         while (count-- > 0) {
-            SolarSystem solar = universe.get(count-1);
+            SolarSystem solar = systems.get(count-1);
             Log.v(TAG,solar.toString());
+            sum += solar.getPlanets().size();
             for (int i = 0; i < solar.getSystem().getAllPlanets().size(); i++) {
                 Log.v(TAG, solar.getPlanets().get(i).getName());
             }
+
         }
+        Log.v(TAG, sum+"");
     }
 
 

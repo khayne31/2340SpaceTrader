@@ -1,5 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -14,12 +16,18 @@ public class SolarSystem {
 
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
+        Log.d("UniverseLogCat", "inside solarsystem constructor before random name");
         systemName = generateRandomName();
+        Log.d("UniverseLogCat", "inside solarsystem constructor after random name");
         system = new CoordinateSystem(systemSize, systemName);
+        Log.d("UniverseLogCat", "inside solarsystem constructor " +
+                "after Coordinate System is made");
+
         planets = system.getAllPlanets();
         if(coordinates.length >= 2){
-            coords[0] = coordinates[0];
-            coords[1] = coordinates[1];
+            coords = coordinates;
+            Log.d("UniverseLogCat", "inside solar system constructor coords: "
+                    + coordinates[0] + " "+ coordinates[1]);
         } else{
             coords[1] = 0;
             coords[0] = 0;

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
 
 import java.util.Arrays;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner difSpinner;
     private Difficulty diff;
     private MainActivityViewModel mainVM;
+    private Universe universe;
 
 
     /**
@@ -79,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
+        universe = new Universe(10);
+        universe.generateLogCat();
 
 
     }
