@@ -2,6 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class SolarSystem {
     private ArrayList<Planet> planets;
@@ -9,6 +10,7 @@ public class SolarSystem {
     private int systemSize;
     private String systemName;
     private int[] coords;
+    Governments gov;
 
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
@@ -22,6 +24,7 @@ public class SolarSystem {
             coords[1] = 0;
             coords[0] = 0;
         }
+        gov = Governments.values()[new Random().nextInt(Governments.values().length)];
     }
 
     private String generateRandomName(){
