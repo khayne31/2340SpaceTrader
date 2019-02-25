@@ -1,17 +1,30 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 public class SolarSystem {
     private ArrayList<Planet> planets;
     private CoordinateSystem system;
     private int systemSize;
     private String systemName;
+    private int[] coords;
+    Governments gov;
 
-    public  SolarSystem(int size){
+    public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
         systemName = generateRandomName();
         system = new CoordinateSystem(systemSize, systemName);
+        planets = system.getAllPlanets();
+        if(coordinates.length >= 2){
+            coords[0] = coordinates[0];
+            coords[1] = coordinates[1];
+        } else{
+            coords[1] = 0;
+            coords[0] = 0;
+        }
+        gov = Governments.values()[new Random().nextInt(Governments.values().length)];
     }
 
     private String generateRandomName(){
@@ -143,8 +156,29 @@ public class SolarSystem {
 
     public CoordinateSystem getSystem() { return system; }
 
-    public String toString() {
-        return "Solar System name: " + systemName + "Solar System Size: " + systemSize;
+    public ArrayList<Planet> getPlanets() {
+        return planets;
     }
 
+    public int getSystemSize() {
+        return systemSize;
+    }
+
+    public String getSystemName() {
+        return systemName;
+    }
+
+    @Override
+    public String toString() {
+        return "SolarSystem{" +
+                "planet size=" + planets.size() +
+                ", systemSize=" + systemSize +
+                ", systemName='" + systemName + '\'' +
+                ", coords=" + Arrays.toString(coords) +
+                '}';
+    }
+
+    public int[] getCoords() {
+        return coords;
+    }
 }
