@@ -36,6 +36,10 @@ public class CoordinateSystem {
         }
     }
 
+    public String getSystemName() {
+        return systemName;
+    }
+
     public ArrayList<ArrayList<Planet>> getSystem() {
         return system;
     }
