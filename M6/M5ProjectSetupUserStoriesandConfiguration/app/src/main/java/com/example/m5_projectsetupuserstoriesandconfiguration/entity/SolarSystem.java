@@ -141,4 +141,10 @@ public class SolarSystem {
         return nameList[(int)(Math.random() * nameList.length - 1)];
     }
 
+    public CoordinateSystem getSystem() { return system; }
+
+    public String toString() {
+        return "Solar System name: " + systemName + "Solar System Size: " + systemSize;
+    }
+
 }
