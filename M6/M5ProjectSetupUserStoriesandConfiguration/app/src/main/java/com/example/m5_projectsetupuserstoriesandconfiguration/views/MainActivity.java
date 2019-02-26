@@ -46,12 +46,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private Spinner difSpinner;
     private Difficulty diff;
     private MainActivityViewModel mainVM;
-<<<<<<< HEAD
     private Universe universe;
-=======
+
     private Player player = new Player(name,fighterpts, traderpts, pilotpts, engineerpts, diff);
     Intent intent = new Intent();
->>>>>>> 9af2ee2946b1d3ffc989c39d70d3f74a1b4641ea
 
 
     /**
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
         universe = new Universe(10);
-        universe.generateLogCat();
+        Log.v("UniverseResults", universe.toString());
 
 
     }

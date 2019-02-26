@@ -23,6 +23,7 @@ public class Universe {
         generateUniverse(sizeOfUniverse);
         Log.d(DEBUG, "inside universe constructor after generation");
         systemsInUniverse = systems.size();
+        Log.v("result", toString());
 
     }
 
@@ -53,14 +54,27 @@ public class Universe {
 
     }
 
+    @Override
+    public String toString() {
+        return "Universe{" +
+                "universe=" + universe +
+                ", systems=" + systems +
+                ", sizeOfUniverse=" + sizeOfUniverse +
+                ", systemsInUniverse=" + systemsInUniverse +
+                ", SOLAR_SYSTEM_DISTRIBUTION_PROB=" + SOLAR_SYSTEM_DISTRIBUTION_PROB +
+                '}';
+    }
+
     public void generateLogCat() {
         int count = 10;
         int sum = 0;
         while (count-- > 0) {
             SolarSystem solar = systems.get(count-1);
+            Log.v(DEBUG, "inside while loop in generateLogCat() " +
+                    "after getting the solar instantiation");
             Log.v(TAG,solar.toString());
             sum += solar.getPlanets().size();
-            for (int i = 0; i < solar.getSystem().getAllPlanets().size(); i++) {
+            for (int i = 0; i < solar.getPlanets().size(); i++) {
                 Log.v(TAG, solar.getPlanets().get(i).getName());
             }
 
