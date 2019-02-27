@@ -10,8 +10,8 @@ public class Universe {
     private ArrayList<SolarSystem> systems;
     private int sizeOfUniverse;
     private int systemsInUniverse;
-    private static final String TAG = "UniverseResults";
-    private static final String DEBUG = "UniverseLogCat";
+    private final String TAG = "UniverseResults";
+    private final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
 
 
@@ -56,12 +56,12 @@ public class Universe {
 
     @Override
     public String toString() {
-        return "Universe{" +
-                "universe=" + universe +
-                ", systems=" + systems +
-                ", sizeOfUniverse=" + sizeOfUniverse +
-                ", systemsInUniverse=" + systemsInUniverse +
-                ", SOLAR_SYSTEM_DISTRIBUTION_PROB=" + SOLAR_SYSTEM_DISTRIBUTION_PROB +
+        return " \n -Universe{" +
+                ", \n sizeOfUniverse=" + sizeOfUniverse +
+                ", \n universe=" + universe +
+                ", \n systems=" + systems +
+                ", \n systemsInUniverse=" + systemsInUniverse +
+                ", \n SOLAR_SYSTEM_DISTRIBUTION_PROB=" + SOLAR_SYSTEM_DISTRIBUTION_PROB +
                 '}';
     }
 

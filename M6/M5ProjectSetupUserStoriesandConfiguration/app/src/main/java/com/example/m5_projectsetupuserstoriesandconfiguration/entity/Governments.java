@@ -2,7 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 public enum Governments {
     Dem("Dem", "Democracy"),
-    Ari("Ari", "Arisocracy"),
+    Ari("Ari", "Aristocracy"),
     Oli("Oli", "Oligarchy"),
     Aut("Aut", "Autocracy"),
     Theo("Theo", "Theocracy"),
@@ -12,6 +12,13 @@ public enum Governments {
 
     private final String id;
     private final String governemnt;
+
+    @Override
+    public String toString() {
+        return " -Governments{" +
+                "governemnt='" + governemnt + '\'' +
+                '}';
+    }
 
     Governments(String govId, String gov ){
         id = govId;

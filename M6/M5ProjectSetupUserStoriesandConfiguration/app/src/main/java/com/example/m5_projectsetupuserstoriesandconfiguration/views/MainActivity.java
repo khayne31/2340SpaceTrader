@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         setSupportActionBar(toolbar);
 
        FloatingActionButton fab = findViewById(R.id.fab);
+       universe = new Universe(10);
+        //Log.v("UniverseResults", universe.toString());
+        largeLog("UniverseResults", universe.toString());
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,8 +89,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
-        universe = new Universe(10);
-        Log.v("UniverseResults", universe.toString());
+
 
 
     }
@@ -241,6 +243,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private static void largeLog(String tag, String content){
+        if (content.length() > 4000){
+            Log.v(tag, content.substring(0,4000));
+            largeLog(tag, content.substring(4000));
+
+        } else {
+            Log.v(tag, content);
+        }
+
     }
 
 

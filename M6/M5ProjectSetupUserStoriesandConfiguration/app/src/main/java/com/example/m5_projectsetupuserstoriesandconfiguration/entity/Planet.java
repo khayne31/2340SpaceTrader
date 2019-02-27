@@ -2,6 +2,8 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.util.Arrays;
+
 public class Planet {
     private int[] coords;
     private  String name;
@@ -25,6 +27,14 @@ public class Planet {
     }
     public int[] getCoords() {
         return coords;
+    }
+
+    @Override
+    public String toString() {
+        return " -Planet{" +
+                "coords=" + Arrays.toString(coords) +
+                ", name='" + name + '\'' +
+                '}';
     }
 
     public String getName() {
