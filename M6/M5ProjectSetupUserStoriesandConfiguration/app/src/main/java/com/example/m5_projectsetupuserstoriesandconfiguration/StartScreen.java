@@ -11,12 +11,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.views.MainActivity;
+import com.example.m5_projectsetupuserstoriesandconfiguration.views.PostPlayerScreen;
 
 public class StartScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("DebugScreen", "inside StartScreen");
         setContentView(R.layout.activity_start_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

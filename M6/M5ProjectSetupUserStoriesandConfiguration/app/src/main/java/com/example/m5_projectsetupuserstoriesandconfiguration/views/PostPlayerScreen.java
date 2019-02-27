@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 public class PostPlayerScreen extends AppCompatActivity implements Serializable {
 
-    Player player = (Player) getIntent().getSerializableExtra("Player");
+    //Player player = (Player) getIntent().getSerializableExtra("Player");
     private int pPoints;
     private int ePoints;
     private int tPoints;
@@ -30,6 +30,7 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("DebugScreen", "inside PostPlayerScreen");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_player_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -50,11 +51,11 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
         fPtsLabel = findViewById(R.id.fighter_final_pts);
         creditsLabel = findViewById(R.id.credits_label);
 
-        pPoints = player.getPilotPoints();
-        ePoints = player.getEngineerPoints();
-        tPoints = player.getTraderPoints();
-        fPoints = player.getFighterPoints();
-        credits = player.getCredits();
+//        pPoints = player.getPilotPoints();
+//        ePoints = player.getEngineerPoints();
+//        tPoints = player.getTraderPoints();
+//        fPoints = player.getFighterPoints();
+//        credits = player.getCredits();
 
         pPtsLabel.setText("" + pPoints);
         ePtsLabel.setText("" + ePoints);

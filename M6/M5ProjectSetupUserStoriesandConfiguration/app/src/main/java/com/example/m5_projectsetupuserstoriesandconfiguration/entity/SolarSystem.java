@@ -14,6 +14,7 @@ public class SolarSystem {
     private int[] coords;
     Governments gov;
     Tech tech;
+    Resources resource;
 
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
@@ -35,6 +36,7 @@ public class SolarSystem {
         }
         gov = Governments.values()[new Random().nextInt(Governments.values().length)];
         tech = Tech.values()[new Random().nextInt(Tech.values().length)];
+        resource = Resources.values()[new Random().nextInt(Resources.values().length)];
     }
 
     private String generateRandomName(){
@@ -187,7 +189,8 @@ public class SolarSystem {
                 ", systemName = " + systemName + '\'' +
                 ", coords = " + Arrays.toString(coords) +
                 ", gov = " + gov +
-                ", tech lvl =  " + tech +
+                ", tech_lvl =  " + tech +
+                ", resource = " + resource +
                 '}';
     }
 
