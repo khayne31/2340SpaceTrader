@@ -179,7 +179,7 @@ public class SolarSystem {
     @Override
     public String toString() {
         return "SolarSystem{" +
-                "planet size=" + planets.size() +
+                "planet_size=" + planets.size() +
                 ", systemSize=" + systemSize +
                 ", systemName='" + systemName + '\'' +
                 ", coords=" + Arrays.toString(coords) +

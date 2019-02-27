@@ -23,7 +23,6 @@ public class Universe {
         generateUniverse(sizeOfUniverse);
         Log.d(DEBUG, "inside universe constructor after generation");
         systemsInUniverse = systems.size();
-        Log.v("result", toString());
 
     }
 
@@ -56,12 +55,12 @@ public class Universe {
 
     @Override
     public String toString() {
-        return "Universe{" +
-                "universe=" + universe +
-                ", systems=" + systems +
-                ", sizeOfUniverse=" + sizeOfUniverse +
-                ", systemsInUniverse=" + systemsInUniverse +
-                ", SOLAR_SYSTEM_DISTRIBUTION_PROB=" + SOLAR_SYSTEM_DISTRIBUTION_PROB +
+        return "\n Universe{" +
+                "  \n sizeOfUniverse=" + sizeOfUniverse +
+                "  \n universe=" + universe +
+                ", \n systems=" + systems +
+                ", \n systemsInUniverse=" + systemsInUniverse +
+                ", \n SOLAR_SYSTEM_DISTRIBUTION_PROB=" + SOLAR_SYSTEM_DISTRIBUTION_PROB +
                 '}';
     }
 
@@ -85,3 +84,5 @@ public class Universe {
 
 
 }
+
+

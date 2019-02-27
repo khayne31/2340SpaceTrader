@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
         universe = new Universe(10);
-        Log.v("UniverseResults", universe.toString());
+        //Log.v("UniverseResults", universe.toString());
+        largeLog("UniverseResults", universe.toString());
+
 
 
     }
@@ -243,5 +245,14 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
     }
 
+
+    private static void largeLog(String tag, String content) {
+        if (content.length() > 4000) {
+            Log.v(tag, content.substring(0, 4000));
+            largeLog(tag, content.substring(4000));
+        } else {
+            Log.v(tag, content);
+        }
+    }
 
 }
