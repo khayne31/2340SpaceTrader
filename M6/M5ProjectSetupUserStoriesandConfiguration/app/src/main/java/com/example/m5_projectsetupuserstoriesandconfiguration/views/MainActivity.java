@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         setSupportActionBar(toolbar);
 
        FloatingActionButton fab = findViewById(R.id.fab);
+       universe = new Universe(10);
+        //Log.v("UniverseResults", universe.toString());
+        largeLog("UniverseResults", universe.toString());
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         universe = new Universe(10);
         //Log.v("UniverseResults", universe.toString());
         largeLog("UniverseResults", universe.toString());
+
 
 
 
@@ -245,14 +249,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
     }
 
-
-    private static void largeLog(String tag, String content) {
-        if (content.length() > 4000) {
-            Log.v(tag, content.substring(0, 4000));
+    private static void largeLog(String tag, String content){
+        if (content.length() > 4000){
+            Log.v(tag, content.substring(0,4000));
             largeLog(tag, content.substring(4000));
+
         } else {
             Log.v(tag, content);
         }
+
     }
+
+
 
 }

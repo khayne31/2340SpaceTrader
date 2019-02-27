@@ -13,6 +13,7 @@ public class SolarSystem {
     private String systemName;
     private int[] coords;
     Governments gov;
+    Tech tech;
 
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
@@ -33,6 +34,7 @@ public class SolarSystem {
             coords[0] = 0;
         }
         gov = Governments.values()[new Random().nextInt(Governments.values().length)];
+        tech = Tech.values()[new Random().nextInt(Tech.values().length)];
     }
 
     private String generateRandomName(){
@@ -178,11 +180,14 @@ public class SolarSystem {
 
     @Override
     public String toString() {
-        return "SolarSystem{" +
-                "planet_size=" + planets.size() +
-                ", systemSize=" + systemSize +
-                ", systemName='" + systemName + '\'' +
-                ", coords=" + Arrays.toString(coords) +
+
+        return " -SolarSystem{" +
+                "planet_size = " + planets.size() +
+                ", systemSize = " + systemSize +
+                ", systemName = " + systemName + '\'' +
+                ", coords = " + Arrays.toString(coords) +
+                ", gov = " + gov +
+                ", tech lvl =  " + tech +
                 '}';
     }
 
