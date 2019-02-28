@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Log.d("Test", "Create Player Button has been pressed");
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);
         name = nameField.getText().toString();
-        startActivity(moveActivities);
+
         if (name.equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
         } else {
@@ -243,9 +243,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
                 //Pass object to next activity
                 //intent.putExtra("Player", player);
-                moveActivities.putExtra("Player", player);
+                //moveActivities.putExtra("Player", player);
                 //startActivity(moveActivities);
                 //startActivity( new Intent(this, PostPlayerScreen.class));
+                startActivity(moveActivities);
             } else {
                 Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
             }
