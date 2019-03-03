@@ -1,7 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 public enum Tech {
-    PRE(0, "PRE"), // cargoSize not given (on wiki) supposed to be "few"
+    PRE(0, "PRE"),
     AGR(1, "AGR"),
     MID(2, "MID"),
     REN(3, "REN"),
@@ -11,19 +11,19 @@ public enum Tech {
     HIT(7, "HIT");
 
     private final int lvl;
-    private final String governemnt;
+    private final String government;
 
 
     Tech(int techLvl, String techName){
         lvl = techLvl;
-        governemnt = techName;
+        government = techName;
     }
 
     @Override
     public String toString() {
         return " -Tech{" +
                 "tech lvl=" + lvl +
-                ", governemnt='" + governemnt + '\'' +
+                ", government='" + government + '\'' +
                 '}';
     }
 }
