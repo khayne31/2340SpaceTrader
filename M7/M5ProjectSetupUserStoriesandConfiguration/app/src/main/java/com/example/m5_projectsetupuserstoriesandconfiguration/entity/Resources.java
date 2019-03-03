@@ -4,16 +4,17 @@ public enum Resources {
     NO(0, "NOSPECIALRESOURCES"), // cargoSize not given (on wiki) supposed to be "few"
     MINRCH(1, "MINARALRICH"),
     MINPR(2, "MINERALPOOER"),
-    DSRT(3, "DESSER"),
+    DSRT(3, "DESSERT"),
     LOW(4, "LOTSOFWATER"),
     RS(5, "RICHSOIL"),
     PS(6, "POORSOIL"),
     RF(7, "RICHSOIL"),
-    LLN(0, "LIFELESSNESS"), // cargoSize not given (on wiki) supposed to be "few"
-    WSHRM(1, "WEIRDMUSHROOMS"),
-    LOH(2, "LOTSOFHERBS"),
-    ART(3, "ARTISTIC"),
-    WAR(4, "WARLIKE");
+    LLN(8, "LIFELESSNESS"), // cargoSize not given (on wiki) supposed to be "few"
+    WSHRM(9, "WEIRDMUSHROOMS"),
+    LOH(10, "LOTSOFHERBS"),
+    ART(11, "ARTISTIC"),
+    WAR(12, "WARLIKE"),
+    RCHF(13, "RICHFAUNA");
 
     private final int lvl;
     private final String resource;
