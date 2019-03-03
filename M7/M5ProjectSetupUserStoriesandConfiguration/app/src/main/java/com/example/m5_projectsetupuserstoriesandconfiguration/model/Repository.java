@@ -39,6 +39,21 @@ public class Repository {
     public void addPlayer(Player player) {
         player.setId(Repository.getNextUniqueID());
         allPlayers.add(player);
+        Log.d("Test", "A new player was added to the database!");
 
+    }
+
+    public void updatePlayer(Player p) {
+        for (Player player: allPlayers) {
+            if (player.getId() == p.getId()) {
+                player.setPilotPoints(p.getPilotPoints());
+                player.setEngineerPoints(p.getEngineerPoints());
+                player.setFighterPoints(p.getFighterPoints());
+                player.setTraderPoints(p.getTraderPoints());
+                player.setCredits(p.getCredits());
+                return;
+            }
+        }
+        Log.d("APP", "Player not found with id = " + p.getId());
     }
 }

@@ -12,5 +12,5 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 
-//public class UserAdaptor extends RecyclerView.Adapter.User{
+//public class PlayerAdaptor extends RecyclerView.Adapter{
 //}

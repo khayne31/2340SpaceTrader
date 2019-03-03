@@ -16,7 +16,9 @@ public class PlayerInteractor extends Interactor {
 
     public List<Player> getAllPlayers() {return getRepository().getAllPlayers();}
 
-    public void addUser (Player p) { getRepository().addPlayer(p);}
+    public void addPlayer (Player p) {getRepository().addPlayer(p);}
+
+    public void updatePlayer (Player p) {getRepository().updatePlayer(p);}
 
 
 }

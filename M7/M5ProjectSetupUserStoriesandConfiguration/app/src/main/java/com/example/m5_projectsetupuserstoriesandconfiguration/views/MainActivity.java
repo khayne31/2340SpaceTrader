@@ -239,13 +239,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 player.setName(name);
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
-                mainVM.saveInfo(player);
+                //mainVM.addPlayer(player);
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
-                //Pass object to next activity
-                //intent.putExtra("Player", player);
-                //moveActivities.putExtra("Player", player);
-                //startActivity(moveActivities);
-                //startActivity( new Intent(this, PostPlayerScreen.class));
                 startActivity(moveActivities);
             } else {
                 Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();

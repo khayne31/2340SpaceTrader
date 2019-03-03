@@ -42,7 +42,7 @@ public class Player implements Serializable {
         return credits;
     }
 
-    public void setName(int credits) {
+    public void setCredits(int credits) {
         this.credits = credits;
     }
 
