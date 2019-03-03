@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/galaxy"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".views.PostPlayerScreen"
+    tools:showIn="@layout/activity_post_player_screen">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="375dp"
+        android:background="#80000000"
+        android:stretchColumns="1,2,3,4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/player_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center"
+                android:text="Player Name: "
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/player_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="start"
+                android:textColor="#FFFFFF" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="25dp">
+
+            <!--PILOT-->
+            <TextView
+                android:id="@+id/pilot_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:text="Pilots: "
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/pilot_final_pts"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                app:fontFamily="@font/aldrich" />
+
+            <!--ENGINEER-->
+            <TextView
+                android:id="@+id/engineer_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:text="Engineers: "
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/engineer_final_pts"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                app:fontFamily="@font/aldrich" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="25dp">
+
+            <!--Trader-->
+            <TextView
+                android:id="@+id/trader_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:text="Traders: "
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/trader_final_pts"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                app:fontFamily="@font/aldrich" />
+
+            <!--FIGHTER-->
+            <TextView
+                android:id="@+id/fighter_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:text="Fighters: "
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/fighter_final_pts"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                app:fontFamily="@font/aldrich" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/credits_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center"
+                android:text="Credits: "
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/credits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="start"
+                android:textColor="#FFFFFF" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginLeft="162dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginRight="139dp"
+        android:layout_marginBottom="89dp"
+        android:background="@android:drawable/button_onoff_indicator_on"
+        android:fontFamily="@font/aldrich"
+        android:onClick="onStartGamePressed"
+        android:text="START GAME"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
