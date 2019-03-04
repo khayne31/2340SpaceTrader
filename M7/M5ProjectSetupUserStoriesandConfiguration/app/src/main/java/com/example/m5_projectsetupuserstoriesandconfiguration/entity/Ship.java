@@ -91,12 +91,14 @@ public class Ship {
     private shipType type;
     private int fuel;
     private int hp;
+    private int cargo;
 
 
-    public Ship(shipType type, int fuel, int hp) {
+    public Ship(shipType type, int fuel, int hp, int cargo) {
         this.type = type;
         this.fuel = fuel;
         this.hp = hp;
+        this.cargo = cargo;
     }
 
     public static shipType makeGnat() {

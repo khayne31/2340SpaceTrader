@@ -6,9 +6,10 @@ import java.util.Arrays;
 
 public class Planet {
     private int[] coords;
-    private  String name;
+    private String name;
+    private Tech t_lvl;
 
-    public Planet(int[] coordinates, String planetName){
+    public Planet(int[] coordinates, String planetName, Tech tech_lvl){
         Log.d("UniverseLogCat", "inside planet constructor before coords");
         if(coordinates.length >= 2){
             Log.d("UniverseLogCat", coordinates[0]+", " + coordinates[1]+ ", "
@@ -23,6 +24,7 @@ public class Planet {
         }
         Log.d("UniverseLogCat", "inside planet constructor after coords");
         name = planetName;
+        t_lvl = tech_lvl;
 
     }
     public int[] getCoords() {
