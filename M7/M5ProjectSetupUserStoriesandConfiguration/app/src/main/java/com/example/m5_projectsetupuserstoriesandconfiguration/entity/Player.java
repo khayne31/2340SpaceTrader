@@ -27,7 +27,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), 50, 50);
+        //myShip = new Ship(Ship.makeGnat(), 50, 50);
     }
 
     public String getName() {

@@ -11,8 +11,9 @@ public class CoordinateSystem {
     private final double MAX_PROB = .5;
     private String systemName;
     private int size;
+    private Resources resources;
 
-    public CoordinateSystem(int sizeSystem, String name){
+    public CoordinateSystem(int sizeSystem, String name, Resources res){
 
         populationProb = Math.random() - MAX_PROB;
         populationProb = populationProb >= 0 ? populationProb : populationProb + MAX_PROB;
@@ -24,6 +25,7 @@ public class CoordinateSystem {
 
         generateSystem(size);
         Log.d("UniverseLogCat", "inside Coordinate System constructor after generate system");
+        resources = res;
 
 
     }
@@ -42,7 +44,7 @@ public class CoordinateSystem {
                 if(k < populationProb){
                     Log.d("UniverseLogCat", "inside generate system before " +
                             "new Planet: ");
-                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ ++planetCounter + "");
+                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ ++planetCounter + "", resources);
                     Log.d("UniverseLogCat", "inside generate system after " +
                             "new Planet: ");
                     system.get(i).add(newPlanet);

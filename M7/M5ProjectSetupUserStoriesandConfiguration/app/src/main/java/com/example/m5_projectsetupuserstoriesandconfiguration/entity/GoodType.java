@@ -40,4 +40,48 @@ public enum GoodType {
         cr = condition;
         er = expensive;
     }
+
+    public int getBasePrice() {
+        return basePrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMtlp() {
+        return mtlp;
+    }
+
+    public int getMtlu() {
+        return mtlu;
+    }
+
+    public Tech getTtp() {
+        return ttp;
+    }
+
+    public int getIpl() {
+        return ipl;
+    }
+
+    public int getVar() {
+        return var;
+    }
+
+    public RadicalEvent getIe() {
+        return ie;
+    }
+
+    public Resources getCr() {
+        return cr;
+    }
+
+    public Resources getEr() {
+        return er;
+    }
 }
