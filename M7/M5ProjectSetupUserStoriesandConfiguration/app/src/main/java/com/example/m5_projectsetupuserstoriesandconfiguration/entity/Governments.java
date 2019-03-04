@@ -11,18 +11,18 @@ public enum Governments {
 
 
     private final String id;
-    private final String governemnt;
+    private final String government;
 
     @Override
     public String toString() {
         return " -Governments{" +
-                "governemnt='" + governemnt + '\'' +
+                "government='" + government + '\'' +
                 '}';
     }
 
     Governments(String govId, String gov ){
         id = govId;
-        governemnt = gov;
+        government = gov;
 
     }
 
@@ -30,7 +30,7 @@ public enum Governments {
         return id;
     }
 
-    public String getGovernemnt() {
-        return governemnt;
+    public String getGovernment() {
+        return government;
     }
 }

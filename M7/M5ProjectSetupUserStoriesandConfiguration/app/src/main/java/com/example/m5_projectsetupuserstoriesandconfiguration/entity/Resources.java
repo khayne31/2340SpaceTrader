@@ -1,7 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 public enum Resources {
-    NO(0, "NOSPECIALRESOURCES"), // cargoSize not given (on wiki) supposed to be "few"
+    NO(0, "NOSPECIALRESOURCES"),
     MINRCH(1, "MINARALRICH"),
     MINPR(2, "MINERALPOOER"),
     DSRT(3, "DESSERT"),
@@ -9,7 +9,7 @@ public enum Resources {
     RS(5, "RICHSOIL"),
     PS(6, "POORSOIL"),
     RF(7, "RICHSOIL"),
-    LLN(8, "LIFELESSNESS"), // cargoSize not given (on wiki) supposed to be "few"
+    LLN(8, "LIFELESSNESS"),
     WSHRM(9, "WEIRDMUSHROOMS"),
     LOH(10, "LOTSOFHERBS"),
     ART(11, "ARTISTIC"),
