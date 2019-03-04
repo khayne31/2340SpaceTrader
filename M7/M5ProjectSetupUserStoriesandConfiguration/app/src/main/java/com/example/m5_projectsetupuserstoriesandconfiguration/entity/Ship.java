@@ -101,6 +101,10 @@ public class Ship {
         this.cargo = cargo;
     }
 
+    public int getCurrCargoSize() { return cargo; }
+    public void setCurrCargoSize(int updated_size) { cargo = updated_size; }
+    public boolean isCargoFull() { return (cargo < type.cargoSize); }
+
     public static shipType makeGnat() {
         return shipType.GN;
     }
