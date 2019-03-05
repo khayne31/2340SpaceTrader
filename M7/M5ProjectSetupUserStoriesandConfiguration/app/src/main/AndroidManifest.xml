@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".views.MarketScreen"
+            android:label="@string/title_activity_market_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".views.PlanetScreen"
             android:label="@string/title_activity_planet_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.PostPlayerScreen"
             android:label="PostPlayerScreen"
