@@ -36,6 +36,7 @@
         android:layout_marginBottom="92dp"
         android:onClick="onBuyPressed"
         android:text="BUY"
+        android:fontFamily="@font/aldrich"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,6 +49,7 @@
         android:layout_marginBottom="92dp"
         android:onClick="onSellPressed"
         android:text="SELL"
+        android:fontFamily="@font/aldrich"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
