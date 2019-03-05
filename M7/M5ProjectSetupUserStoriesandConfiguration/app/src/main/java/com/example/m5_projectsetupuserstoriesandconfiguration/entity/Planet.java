@@ -11,6 +11,7 @@ public class Planet {
     private Tech t_lvl;
     private RadicalEvent event;
     private  Resources resources;
+    private Market market;
 
     public Planet(int[] coordinates, String planetName){
         Log.d("UniverseLogCat", "inside planet constructor before coords");
@@ -29,6 +30,7 @@ public class Planet {
         name = planetName;
         t_lvl = Tech.values()[new Random().nextInt(Tech.values().length)];
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
+        market = new Market(this);
 
     }
 

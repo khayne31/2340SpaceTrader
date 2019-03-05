@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private MainActivityViewModel mainVM;
     private Universe universe;
 
-    private Player player = new Player(name,fighterpts, traderpts, pilotpts, engineerpts, diff);
+    private Player player;
     Intent intent = new Intent();
 
 
@@ -63,8 +63,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = findViewById(R.id.fab);
-       universe = new Universe(10);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        universe = new Universe(10);
+        player = new Player(name,fighterpts, traderpts, pilotpts, engineerpts, diff, universe);
+
         //Log.v("UniverseResults", universe.toString());
         largeLog("UniverseResults", universe.toString());
         fab.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
-        universe = new Universe(10);
+
         //Log.v("UniverseResults", universe.toString());
         largeLog("UniverseResults", universe.toString());
 

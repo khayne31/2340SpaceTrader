@@ -14,6 +14,9 @@ public class Universe {
     private final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
 
+    public ArrayList<SolarSystem> getSystems() {
+        return systems;
+    }
 
     public Universe(int size){
         universe = new ArrayList<>();
