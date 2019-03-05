@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".views.PlanetScreen"
+            android:label="@string/title_activity_planet_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".views.PostPlayerScreen"
             android:label="PostPlayerScreen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StartScreen"
             android:label="@string/title_activity_start_screen"
@@ -26,7 +30,7 @@
         <activity
             android:name=".views.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

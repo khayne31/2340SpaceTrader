@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/galaxy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".views.PlanetScreen"
+    tools:showIn="@layout/activity_planet_screen">
+
+    <TextView
+        android:id="@+id/planet_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:text="Welcome to Planet"
+        android:textColor="@android:color/background_light"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/aldrich"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/planet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
+        android:layout_marginLeft="123dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginRight="123dp"
+        android:text="Something"
+        android:textColor="@android:color/background_light"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/aldrich"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_welcome" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="375dp"
+        android:background="#80000000"
+        android:stretchColumns="1,2,3,4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/planet_title">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="25dp">
+
+            <!--PILOT-->
+            <TextView
+                android:id="@+id/coords_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:text="Coordinates: "
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/coords"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                app:fontFamily="@font/aldrich" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="25dp">
+
+            <!--Trader-->
+            <TextView
+                android:id="@+id/resources_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:text="Resources: "
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
+
+            <TextView
+                android:id="@+id/resources"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                app:fontFamily="@font/aldrich" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/space_garage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="220dp"
+        android:background="@android:drawable/button_onoff_indicator_on"
+        android:fontFamily="@font/aldrich"
+        android:onClick="onSpaceGaragePressed"
+        android:text="SPACE GARAGE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/market"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginLeft="162dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginRight="162dp"
+        android:layout_marginBottom="144dp"
+        android:background="@android:drawable/button_onoff_indicator_on"
+        android:fontFamily="@font/aldrich"
+        android:onClick="onMarketPressed"
+        android:text="MARKET"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>

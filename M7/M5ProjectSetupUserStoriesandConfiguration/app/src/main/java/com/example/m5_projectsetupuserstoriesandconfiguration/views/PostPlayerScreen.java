@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -67,5 +68,6 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
 
     public void onStartGamePressed(View view){
         Log.d("Test", "Game has Started!");
+        startActivity(new Intent(this, PlanetScreen.class));
     }
 }
