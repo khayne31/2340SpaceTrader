@@ -15,7 +15,8 @@ public class Player implements Serializable {
     private int id;
     private Difficulty diff;
     private Ship myShip;
-
+    private Planet currentPlanet;
+    private SolarSystem currentSystem;
     //public User() {
     //}
 
@@ -27,7 +28,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        //myShip = new Ship(Ship.makeGnat(), 50, 50);
+        myShip = new Ship(Ship.makeGnat(), 50, 50, 50);
     }
 
     public String getName() {
@@ -64,6 +65,10 @@ public class Player implements Serializable {
 
     public int getId() {return id;}
 
+    public Ship getMyShip() { return myShip; }
+
     public void setId(int id) {this.id = id;}
+
+
 
 }
