@@ -40,7 +40,7 @@ public class Market {
         return  (int)(gt.getBasePrice() * (planet.getEvent().equals(gt.getEr()) ? gt.getBasePrice() : 1)
                 * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
                 *  (planet.getResources().equals(gt.getCr()) ? 2 : 1)
-                + (7 - gt.getMtlp())/(8.0) + gt.getVar()/100.0 * gt.getBasePrice());
+                + (8 - gt.getMtlp())/(8.0) + gt.getVar()/100.0 * gt.getBasePrice());
    }
 
    public void tradeBuy(Player p, GoodType g, int numberOfGood){
