@@ -7,7 +7,7 @@ import java.util.Random;
 public class Market {
     private int marketSize;
     //first integer is number of goods second integer is price of goods
-    private Hashtable<GoodType, Integer[]> goodList;
+    private Hashtable<GoodType, Integer[]> goodList;// [number of goods, price of goods]
     private Planet planet;
     private int credits;
 
@@ -29,7 +29,8 @@ public class Market {
         for(int i = 0 ; i < 10; i++){
             double prob = Math.random();
             int numberWhichRemain = (int)(remaingGoods * (prob < .5 ? (1-prob)*.5 + prob : prob));
-            goodList.put(GoodType.values()[i],new Integer[] {remaingGoods - numberWhichRemain, generateMarketPrice(GoodType.values()[i])});
+            goodList.put(GoodType.values()[i],new Integer[]{i != 9 ? remaingGoods - numberWhichRemain: remaingGoods,
+                    generateMarketPrice(GoodType.values()[i])});
             remaingGoods = numberWhichRemain;
         }
     }
