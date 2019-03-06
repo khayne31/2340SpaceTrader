@@ -12,12 +12,14 @@ public class Market {
     private Hashtable<GoodType, Integer[]> goodList;// [number of goods, price of goods]
     private Planet planet;
     private int credits;
+    private final int MIN_NUMBER_CREDITS = 100000;
+    private final int MAX_MARKET_SIZE = 100;
 
     public Market(Planet planet){
         goodList = new Hashtable<>();
-        marketSize = new Random().nextInt(100);
+        marketSize = new Random().nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
-        credits = new Random().nextInt(100000) + 100000;
+        credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeHashTable();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
@@ -30,12 +32,13 @@ public class Market {
     private void initializeHashTable(){
         int remaingGoods = marketSize;
         //TODO fix this to make more balanced
-        for(int i = 0 ; i < 10; i++){
+        for(int i = 0 ; i < GoodType.values().length; i++){
             double prob = Math.random();
             int numberWhichRemain = (int)(remaingGoods * (prob < .5 ? (1-prob)*.5 + prob : prob));
             GoodType currentGoodType = GoodType.values()[i];
             numberWhichRemain = planet.getT_lvl().getLvl() < currentGoodType.getMtlp() ? remaingGoods : numberWhichRemain;
-            goodList.put(currentGoodType,new Integer[]{i != 9 ? remaingGoods - numberWhichRemain: remaingGoods,
+            goodList.put(currentGoodType,new Integer[]{i != GoodType.values().length -1
+                    ? remaingGoods - numberWhichRemain: remaingGoods,
                     generateMarketPrice(currentGoodType)});
             remaingGoods = numberWhichRemain;
         }
@@ -45,8 +48,9 @@ public class Market {
         //may need to refine the event multiplier if its too difficult to put in UI
         return  (int)(gt.getBasePrice() * (planet.getEvent().equals(gt.getEr()) ? gt.getBasePrice() : 1)
                 * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
-                *  (planet.getResources().equals(gt.getCr()) ? 2 : 1)
-                + (8 - gt.getMtlp())/(8.0) + gt.getVar()/100.0 * gt.getBasePrice());
+                *  (planet.getResources().equals(gt.getCr()) ? .5 : 1)
+                + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
+                + gt.getVar()/100.0 * gt.getBasePrice());
    }
 
    public void tradeBuy(Player p, GoodType g, int numberOfGood){
@@ -87,7 +91,7 @@ public class Market {
                 //TODO display a message that says the trade was sucessful
                 int moneyTraded =  numberOfGood * goodList.get(g)[1];
                 credits -= moneyTraded;
-                p.setCredits(p.getCredits() +moneyTraded);
+                p.setCredits(p.getCredits() + moneyTraded);
             } else{
                 //TODO display a message which says the trade failed
             }
