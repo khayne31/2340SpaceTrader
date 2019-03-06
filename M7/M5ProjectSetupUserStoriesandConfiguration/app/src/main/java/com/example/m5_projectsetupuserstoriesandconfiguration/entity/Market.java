@@ -33,9 +33,10 @@ public class Market {
         for(int i = 0 ; i < 10; i++){
             double prob = Math.random();
             int numberWhichRemain = (int)(remaingGoods * (prob < .5 ? (1-prob)*.5 + prob : prob));
-            numberWhichRemain = planet.getT_lvl().getLvl() < GoodType.values()[i].getMtlp() ? remaingGoods : numberWhichRemain;
-            goodList.put(GoodType.values()[i],new Integer[]{i != 9 ? remaingGoods - numberWhichRemain: remaingGoods,
-                    generateMarketPrice(GoodType.values()[i])});
+            GoodType currentGoodType = GoodType.values()[i];
+            numberWhichRemain = planet.getT_lvl().getLvl() < currentGoodType.getMtlp() ? remaingGoods : numberWhichRemain;
+            goodList.put(currentGoodType,new Integer[]{i != 9 ? remaingGoods - numberWhichRemain: remaingGoods,
+                    generateMarketPrice(currentGoodType)});
             remaingGoods = numberWhichRemain;
         }
     }

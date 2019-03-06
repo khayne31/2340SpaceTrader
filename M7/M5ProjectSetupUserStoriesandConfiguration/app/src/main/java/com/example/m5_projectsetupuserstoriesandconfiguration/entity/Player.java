@@ -34,6 +34,7 @@ public class Player implements Serializable {
         currentUniverse = uni;
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
+        currentPlanet.playerLandedOn();
     }
 
     public String getName() {

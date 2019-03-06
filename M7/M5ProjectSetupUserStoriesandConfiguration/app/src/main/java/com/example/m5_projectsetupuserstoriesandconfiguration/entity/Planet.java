@@ -30,7 +30,7 @@ public class Planet {
         name = planetName;
         t_lvl = Tech.values()[new Random().nextInt(Tech.values().length)];
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
-        market = new Market(this);
+        //market = new Market(this);
 
     }
 
@@ -39,11 +39,7 @@ public class Planet {
         resources = res;
     }
 
-    public Planet(int[] coordinates, String planetName, Tech techLevel){
-        this(coordinates, planetName);
-        t_lvl = techLevel;
 
-    }
 
 
     public int[] getCoords() {
@@ -73,5 +69,9 @@ public class Planet {
 
     public Tech getT_lvl() {
         return t_lvl;
+    }
+
+    public void playerLandedOn(){
+        market = new Market(this);
     }
 }
