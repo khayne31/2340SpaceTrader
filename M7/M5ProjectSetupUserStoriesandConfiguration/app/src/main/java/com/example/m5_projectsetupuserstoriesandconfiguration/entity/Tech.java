@@ -26,4 +26,8 @@ public enum Tech {
                 ", government='" + government + '\'' +
                 '}';
     }
+
+    public int getLvl() {
+        return lvl;
+    }
 }

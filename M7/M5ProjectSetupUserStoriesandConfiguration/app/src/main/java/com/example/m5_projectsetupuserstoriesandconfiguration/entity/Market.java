@@ -1,5 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
@@ -16,6 +18,8 @@ public class Market {
         marketSize = new Random().nextInt(100);
         this.planet = planet;
         credits = new Random().nextInt(100000) + 100000;
+        initializeHashTable();
+        //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
 
     public Market(int marketSize, Planet planet) {
@@ -29,6 +33,7 @@ public class Market {
         for(int i = 0 ; i < 10; i++){
             double prob = Math.random();
             int numberWhichRemain = (int)(remaingGoods * (prob < .5 ? (1-prob)*.5 + prob : prob));
+            numberWhichRemain = planet.getT_lvl().getLvl() < GoodType.values()[i].getMtlp() ? remaingGoods : numberWhichRemain;
             goodList.put(GoodType.values()[i],new Integer[]{i != 9 ? remaingGoods - numberWhichRemain: remaingGoods,
                     generateMarketPrice(GoodType.values()[i])});
             remaingGoods = numberWhichRemain;

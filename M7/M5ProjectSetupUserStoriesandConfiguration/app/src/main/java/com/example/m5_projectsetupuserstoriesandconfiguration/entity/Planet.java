@@ -70,4 +70,8 @@ public class Planet {
     public Resources getResources() {
         return resources;
     }
+
+    public Tech getT_lvl() {
+        return t_lvl;
+    }
 }
