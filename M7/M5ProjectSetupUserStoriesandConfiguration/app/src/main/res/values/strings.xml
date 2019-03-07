@@ -5,4 +5,5 @@
     <string name="title_activity_post_player_screen">PostPlayerScreen</string>
     <string name="title_activity_planet_screen">PlanetScreen</string>
     <string name="title_activity_market_screen">MarketScreen</string>
+    <string name="title_activity_main_menu">MainMenu</string>
 </resources>

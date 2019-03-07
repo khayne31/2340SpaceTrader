@@ -12,7 +12,7 @@
         <activity
             android:name=".views.MarketScreen"
             android:label="@string/title_activity_market_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.PlanetScreen"
             android:label="@string/title_activity_planet_screen"
@@ -22,16 +22,6 @@
             android:label="PostPlayerScreen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".StartScreen"
-            android:label="@string/title_activity_start_screen"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".views.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -39,6 +29,16 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <activity
+            android:name=".views.MainMenu"
+            android:label="@string/title_activity_main_menu"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

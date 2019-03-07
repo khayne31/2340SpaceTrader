@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         player = new Player(name,fighterpts, traderpts, pilotpts, engineerpts, diff, universe);
 
         //Log.v("UniverseResults", universe.toString());
+
         largeLog("UniverseResults", universe.toString());
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
