@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
@@ -32,19 +33,6 @@ public class MainMenu extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        /*
-        ImageView menuImage = (ImageView) findViewById(R.id.main_screen);
-        menuImage.setBackgroundResource(R.drawable.mainscreenanimation);
-        menuAnimation = (AnimationDrawable) menuImage.getBackground();
-        menuImage.setVisibility(View.VISIBLE);
-
-        menuImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                menuAnimation.start();
-            }
-        });
-        */
     }
 
     public void onNewGamePressed(View view){
@@ -54,10 +42,12 @@ public class MainMenu extends AppCompatActivity {
     public void onLoadGamePressed(View view){
         //startActivity(new Intent(this, LoadGame.class));
         Log.d("Test", "Load Game has been Pressed");
+        Toast.makeText(this, "SURPRISE! We haven't made this page yet", Toast.LENGTH_SHORT).show();
     }
     public void onSettingsPressed(View view){
         //startActivity(new Intent(this, Settings.class));
         Log.d("Test", "Settings has been pressed");
+        Toast.makeText(this, "Settings Page COMING SOON :)", Toast.LENGTH_SHORT).show();
     }
 
 }
