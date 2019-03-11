@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         pointcountLabel = findViewById(R.id.point_count); //display how many points you have left at the top of the screen
         mainVM = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
-
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
@@ -242,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 player.setName(name);
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
-                //mainVM.addPlayer(player);
+                mainVM.addPlayer(player);
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
                 startActivity(moveActivities);
             } else {
