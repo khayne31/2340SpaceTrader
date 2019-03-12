@@ -19,22 +19,29 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
-    //public User() {
-    //}
+
 
     public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty difficulty, Universe uni) {
         this.name = name;
         credits = 1000;
+        Log.d("Player", "Houston we have a problem, 1");
         fighterPoints = fPoints;
         traderPoints = tPoints;
         engineerPoints = ePoints;
         pilotPoints = pPoints;
+        Log.d("Player", "Houston we have a problem, 2");
         this.diff = difficulty;
+        Log.d("Player", "Houston we have a problem, 3");
         myShip = new Ship(Ship.makeGnat(), 50, 50, 50);
+        Log.d("Player", "Houston we have a problem, 4");
         currentUniverse = uni;
+        Log.d("Player", "Houston we have a problem, 5");
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
+        Log.d("Player", "Houston we have a problem, 6");
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
-        currentPlanet.playerLandedOn();
+        Log.d("Player", "Houston we have a problem, 7");
+        //currentPlanet.playerLandedOn();
+        Log.d("Player", "Houston we have a problem, 8");
     }
 
     public String getName() {

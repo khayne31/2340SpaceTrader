@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
         FloatingActionButton fab = findViewById(R.id.fab);
         universe = new Universe(10);
-        player = new Player(name,fighterpts, traderpts, pilotpts, engineerpts, diff, universe);
+        //player = new Player(name,fighterpts, traderpts, engineerpts, pilotpts, diff, universe);
 
-        //Log.v("UniverseResults", universe.toString());
+        Log.v("UniverseResults", universe.toString());
 
         largeLog("UniverseResults", universe.toString());
         fab.setOnClickListener(new View.OnClickListener() {
@@ -77,8 +77,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                         .setAction("Action", null).show();
             }
         });
-
-
         engineerptslabel = findViewById(R.id.engineer_pts);
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
 
-        //Log.v("UniverseResults", universe.toString());
+        Log.v("UniverseResults", universe.toString());
         largeLog("UniverseResults", universe.toString());
 
 
@@ -109,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         pilotptslabel.setText(pilotpts +"");
         pointcountLabel.setText(pointcount + "");
-        player.setPilotPoints(pilotpts);
+
         //finish();
     }
 
@@ -122,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         pilotptslabel.setText(pilotpts+"");
         pointcountLabel.setText(pointcount + "");
-        player.setPilotPoints(pilotpts);
+
         //finish();
     }
 
@@ -135,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         engineerptslabel.setText(engineerpts+ "");
         pointcountLabel.setText(pointcount + "");
-        player.setEngineerPoints(engineerpts);
         //finish();
     }
 
@@ -148,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         engineerptslabel.setText(engineerpts +"");
         pointcountLabel.setText(pointcount + "");
-        player.setEngineerPoints(engineerpts);
         //finish();
     }
 
@@ -161,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         traderptslabel.setText(traderpts +"");
         pointcountLabel.setText(pointcount + "");
-        player.setTraderPoints(traderpts);
+
         //finish();
     }
     public void onTraderSubtractPressed(View view){
@@ -173,7 +169,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         traderptslabel.setText(traderpts +"");
         pointcountLabel.setText(pointcount+ "");
-        player.setTraderPoints(traderpts);
         //finish();
     }
     public void onFighterAddPressed(View view){
@@ -185,7 +180,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         fighterptslabel.setText(fighterpts +"");
         pointcountLabel.setText(pointcount+"");
-        player.setFighterPoints(fighterpts);
         //finish();
     }
     public void onFighterSubtractPressed(View view){
@@ -197,7 +191,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
         fighterptslabel.setText(fighterpts+"");
         pointcountLabel.setText(pointcount+"");
-        player.setFighterPoints(fighterpts);
         //finish();
     }
 
@@ -231,14 +224,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Log.d("Test", "Create Player Button has been pressed");
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);
         name = nameField.getText().toString();
-
+        Log.d("CrashTest", "You have made it this far, but I will stop you here!, 0");
         if (name.equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
         } else {
             if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
+                Log.d("CrashTest", "You have made it this far, but I will stop you here!, 1");
                 diff = (Difficulty) difSpinner.getSelectedItem();
+                Log.d("CrashTest", "You have made it this far, but I will stop you here!, 2");
                 name = nameField.getText().toString();
-                player.setName(name);
+                Log.d("CrashTest", "You have made it this far, but I will stop you here!, 3");
+                player = new Player(name,fighterpts, traderpts, engineerpts, pilotpts, diff, universe);
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
                 mainVM.addPlayer(player);
