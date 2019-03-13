@@ -73,5 +73,5 @@ public class Planet {
 
     public void playerLandedOn(){
         market = new Market(this);
-    }
+    } //===> FIX THE MARKET CLASS
 }

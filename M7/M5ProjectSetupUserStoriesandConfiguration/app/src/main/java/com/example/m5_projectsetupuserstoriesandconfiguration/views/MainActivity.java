@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
         FloatingActionButton fab = findViewById(R.id.fab);
         universe = new Universe(10);
-        //player = new Player(name,fighterpts, traderpts, engineerpts, pilotpts, diff, universe);
 
         Log.v("UniverseResults", universe.toString());
 
@@ -100,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
-        //pilotpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? pilotpts + 1: pilotpts);
         if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
             pilotpts++;
             pointcount--;
@@ -113,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onPilotSubtractPressed(View view){
         Log.d("Test", "Pilot Subtract Button has been pressed");
-        //pilotpts = ( pilotpts == 0 ? pilotpts: pilotpts - 1);
         if (pilotpts > 0) {
             pilotpts--;
             pointcount++;
@@ -126,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
-        //engineerpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? engineerpts + 1: engineerpts);
         if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
             engineerpts++;
             pointcount--;
@@ -138,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onEngineerSubtractPressed(View view){
         Log.d("Test", "Engineer Subtract Button has been pressed");
-        //engineerpts = ( engineerpts == 0 ? engineerpts: engineerpts - 1);
         if (engineerpts > 0) {
             engineerpts--;
             pointcount++;
@@ -150,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
-        //traderpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? traderpts + 1: traderpts);
         if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
             traderpts++;
             pointcount--;
@@ -162,7 +156,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
     public void onTraderSubtractPressed(View view){
         Log.d("Test", "Trader Subtract Button has been pressed");
-        //traderpts = ( traderpts == 0 ? traderpts: traderpts - 1);
         if (traderpts > 0){
             traderpts--;
             pointcount++;
@@ -173,7 +166,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
-        //fighterpts = ( pilotpts + engineerpts + fighterpts + traderpts < 16 ? fighterpts + 1: fighterpts);
         if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
             fighterpts++;
             pointcount--;
@@ -184,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
     public void onFighterSubtractPressed(View view){
         Log.d("Test", "Fighter Subtract Button has been pressed");
-        //fighterpts = ( fighterpts == 0 ? fighterpts: fighterpts - 1);
         if (fighterpts > 0) {
             fighterpts--;
             pointcount++;
@@ -224,16 +215,12 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Log.d("Test", "Create Player Button has been pressed");
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);
         name = nameField.getText().toString();
-        Log.d("CrashTest", "You have made it this far, but I will stop you here!, 0");
         if (name.equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
         } else {
             if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
-                Log.d("CrashTest", "You have made it this far, but I will stop you here!, 1");
                 diff = (Difficulty) difSpinner.getSelectedItem();
-                Log.d("CrashTest", "You have made it this far, but I will stop you here!, 2");
                 name = nameField.getText().toString();
-                Log.d("CrashTest", "You have made it this far, but I will stop you here!, 3");
                 player = new Player(name,fighterpts, traderpts, engineerpts, pilotpts, diff, universe);
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
