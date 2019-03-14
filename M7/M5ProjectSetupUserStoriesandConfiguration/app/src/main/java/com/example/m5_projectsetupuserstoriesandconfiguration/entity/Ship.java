@@ -1,6 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import java.util.Hashtable;
+import java.util.List;
 
 public class Ship {
     public enum shipType {
@@ -95,6 +96,7 @@ public class Ship {
     private int hp;
     private int cargo;
     private Hashtable<GoodType, Integer> goodList;
+    private List<Item> itemList;
 
 
     public Ship(shipType type, int fuel, int hp, int cargo) {
@@ -150,4 +152,7 @@ public class Ship {
     public Hashtable<GoodType, Integer> getGoodList() {
         return goodList;
     }
+
+    public List<Item> getItemList() {return itemList;}
+    public void setItemList(List<Item> iList) {itemList = iList;}
 }
