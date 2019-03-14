@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,8 +11,19 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 
 public class MarketScreen extends AppCompatActivity {
+
+
+    private MarketBuyScreenViewModel buyVM;
+    private Player player;
+    private Market market;
+    private Planet currentPlanet;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +31,11 @@ public class MarketScreen extends AppCompatActivity {
         setContentView(R.layout.activity_market_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
+        player = buyVM.getPlayer(0);
+        currentPlanet = player.getCurrentPlanet();
+        market = new Market(10000, currentPlanet);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

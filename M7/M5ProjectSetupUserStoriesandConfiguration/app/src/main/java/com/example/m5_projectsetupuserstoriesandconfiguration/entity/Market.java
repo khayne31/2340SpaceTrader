@@ -24,7 +24,7 @@ public class Market {
         marketSize = new Random().nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
-        initializeHashTable();
+        //initializeHashTable();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
 
