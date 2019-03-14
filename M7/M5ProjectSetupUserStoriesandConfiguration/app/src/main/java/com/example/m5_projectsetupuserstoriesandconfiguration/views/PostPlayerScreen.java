@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPlayerScreenViewModel;
 
 import java.io.Serializable;
 
@@ -28,7 +31,8 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
     private TextView tPtsLabel;
     private TextView fPtsLabel;
     private TextView creditsLabel;
-
+    private PostPlayerScreenViewModel postVM;
+    private Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("DebugScreen", "inside PostPlayerScreen");
@@ -52,11 +56,13 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
         fPtsLabel = findViewById(R.id.fighter_final_pts);
         creditsLabel = findViewById(R.id.credits_label);
 
-//        pPoints = player.getPilotPoints();
-//        ePoints = player.getEngineerPoints();
-//        tPoints = player.getTraderPoints();
-//        fPoints = player.getFighterPoints();
-//        credits = player.getCredits();
+        postVM = ViewModelProviders.of(this).get(PostPlayerScreenViewModel.class);
+        player = postVM.getPlayer(0);
+        pPoints = player.getPilotPoints();
+        ePoints = player.getEngineerPoints();
+        tPoints = player.getTraderPoints();
+        fPoints = player.getFighterPoints();
+        credits = player.getCredits();
 
         pPtsLabel.setText("" + pPoints);
         ePtsLabel.setText("" + ePoints);
