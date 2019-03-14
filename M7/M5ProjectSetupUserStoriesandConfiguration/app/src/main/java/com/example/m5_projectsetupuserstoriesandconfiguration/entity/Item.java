@@ -30,4 +30,8 @@ public class Item {
         return price;
     }
 
+    public void sellQuantity(int sold) {
+        quantity -= sold;
+    }
+
 }

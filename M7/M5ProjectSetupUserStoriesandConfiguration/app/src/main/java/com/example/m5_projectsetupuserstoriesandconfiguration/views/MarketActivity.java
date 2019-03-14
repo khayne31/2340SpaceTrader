@@ -83,6 +83,8 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
         // set what data to put in adapter
         mAdapter = new MarketAdapter(mContext, market.getItems());
         recyclerView.setAdapter(mAdapter);
+
+
     }
 
     @Override

@@ -152,6 +152,7 @@ public class Ship {
     public Hashtable<GoodType, Integer> getGoodList() {
         return goodList;
     }
+    public void setGoodList(Hashtable<GoodType, Integer> input) {goodList = input;}
 
     public List<Item> getItemList() {return itemList;}
     public void setItemList(List<Item> iList) {itemList = iList;}

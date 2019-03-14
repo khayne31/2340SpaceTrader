@@ -16,6 +16,7 @@ public class Market {
     private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
     private final int MAX_MARKET_SIZE = 100;
+    private List<Item> itemList;
 
     private final int QUANTITY_INDEX = 0;
     private final int PRICE_INDEX = 1;
@@ -36,9 +37,18 @@ public class Market {
     }
 
     private void initializeHashTable(){
-        int remaingGoods = marketSize;
-        //TODO fix this to make more balanced
 
+        //TODO fix this to make more balanced
+        int remaingGoods = marketSize;
+
+        for(GoodType g : GoodType.values()) {
+            if(planet.getT_lvl().getLvl() >= g.getMtlp()) {
+                Random rand = new Random();
+                int quant = rand.nextInt(remaingGoods+1);
+                Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));
+                itemList.add(i);
+            }
+        }
     }
 
    private int generateMarketPrice(GoodType gt){
@@ -50,29 +60,32 @@ public class Market {
                 + gt.getVar()/100.0 * gt.getBasePrice());
    }
 
-   public void tradeBuy(Player p, GoodType g, int numberOfGood){
-        if(p.getCredits() <= 0){
-            //TODO make it so there is ome message displayed which states they have no money to spend
-        } else if(goodList.get(g)[0] == 0){
-                //TODO make it so there is a message which states there is none of the item to trade
-        } else if(goodList.get(g)[0] < numberOfGood){
-                //TODO make it so there is a message which states that that there arnt numberOfGoods goods left
-        }  else if(p.getCredits() < goodList.get(g)[1] * numberOfGood){
-                //TODO make it so there is a message which states you don't have enough credits to buy numberOfGoods goods
-        } else{
-            goodList.put(g, new Integer[]{goodList.get(g)[0] - numberOfGood, goodList.get(g)[1]});
-            if (p.getMyShip().addGood(g, numberOfGood)){
-                //TODO display a message that says the trade was sucessful
-                int moneyTraded =  numberOfGood * goodList.get(g)[1];
-                p.setCredits(p.getCredits() - moneyTraded);
-                credits += moneyTraded;
-            } else{
-                //TODO display a message which says the trade failed
-            }
+   public void tradeBuy(Player p, int position, int numberOfGood){
+           if(p.getCredits() <= 0){
+               //TODO make it so there is ome message displayed which states they have no money to spend
+           } else if(itemList.get(position).getQuantity() == 0){
+               //TODO make it so there is a message which states there is none of the item to trade
+           } else if(itemList.get(position).getQuantity() < numberOfGood){
+               //TODO make it so there is a message which states that that there aren't numberOfGoods goods left
+           }  else if(p.getCredits() < itemList.get(position).getPrice() * numberOfGood){
+               //TODO make it so there is a message which states you don't have enough credits to buy numberOfGoods goods
+           } else {
+               Item updateItem = itemList.get(position);
+               updateItem.sellQuantity(numberOfGood);
 
+               itemList.set(position, updateItem);
 
-        }
-}
+               if (p.getMyShip().addGood(updateItem.getType(), numberOfGood)) {
+                   //TODO display a message that says the trade was sucessful
+                   int moneyTraded = numberOfGood * updateItem.getPrice();
+                   p.setCredits(p.getCredits() - moneyTraded);
+                   credits += moneyTraded;
+               } else {
+                   //TODO display a message which says the trade failed
+               }
+
+           }
+    }
 
     public void tradeSell(Player p, GoodType g, int numberOfGood){
         if(p.getMyShip().getCurrCargoSize() == 0){
