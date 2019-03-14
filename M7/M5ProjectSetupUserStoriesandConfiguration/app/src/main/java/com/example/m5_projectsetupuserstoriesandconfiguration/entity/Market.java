@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Random;
 
 public class Market {
@@ -14,6 +15,9 @@ public class Market {
     private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
     private final int MAX_MARKET_SIZE = 100;
+
+    private final int QUANTITY_INDEX = 0;
+    private final int PRICE_INDEX = 1;
 
     public Market(Planet planet){
         goodList = new Hashtable<>();
@@ -98,6 +102,29 @@ public class Market {
 
 
         }
+    }
+
+    // get list of items that are available in the market (aka sell quantity > 0)
+    public List<String> getItems() {
+        List<String> availableItems = new ArrayList<>();
+        for (GoodType g : GoodType.values()) {
+            if(goodList.get(g)[QUANTITY_INDEX] > 0) {
+                availableItems.add(g.getName());
+            }
+        }
+        return availableItems;
+    }
+
+    // get list of prices corresponding to available items
+    // this is definitely bad programming but they should theoretically be the same
+    public List<String> getPrices(){
+        List<String> itemsPrices = new ArrayList<>();
+        for (GoodType g : GoodType.values()) {
+            if(goodList.get(g)[QUANTITY_INDEX] > 0) {
+                itemsPrices.add((goodList.get(g)[PRICE_INDEX]).toString());
+            }
+        }
+        return itemsPrices;
     }
 
 }
