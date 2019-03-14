@@ -35,7 +35,7 @@ public class MarketScreen extends AppCompatActivity {
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
         player = buyVM.getPlayer(0);
         currentPlanet = player.getCurrentPlanet();
-        market = new Market(10000, currentPlanet);
+        market = new Market(10000, currentPlanet, player);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

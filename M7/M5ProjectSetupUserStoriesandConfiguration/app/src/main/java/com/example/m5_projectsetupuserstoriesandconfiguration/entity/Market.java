@@ -12,6 +12,7 @@ public class Market {
     //first integer is number of goods second integer is price of goods
     private Hashtable<GoodType, Integer[]> goodList;// [number of goods, price of goods]
     private Planet planet;
+    private Player player;
     private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
     private final int MAX_MARKET_SIZE = 100;
@@ -28,24 +29,16 @@ public class Market {
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
 
-    public Market(int marketSize, Planet planet) {
+    public Market(int marketSize, Planet planet, Player player) {
         this(planet);
-        this.marketSize = marketSize ;
+        this.marketSize = marketSize;
+        this.player = player;
     }
 
     private void initializeHashTable(){
         int remaingGoods = marketSize;
         //TODO fix this to make more balanced
-        for(int i = 0 ; i < GoodType.values().length; i++){
-            double prob = Math.random();
-            int numberWhichRemain = (int)(remaingGoods * (prob < .5 ? (1-prob)*.5 + prob : prob));
-            GoodType currentGoodType = GoodType.values()[i];
-            numberWhichRemain = planet.getT_lvl().getLvl() < currentGoodType.getMtlp() ? remaingGoods : numberWhichRemain;
-            goodList.put(currentGoodType,new Integer[]{i != GoodType.values().length -1
-                    ? remaingGoods - numberWhichRemain: remaingGoods,
-                    generateMarketPrice(currentGoodType)});
-            remaingGoods = numberWhichRemain;
-        }
+
     }
 
    private int generateMarketPrice(GoodType gt){

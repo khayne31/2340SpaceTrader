@@ -118,6 +118,11 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
 
     }
 
-
+    public void onBuyPressed(View view) {
+        Log.d("Test", "Buy Button has been pressed");
+    }
+    public void onSellPressed(View view) {
+        Log.d("Test", "Sell Button has been pressed");
+    }
 
 }
