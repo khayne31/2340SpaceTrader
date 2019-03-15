@@ -23,6 +23,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
 
 import java.io.Serializable;
@@ -225,6 +226,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
                 mainVM.addPlayer(player);
+                ModelSingleton.setCurrentPlayerID(player.getId());
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
                 startActivity(moveActivities);
             } else {

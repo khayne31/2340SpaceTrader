@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetScreenViewModel;
 
 public class PlanetScreen extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class PlanetScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         planetVM = ViewModelProviders.of(this).get(PlanetScreenViewModel.class);
-        player = planetVM.getPlayer(0);
+        player = planetVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         currentPlanet = player.getCurrentPlanet();
         planetNameLabel = findViewById(R.id.planet_title);
         planetName = currentPlanet.getName();

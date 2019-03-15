@@ -20,6 +20,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.GoodType;
 
@@ -50,7 +51,7 @@ public class MarketScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
-        player = buyVM.getPlayer(0);
+        player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         currentPlanet = player.getCurrentPlanet();
         market = new Market(currentPlanet);
 

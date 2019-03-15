@@ -35,13 +35,18 @@ public class MarketSellScreenViewModel extends AndroidViewModel {
 
     public void addPlayer (Player player) {interactor.addPlayer(player);}
 
-    public Player getPlayer (int index) {
+    public Player getPlayer (int iD) {
         List<Player> playerList = interactor.getAllPlayers();
-        try {
-            return playerList.get(index);
-        } catch (Exception e){
-            throw new IndexOutOfBoundsException("Can't get a player from that index");
+        Player returnPlayer = null;
+        for (Player player : playerList) {
+            if (iD == player.getId()) {
+                returnPlayer = player;
+            }
         }
+        //if (returnPlayer == null) {
+        //  throw new Exception("no player was found with that ID");
+        //}
 
+        return returnPlayer;
     }
 }

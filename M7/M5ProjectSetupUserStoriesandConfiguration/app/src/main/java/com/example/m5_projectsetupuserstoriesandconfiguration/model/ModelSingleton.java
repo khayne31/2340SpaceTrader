@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModelSingleton {
+    private static int currentPlayerID;
 
     private Repository myRepository;
 
@@ -14,6 +15,11 @@ public class ModelSingleton {
     private static ModelSingleton instance = new ModelSingleton();
 
     public static ModelSingleton getInstance() {return instance;}
+
+    public int getCurrentPlayerID() {return currentPlayerID;}
+
+    public static void setCurrentPlayerID(int ID) {currentPlayerID = ID;}
+
 
     //Make a new instance
     private ModelSingleton() {

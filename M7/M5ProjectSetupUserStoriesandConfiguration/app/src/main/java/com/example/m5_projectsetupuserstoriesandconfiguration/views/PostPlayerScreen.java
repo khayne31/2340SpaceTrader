@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPlayerScreenViewModel;
 
@@ -59,7 +60,7 @@ public class PostPlayerScreen extends AppCompatActivity {
         nameLabel = findViewById(R.id.player_label);
 
         postVM = ViewModelProviders.of(this).get(PostPlayerScreenViewModel.class);
-        player = postVM.getPlayer(0);
+        player = postVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         pPoints = player.getPilotPoints();
         ePoints = player.getEngineerPoints();
         tPoints = player.getTraderPoints();
