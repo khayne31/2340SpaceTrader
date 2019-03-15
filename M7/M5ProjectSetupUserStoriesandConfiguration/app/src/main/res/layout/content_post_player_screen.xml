@@ -9,6 +9,21 @@
     tools:context=".views.PostPlayerScreen"
     tools:showIn="@layout/activity_post_player_screen">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="false"
+            android:background="@android:color/black"
+            android:cropToPadding="false"
+            android:src="@drawable/planetscreen"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    </FrameLayout>
+
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -41,14 +56,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
-
-            <TextView
-                android:id="@+id/player_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="start"
-                android:textColor="#FFFFFF" />
 
         </TableRow>
 
@@ -179,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:gravity="center"
-                android:text="Credits: "
+                android:text="Total Credits: "
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -191,7 +198,10 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:gravity="start"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
 
         </TableRow>
     </TableLayout>
@@ -200,17 +210,19 @@
         android:id="@+id/start_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginLeft="162dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
         android:layout_marginEnd="139dp"
         android:layout_marginRight="139dp"
-        android:layout_marginBottom="89dp"
-        android:background="@android:drawable/button_onoff_indicator_on"
+        android:layout_marginBottom="200dp"
+        android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onStartGamePressed"
         android:text="START GAME"
-        android:textSize="12sp"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -18,19 +18,20 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPla
 
 import java.io.Serializable;
 
-public class PostPlayerScreen extends AppCompatActivity implements Serializable {
+public class PostPlayerScreen extends AppCompatActivity {
 
-    //Player player = (Player) getIntent().getSerializableExtra("Player");
     private int pPoints;
     private int ePoints;
     private int tPoints;
     private int fPoints;
     private int credits;
+    private String name;
     private TextView pPtsLabel;
     private TextView ePtsLabel;
     private TextView tPtsLabel;
     private TextView fPtsLabel;
     private TextView creditsLabel;
+    private TextView nameLabel;
     private PostPlayerScreenViewModel postVM;
     private Player player;
     @Override
@@ -54,7 +55,8 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
         pPtsLabel = findViewById(R.id.pilot_final_pts);
         tPtsLabel = findViewById(R.id.trader_final_pts);
         fPtsLabel = findViewById(R.id.fighter_final_pts);
-        creditsLabel = findViewById(R.id.credits_label);
+        creditsLabel = findViewById(R.id.credits);
+        nameLabel = findViewById(R.id.player_label);
 
         postVM = ViewModelProviders.of(this).get(PostPlayerScreenViewModel.class);
         player = postVM.getPlayer(0);
@@ -63,12 +65,14 @@ public class PostPlayerScreen extends AppCompatActivity implements Serializable 
         tPoints = player.getTraderPoints();
         fPoints = player.getFighterPoints();
         credits = player.getCredits();
+        name = player.getName();
 
         pPtsLabel.setText("" + pPoints);
         ePtsLabel.setText("" + ePoints);
-        tPtsLabel.setText(""+tPoints);
-        fPtsLabel.setText(""+fPoints);
-        creditsLabel.setText(""+credits);
+        tPtsLabel.setText("" + tPoints);
+        fPtsLabel.setText("" + fPoints);
+        creditsLabel.setText("" + credits);
+        nameLabel.setText("Welcome " + name + "!");
 
     }
 

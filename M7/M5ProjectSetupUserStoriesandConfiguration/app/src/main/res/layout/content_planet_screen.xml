@@ -2,12 +2,28 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/galaxy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/galaxy"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".views.PlanetScreen"
     tools:showIn="@layout/activity_planet_screen">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="false"
+            android:background="@android:color/black"
+            android:cropToPadding="false"
+            android:src="@drawable/planetscreen"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/planet_welcome"
@@ -131,15 +147,18 @@
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
         android:layout_marginBottom="220dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onSpaceGaragePressed"
         android:text="SPACE GARAGE"
-        android:textSize="12sp"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -151,11 +170,12 @@
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
         android:layout_marginBottom="144dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onMarketPressed"
         android:text="MARKET"
-        android:textSize="12sp"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
