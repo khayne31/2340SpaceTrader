@@ -1,7 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,17 +8,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.Switch;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
-public class MainMenu extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
+
+    private Switch music;
+    private Boolean isOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_settings);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -31,21 +33,15 @@ public class MainMenu extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        music = findViewById(R.id.music_toggle);
+        music.setChecked(true);
+        isOn = music.isChecked();
     }
 
-    public void onNewGamePressed(View view){
-        startActivity(new Intent(this, MainActivity.class));
-        Log.d("Test", "New Game has begun");
-    }
-    public void onLoadGamePressed(View view){
-        //startActivity(new Intent(this, LoadGame.class));
-        Log.d("Test", "Load Game has been Pressed");
-        Toast.makeText(this, "SURPRISE! We haven't made this page yet", Toast.LENGTH_SHORT).show();
-    }
-    public void onSettingsPressed(View view){
-        //startActivity(new Intent(this, Settings.class));
-        Log.d("Test", "Settings has been pressed");
-        startActivity(new Intent(this, Settings.class));
+    public void onBackPressed(View view) {
+        startActivity(new Intent(this, MainMenu.class));
+        Log.i("Test", "Returning to Main Menu");
     }
 
 }
