@@ -52,7 +52,7 @@ public class MarketScreen extends AppCompatActivity {
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
         player = buyVM.getPlayer(0);
         currentPlanet = player.getCurrentPlanet();
-        //market = new Market(10000, currentPlanet, player);
+        market = new Market(currentPlanet);
 
         itemSpinner = findViewById(R.id.good_select);
         ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GoodType.values());

@@ -10,19 +10,18 @@ import java.util.Random;
 public class Market {
     private int marketSize;
     //first integer is number of goods second integer is price of goods
-    private Hashtable<GoodType, Integer[]> goodList;// [number of goods, price of goods]
+    private List<Item> itemSellList; // item {type, name, quantity, price}
     private Planet planet;
     private Player player;
     private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
     private final int MAX_MARKET_SIZE = 100;
-    private List<Item> itemList;
 
     private final int QUANTITY_INDEX = 0;
     private final int PRICE_INDEX = 1;
 
     public Market(Planet planet){
-        goodList = new Hashtable<>();
+        itemSellList = new ArrayList<Item>();
         marketSize = new Random().nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
@@ -36,70 +35,65 @@ public class Market {
         this.player = player;
     }
 
-    private void initializeHashTable(){
-
-        //TODO fix this to make more balanced
+    private void initializeMarketInventory(){
         int remaingGoods = marketSize;
-
+        //TODO fix this to make more balanced
         for(GoodType g : GoodType.values()) {
             if(planet.getT_lvl().getLvl() >= g.getMtlp()) {
                 Random rand = new Random();
                 int quant = rand.nextInt(remaingGoods+1);
                 Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));
-                itemList.add(i);
+                itemSellList.add(i);
             }
         }
     }
 
-   private int generateMarketPrice(GoodType gt){
+    private int generateMarketPrice(GoodType gt){
         //may need to refine the event multiplier if its too difficult to put in UI
         return  (int)(gt.getBasePrice() * (planet.getEvent().equals(gt.getEr()) ? gt.getBasePrice() : 1)
                 * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
                 *  (planet.getResources().equals(gt.getCr()) ? .5 : 1)
                 + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
                 + gt.getVar()/100.0 * gt.getBasePrice());
-   }
-
-   public void tradeBuy(Player p, int position, int numberOfGood){
-           if(p.getCredits() <= 0){
-               //TODO make it so there is ome message displayed which states they have no money to spend
-           } else if(itemList.get(position).getQuantity() == 0){
-               //TODO make it so there is a message which states there is none of the item to trade
-           } else if(itemList.get(position).getQuantity() < numberOfGood){
-               //TODO make it so there is a message which states that that there aren't numberOfGoods goods left
-           }  else if(p.getCredits() < itemList.get(position).getPrice() * numberOfGood){
-               //TODO make it so there is a message which states you don't have enough credits to buy numberOfGoods goods
-           } else {
-               Item updateItem = itemList.get(position);
-               updateItem.sellQuantity(numberOfGood);
-
-               itemList.set(position, updateItem);
-
-               if (p.getMyShip().addGood(updateItem.getType(), numberOfGood)) {
-                   //TODO display a message that says the trade was sucessful
-                   int moneyTraded = numberOfGood * updateItem.getPrice();
-                   p.setCredits(p.getCredits() - moneyTraded);
-                   credits += moneyTraded;
-               } else {
-                   //TODO display a message which says the trade failed
-               }
-
-           }
     }
 
-    public void tradeSell(Player p, GoodType g, int numberOfGood){
+    public void tradeBuy(Player p, int position, int numberOfGood){
+        if(p.getCredits() <= 0){
+            //TODO make it so there is ome message displayed which states they have no money to spend
+        } else if(itemSellList.get(position).getQuantity() == 0){
+            //TODO make it so there is a message which states there is none of the item to trade
+        } else if(itemSellList.get(position).getQuantity() < numberOfGood){
+            //TODO make it so there is a message which states that that there aren't numberOfGoods goods left
+        }  else if(p.getCredits() < itemSellList.get(position).getPrice() * numberOfGood){
+            //TODO make it so there is a message which states you don't have enough credits to buy numberOfGoods goods
+        } else{
+            Item updateItem = itemSellList.get(position);
+            updateItem.sellQuantity(numberOfGood);
+
+            itemSellList.set(position, updateItem);
+
+            if (p.getMyShip().addGood(updateItem.getType(), numberOfGood)){
+                //TODO display a message that says the trade was sucessful
+                int moneyTraded =  numberOfGood * updateItem.getPrice();
+                p.setCredits(p.getCredits() - moneyTraded);
+                credits += moneyTraded;
+            } else{
+                //TODO display a message which says the trade failed
+            }
+
+        }
+    }
+
+    public void tradeSell(Player p, int position, int numberOfGood){
+        List<Item> buyItems = getBuyItems(p);
         if(p.getMyShip().getCurrCargoSize() == 0){
             //TODO make it so there is a message which states the cargo has no goods in it period
-        } else if(p.getMyShip().getGoodList().get(g) == 0){
+        } else if(p.getMyShip().getGoodList().get(buyItems.get(position).getType()) == 0){
             //TODO make it so there is a message which states that the ship has none of the good in the cargo
-
-        } else if(credits < goodList.get(g)[1] * numberOfGood){
-            //TODO make it so there is a message which states the market don't have enough credits to buy numberOfGoods goods
         } else{
-            goodList.put(g, new Integer[]{goodList.get(g)[0] + numberOfGood, goodList.get(g)[1]});
-            if (p.getMyShip().sellGood(g, numberOfGood)){
+            if (p.getMyShip().sellGood(buyItems.get(position).getType(), numberOfGood)){
                 //TODO display a message that says the trade was sucessful
-                int moneyTraded =  numberOfGood * goodList.get(g)[1];
+                int moneyTraded =  numberOfGood * buyItems.get(position).getPrice();
                 credits -= moneyTraded;
                 p.setCredits(p.getCredits() + moneyTraded);
             } else{
@@ -111,26 +105,22 @@ public class Market {
     }
 
     // get list of items that are available in the market (aka sell quantity > 0)
-    public List<String> getItems() {
-        List<String> availableItems = new ArrayList<>();
-        for (GoodType g : GoodType.values()) {
-            if(goodList.get(g)[QUANTITY_INDEX] > 0) {
-                availableItems.add(g.getName());
-            }
-        }
-        return availableItems;
-    }
+    public List<Item> getSellItems() { return itemSellList; }
 
-    // get list of prices corresponding to available items
-    // this is definitely bad programming but they should theoretically be the same
-    public List<String> getPrices(){
-        List<String> itemsPrices = new ArrayList<>();
-        for (GoodType g : GoodType.values()) {
-            if(goodList.get(g)[QUANTITY_INDEX] > 0) {
-                itemsPrices.add((goodList.get(g)[PRICE_INDEX]).toString());
-            }
+    // get list of items that player has
+    public List<Item> getBuyItems(Player p) {
+        List<Item> itemBuyList = new ArrayList<>();
+
+        for(GoodType g : p.getMyShip().getGoodList().keySet()) {
+            // type = g
+            // name = g.getName
+            int quant = p.getMyShip().getGoodList().get(g); // gets the quantity owned
+            int price = generateMarketPrice(g);
+            Item i = new Item(g, g.getName(), quant, price);
+            itemBuyList.add(i);
         }
-        return itemsPrices;
+
+        return itemBuyList;
     }
 
 }
