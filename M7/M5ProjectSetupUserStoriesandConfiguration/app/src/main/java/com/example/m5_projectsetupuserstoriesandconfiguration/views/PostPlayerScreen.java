@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainActivityViewModel;
@@ -35,6 +36,7 @@ public class PostPlayerScreen extends AppCompatActivity {
     private TextView nameLabel;
     private PostPlayerScreenViewModel postVM;
     private Player player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("DebugScreen", "inside PostPlayerScreen");
@@ -79,6 +81,8 @@ public class PostPlayerScreen extends AppCompatActivity {
 
     public void onStartGamePressed(View view){
         Log.d("Test", "Game has Started!");
+
+        ModelSingleton.setCurrentMarket(new Market(player.getCurrentPlanet()));
         startActivity(new Intent(this, PlanetScreen.class));
     }
 }

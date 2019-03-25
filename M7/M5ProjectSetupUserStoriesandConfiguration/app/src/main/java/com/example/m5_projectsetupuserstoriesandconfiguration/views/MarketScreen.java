@@ -40,6 +40,8 @@ public class MarketScreen extends AppCompatActivity {
     private TextView numBuyLabel;
     private TextView numSellLabel;
     private Integer currentCargoInventory;
+    private Integer currentMarketInventory;
+
 
 
 
@@ -53,7 +55,7 @@ public class MarketScreen extends AppCompatActivity {
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
         player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         currentPlanet = player.getCurrentPlanet();
-        market = new Market(currentPlanet);
+        market = ModelSingleton.getCurrentMarket();
 
         itemSpinner = findViewById(R.id.good_select);
         ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GoodType.values());
@@ -70,13 +72,19 @@ public class MarketScreen extends AppCompatActivity {
                 if (currentCargoInventory == null) {
                     currentCargoInventory = 0;
                 }
-                //market = Market(currentPlanet);
+
+                currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+                if (currentMarketInventory == null) {
+                    currentMarketInventory = 0;
+                }
+
+
                 cargoInventory = findViewById(R.id.cargo_inventory);
                 marketInventory = findViewById(R.id.market_inventory);
                 numBuyLabel = findViewById(R.id.buy_label);
                 numSellLabel = findViewById(R.id.sell_label);
                 cargoInventory.setText("" + currentCargoInventory.toString());
-                marketInventory.setText("");
+                marketInventory.setText("" + currentMarketInventory);
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {

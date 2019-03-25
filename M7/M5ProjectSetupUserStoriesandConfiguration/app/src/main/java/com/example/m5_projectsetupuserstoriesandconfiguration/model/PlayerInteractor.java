@@ -20,5 +20,4 @@ public class PlayerInteractor extends Interactor {
 
     public void updatePlayer (Player p) {getRepository().updatePlayer(p);}
 
-
 }

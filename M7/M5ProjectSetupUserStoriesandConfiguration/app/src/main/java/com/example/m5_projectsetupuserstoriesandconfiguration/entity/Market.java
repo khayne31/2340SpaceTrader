@@ -25,7 +25,8 @@ public class Market {
         marketSize = new Random().nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
-        //initializeHashTable();
+        Log.d("MarketTest", "We made it this far!");
+        initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
 
@@ -39,24 +40,48 @@ public class Market {
         int remaingGoods = marketSize;
         //TODO fix this to make more balanced
         for(GoodType g : GoodType.values()) {
+            Log.d("MarketTest", "We made it this far! 1");
+
+
+            //note: generate market price is currently broken and needs to be fixed
+
             if(planet.getT_lvl().getLvl() >= g.getMtlp()) {
                 Random rand = new Random();
                 int quant = rand.nextInt(remaingGoods+1);
-                Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));
+                Log.d("MarketTest", "Waypoint 2");
+                Item i = new Item(g, g.getName(), quant, 1);//generateMarketPrice(g));
+                Log.d("MarketTest", "Waypoint 3");
                 itemSellList.add(i);
+            } else {
+                Log.d("MarketTest", "Waypoint 4");
+                Item i = new Item(g, g.getName(), 0, 0);
+                itemSellList.add(i);
+                Log.d("MarketTest", "Waypoint 5");
             }
+
         }
     }
 
     private int generateMarketPrice(GoodType gt){
         //may need to refine the event multiplier if its too difficult to put in UI
+
         return  (int)(gt.getBasePrice() * (planet.getEvent().equals(gt.getEr()) ? gt.getBasePrice() : 1)
                 * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
                 *  (planet.getResources().equals(gt.getCr()) ? .5 : 1)
                 + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
                 + gt.getVar()/100.0 * gt.getBasePrice());
-    }
+        //I am rewriting the above code because it is both erroring and has no documentation
+        /*int basePrice = gt.getBasePrice();
+        int eventMultiplier;
+        int resourceMultiplier1;
+        int resourceMultiplier2;
+        int finalPrice;
+        return 1;*/
 
+
+
+
+    }
     public void tradeBuy(Player p, int position, int numberOfGood){
         if(p.getCredits() <= 0){
             //TODO make it so there is ome message displayed which states they have no money to spend
@@ -123,4 +148,12 @@ public class Market {
         return itemBuyList;
     }
 
+    public int getTradeGoodQuantity(GoodType currentGood) {
+        for (Item item : itemSellList) {
+            if (item.getType() == currentGood) {
+                return item.getQuantity();
+            }
+        }
+        return 0;
+    }
 }

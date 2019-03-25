@@ -1,11 +1,17 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 public enum RadicalEvent {
-    DROUGHT,
-    COLD,
-    CROPFAIL,
-    WAR,
-    BOREDOM,
-    PLAGUE,
-    LACKOFWORKERS
+    DROUGHT ("Drought"),
+    COLD("Cold"),
+    CROPFAIL("Cropfail"),
+    WAR("War"),
+    BOREDOM("Boredom"),
+    PLAGUE("Plague"),
+    LACKOFWORKERS("LackOfWorkers");
+
+    private final String name;
+
+    RadicalEvent(String name) {
+        this.name = name;
+    }
 }
