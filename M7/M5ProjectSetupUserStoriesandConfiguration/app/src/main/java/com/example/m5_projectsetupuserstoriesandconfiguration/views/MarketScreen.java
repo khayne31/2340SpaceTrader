@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
@@ -39,8 +40,13 @@ public class MarketScreen extends AppCompatActivity {
     private GoodType currentGood;
     private TextView numBuyLabel;
     private TextView numSellLabel;
+    private TextView creditsLabel;
+    private TextView priceLabel;
     private Integer currentCargoInventory;
     private Integer currentMarketInventory;
+    private Integer currentPrice;
+    private Integer currentCredits;
+
 
 
 
@@ -55,7 +61,7 @@ public class MarketScreen extends AppCompatActivity {
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
         player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         currentPlanet = player.getCurrentPlanet();
-        market = ModelSingleton.getCurrentMarket();
+        market = currentPlanet.getMarket();
 
         itemSpinner = findViewById(R.id.good_select);
         ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GoodType.values());
@@ -67,8 +73,9 @@ public class MarketScreen extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
                 currentGood = (GoodType) parent.getItemAtPosition(pos);
+                currentCredits = player.getCredits();
+                currentPrice = market.getTradeGoodPrice(currentGood);
                 currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
-                currentCargoInventory += 5;
                 if (currentCargoInventory == null) {
                     currentCargoInventory = 0;
                 }
@@ -79,12 +86,20 @@ public class MarketScreen extends AppCompatActivity {
                 }
 
 
+
                 cargoInventory = findViewById(R.id.cargo_inventory);
                 marketInventory = findViewById(R.id.market_inventory);
                 numBuyLabel = findViewById(R.id.buy_label);
                 numSellLabel = findViewById(R.id.sell_label);
+                creditsLabel = findViewById(R.id.credits_label);
+                priceLabel = findViewById(R.id.price_label);
+
+
                 cargoInventory.setText("" + currentCargoInventory.toString());
                 marketInventory.setText("" + currentMarketInventory);
+                creditsLabel.setText ("" + currentCredits);
+                priceLabel.setText("" + currentPrice);
+
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -110,48 +125,63 @@ public class MarketScreen extends AppCompatActivity {
         //good = the type of good you are going to sell
         //num = the number of goods you are going to sell
 
-        //player = market.tradeBuy(player, good, num);
+        String toastString = market.tradeBuy(player, currentGood, numToBuy);
+        Toast.makeText(this, toastString, Toast.LENGTH_SHORT).show();
         buyVM.updatePlayer(player);
+        currentCredits = player.getCredits();
+        creditsLabel.setText("" + currentCredits);
+
+
         numToBuy = 0;
         numToSell = 0;
         numBuyLabel.setText("" + numToBuy);
         numSellLabel.setText("" + numToSell);
 
 
-        Integer currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+
+        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         }
+        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+        if (currentMarketInventory == null) {
+            currentMarketInventory = 0;
+        }
 
         cargoInventory.setText("" + currentCargoInventory.toString());
-        marketInventory.setText("");
+        marketInventory.setText("" + currentMarketInventory);
     }
     public void onSellPressed(View view) {
         Log.d("Test", "Sell Button has been pressed");
-        //good = the type of good you are going to sell
-        //num = the number of goods you are going to sell
+        //String toastString = market.tradeSell(player, currentGood, numToSell);
+        Log.d("Test", "tradeSell was executed");
+        //Toast.makeText(this, toastString, Toast.LENGTH_SHORT).show();
 
-
-        //player = market.tradeSell(player, good, num);
         buyVM.updatePlayer(player);
-
-
-
-        currentCargoInventory = currentCargoInventory - numToSell;
+        currentCredits = player.getCredits();
+        creditsLabel.setText("" + currentCredits);
         numToBuy = 0;
         numToSell = 0;
         numBuyLabel.setText("" + numToBuy);
         numSellLabel.setText("" + numToSell);
 
 
+        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+        if (currentCargoInventory == null) {
+            currentCargoInventory = 0;
+        }
+        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+        if (currentMarketInventory == null) {
+            currentMarketInventory = 0;
+        }
         cargoInventory.setText("" + currentCargoInventory.toString());
-        marketInventory.setText("");
+        marketInventory.setText("" + currentMarketInventory);
 
     }
     public void onBuyPlus(View view) {
         Log.d("Test", "Sell Button has been pressed");
 
-        if (currentCargoInventory > numToBuy) {
+        if (currentMarketInventory > numToBuy) {
             numToBuy++;
             numBuyLabel.setText("" + numToBuy);
         }

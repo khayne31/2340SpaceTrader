@@ -29,11 +29,11 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), 50, 50, 50);
+        myShip = new Ship(Ship.makeGnat(), 50, 50, 0);
         currentUniverse = uni;
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
-        //currentPlanet.playerLandedOn();   //=====> NEEDS TO BE FIXED
+        currentPlanet.playerLandedOn();
     }
 
     public String getName() {

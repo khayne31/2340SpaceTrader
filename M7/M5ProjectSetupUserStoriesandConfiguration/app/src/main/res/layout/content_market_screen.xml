@@ -67,35 +67,72 @@
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/good_select">
 
+
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal">
+            android:layout_marginBottom="10dp">
 
             <TextView
-                android:id="@+id/point_label"
-                android:layout_width="wrap_content"
+                android:id="@+id/price_label_descriptor"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:gravity="right"
-                android:text="Points: "
+                android:layout_column="0"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:text="Item Price"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
 
             <TextView
-                android:id="@+id/point_count"
-                android:layout_width="wrap_content"
+                android:id="@+id/credits_label_descriptor"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="start"
-                android:text="16"
-                android:textColor="#FFFFFF" />
+                android:layout_column="1"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:text="Current Credits"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:fontFamily="@font/aldrich" />
 
         </TableRow>
-        >
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="25dp">
+
+
+
+            <TextView
+                android:id="@+id/price_label"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="0" />
+
+
+
+            <!--ENGINEER-->
+
+
+            <TextView
+                android:id="@+id/credits_label"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_column="1"
+                android:layout_weight=".25"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="0" />
+
+
+
+        </TableRow>
 
         <TableRow
             android:layout_width="fill_parent"
@@ -127,6 +164,7 @@
                 app:fontFamily="@font/aldrich" />
 
         </TableRow>
+
         >
 
         <TableRow
@@ -243,7 +281,6 @@
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
-            <!--ENGINEER-->
             <Button
                 android:id="@+id/button_fighter_rm"
                 android:layout_width="0dp"
