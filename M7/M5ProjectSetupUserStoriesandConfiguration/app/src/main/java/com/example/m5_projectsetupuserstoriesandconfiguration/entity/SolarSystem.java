@@ -21,7 +21,7 @@ public class SolarSystem {
         Log.d("UniverseLogCat", "inside solarsystem constructor before random name");
         systemName = generateRandomName();
         Log.d("UniverseLogCat", "inside solarsystem constructor after random name");
-        system = new CoordinateSystem(systemSize, systemName, resource);
+        system = new CoordinateSystem(systemSize, this, resource);
         Log.d("UniverseLogCat", "inside solarsystem constructor " +
                 "after Coordinate System is made");
 

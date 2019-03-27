@@ -92,7 +92,7 @@ public class Player implements Serializable {
     }
 
     public ArrayList<Planet> visitablePlanets(){
-        int radius = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+        int radius = (int) Math.floor(myShip.getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
         ArrayList<int[]> viableCoords = new ArrayList<>();
         ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
 
@@ -117,6 +117,20 @@ public class Player implements Serializable {
 
         return planetsAbleToVisit;
 
+    }
+
+    public void travelToPlanet(Planet p){
+        SolarSystem hs = p.getHomesystem();
+        int[] sysCoords = hs.getCoords();
+        int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
+                + Math.pow(sysCoords[1] - currentSystem.getCoords()[1],2)));
+        int maxRadius  = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+
+        double percentageFuelUsed = (maxRadius - distance) / maxRadius;
+        myShip.setFuel((int)(myShip.getFuel() * percentageFuelUsed));
+        myShip.setRange((int)(myShip.getFuel()/50.0) * myShip.getRange());
+        currentPlanet = p;
+        currentSystem = p.getHomesystem();
     }
 
 }

@@ -12,12 +12,13 @@ public class CoordinateSystem {
     private String systemName;
     private int size;
     private Resources resources;
+    private SolarSystem currentSolarSystem;
 
-    public CoordinateSystem(int sizeSystem, String name, Resources res){
-
+    public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
+        currentSolarSystem = solar;
         populationProb = Math.random() - MAX_PROB;
         populationProb = populationProb >= 0 ? populationProb : populationProb + MAX_PROB;
-        systemName = name;
+        systemName = solar.getSystemName();
         size = sizeSystem;
         system = new ArrayList<>();
         allPlanets = new ArrayList<>();
@@ -44,7 +45,7 @@ public class CoordinateSystem {
                 if(k < populationProb){
                     Log.d("UniverseLogCat", "inside generate system before " +
                             "new Planet: ");
-                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ ++planetCounter + "", resources);
+                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ ++planetCounter + "", currentSolarSystem, resources);
                     Log.d("UniverseLogCat", "inside generate system after " +
                             "new Planet: ");
                     system.get(i).add(newPlanet);

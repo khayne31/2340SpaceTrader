@@ -103,6 +103,7 @@ public class Ship {
     private int cargo;
     private Hashtable<GoodType, Integer> goodList;
     private List<Item> itemList;
+    private int range;
 
 
     public Ship(shipType type, int fuel, int hp, int cargo) {
@@ -111,6 +112,7 @@ public class Ship {
         this.hp = hp;
         this.cargo = cargo;
         goodList = new Hashtable<>();
+        this.range = this.type.getRange();
         initializeGoods();
     }
 
@@ -165,5 +167,21 @@ public class Ship {
 
     public shipType getType() {
         return type;
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
     }
 }

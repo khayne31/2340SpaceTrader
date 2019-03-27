@@ -12,8 +12,9 @@ public class Planet {
     private RadicalEvent event;
     private  Resources resources;
     private Market market;
+    private SolarSystem homesystem;
 
-    public Planet(int[] coordinates, String planetName){
+    public Planet(int[] coordinates, String planetName, SolarSystem system){
         Log.d("UniverseLogCat", "inside planet constructor before coords");
         if(coordinates.length >= 2){
             Log.d("UniverseLogCat", coordinates[0]+", " + coordinates[1]+ ", "
@@ -31,11 +32,12 @@ public class Planet {
         t_lvl = Tech.values()[new Random().nextInt(Tech.values().length)];
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
         market = new Market(this);
+        homesystem = system;
 
     }
 
-    public Planet(int[] coordinates, String planetName, Resources res){
-        this(coordinates, planetName);
+    public Planet(int[] coordinates, String planetName, SolarSystem system, Resources res){
+        this(coordinates, planetName, system);
         resources = res;
     }
 
@@ -78,4 +80,8 @@ public class Planet {
     public Market getMarket() {return market;}
 
     public void setMarket(Market inputMarket) {market = inputMarket;}
+
+    public SolarSystem getHomesystem() {
+        return homesystem;
+    }
 }
