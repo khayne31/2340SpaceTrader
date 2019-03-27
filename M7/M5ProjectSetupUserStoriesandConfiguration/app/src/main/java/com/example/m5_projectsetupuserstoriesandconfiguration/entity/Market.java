@@ -26,7 +26,6 @@ public class Market {
         marketSize = new Random().nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
-        Log.d("MarketTest", "We made it this far!");
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
@@ -41,9 +40,6 @@ public class Market {
         int remaingGoods = marketSize;
         //TODO fix this to make more balanced
         for(GoodType g : GoodType.values()) {
-            Log.d("MarketTest", "We made it this far! 1");
-
-
 
             //if the planet has the required tech level to sell a good, add it to the market
             if(planet.getT_lvl().getLvl() >= g.getMtlp()) {
@@ -110,17 +106,19 @@ public class Market {
     }
 
     public String tradeSell(Player p, GoodType currentGood, int numberOfGood){
+
         List<Item> buyItems = getBuyItems(p);
         int position = getTradeGoodPosition(currentGood);
+
         String returnString;
         if(p.getMyShip().getCurrCargoSize() == 0){
             returnString = "You have no items to sell";
-        } else if(p.getMyShip().getGoodList().get(buyItems.get(position).getType()) == 0){
+        } else if(p.getMyShip().getGoodList().get(currentGood) == 0){
             returnString = "You have no items of that type to sell";
         } else{
-            if (p.getMyShip().sellGood(buyItems.get(position).getType(), numberOfGood)){
+            if (p.getMyShip().sellGood(currentGood, numberOfGood)){
                 returnString = "The sale was successful!";
-                int moneyTraded =  numberOfGood * buyItems.get(position).getPrice();
+                int moneyTraded =  numberOfGood * getTradeGoodPrice(currentGood);
                 credits -= moneyTraded;
                 p.setCredits(p.getCredits() + moneyTraded);
             } else{
@@ -140,14 +138,14 @@ public class Market {
         List<Item> itemBuyList = new ArrayList<>();
 
         for(GoodType g : p.getMyShip().getGoodList().keySet()) {
-            // type = g
-            // name = g.getName
+            GoodType type = g;
+            String name = g.getName();
             int quant = p.getMyShip().getGoodList().get(g); // gets the quantity owned
-            int price = generateMarketPrice(g);
+            //This is the problem line, below (now fixed)
+            int price = getTradeGoodPrice(g);
             Item i = new Item(g, g.getName(), quant, price);
             itemBuyList.add(i);
         }
-
         return itemBuyList;
     }
 

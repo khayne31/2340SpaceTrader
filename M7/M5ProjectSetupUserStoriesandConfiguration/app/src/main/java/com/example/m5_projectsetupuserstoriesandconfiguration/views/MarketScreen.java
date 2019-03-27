@@ -85,8 +85,6 @@ public class MarketScreen extends AppCompatActivity {
                     currentMarketInventory = 0;
                 }
 
-
-
                 cargoInventory = findViewById(R.id.cargo_inventory);
                 marketInventory = findViewById(R.id.market_inventory);
                 numBuyLabel = findViewById(R.id.buy_label);
@@ -99,7 +97,6 @@ public class MarketScreen extends AppCompatActivity {
                 marketInventory.setText("" + currentMarketInventory);
                 creditsLabel.setText ("" + currentCredits);
                 priceLabel.setText("" + currentPrice);
-
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -122,9 +119,6 @@ public class MarketScreen extends AppCompatActivity {
 
     public void onBuyPressed(View view) {
         Log.d("Test", "Buy Button has been pressed");
-        //good = the type of good you are going to sell
-        //num = the number of goods you are going to sell
-
         String toastString = market.tradeBuy(player, currentGood, numToBuy);
         Toast.makeText(this, toastString, Toast.LENGTH_SHORT).show();
         buyVM.updatePlayer(player);
@@ -153,9 +147,9 @@ public class MarketScreen extends AppCompatActivity {
     }
     public void onSellPressed(View view) {
         Log.d("Test", "Sell Button has been pressed");
-        //String toastString = market.tradeSell(player, currentGood, numToSell);
+        String toastString = market.tradeSell(player, currentGood, numToSell);
         Log.d("Test", "tradeSell was executed");
-        //Toast.makeText(this, toastString, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, toastString, Toast.LENGTH_SHORT).show();
 
         buyVM.updatePlayer(player);
         currentCredits = player.getCredits();
