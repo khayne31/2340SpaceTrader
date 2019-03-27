@@ -18,6 +18,10 @@ public class Universe {
         return systems;
     }
 
+    public ArrayList<ArrayList<SolarSystem>> getUniverse() {
+        return universe;
+    }
+
     public Universe(int size){
         universe = new ArrayList<>();
         sizeOfUniverse = size >= 10 ? size : 10;
@@ -85,8 +89,9 @@ public class Universe {
         Log.v(TAG, sum+"");
     }
 
-
-
+    public int getSizeOfUniverse() {
+        return sizeOfUniverse;
+    }
 }
 
 
