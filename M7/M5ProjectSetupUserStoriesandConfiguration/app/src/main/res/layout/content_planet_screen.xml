@@ -23,6 +23,7 @@
             android:cropToPadding="false"
             android:src="@drawable/planetscreen"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
     </FrameLayout>
 
     <TextView
@@ -181,4 +182,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/travel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="554dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:fontFamily="@font/aldrich"
+        android:onClick="onTravelPressed"
+        android:text="Travel"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -58,4 +58,8 @@ public class PlanetScreen extends AppCompatActivity {
         Log.d("Test", "Market Button has been pressed");
         startActivity(new Intent(this, MarketScreen.class));
     }
+    public void onTravelPressed(View view){
+        Log.d("Test", "Travel Button has been pressed");
+        startActivity(new Intent(this, Navigation.class));
+    }
 }
