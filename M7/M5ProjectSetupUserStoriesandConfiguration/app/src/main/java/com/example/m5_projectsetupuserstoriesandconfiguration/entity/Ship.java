@@ -40,6 +40,10 @@ public class Ship {
             gadSlots = gad;
             shSlots = sh;
         }
+
+        public int getRange() {
+            return range;
+        }
     }
 
     private enum weaponType {
@@ -89,6 +93,8 @@ public class Ship {
             type = gType;
             id = gID;
         }
+
+
     }
 
     private shipType type;
@@ -156,4 +162,8 @@ public class Ship {
 
     public List<Item> getItemList() {return itemList;}
     public void setItemList(List<Item> iList) {itemList = iList;}
+
+    public shipType getType() {
+        return type;
+    }
 }

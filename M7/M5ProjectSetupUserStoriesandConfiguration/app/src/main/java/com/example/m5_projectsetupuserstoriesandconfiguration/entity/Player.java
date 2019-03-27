@@ -3,6 +3,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Player implements Serializable {
@@ -89,4 +90,33 @@ public class Player implements Serializable {
     public void setCurrentSystem(SolarSystem currentSystem) {
         this.currentSystem = currentSystem;
     }
+
+    public ArrayList<Planet> visitablePlanets(){
+        int radius = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+        ArrayList<int[]> viableCoords = new ArrayList<>();
+        ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
+
+        for(int i = 0; i < currentUniverse.getSizeOfUniverse(); i++){
+            for(int j = 0; j < currentUniverse.getSizeOfUniverse(); j++){
+                if(Math.pow(i - currentSystem.getCoords()[0], 2) + Math.pow(j - currentSystem.getCoords()[1],2)
+                        <= Math.pow(radius,2)){
+                    viableCoords.add(new int[] {i, j});
+                }
+            }
+        }
+
+        for(int[] coord: viableCoords){
+            SolarSystem  s = currentUniverse.getUniverse().get(coord[0]).get(coord[1]);
+            if(s != null){
+                for(Planet p: s.getPlanets()){
+                    planetsAbleToVisit.add(p);
+                }
+            }
+
+        }
+
+        return planetsAbleToVisit;
+
+    }
+
 }
