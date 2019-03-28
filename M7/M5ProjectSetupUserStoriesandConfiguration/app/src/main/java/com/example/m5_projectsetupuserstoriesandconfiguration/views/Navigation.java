@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.GoodType;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Ship;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 
@@ -25,8 +27,12 @@ public class Navigation extends AppCompatActivity {
     private Spinner planetSpinner;
     private MarketBuyScreenViewModel buyVM;
     private Player player;
+    private Ship playerShip;
     private Planet currentPlanet;
     private Planet destinationPlanet;
+    private TextView planetNameLabel;
+    private TextView currentFuelLabel;
+    private TextView requiredFuelLabel;
 
 
     @Override
@@ -38,11 +44,20 @@ public class Navigation extends AppCompatActivity {
 
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
         player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
+        playerShip = player.getMyShip();
         currentPlanet = player.getCurrentPlanet();
+        planetNameLabel = findViewById(R.id.planet_title);
+        currentFuelLabel = findViewById(R.id.fuel_label);
+        requiredFuelLabel = findViewById(R.id.required_fuel_label);
+
+
+        planetNameLabel.setText(currentPlanet.getName());
+        currentFuelLabel.setText(Integer.toString(playerShip.getFuel()));
+
+
 
 
         planetSpinner = findViewById(R.id.planet_select);
-        //Need to change this so its a list of planets
         ArrayAdapter<Planet> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, player.visitablePlanets());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         planetSpinner.setAdapter(adapter);
@@ -52,6 +67,7 @@ public class Navigation extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
                 destinationPlanet = (Planet) parent.getItemAtPosition(pos);
+                //requiredFuelLabel.setText(Integer.toString(Player.getFuelRequired(destinationPlanet));
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -76,6 +92,7 @@ public class Navigation extends AppCompatActivity {
 
     public void onTravelPressed(View view){
         Log.d("Test", "Travel Button has been pressed");
+        player.travelToPlanet(destinationPlanet);
         player.setCurrentPlanet(destinationPlanet);
         buyVM.updatePlayer(player);
         startActivity(new Intent(this, PlanetScreen.class));

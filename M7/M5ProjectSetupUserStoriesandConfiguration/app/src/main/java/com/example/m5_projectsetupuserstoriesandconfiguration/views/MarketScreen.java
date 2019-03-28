@@ -42,10 +42,13 @@ public class MarketScreen extends AppCompatActivity {
     private TextView numSellLabel;
     private TextView creditsLabel;
     private TextView priceLabel;
+    private TextView currentTotalCargoLabel;
+    private TextView maxCargoLabel;
     private Integer currentCargoInventory;
     private Integer currentMarketInventory;
     private Integer currentPrice;
     private Integer currentCredits;
+
 
 
 
@@ -62,6 +65,12 @@ public class MarketScreen extends AppCompatActivity {
         player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         currentPlanet = player.getCurrentPlanet();
         market = currentPlanet.getMarket();
+
+        maxCargoLabel = findViewById(R.id.MaxCargo_label);
+        currentTotalCargoLabel = findViewById(R.id.CurrentTotalCargo_label);
+
+        maxCargoLabel.setText(Integer.toString(player.getMyShip().getType().getMaxCargo()));
+
 
         itemSpinner = findViewById(R.id.good_select);
         ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GoodType.values());

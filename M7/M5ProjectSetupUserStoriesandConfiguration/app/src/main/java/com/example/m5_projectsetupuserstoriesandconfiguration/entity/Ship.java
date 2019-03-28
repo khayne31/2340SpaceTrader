@@ -48,6 +48,10 @@ public class Ship {
         public int getRange() {
             return range;
         }
+
+        public int getMaxfuel() {return maxfuel;}
+
+        public int getMaxCargo() {return cargoSize;}
     }
 
     private enum weaponType {

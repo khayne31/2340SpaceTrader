@@ -30,7 +30,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), 50, 50, 0);
+        myShip = new Ship(Ship.makeGnat(), 700, 20, 0);
         currentUniverse = uni;
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
@@ -131,6 +131,13 @@ public class Player implements Serializable {
         myShip.setRange((int)(myShip.getFuel()/50.0) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
+    }
+
+    public int fuelRequiredToTravel(Planet p) {
+
+
+
+        return 0;
     }
 
 }

@@ -105,13 +105,15 @@ public class Market {
             returnString = "There aren't enough of that good left to trade for";
         }  else if(p.getCredits() < itemSellList.get(position).getPrice() * numberOfGood){
             returnString = "You don't have enough credits to buy these items";
-        } else{
-            Item updateItem = itemSellList.get(position);
-            updateItem.sellQuantity(numberOfGood);
+        } else if ((p.getMyShip().getCurrCargoSize() + numberOfGood) > p.getMyShip().getType().getMaxCargo()) {
+            returnString = "You don't have enough cargo space left to store that good";
+        }else{
 
-            itemSellList.set(position, updateItem);
+            Item updateItem = itemSellList.get(position);
 
             if (p.getMyShip().addGood(updateItem.getType(), numberOfGood)){
+                updateItem.sellQuantity(numberOfGood);
+                itemSellList.set(position, updateItem);
                 returnString = "The purchase was successful!";
                 int moneyTraded =  numberOfGood * updateItem.getPrice();
                 p.setCredits(p.getCredits() - moneyTraded);
