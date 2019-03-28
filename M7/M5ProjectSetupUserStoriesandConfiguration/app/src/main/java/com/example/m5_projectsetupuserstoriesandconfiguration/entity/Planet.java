@@ -50,11 +50,12 @@ public class Planet {
 
     @Override
     public String toString() {
-        return " -Planet{" +
+        /*" -Planet{" +
                 "coords=" + Arrays.toString(coords) +
                 ", name='" + name + '\'' +
                 "Radical_Event = " + event + '\'' +
-                '}';
+                '}';*/
+        return name;
     }
 
     public String getName() {

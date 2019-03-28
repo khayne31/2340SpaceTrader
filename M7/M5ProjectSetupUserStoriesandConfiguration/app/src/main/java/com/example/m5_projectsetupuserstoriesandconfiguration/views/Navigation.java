@@ -26,8 +26,9 @@ public class Navigation extends AppCompatActivity {
     private MarketBuyScreenViewModel buyVM;
     private Player player;
     private Planet currentPlanet;
+    private Planet destinationPlanet;
 
-    Planet destinationPlanet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +71,13 @@ public class Navigation extends AppCompatActivity {
     }
     public void onBackPressed(View view){
         Log.d("Test", "Back Button has been pressed");
+        startActivity(new Intent(this, PlanetScreen.class));
+    }
+
+    public void onTravelPressed(View view){
+        Log.d("Test", "Travel Button has been pressed");
+        player.setCurrentPlanet(destinationPlanet);
+        buyVM.updatePlayer(player);
         startActivity(new Intent(this, PlanetScreen.class));
     }
 
