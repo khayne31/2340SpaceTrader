@@ -47,7 +47,7 @@ public class Market {
                 int quant = rand.nextInt(remaingGoods+1);
                 Log.d("MarketPrice", "Checkpoint-2");
                 //int price = generateMarketPrice(g);
-                Item i = new Item(g, g.getName(), quant, 1);
+                Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));
                 itemSellList.add(i);
             } else {//else set the number of the good to zero in the item;
                 Item i = new Item(g, g.getName(), 0, 0);
@@ -59,55 +59,40 @@ public class Market {
 
     private int generateMarketPrice(GoodType gt){
         //may need to refine the event multiplier if its too difficult to put in UI
-        /*return  (int)(gt.getBasePrice() * (planet.getEvent().equals(gt.getEr()) ? gt.getBasePrice() : 1)
-                * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
-                *  (planet.getResources().equals(gt.getCr()) ? .5 : 1)
-                + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
-                + gt.getVar()/100.0 * gt.getBasePrice());*/
-        //I am rewriting the above code because it has no documentation
-        Log.d("MarketPrice", "Checkpoint-1");
+        int price = gt.getBasePrice();                         // set start price to be base price
+        // this val will change according to multiplier
+        double multiplier = 1;                                 // starts as 1, as if no effective events
+        // won't affect price
 
-        double basePrice = gt.getBasePrice();
-        double eventMultiplier;
-        double resourceMultiplier1;
-        double resourceMultiplier2;
-        double techAdd1;
-        double variance;
-        int finalPrice;
-        Log.d("MarketPrice", "Checkpoint0");
+        double variance = gt.getVar()/100 * gt.getBasePrice();  // the variance of price from base price (always
+        // applied, kind of like a item tax)
 
-        if (planet.getEvent().equals(gt.getEr())) {
-            eventMultiplier = gt.getBasePrice();
-        } else {
-            eventMultiplier = 1;
+        double techBal = (planet.getT_lvl().getLvl() - gt.getMtlp())/100 * gt.getBasePrice();
+        // re-balance prices based on diff between planet tech and item tech production lvl
+        // treat the diff as a percentage increase on base price
+        // we don't have to worry about this being negative bc for the planet to sell the good
+        // planet tech >= item tech so planet tech - item tech >= 0
+
+        if( planet.getEvent().equals(gt.getIe()) ) {         // RadicalEvents match --> incr prices
+            multiplier = multiplier * 1.5;
         }
-        Log.d("MarketPrice", "Checkpoint1");
-        if (planet.getResources().equals(gt.getEr())) {
-            resourceMultiplier1 = 2;
-        } else {
-            resourceMultiplier1 = 1;
-        }
-        Log.d("MarketPrice", "Checkpoint2");
+//        if( planet.getResources().getResourceName().equals(gt.getCr().getResourceName()) ) {     // cheap resource condition
+//             multiplier = multiplier * .5;
+//        }
+//        if( planet.getResources().getResourceName().equals(gt.getEr().getResourceName()) ) {     // expensive resource condition
+//             multiplier = multiplier * 2;
+//        }
 
-        if ((planet.getResources().equals(gt.getCr()))) {
-            resourceMultiplier2 = 0.5;
-        } else {
-            resourceMultiplier2 = 1;
-        }
-        Log.d("MarketPrice", "Checkpoint3");
+        price = (int) ((double) price * multiplier + variance + techBal);   // use the price multiplier to accommodate event effects
+        // add variance to price
+        // add tech price re-balance
+        return price;   // price is an int so we don't have to worry about awkward subtraction and partial credits
 
-        techAdd1 = (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0);
-        Log.d("MarketPrice", "Checkpoint4");
-
-        variance = gt.getVar()/100.0 * gt.getBasePrice();
-        Log.d("MarketPrice", "Checkpoint5");
-
-        finalPrice = (int) (basePrice * eventMultiplier * resourceMultiplier1 * resourceMultiplier2 + techAdd1 + variance);
-
-        return finalPrice;
-
-
-
+//        return  (int)(gt.getBasePrice() * ((planet.getEvent()).equals(gt.getEr()) ? gt.getBasePrice() : 1)
+//                * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
+//                *  (planet.getResources().equals(gt.getCr()) ? .5 : 1)
+//                + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
+//                + gt.getVar()/100.0 * gt.getBasePrice());
     }
     public String tradeBuy(Player p, GoodType currentGood, int numberOfGood){
         String returnString;
