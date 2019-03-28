@@ -47,7 +47,7 @@ public class Universe {
                     SolarSystem currentSystem = new SolarSystem(new Random().nextInt(20)+10, new int[] {j,i});
                     Log.d(DEBUG, "after the creation of the new SolarSystem");
                     while(listOfNames.contains(currentSystem.getSystemName()))
-                        currentSystem = new SolarSystem(new Random().nextInt(20)+10, new int[] {j,i});
+                        currentSystem = new SolarSystem(new Random().nextInt(5)+10, new int[] {j,i});
                     universe.get(j).add(currentSystem);
                     systems.add(currentSystem);
                     listOfNames.add(currentSystem.getSystemName());

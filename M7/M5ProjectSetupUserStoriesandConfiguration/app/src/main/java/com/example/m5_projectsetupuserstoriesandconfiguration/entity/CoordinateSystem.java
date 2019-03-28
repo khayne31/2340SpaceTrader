@@ -8,7 +8,7 @@ public class CoordinateSystem {
     private ArrayList<ArrayList<Planet>> system;
     private ArrayList<Planet> allPlanets;
     private double populationProb;
-    private final double MAX_PROB = .5;
+    private final double MAX_PROB = .1;
     private String systemName;
     private int size;
     private Resources resources;
@@ -16,8 +16,7 @@ public class CoordinateSystem {
 
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
         currentSolarSystem = solar;
-        populationProb = Math.random() - MAX_PROB;
-        populationProb = populationProb >= 0 ? populationProb : populationProb + MAX_PROB;
+        populationProb =  MAX_PROB * Math.random();
         systemName = solar.getSystemName();
         size = sizeSystem;
         system = new ArrayList<>();

@@ -95,6 +95,7 @@ public class Player implements Serializable {
         int radius = (int) Math.floor(myShip.getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
         ArrayList<int[]> viableCoords = new ArrayList<>();
         ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
+        viableCoords.add(currentSystem.getCoords());
 
         for(int i = 0; i < currentUniverse.getSizeOfUniverse(); i++){
             for(int j = 0; j < currentUniverse.getSizeOfUniverse(); j++){
@@ -109,7 +110,8 @@ public class Player implements Serializable {
             SolarSystem  s = currentUniverse.getUniverse().get(coord[0]).get(coord[1]);
             if(s != null){
                 for(Planet p: s.getPlanets()){
-                    planetsAbleToVisit.add(p);
+                    if(!planetsAbleToVisit.contains(p))
+                        planetsAbleToVisit.add(p);
                 }
             }
 

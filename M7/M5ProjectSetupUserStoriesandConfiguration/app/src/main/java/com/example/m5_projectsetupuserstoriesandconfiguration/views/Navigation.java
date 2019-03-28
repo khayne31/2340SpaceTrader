@@ -58,7 +58,8 @@ public class Navigation extends AppCompatActivity {
 
 
         planetSpinner = findViewById(R.id.planet_select);
-        ArrayAdapter<Planet> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, player.visitablePlanets());
+        ArrayAdapter<Planet> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, player.visitablePlanets());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         planetSpinner.setAdapter(adapter);
 
