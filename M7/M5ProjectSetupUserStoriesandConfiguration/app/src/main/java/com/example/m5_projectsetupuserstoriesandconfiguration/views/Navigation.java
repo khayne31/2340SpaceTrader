@@ -67,7 +67,7 @@ public class Navigation extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
                 destinationPlanet = (Planet) parent.getItemAtPosition(pos);
-                //requiredFuelLabel.setText(Integer.toString(Player.getFuelRequired(destinationPlanet));
+                requiredFuelLabel.setText(Integer.toString(player.getFuelRequired(destinationPlanet)));
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
