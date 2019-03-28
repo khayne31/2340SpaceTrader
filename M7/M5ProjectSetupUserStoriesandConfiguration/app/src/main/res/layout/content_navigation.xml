@@ -25,6 +25,20 @@
 
     </FrameLayout>
 
+    <Spinner
+        android:id="@+id/planet_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="40dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/market_title" />
+
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"

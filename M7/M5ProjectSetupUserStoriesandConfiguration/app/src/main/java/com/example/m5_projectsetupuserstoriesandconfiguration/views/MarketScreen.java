@@ -207,4 +207,9 @@ public class MarketScreen extends AppCompatActivity {
             numSellLabel.setText("" + numToSell);
         }
     }
+
+    public void onBackPressed(View view){
+        Log.d("Test", "Back Button has been pressed");
+        startActivity(new Intent(this, PlanetScreen.class));
+    }
 }

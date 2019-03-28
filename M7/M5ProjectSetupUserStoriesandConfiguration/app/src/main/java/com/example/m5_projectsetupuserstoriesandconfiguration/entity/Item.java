@@ -26,9 +26,13 @@ public class Item {
         return quantity;
     }
 
+    public void setQuantity(int newQuantity) {this.quantity = newQuantity;}
+
     public int getPrice(){
         return price;
     }
+
+
 
     public void sellQuantity(int sold) {
         quantity -= sold;
