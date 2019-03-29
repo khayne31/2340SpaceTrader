@@ -13,6 +13,7 @@ public class CoordinateSystem {
     private int size;
     private Resources resources;
     private SolarSystem currentSolarSystem;
+    private int  planetCounter = 0;
 
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
         currentSolarSystem = solar;
@@ -31,7 +32,7 @@ public class CoordinateSystem {
     }
 
     private void generateSystem(int size){
-        int planetCounter = 0;
+
         for(int i = 0; i < size; i++){
             system.add(new ArrayList<Planet>());
             Log.d("UniverseLogCat", "inside generate system for loop i: "+ i);

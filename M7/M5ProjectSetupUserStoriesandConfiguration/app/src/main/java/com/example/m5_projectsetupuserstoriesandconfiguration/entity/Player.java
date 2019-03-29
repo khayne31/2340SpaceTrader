@@ -95,13 +95,15 @@ public class Player implements Serializable {
         int radius = (int) Math.floor(myShip.getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
         ArrayList<int[]> viableCoords = new ArrayList<>();
         ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
-        viableCoords.add(currentSystem.getCoords());
+        //viableCoords.add(currentSystem.getCoords());
 
         for(int i = 0; i < currentUniverse.getSizeOfUniverse(); i++){
             for(int j = 0; j < currentUniverse.getSizeOfUniverse(); j++){
                 if(Math.pow(i - currentSystem.getCoords()[0], 2) + Math.pow(j - currentSystem.getCoords()[1],2)
                         <= Math.pow(radius,2)){
-                    viableCoords.add(new int[] {i, j});
+                        viableCoords.add(new int[] {i, j});
+
+
                 }
             }
         }
@@ -110,7 +112,7 @@ public class Player implements Serializable {
             SolarSystem  s = currentUniverse.getUniverse().get(coord[0]).get(coord[1]);
             if(s != null){
                 for(Planet p: s.getPlanets()){
-                    if(!planetsAbleToVisit.contains(p))
+                    if(!planetsAbleToVisit.contains(p) && !p.equals(currentPlanet))
                         planetsAbleToVisit.add(p);
                 }
             }
@@ -130,7 +132,7 @@ public class Player implements Serializable {
 
         double percentageFuelUsed = (maxRadius - distance) / maxRadius;
         myShip.setFuel((int)(myShip.getFuel() * percentageFuelUsed));
-        myShip.setRange((int)(myShip.getFuel()/50.0) * myShip.getRange());
+        myShip.setRange((int)(myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
     }
@@ -147,4 +149,8 @@ public class Player implements Serializable {
         return (int)(myShip.getFuel() - (myShip.getFuel() * percentageFuelUsed));
     }
 
+
+    public Universe getCurrentUniverse() {
+        return currentUniverse;
+    }
 }

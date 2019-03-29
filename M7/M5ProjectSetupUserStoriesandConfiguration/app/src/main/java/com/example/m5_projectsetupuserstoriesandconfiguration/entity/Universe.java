@@ -44,7 +44,7 @@ public class Universe {
                 double k = Math.random();
                 if(k < SOLAR_SYSTEM_DISTRIBUTION_PROB){
                     Log.d(DEBUG, "inside first if k: "+k);
-                    SolarSystem currentSystem = new SolarSystem(new Random().nextInt(20)+10, new int[] {j,i});
+                    SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5)+10, new int[] {j,i});
                     Log.d(DEBUG, "after the creation of the new SolarSystem");
                     while(listOfNames.contains(currentSystem.getSystemName()))
                         currentSystem = new SolarSystem(new Random().nextInt(5)+10, new int[] {j,i});
