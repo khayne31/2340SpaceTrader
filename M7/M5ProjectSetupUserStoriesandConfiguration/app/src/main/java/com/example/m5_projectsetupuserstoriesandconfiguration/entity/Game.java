@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+
 public class Game {
 
     private Player player;

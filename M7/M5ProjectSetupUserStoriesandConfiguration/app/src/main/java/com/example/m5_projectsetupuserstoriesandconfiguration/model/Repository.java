@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -14,14 +15,14 @@ public class Repository {
 
     private static int getNextUniqueID() {return next_id++;}
 
-    private List<Player> allPlayers;
+    private static HashMap<Integer, Player> allPlayers;
 
 
     /**
      * Make a new Repository object
      */
     public Repository() {
-        allPlayers = new ArrayList<>();
+        allPlayers = new HashMap<>();
 
     }
 
@@ -29,7 +30,7 @@ public class Repository {
     /**
      * Return all the Users in the system
      */
-    public List<Player> getAllPlayers() {return allPlayers;}
+    public List<Player> getAllPlayers() {return (List) allPlayers.values();}
 
     /**add a new user to the system
      *
@@ -38,13 +39,13 @@ public class Repository {
 
     public void addPlayer(Player player) {
         player.setId(Repository.getNextUniqueID());
-        allPlayers.add(player);
+        allPlayers.put(player.getId(), player);
         Log.d("Test", "A new player was added to the database!");
 
     }
 
     public void updatePlayer(Player p) {
-        for (Player player: allPlayers) {
+        for (Player player: allPlayers.values()) {
             if (player.getId() == p.getId()) {
                 player.setPilotPoints(p.getPilotPoints());
                 player.setEngineerPoints(p.getEngineerPoints());
@@ -55,5 +56,10 @@ public class Repository {
             }
         }
         Log.d("APP", "Player not found with id = " + p.getId());
+    }
+
+    public Player loadPlayer(int id) {
+        Player p = allPlayers.get(id);
+        return p;
     }
 }
