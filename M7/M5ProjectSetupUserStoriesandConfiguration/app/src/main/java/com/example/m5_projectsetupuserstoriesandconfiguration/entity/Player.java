@@ -30,7 +30,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), 700, 20, 0);
+        myShip = new Ship(Ship.makeGnat(), 700, 200, 0);
         currentUniverse = uni;
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
@@ -81,6 +81,58 @@ public class Player implements Serializable {
 
     public void setCurrentPlanet(Planet currentPlanet) {
         this.currentPlanet = currentPlanet;
+    }
+
+    public void subtractCredits(int x){
+        credits = credits - x > 0 ? credits - x : 0;
+    }
+
+    public void losePoints(int x){
+        int[] pointArray = {engineerPoints, fighterPoints, pilotPoints, traderPoints};
+        int max = engineerPoints;
+        int index = 0;
+        int i;
+        for(i = 1; i < 4; i++){
+            if(pointArray[i] > max){
+                max = pointArray[i];
+                index = i;
+                break;
+            }
+        }
+        switch(index){
+            case 1:
+                fighterPoints -= x;
+            case 2:
+                pilotPoints -= x;
+            case 3:
+                traderPoints -= x;
+            default:
+                engineerPoints -= x;
+        }
+    }
+
+    public void gainPoints(int x){
+        int[] pointArray = {engineerPoints, fighterPoints, pilotPoints, traderPoints};
+        int min = engineerPoints;
+        int index = 0;
+        int i;
+        for(i = 1; i < 4; i++){
+            if(pointArray[i] < min){
+                min = pointArray[i];
+                index = i;
+                break;
+            }
+        }
+        switch(index){
+            case 1:
+                fighterPoints += x;
+            case 2:
+                pilotPoints += x;
+            case 3:
+                traderPoints += x;
+            default:
+                engineerPoints += x;
+        }
     }
 
     public SolarSystem getCurrentSystem() {

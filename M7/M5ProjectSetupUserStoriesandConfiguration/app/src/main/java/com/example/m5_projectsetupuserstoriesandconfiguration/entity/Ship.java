@@ -199,4 +199,26 @@ public class Ship {
     public void setRange(int range) {
         this.range = range;
     }
+
+    public void setHp(int hp) {
+        if(this.hp - hp <= 0){
+            //TODO: do something when hp hits zero
+            this.hp = 0;
+
+        } else{
+            this.hp -= hp;
+        }
+    }
+
+    public void upgradeShip(){
+        int i;
+        shipType[] temp =  shipType.values();
+        for(i = 0; i < temp.length - 1; i++){
+            if(type.equals(temp[i])){
+                break;
+            }
+        }
+        type = temp[i + 1];
+
+    }
 }
