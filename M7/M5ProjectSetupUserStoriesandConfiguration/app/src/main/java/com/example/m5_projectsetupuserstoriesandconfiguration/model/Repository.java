@@ -15,14 +15,14 @@ public class Repository {
 
     private static int getNextUniqueID() {return next_id++;}
 
-    private static HashMap<Integer, Player> allPlayers;
+    private static List<Player> allPlayers;
 
 
     /**
      * Make a new Repository object
      */
     public Repository() {
-        allPlayers = new HashMap<>();
+        allPlayers = new ArrayList<>();
 
     }
 
@@ -30,7 +30,7 @@ public class Repository {
     /**
      * Return all the Users in the system
      */
-    public List<Player> getAllPlayers() {return (List) allPlayers.values();}
+    public List<Player> getAllPlayers() {return allPlayers;}
 
     /**add a new user to the system
      *
@@ -39,13 +39,13 @@ public class Repository {
 
     public void addPlayer(Player player) {
         player.setId(Repository.getNextUniqueID());
-        allPlayers.put(player.getId(), player);
+        allPlayers.add(player.getId(), player);
         Log.d("Test", "A new player was added to the database!");
 
     }
 
     public void updatePlayer(Player p) {
-        for (Player player: allPlayers.values()) {
+        for (Player player: allPlayers) {
             if (player.getId() == p.getId()) {
                 player.setPilotPoints(p.getPilotPoints());
                 player.setEngineerPoints(p.getEngineerPoints());
