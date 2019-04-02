@@ -7,7 +7,7 @@ public class RandomEvent {
     private static final int NUMBER_CREDITS_LOST = 100;
     private static final int CREDITS_TO_LOSE = 2;
     private static final int CREDITS_TO_GAIN = 2;
-    private enum events{
+    public enum events{
         Wormhole("Wormhole", "You have encountered a wormhole and are being transported to a random planet."),
         Astroids("Astroid Field","Your ship has encountered a astroid feild, you ship loses "+ HP_LOST_ASTROIDS +" hp."),
         Pirates("Space Pirates", "During the course of travel you encountered space pirates and had to pay " + NUMBER_CREDITS_LOST + " credits."),

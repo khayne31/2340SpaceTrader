@@ -189,6 +189,21 @@ public class Player implements Serializable {
         currentSystem = p.getHomesystem();
     }
 
+    /*public RandomEvent.events travelToPlanet(Planet p){
+        SolarSystem hs = p.getHomesystem();
+        int[] sysCoords = hs.getCoords();
+        int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
+                + Math.pow(sysCoords[1] - currentSystem.getCoords()[1],2)));
+        int maxRadius  = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+
+        double percentageFuelUsed = (maxRadius - distance) / maxRadius;
+        myShip.setFuel((int)(myShip.getFuel() * percentageFuelUsed));
+        myShip.setRange((int)(myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
+        currentPlanet = p;
+        currentSystem = p.getHomesystem();
+        return new RandomEvent().generateRandomEvent(this);
+    }*/
+
     public int getFuelRequired(Planet p) {
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();
