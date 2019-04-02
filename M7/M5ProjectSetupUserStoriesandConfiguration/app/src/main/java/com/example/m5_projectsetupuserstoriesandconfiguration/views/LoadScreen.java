@@ -29,8 +29,12 @@ public class LoadScreen extends AppCompatActivity {
             }
         });
     }
+    public void onGoBackPressed(View view) {
+        startActivity(new Intent(this, MainMenu.class));
+        Log.i("Test", "Returning to Main Menu");
+    }
 
-    public void onBackPressed(View view) {
+    public void onLoadGamePressed(View view) {
         startActivity(new Intent(this, MainMenu.class));
         Log.i("Test", "Returning to Main Menu");
     }

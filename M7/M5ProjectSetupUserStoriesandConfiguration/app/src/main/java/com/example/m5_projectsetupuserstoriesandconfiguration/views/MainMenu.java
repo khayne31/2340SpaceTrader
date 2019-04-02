@@ -1,7 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
@@ -41,7 +38,6 @@ public class MainMenu extends AppCompatActivity {
         //startActivity(new Intent(this, LoadGame.class));
         Log.d("Test", "Load Game has been Pressed");
         startActivity(new Intent(this, LoadScreen.class));
-
     }
     public void onSettingsPressed(View view){
         //startActivity(new Intent(this, Settings.class));

@@ -12,7 +12,7 @@
         <activity
             android:name=".views.LoadScreen"
             android:label="@string/title_activity_load_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".views.Navigation"
             android:label="@string/title_activity_navigation"
