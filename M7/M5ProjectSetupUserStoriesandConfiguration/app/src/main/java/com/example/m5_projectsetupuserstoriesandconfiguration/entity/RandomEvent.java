@@ -39,17 +39,23 @@ public class RandomEvent {
                 SolarSystem randomSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
                 Planet randomPlanet = randomSystem.getPlanets().get(randomSystem.getPlanets().size());
                 p.setCurrentPlanet(randomPlanet);
+                break;
                 //TODO implement loss and gain of skill points, ship dmg, credit gain and loss, fuel gain and loss, ship upgrade, fighting
             case Astroids:
                 p.getMyShip().setHp(HP_LOST_ASTROIDS);
+                break;
             case Pirates:
                 p.subtractCredits(NUMBER_CREDITS_LOST);
+                break;
             case Death:
                 p.losePoints(CREDITS_TO_LOSE);
+                break;
             case Travellers:
                 p.gainPoints(CREDITS_TO_GAIN);
+                break;
             case Upgrade:
                 p.getMyShip().upgradeShip();
+                break;
         }
         return event;
     }
