@@ -40,8 +40,7 @@ public class MainMenu extends AppCompatActivity {
     public void onLoadGamePressed(View view){
         //startActivity(new Intent(this, LoadGame.class));
         Log.d("Test", "Load Game has been Pressed");
-        Toast.makeText(this, "SURPRISE! We haven't made this page yet", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, LoadPlayer.class));
+        startActivity(new Intent(this, LoadScreen.class));
 
     }
     public void onSettingsPressed(View view){
