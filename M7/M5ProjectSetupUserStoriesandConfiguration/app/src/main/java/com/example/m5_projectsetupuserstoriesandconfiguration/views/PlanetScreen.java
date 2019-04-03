@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -39,9 +40,8 @@ public class PlanetScreen extends AppCompatActivity {
         planetName = currentPlanet.getName();
         planetNameLabel.setText(planetName);
 
-
-
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
     public void onSpaceGaragePressed(View view){
         Log.d("Test", "Space Garage Button has been pressed");

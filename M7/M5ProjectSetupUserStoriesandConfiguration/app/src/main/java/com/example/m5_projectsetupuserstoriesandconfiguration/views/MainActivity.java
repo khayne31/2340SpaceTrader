@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -87,9 +88,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Log.v("UniverseResults", universe.toString());
         largeLog("UniverseResults", universe.toString());
 
-
-
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
