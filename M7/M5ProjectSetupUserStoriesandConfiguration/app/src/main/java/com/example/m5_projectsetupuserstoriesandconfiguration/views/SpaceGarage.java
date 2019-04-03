@@ -23,7 +23,7 @@ public class SpaceGarage extends AppCompatActivity {
     }
 
     public void onBackPressed(View view) {
-        startActivity(new Intent(this, MainMenu.class));
-        Log.i("Test", "Returning to Main Menu");
+        startActivity(new Intent(this, PlanetScreen.class));
+        Log.i("Test", "Returning to Planet");
     }
 }

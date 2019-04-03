@@ -45,6 +45,7 @@ public class PlanetScreen extends AppCompatActivity {
     }
     public void onSpaceGaragePressed(View view){
         Log.d("Test", "Space Garage Button has been pressed");
+        startActivity(new Intent(this, SpaceGarage.class));
     }
     public void onMarketPressed(View view){
         Log.d("Test", "Market Button has been pressed");
