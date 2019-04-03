@@ -64,19 +64,13 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+
         universe = new Universe(10);
 
         Log.v("UniverseResults", universe.toString());
 
         largeLog("UniverseResults", universe.toString());
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         engineerptslabel = findViewById(R.id.engineer_pts);
         traderptslabel = findViewById(R.id.trader_pts);
         pilotptslabel = findViewById(R.id.pilot_pts);
