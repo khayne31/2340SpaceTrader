@@ -84,7 +84,6 @@
                 android:textColor="#FFFFFF" />
 
         </TableRow>
-        >
 
         <TableRow
             android:layout_width="fill_parent"
@@ -116,7 +115,6 @@
                 app:fontFamily="@font/aldrich" />
 
         </TableRow>
-        >
 
         <TableRow
             android:layout_width="fill_parent"

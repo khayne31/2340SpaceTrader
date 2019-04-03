@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Ship {
     public enum shipType {
-        //(Name, ID, cargo, range, hull, crew, wp, gad, sh)
+        //(Name, ID, cargo, range, hull, crew, wp, gad, sh, fuel)
         FL("Flea", "FL", 7, 20, 10, 0, 0, 0, 0, 500), // cargoSize not given (on wiki) supposed to be "few"
         GN("Gnat", "GN", 15, 14, 20, 0, 1, 1, 0, 700),
         FI("Firefly", "FI", 20, 17, 25, 0, 1, 1, 1, 1000),
@@ -27,8 +27,6 @@ public class Ship {
         private final int gadSlots;
         private final int shSlots;
         private final int maxfuel;
-
-
 
         // need hullStrength, crewSize, wpSlots, gadSlots, shSlots
 
@@ -200,7 +198,7 @@ public class Ship {
         this.range = range;
     }
 
-    public void setHp(int hp) {
+    public void loseHp(int hp) {
         if(this.hp - hp <= 0){
             //TODO: do something when hp hits zero
             this.hp = 0;
@@ -220,5 +218,14 @@ public class Ship {
         }
         type = temp[i + 1];
 
+    }
+
+    public void loseFuel(int fuel) {
+        if(this.fuel - fuel <= 0) {
+            // TODO: do something when fuel hits zero
+            this.fuel = 0;
+        } else {
+            this.hp -= fuel;
+        }
     }
 }
