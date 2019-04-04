@@ -46,6 +46,7 @@ public class MarketScreen extends AppCompatActivity {
     private TextView currentTotalCargoLabel;
     private TextView maxCargoLabel;
     private Integer currentCargoInventory;
+    private Integer currentTotalCargo;
     private Integer currentMarketInventory;
     private Integer currentPrice;
     private Integer currentCredits;
@@ -72,9 +73,14 @@ public class MarketScreen extends AppCompatActivity {
 
         maxCargoLabel = findViewById(R.id.MaxCargo_label);
         currentTotalCargoLabel = findViewById(R.id.CurrentTotalCargo_label);
+        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize());
+        if(currentTotalCargo == null) {
+            currentTotalCargo = 0;
+        }
+        currentTotalCargoLabel.setText("" + currentTotalCargo.toString());
 
+        Log.d("onCreate", "screen init");
         maxCargoLabel.setText(Integer.toString(player.getMyShip().getType().getMaxCargo()));
-
 
         itemSpinner = findViewById(R.id.good_select);
         ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GoodType.values());
@@ -130,25 +136,31 @@ public class MarketScreen extends AppCompatActivity {
         currentCredits = player.getCredits();
         creditsLabel.setText("" + currentCredits);
 
-
         numToBuy = 0;
         numToSell = 0;
         numBuyLabel.setText("" + numToBuy);
         numSellLabel.setText("" + numToSell);
 
-
-
-        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+        // TODO: update values for view labels
+        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood)); // #item_in_cargo
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
-        }
-        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+        } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
+        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood)); // #item_rem_in_market
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
+        } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
+        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize()); // #updated_total_item_count
+        if (currentTotalCargo == null) {
+            Log.d("BuyPressed", "currTotCargo is null");
+            currentTotalCargo = 0;
         }
+        Log.d("BuyPressed", "currTotCargo is " + currentTotalCargo + ".");
 
+        // TODO: update labels
         cargoInventory.setText("" + currentCargoInventory.toString());
-        marketInventory.setText("" + currentMarketInventory);
+        marketInventory.setText("" + currentMarketInventory.toString());
+        currentTotalCargoLabel.setText("" + currentTotalCargo.toString());
     }
     public void onSellPressed(View view) {
         Log.d("Test", "Sell Button has been pressed");
@@ -164,18 +176,25 @@ public class MarketScreen extends AppCompatActivity {
         numBuyLabel.setText("" + numToBuy);
         numSellLabel.setText("" + numToSell);
 
-
+        // TODO: update values for view labels
         currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
-        }
+        } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
         currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
-        }
+        } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
+        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize()); // #updated_total_item_count
+        if (currentTotalCargo == null) {
+            Log.d("BuyPressed", "currTotCargo is null");
+            currentTotalCargo = 0;
+        } Log.d("BuyPressed", "currTotCargo is " + currentTotalCargo + ".");
+
+        // TODO: update labels
         cargoInventory.setText("" + currentCargoInventory.toString());
         marketInventory.setText("" + currentMarketInventory);
-
+        currentTotalCargoLabel.setText("" + currentTotalCargo);
     }
     public void onBuyPlus(View view) {
         Log.d("Test", "Sell Button has been pressed");
