@@ -92,6 +92,15 @@ public class Universe {
     public int getSizeOfUniverse() {
         return sizeOfUniverse;
     }
+
+    public String toStringForSave() {
+        return sizeOfUniverse
+                + "\t" + universe
+                + "\t" + systems
+                + "\t" + systemsInUniverse
+                + "\t" + SOLAR_SYSTEM_DISTRIBUTION_PROB;
+    }
+
 }
 
 

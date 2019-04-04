@@ -2,6 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,6 +21,8 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
+    private static final long serialVersionUID = 465489746;
+
 
 
     public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty difficulty, Universe uni) {
@@ -220,4 +223,32 @@ public class Player implements Serializable {
     public Universe getCurrentUniverse() {
         return currentUniverse;
     }
+
+    public static Player parseEntry(String line) {
+        assert line != null;
+        String[] tokens = line.split("\t");
+        assert tokens.length == 5;
+        Universe replacementUniverse = new Universe(10);
+        Player s = new Player(tokens[0], Integer.valueOf(tokens[1]), Integer.valueOf(tokens[2]),
+                Integer.valueOf(tokens[3]), Integer.valueOf(tokens[4]),
+                Difficulty.getType(tokens[5]), replacementUniverse);
+
+        return s;
+    }
+
+    /**
+     * Save this class in a custom save format
+     * I chose to use tab (\t) to make line splitting easy for loading
+     * If your data had tabs, you would need something else as a delimiter
+     *
+     * @param writer the file to write this student to
+     */
+    public void saveAsText(PrintWriter writer) {
+        System.out.println("Student saving student: " + name);
+        writer.println(name + "\t" + fighterPoints + "\t" + traderPoints + "\t" +
+                engineerPoints + "\t" + pilotPoints + "\t" + diff.toString() + "\t" +
+                currentUniverse.toStringForSave());
+    }
+
+
 }

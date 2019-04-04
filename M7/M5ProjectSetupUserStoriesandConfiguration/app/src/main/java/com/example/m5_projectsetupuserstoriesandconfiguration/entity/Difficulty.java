@@ -17,6 +17,23 @@ public enum  Difficulty {
         id = difId;
     }
 
+    public static Difficulty getType(String s) {
+        Difficulty result;
+        if (s.equals("BE")) {
+            result = BE;
+        } else if (s.equals("EA")) {
+            result = EA;
+        } else if (s.equals("NO")) {
+            result = NO;
+        } else if (s.equals("HA")) {
+            result = HA;
+        } else {
+            result = IM;
+        }
+        return result;
+    }
+
+
     public String getLevel() {
         return level;
     }

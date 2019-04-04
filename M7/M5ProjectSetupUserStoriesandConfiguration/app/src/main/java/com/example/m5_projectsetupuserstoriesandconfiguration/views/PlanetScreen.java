@@ -24,6 +24,7 @@ public class PlanetScreen extends AppCompatActivity {
     private PlanetScreenViewModel planetVM;
     private Planet currentPlanet;
     private TextView planetNameLabel;
+    public static final String ARG_ITEM_ID = "item_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
