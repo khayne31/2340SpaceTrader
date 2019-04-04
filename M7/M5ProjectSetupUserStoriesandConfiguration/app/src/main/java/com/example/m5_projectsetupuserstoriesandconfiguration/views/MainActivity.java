@@ -229,6 +229,20 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
     }
 
+    public void onCreateLazyPlayerPressed(View view) {
+        Log.d("Test", "Create Lazy Player Button has been pressed");
+        Intent moveActivities = new Intent(this, PostPlayerScreen.class);
+        name = "Maxwell, a Lazy Player";
+        diff = (Difficulty) difSpinner.getSelectedItem();
+        player = new Player(name, 4, 4, 4, 4, diff, universe);
+        Log.i("Test", "New lazy player successfully created!");
+        Log.i("Confirmation", "Your name is " + player.getName());
+        mainVM.addPlayer(player);
+        ModelSingleton.setCurrentPlayerID(player.getId());
+        Toast.makeText(this, "New Lazy Player Created", Toast.LENGTH_SHORT).show();
+        startActivity(moveActivities);
+    }
+
     private static void largeLog(String tag, String content){
         if (content.length() > 4000){
             Log.v(tag, content.substring(0,4000));
