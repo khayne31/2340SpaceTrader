@@ -26,7 +26,10 @@ public class RandomEvent {
         Tax("Space Tariffs", "Your ship crossed into a Space Tariff Zone! You paid " + SPACE_TAX + " credits."),
         MonsterB("Big Space Monster", "Your ship took damage from an enraged Giant Space Monster! Your ship loses " + BIG_SPACE_BOI + " hp."),
         MonsterS("Small Space Monster", "Your ship took damage from an Small Space Monster migration! Your ship loses " + SMOL_SPACE_BOI + " hp."),
-        FuelLeak("Fuel Leak", "Your ship was leaking fuel. Your ship loses " + FUEL_TO_LOSE + " gallons of fuel.");
+        FuelLeak("Fuel Leak", "Your ship was leaking fuel. Your ship loses " + FUEL_TO_LOSE + " gallons of fuel."),
+        Nothing("Nothing Happened", "Your Trip was successful"),
+        None("Nothing Happened", "Your Trip was successful"),
+        StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were transported to a random planet");
 
         private String eventName;
         private String eventDescription;
@@ -61,6 +64,12 @@ public class RandomEvent {
                 Planet randPlanet = randSys.getPlanets().get(randSys.getPlanets().size());
                 p.setCurrentPlanet(randPlanet);
                 break;
+            case StarGate:
+                Universe uni1 = p.getCurrentUniverse();
+                SolarSystem randomSystem1 = uni1.getSystems().get(new Random().nextInt(uni1.getSystems().size()));
+                Planet randomPlanet1 = randomSystem1.getPlanets().get(randomSystem1.getPlanets().size());
+                p.setCurrentPlanet(randomPlanet1);
+                break;
             case Asteroids:
                 p.getMyShip().loseHp(HP_LOST_ASTEROIDS);
                 break;
@@ -93,6 +102,10 @@ public class RandomEvent {
                 break;
             case FuelLeak:
                 p.getMyShip().loseFuel(FUEL_TO_LOSE);
+                break;
+            case None:
+                break;
+            case Nothing:
                 break;
         }
         return event;
