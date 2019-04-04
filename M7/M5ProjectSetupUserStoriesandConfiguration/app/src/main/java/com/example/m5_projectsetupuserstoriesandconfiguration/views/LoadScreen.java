@@ -33,7 +33,7 @@ public class LoadScreen extends AppCompatActivity {
     private LoadActivityViewModel loadVM;
     private Player selectedPlayer;
     private Spinner playerSpinner;
-    SimpleItemRecyclerViewAdapter myAdapter;
+    private SimpleItemRecyclerViewAdapter myAdapter;
 
 
     @Override
@@ -47,6 +47,7 @@ public class LoadScreen extends AppCompatActivity {
         actionBar.hide();
 
         loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
+        myAdapter = new SimpleItemRecyclerViewAdapter(loadVM.getAllPlayers());
 
 
         //selectedPlayer = (Player) playerSpinner.getSelectedItem();
@@ -126,17 +127,17 @@ public class LoadScreen extends AppCompatActivity {
             holder.mIdView.setText(mValues.get(position).getName());
             holder.mContentView.setText(mValues.get(position).getCurrentPlanet().getName());
 
-            holder.mView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("MY APPLICATION", holder.mItem.toString());
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, PlanetScreen.class);
-                    intent.putExtra(PlanetScreen.ARG_ITEM_ID, holder.mItem.getName());
-
-                    context.startActivity(intent);
-                }
-            });
+//            holder.mView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Log.d("MY APPLICATION", holder.mItem.toString());
+//                    Context context = v.getContext();
+//                    Intent intent = new Intent(context, PlanetScreen.class);
+//                    intent.putExtra(PlanetScreen.ARG_ITEM_ID, holder.mItem.getName());
+//
+//                    context.startActivity(intent);
+//                }
+//            });
         }
 
         @Override
