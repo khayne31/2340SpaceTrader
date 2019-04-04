@@ -48,17 +48,17 @@ public class LoadScreen extends AppCompatActivity {
 
         loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
 
-        //PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
+
         //selectedPlayer = (Player) playerSpinner.getSelectedItem();
         File file;
 
         //create a file object in the local files section
-        //file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
-        //Log.d("MY APP", "Loading Binary Data");
-        //playerInteractor.loadBinary(file);
+        file = new File(this.getFilesDir(), loadVM.getDefaultBinaryStringName());
+        Log.d("MY APP", "Loading Binary Data");
+        loadVM.loadBinary(file);
         //reset adapter to new data that has come in.
-        //myAdapter.updateList(playerInteractor.getAllPlayers());
-        //Log.d("MY APP", "New Adaptor set");
+        myAdapter.updateList(loadVM.getAllPlayers());
+        Log.d("MY APP", "New Adaptor set");
 
         playerSpinner = findViewById(R.id.player_select);
         ArrayAdapter<Player> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, loadVM.getAllPlayers());
@@ -90,17 +90,7 @@ public class LoadScreen extends AppCompatActivity {
     }
 
     public void onLoadGamePressed(View view) {
-        PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
-        selectedPlayer = (Player) playerSpinner.getSelectedItem();
-        File file;
 
-        //create a file object in the local files section
-        file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
-        //Log.d("MY APP", "Loading Binary Data");
-        playerInteractor.loadBinary(file);
-        //reset adapter to new data that has come in.
-        myAdapter.updateList(playerInteractor.getAllPlayers());
-        //Log.d("MY APP", "New Adaptor set");
         selectedPlayer = (Player) playerSpinner.getSelectedItem();
         Intent moveActivities = new Intent(this, PlanetScreen.class);
         startActivity(moveActivities);

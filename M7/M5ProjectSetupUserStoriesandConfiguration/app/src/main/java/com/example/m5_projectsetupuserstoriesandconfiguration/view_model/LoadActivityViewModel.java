@@ -46,6 +46,10 @@ public class LoadActivityViewModel extends AndroidViewModel {
 
     }
 
+    public String getDefaultBinaryStringName () {
+        return interactor.DEFAULT_BINARY_FILE_NAME;
+    }
+
     public boolean loadBinary(File file) {
         return interactor.loadBinary(file);
     }
