@@ -346,19 +346,19 @@
         app:layout_constraintTop_toBottomOf="@+id/table_layout" />
 
     <Button
-        android:id="@+id/create_player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/design_default_color_primary_dark"
-        android:onClick="onCreatePlayerPressed"
-        android:text="Create Player"
-        android:textColor="@android:color/background_light"
-        android:textStyle="bold"
-        app:fontFamily="@font/aldrich"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diff_select" />
+    android:id="@+id/create_player"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="@color/design_default_color_primary_dark"
+    android:onClick="onCreatePlayerPressed"
+    android:text="Create Player"
+    android:textColor="@android:color/background_light"
+    android:textStyle="bold"
+    app:fontFamily="@font/aldrich"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/diff_select" />
 
     <Button
         android:id="@+id/create_lazy_player"

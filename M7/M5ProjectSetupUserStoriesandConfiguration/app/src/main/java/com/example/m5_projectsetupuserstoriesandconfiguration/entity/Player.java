@@ -178,7 +178,7 @@ public class Player implements Serializable {
 
     }
 
-    public void travelToPlanet(Planet p){
+    /*public void travelToPlanet(Planet p){
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();
         int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
@@ -190,9 +190,9 @@ public class Player implements Serializable {
         myShip.setRange((int)(myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
-    }
+    }*/
 
-    /*public RandomEvent.events travelToPlanet(Planet p){
+    public RandomEvent.events travelToPlanet(Planet p){
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();
         int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
@@ -205,7 +205,7 @@ public class Player implements Serializable {
         currentPlanet = p;
         currentSystem = p.getHomesystem();
         return new RandomEvent().generateRandomEvent(this);
-    }*/
+    }
 
     public int getFuelRequired(Planet p) {
         SolarSystem hs = p.getHomesystem();

@@ -14,11 +14,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.GoodType;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.RandomEvent;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Ship;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
@@ -89,9 +91,9 @@ public class Navigation extends AppCompatActivity {
 
     public void onTravelPressed(View view){
         Log.d("Test", "Travel Button has been pressed");
-        player.travelToPlanet(destinationPlanet);
-        player.setCurrentPlanet(destinationPlanet);
+        RandomEvent.events newEvent = player.travelToPlanet(destinationPlanet);
         buyVM.updatePlayer(player);
+        Toast.makeText(this, newEvent.getEventDescription(), Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, PlanetScreen.class));
     }
 
