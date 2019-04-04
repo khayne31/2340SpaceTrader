@@ -56,4 +56,8 @@ public class PlanetScreen extends AppCompatActivity {
         Log.d("Test", "Travel Button has been pressed");
         startActivity(new Intent(this, Navigation.class));
     }
+
+    public void onSavePressed(View view) {
+        Log.d("Test", "Save Button has been pressed");
+    }
 }
