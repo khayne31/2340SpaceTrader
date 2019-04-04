@@ -3,28 +3,15 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.view_model;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
-
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.ViewModel;
-import android.support.annotation.NonNull;
-
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
-
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-
-public class PlanetScreenViewModel extends AndroidViewModel {
+public class SaveActivityViewModel extends AndroidViewModel {
     private PlayerInteractor interactor;
 
-    public PlanetScreenViewModel(@NonNull Application application) {
+    public SaveActivityViewModel(@NonNull Application application) {
         super(application);
         interactor = ModelSingleton.getInstance().getPlayerInteractor();
     }
@@ -49,13 +36,5 @@ public class PlanetScreenViewModel extends AndroidViewModel {
         //}
 
         return returnPlayer;
-    }
-
-    public String getDefaultBinaryStringName () {
-        return interactor.DEFAULT_BINARY_FILE_NAME;
-    }
-
-    public boolean saveBinary(File file) {
-        return interactor.saveBinary(file);
     }
 }

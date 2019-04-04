@@ -19,6 +19,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetScreenViewModel;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.SaveActivityViewModel;
 
 import java.io.File;
 
@@ -28,6 +29,7 @@ public class PlanetScreen extends AppCompatActivity {
     private PlanetScreenViewModel planetVM;
     private Planet currentPlanet;
     private TextView planetNameLabel;
+    private SaveActivityViewModel saveVM;
     public static final String ARG_ITEM_ID = "item_id";
 
     @Override
@@ -63,9 +65,8 @@ public class PlanetScreen extends AppCompatActivity {
 
     public boolean onSavePressed(View view) {
         File file;
-        PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
-        file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
+        file = new File(this.getFilesDir(), planetVM.getDefaultBinaryStringName());
         Toast.makeText(this, "dogs", Toast.LENGTH_SHORT).show();
-        return playerInteractor.saveBinary(file);
+        return planetVM.saveBinary(file);
     }
 }
