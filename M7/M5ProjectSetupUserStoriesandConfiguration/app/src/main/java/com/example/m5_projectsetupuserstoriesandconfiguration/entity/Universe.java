@@ -2,10 +2,11 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Universe {
+public class Universe implements Serializable {
     private ArrayList<ArrayList<SolarSystem>> universe;
     private ArrayList<SolarSystem> systems;
     private int sizeOfUniverse;

@@ -2,10 +2,11 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Planet {
+public class Planet implements Serializable {
     private int[] coords;
     private String name;
     private Tech t_lvl;

@@ -2,11 +2,12 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class SolarSystem {
+public class SolarSystem implements Serializable {
     private ArrayList<Planet> planets;
     private CoordinateSystem system;
     private int systemSize;

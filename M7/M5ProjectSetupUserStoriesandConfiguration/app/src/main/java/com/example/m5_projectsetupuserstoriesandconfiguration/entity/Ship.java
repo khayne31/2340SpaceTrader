@@ -1,9 +1,10 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 import java.util.List;
 
-public class Ship {
+public class Ship implements Serializable {
     public enum shipType {
         //(Name, ID, cargo, range, hull, crew, wp, gad, sh, fuel)
         FL("Flea", "FL", 7, 20, 10, 0, 0, 0, 0, 500), // cargoSize not given (on wiki) supposed to be "few"

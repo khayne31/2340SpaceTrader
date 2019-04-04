@@ -22,7 +22,7 @@ public class Repository implements Serializable {
 
     private static List<Player> allPlayers;
 
-    public static transient HashMap<String, Player> playerMap;
+    public transient HashMap<String, Player> playerMap;
 
 
     /**

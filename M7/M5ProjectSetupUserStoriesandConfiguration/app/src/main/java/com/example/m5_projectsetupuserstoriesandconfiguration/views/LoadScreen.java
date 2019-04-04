@@ -46,10 +46,23 @@ public class LoadScreen extends AppCompatActivity {
 
         loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
 
+        PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
+        //selectedPlayer = (Player) playerSpinner.getSelectedItem();
+        File file;
+
+        //create a file object in the local files section
+        file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
+        //Log.d("MY APP", "Loading Binary Data");
+        playerInteractor.loadBinary(file);
+        //reset adapter to new data that has come in.
+        //myAdapter.updateList(playerInteractor.getAllPlayers());
+        //Log.d("MY APP", "New Adaptor set");
+
         playerSpinner = findViewById(R.id.player_select);
         ArrayAdapter<Player> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, loadVM.getPlayers());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         playerSpinner.setAdapter(adapter);
+        //playerSpinner.setAdapter(myAdapter);
 
     }
     public void onGoBackPressed(View view) {
@@ -69,6 +82,7 @@ public class LoadScreen extends AppCompatActivity {
         //reset adapter to new data that has come in.
         myAdapter.updateList(playerInteractor.getAllPlayers());
         //Log.d("MY APP", "New Adaptor set");
+
 
     }
 

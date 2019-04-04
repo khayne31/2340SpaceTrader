@@ -1,8 +1,9 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 
+import java.io.Serializable;
 
-public enum  Difficulty {
+public enum  Difficulty implements Serializable {
     BE("BE", "Beginner"),
     EA("EA", "Easy"),
     NO("NO", "Normal"),

@@ -11,12 +11,16 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetScreenViewModel;
+
+import java.io.File;
 
 public class PlanetScreen extends AppCompatActivity {
     private String planetName;
@@ -57,7 +61,11 @@ public class PlanetScreen extends AppCompatActivity {
         startActivity(new Intent(this, Navigation.class));
     }
 
-    public void onSavePressed(View view) {
-        Log.d("Test", "Save Button has been pressed");
+    public boolean onSavePressed(View view) {
+        File file;
+        PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
+        file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
+        Toast.makeText(this, "dogs", Toast.LENGTH_SHORT).show();
+        return playerInteractor.saveBinary(file);
     }
 }
