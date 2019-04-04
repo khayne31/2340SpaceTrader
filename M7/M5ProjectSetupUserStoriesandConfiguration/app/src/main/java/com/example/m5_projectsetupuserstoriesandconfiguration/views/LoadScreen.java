@@ -48,7 +48,7 @@ public class LoadScreen extends AppCompatActivity {
 
         loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
 
-        PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
+        //PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
         //selectedPlayer = (Player) playerSpinner.getSelectedItem();
         File file;
 
@@ -61,7 +61,7 @@ public class LoadScreen extends AppCompatActivity {
         //Log.d("MY APP", "New Adaptor set");
 
         playerSpinner = findViewById(R.id.player_select);
-        ArrayAdapter<Player> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, loadVM.getPlayers());
+        ArrayAdapter<Player> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, loadVM.getAllPlayers());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         playerSpinner.setAdapter(adapter);
         //playerSpinner.setAdapter(myAdapter);
@@ -77,9 +77,9 @@ public class LoadScreen extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        PlayerInteractor pi = PlayerInteractor.getInstance();
 
-        myAdapter = new SimpleItemRecyclerViewAdapter(pi.getAllPlayers());
+
+        myAdapter = new SimpleItemRecyclerViewAdapter(loadVM.getAllPlayers());
 
         recyclerView.setAdapter(myAdapter);
     }

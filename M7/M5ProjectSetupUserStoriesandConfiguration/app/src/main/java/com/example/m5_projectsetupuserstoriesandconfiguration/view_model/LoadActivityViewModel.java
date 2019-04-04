@@ -8,6 +8,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 
+import java.io.File;
 import java.util.List;
 
 public class LoadActivityViewModel extends AndroidViewModel {
@@ -40,8 +41,12 @@ public class LoadActivityViewModel extends AndroidViewModel {
         return returnPlayer;
     }
 
-    public List<Player> getPlayers () {
+    public List<Player> getAllPlayers () {
         return interactor.getAllPlayers();
 
+    }
+
+    public boolean loadBinary(File file) {
+        return interactor.loadBinary(file);
     }
 }
