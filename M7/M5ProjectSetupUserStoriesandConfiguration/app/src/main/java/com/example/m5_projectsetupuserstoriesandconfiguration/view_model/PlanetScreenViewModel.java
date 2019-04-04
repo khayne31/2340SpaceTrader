@@ -17,6 +17,8 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSinglet
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class PlanetScreenViewModel extends AndroidViewModel {
         return interactor.DEFAULT_BINARY_FILE_NAME;
     }
 
-    public boolean saveBinary(File file) {
-        return interactor.saveBinary(file);
+    public boolean saveBinary(FileOutputStream out) {
+        return interactor.saveBinary(out);
     }
 }

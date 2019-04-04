@@ -1,6 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -22,6 +23,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetS
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.SaveActivityViewModel;
 
 import java.io.File;
+import java.io.FileOutputStream;
 
 public class PlanetScreen extends AppCompatActivity {
     private String planetName;
@@ -62,11 +64,29 @@ public class PlanetScreen extends AppCompatActivity {
         Log.d("Test", "Travel Button has been pressed");
         startActivity(new Intent(this, Navigation.class));
     }
+    public void onMainMenuPressed(View view){
+        Log.d("Test", "Main Menu Button has been pressed");
+        startActivity(new Intent(this, MainMenu.class));
+    }
 
     public boolean onSavePressed(View view) {
-        File file;
-        file = new File(this.getFilesDir(), planetVM.getDefaultBinaryStringName());
-        Toast.makeText(this, "dogs", Toast.LENGTH_SHORT).show();
-        return planetVM.saveBinary(file);
+        String fileName;
+        FileOutputStream out;
+        fileName =  planetVM.getDefaultBinaryStringName();
+        try {
+            out = openFileOutput(fileName, Context.MODE_PRIVATE);
+        } catch (Exception e) {
+            out = null;
+        }
+
+
+        Boolean returnableBool = planetVM.saveBinary(out);
+        if (returnableBool) {
+            Toast.makeText(this, "Player was saved", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Player was not saved", Toast.LENGTH_SHORT).show();
+
+        }
+        return returnableBool;
     }
 }

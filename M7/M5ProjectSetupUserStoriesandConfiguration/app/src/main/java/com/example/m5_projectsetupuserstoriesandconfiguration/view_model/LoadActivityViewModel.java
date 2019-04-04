@@ -9,6 +9,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSinglet
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 
 public class LoadActivityViewModel extends AndroidViewModel {
@@ -50,7 +51,7 @@ public class LoadActivityViewModel extends AndroidViewModel {
         return interactor.DEFAULT_BINARY_FILE_NAME;
     }
 
-    public boolean loadBinary(File file) {
+    public boolean loadBinary(FileInputStream file) {
         return interactor.loadBinary(file);
     }
 }
