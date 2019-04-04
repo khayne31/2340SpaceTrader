@@ -1,6 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-public enum Resources {
+import java.io.Serializable;
+
+public enum Resources implements Serializable {
     NO(0, "NOSPECIALRESOURCES"),
     MINRCH(1, "MINARALRICH"),
     MINPR(2, "MINERALPOOER"),

@@ -1,8 +1,9 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Good {
+public class Good implements Serializable {
     private final double MAXPPRICEFACTOR = 3;
     private GoodType typeOfGood;
     private int minimumTechLvlBuy;

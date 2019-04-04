@@ -1,6 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-public enum RadicalEvent {
+import java.io.Serializable;
+
+public enum RadicalEvent implements Serializable {
     DROUGHT ("Drought"),
     COLD("Cold"),
     CROPFAIL("Cropfail"),

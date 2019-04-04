@@ -22,7 +22,8 @@
             android:src="@drawable/mainscreen" />
     </FrameLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/players_recycler_view"
         android:scrollbars="vertical"
         android:layout_width="0dp"
@@ -35,9 +36,13 @@
         app:layout_constraintBottom_toTopOf="@id/go_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/load_title" >
+        app:layout_constraintTop_toBottomOf="@+id/load_title"
+        tools:context="edu.gatech.cs2340.androidperisitencedemo.LoadScreen" >
+
+
         <!--SOMETHING PROBABLY GOES HERE-->
     </android.support.v7.widget.RecyclerView>
+
 
     <TextView
         android:id="@+id/load_title"

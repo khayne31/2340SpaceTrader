@@ -4,10 +4,12 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -51,9 +53,9 @@ public class LoadScreen extends AppCompatActivity {
         File file;
 
         //create a file object in the local files section
-        file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
+        //file = new File(this.getFilesDir(), playerInteractor.DEFAULT_BINARY_FILE_NAME);
         //Log.d("MY APP", "Loading Binary Data");
-        playerInteractor.loadBinary(file);
+        //playerInteractor.loadBinary(file);
         //reset adapter to new data that has come in.
         //myAdapter.updateList(playerInteractor.getAllPlayers());
         //Log.d("MY APP", "New Adaptor set");
@@ -64,7 +66,24 @@ public class LoadScreen extends AppCompatActivity {
         playerSpinner.setAdapter(adapter);
         //playerSpinner.setAdapter(myAdapter);
 
+//        recyclerView = (RecyclerView) findViewById(R.id.cardList);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        View recyclerView = findViewById(R.id.players_recycler_view);
+        assert recyclerView != null;
+        setupRecyclerView((RecyclerView) recyclerView);
+
     }
+
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        PlayerInteractor pi = PlayerInteractor.getInstance();
+
+        myAdapter = new SimpleItemRecyclerViewAdapter(pi.getAllPlayers());
+
+        recyclerView.setAdapter(myAdapter);
+    }
+
     public void onGoBackPressed(View view) {
         startActivity(new Intent(this, MainMenu.class));
         Log.i("Test", "Returning to Main Menu");
@@ -72,7 +91,7 @@ public class LoadScreen extends AppCompatActivity {
 
     public void onLoadGamePressed(View view) {
         PlayerInteractor playerInteractor = PlayerInteractor.getInstance();
-        //selectedPlayer = (Player) playerSpinner.getSelectedItem();
+        selectedPlayer = (Player) playerSpinner.getSelectedItem();
         File file;
 
         //create a file object in the local files section
@@ -82,6 +101,9 @@ public class LoadScreen extends AppCompatActivity {
         //reset adapter to new data that has come in.
         myAdapter.updateList(playerInteractor.getAllPlayers());
         //Log.d("MY APP", "New Adaptor set");
+        selectedPlayer = (Player) playerSpinner.getSelectedItem();
+        Intent moveActivities = new Intent(this, PlanetScreen.class);
+        startActivity(moveActivities);
 
 
     }

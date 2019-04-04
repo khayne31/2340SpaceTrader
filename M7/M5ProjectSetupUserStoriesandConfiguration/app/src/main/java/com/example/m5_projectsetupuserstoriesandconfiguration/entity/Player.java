@@ -21,7 +21,6 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
-    private static final long serialVersionUID = 465489746;
 
 
 

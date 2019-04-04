@@ -2,9 +2,10 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CoordinateSystem {
+public class CoordinateSystem implements Serializable {
     private ArrayList<ArrayList<Planet>> system;
     private ArrayList<Planet> allPlanets;
     private double populationProb;

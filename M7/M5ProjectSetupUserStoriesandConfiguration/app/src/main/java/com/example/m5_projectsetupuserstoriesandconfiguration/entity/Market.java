@@ -3,12 +3,13 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 
-public class Market {
+public class Market implements Serializable {
     private int marketSize;
     //first integer is number of goods second integer is price of goods
     private List<Item> itemSellList; // item {type, name, quantity, price}

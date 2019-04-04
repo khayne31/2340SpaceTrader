@@ -1,6 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-public enum Tech {
+import java.io.Serializable;
+
+public enum Tech implements Serializable {
     PRE(0, "PRE"),
     AGR(1, "AGR"),
     MID(2, "MID"),

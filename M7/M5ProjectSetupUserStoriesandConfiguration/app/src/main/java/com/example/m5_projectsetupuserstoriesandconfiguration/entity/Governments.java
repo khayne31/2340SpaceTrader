@@ -1,6 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-public enum Governments {
+import java.io.Serializable;
+
+public enum Governments implements Serializable {
     Dem("Dem", "Democracy"),
     Ari("Ari", "Aristocracy"),
     Oli("Oli", "Oligarchy"),

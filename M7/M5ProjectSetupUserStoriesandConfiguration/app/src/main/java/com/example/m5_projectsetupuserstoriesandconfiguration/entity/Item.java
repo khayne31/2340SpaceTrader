@@ -1,6 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
 
     private GoodType type;
     private String name;
