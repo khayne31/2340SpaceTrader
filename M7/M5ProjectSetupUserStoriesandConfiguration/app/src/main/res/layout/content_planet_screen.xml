@@ -61,6 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/planet_welcome" />
 
+    <!--- coords labels that don't save at the moment
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -75,12 +76,14 @@
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/planet_title">
 
+
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="25dp">
 
-            <!--PILOT-->
+            <!-PILOT-->
+        <!--
             <TextView
                 android:id="@+id/coords_label"
                 android:layout_width="0dp"
@@ -112,7 +115,8 @@
             android:layout_height="40dp"
             android:layout_marginBottom="25dp">
 
-            <!--Resources-->
+            <!-Resources-->
+        <!--
             <TextView
                 android:id="@+id/resources_label"
                 android:layout_width="0dp"
@@ -138,6 +142,7 @@
                 app:fontFamily="@font/aldrich" />
         </TableRow>
     </TableLayout>
+    -->
 
     <Button
         android:id="@+id/space_garage"
@@ -147,7 +152,7 @@
         android:layout_marginLeft="150dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
-        android:layout_marginBottom="275dp"
+        android:layout_marginBottom="375dp"
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onSpaceGaragePressed"
@@ -168,10 +173,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
         android:layout_marginLeft="162dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
-        android:layout_marginBottom="144dp"
-        android:layout_marginTop="10dp"
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onMarketPressed"
@@ -179,10 +183,10 @@
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/space_garage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_garage" />
 
     <Button
         android:id="@+id/travel_button"
@@ -205,7 +209,7 @@
         android:id="@+id/main_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onSavePressed"
@@ -217,11 +221,12 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/travel_button" />
+
     <Button
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onMainMenuPressed"

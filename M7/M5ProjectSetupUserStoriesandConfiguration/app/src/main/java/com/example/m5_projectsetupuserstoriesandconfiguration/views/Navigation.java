@@ -93,8 +93,56 @@ public class Navigation extends AppCompatActivity {
         Log.d("Test", "Travel Button has been pressed");
         RandomEvent.events newEvent = player.travelToPlanet(destinationPlanet);
         buyVM.updatePlayer(player);
-        Toast.makeText(this, newEvent.getEventDescription(), Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, PlanetScreen.class));
+        Toast.makeText(this, newEvent.getEventDescription(), Toast.LENGTH_LONG).show();
+        //startActivity(new Intent(this, PlanetScreen.class));
+        //String event = newEvent.getEventName();
+        switch (newEvent.getEventName()){
+            case "Wormhole":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Bad Navigation":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Asteroid Field":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Space Pirates":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Crew Death":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Travellers":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Ship Upgrade":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Alien Abduction":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Enemy Attack":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Space Tariffs":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Big Space Monster":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Small Space Monster":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Fuel Leak":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Nothing Happened":
+                startActivity(new Intent(this, RENone.class));
+                break;
+            case "Star Gate":
+                startActivity(new Intent(this, RENone.class));
+                break;
+        }
     }
 
 }

@@ -82,4 +82,5 @@
     <string name="title_activity_navigation">Navigation</string>
     <string name="title_activity_load_screen">LoadScreen</string>
     <string name="title_activity_space_garage">SpaceGarage</string>
+    <string name="title_activity_renone">RENone</string>
 </resources>

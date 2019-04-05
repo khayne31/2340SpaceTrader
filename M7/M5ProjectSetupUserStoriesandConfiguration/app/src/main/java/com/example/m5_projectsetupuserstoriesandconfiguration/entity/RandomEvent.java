@@ -42,6 +42,7 @@ public class RandomEvent {
         public String getEventDescription() {
             return eventDescription;
         }
+        public String getEventName() { return eventName; }
     }
 
     RandomEvent(){
