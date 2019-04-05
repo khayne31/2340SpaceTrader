@@ -20,6 +20,8 @@ public class ModelSingleton implements Serializable {
 
     private Map<String, Object> interactorMap;
 
+    private int nonStaticCurrentPlayerID;
+
     private static Market currentMarket;
 
     //could make an interactor map
@@ -30,7 +32,18 @@ public class ModelSingleton implements Serializable {
 
     public static int getCurrentPlayerID() {return currentPlayerID;}
 
-    public static void setCurrentPlayerID(int ID) {currentPlayerID = ID;}
+    public static void setCurrentPlayerID(int ID) {
+        currentPlayerID = ID;
+        instance.setNonStaticCurrentPlayerID(ID);
+    }
+
+    public void setNonStaticCurrentPlayerID(int ID) {
+        nonStaticCurrentPlayerID = ID;
+    }
+
+    public int getNonStaticCurrentPlayerID() {
+        return instance.nonStaticCurrentPlayerID;
+    }
 
     public static Market getCurrentMarket() {return currentMarket;}
 
@@ -65,8 +78,10 @@ public class ModelSingleton implements Serializable {
             ObjectInputStream in = new ObjectInputStream(file);
             // assuming we saved our top level object, we read it back in with one line of code.
             instance = (ModelSingleton) in.readObject();
+            ModelSingleton tempInstance = (ModelSingleton) in.readObject();
             in.close();
             file.close();
+            ModelSingleton.setCurrentPlayerID(tempInstance.getNonStaticCurrentPlayerID());
         } catch (IOException e) {
             Log.e("UserManagementFacade", "Error reading an entry from binary file",e);
             success = false;
@@ -97,6 +112,7 @@ public class ModelSingleton implements Serializable {
             out.writeObject(instance);
             out.close();
             file.close();
+
             /*ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
             Repository checkRepository = (Repository) in.readObject();
             in.close();
