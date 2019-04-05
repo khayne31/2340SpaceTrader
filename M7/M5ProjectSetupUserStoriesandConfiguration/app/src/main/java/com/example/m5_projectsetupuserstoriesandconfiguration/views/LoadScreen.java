@@ -68,12 +68,17 @@ public class LoadScreen extends AppCompatActivity {
     }
 
     public void onLoadGamePressed(View view) {
-        Intent moveActivities = new Intent(this, PlanetScreen.class);
-        int id = ModelSingleton.getCurrentPlayerID();
-        currentPlayer = loadVM.getPlayer(id);
-        Toast.makeText(this, currentPlayer.getName(), LENGTH_SHORT);
+        Toast.makeText(this, "LET ME INNNNNN!!!!", LENGTH_SHORT);
+        //Intent moveActivities = new Intent(this, PlanetScreen.class);
+
+        //int id = ModelSingleton.getCurrentPlayerID();
+        //Toast.makeText(this, "1" + id + "1", LENGTH_SHORT);
+
+        //currentPlayer = loadVM.getPlayer(id);
+        //Toast.makeText(this, currentPlayer.getName(), LENGTH_SHORT);
 
         //startActivity(moveActivities);
+
     }
 
 }
