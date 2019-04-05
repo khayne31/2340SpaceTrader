@@ -16,7 +16,8 @@ public enum Resources implements Serializable {
     LOH(10, "LOTSOFHERBS"),
     ART(11, "ARTISTIC"),
     WAR(12, "WARLIKE"),
-    RCHF(13, "RICHFAUNA");
+    RCHF(13, "RICHFAUNA"),
+    NEVER(14, "NEVER");
 
     private final int lvl;
     private final String resource;

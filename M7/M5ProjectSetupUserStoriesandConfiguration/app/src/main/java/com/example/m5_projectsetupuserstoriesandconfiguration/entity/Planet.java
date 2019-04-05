@@ -32,6 +32,7 @@ public class Planet implements Serializable {
         name = planetName;
         t_lvl = Tech.values()[new Random().nextInt(Tech.values().length)];
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
+        resources = Resources.values()[new Random().nextInt(Resources.values().length)];
         market = new Market(this);
         homesystem = system;
 
