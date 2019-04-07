@@ -7,16 +7,16 @@ import java.util.List;
 public class Ship implements Serializable {
     public enum shipType {
         //(Name, ID, cargo, range, hull, crew, wp, gad, sh, fuel)
-        FL("Flea", "FL", 7, 20, 10, 0, 0, 0, 0, 500), // cargoSize not given (on wiki) supposed to be "few"
-        GN("Gnat", "GN", 15, 14, 20, 0, 1, 1, 0, 700),
-        FI("Firefly", "FI", 20, 17, 25, 0, 1, 1, 1, 1000),
-        MO("Mosquito", "MO", 15, 13, 30, 0, 2, 1, 1, 2000),
-        BB("Bumblebee", "BB", 20, 15, 25, 1, 1, 2, 2, 3000),
-        BE("Beetle", "BE", 50, 14, 10, 3, 0, 1, 1, 4000),
-        HO("Hornet", "HO", 20, 16, 30, 2, 3, 1, 2, 5000),
-        GR("Grasshopper", "GR", 30, 15, 35, 3, 2, 3, 2, 10000),
-        TE("Termite", "TE", 60, 13, 50, 3, 1, 2, 3, 15000),
-        WA("Wasp", "WA", 35, 14, 50, 3, 3, 2, 2, 20000);
+        FL("Flea", "FL", 7, 20, 5, 0, 0, 0, 0, 500), // cargoSize not given (on wiki) supposed to be "few"
+        GN("Gnat", "GN", 15, 14, 10, 0, 1, 1, 0, 700),
+        FI("Firefly", "FI", 20, 8, 25, 0, 1, 1, 1, 1000),
+        MO("Mosquito", "MO", 15, 6, 30, 0, 2, 1, 1, 2000),
+        BB("Bumblebee", "BB", 20, 7, 25, 1, 1, 2, 2, 3000),
+        BE("Beetle", "BE", 50, 14, 5, 3, 0, 1, 1, 4000),
+        HO("Hornet", "HO", 20, 16, 10, 2, 3, 1, 2, 5000),
+        GR("Grasshopper", "GR", 30, 7, 35, 3, 2, 3, 2, 10000),
+        TE("Termite", "TE", 60, 6, 50, 3, 1, 2, 3, 15000),
+        WA("Wasp", "WA", 35, 7, 50, 3, 3, 2, 2, 20000);
 
         private final String type;
         private final String id;

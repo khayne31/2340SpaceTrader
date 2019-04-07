@@ -149,24 +149,24 @@ public class Player implements Serializable {
     }
 
     public ArrayList<Planet> visitablePlanets(){
-        int radius = (int) Math.floor(myShip.getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
         ArrayList<int[]> viableCoords = new ArrayList<>();
         ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
         //viableCoords.add(currentSystem.getCoords());
 
         for(int i = 0; i < currentUniverse.getSizeOfUniverse(); i++){
             for(int j = 0; j < currentUniverse.getSizeOfUniverse(); j++){
-                if(Math.pow(i - currentSystem.getCoords()[0], 2) + Math.pow(j - currentSystem.getCoords()[1],2)
-                        <= Math.pow(radius,2)){
+                if(i >= currentSystem.getCoords()[0] - myShip.getRange() &&
+                        i <= currentSystem.getCoords()[0] + myShip.getRange() &&
+                        j >= currentSystem.getCoords()[1] - myShip.getRange() &&
+                        j <= currentSystem.getCoords()[1] + myShip.getRange()) {
                         viableCoords.add(new int[] {i, j});
-
-
                 }
             }
         }
 
         for(int[] coord: viableCoords){
             //why is this hardcoded
+            //its not. thats how the coordinates work
             SolarSystem  s = currentUniverse.getUniverse().get(coord[0]).get(coord[1]);
             if(s != null){
                 for(Planet p: s.getPlanets()){
@@ -198,13 +198,14 @@ public class Player implements Serializable {
     public RandomEvent.events travelToPlanet(Planet p){
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();
-        int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
-                + Math.pow(sysCoords[1] - currentSystem.getCoords()[1],2)));
-        int maxRadius  = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+        int dx = Math.abs(currentPlanet.getCoords()[0] - sysCoords[0]);
+        int dy = Math.abs(currentPlanet.getCoords()[1] - sysCoords[1]);
+        double maxRadius = 2 *  Math.pow(myShip.getRange(),2);
+        double actualRadius = Math.pow(dx, 2) + Math.pow(dy,2);
 
-        double percentageFuelUsed = (maxRadius - distance) / maxRadius;
-        myShip.setFuel((int)(myShip.getFuel() * percentageFuelUsed));
-        myShip.setRange((int)(myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
+        double remainingFuel = (maxRadius - actualRadius) / actualRadius;
+        myShip.setFuel((int)(myShip.getFuel() * remainingFuel));
+        myShip.setRange((myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
         return new RandomEvent().generateRandomEvent(this);
