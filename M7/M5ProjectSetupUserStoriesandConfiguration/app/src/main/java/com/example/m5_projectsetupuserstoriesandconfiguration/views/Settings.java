@@ -27,7 +27,9 @@ public class Settings extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         music = findViewById(R.id.music_toggle);
         music.setChecked(true);

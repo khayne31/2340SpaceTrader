@@ -60,8 +60,9 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
+        if (actionBar != null) {
+            actionBar.hide();
+        }
         // get referenced widgets
         recyclerView = findViewById(R.id.items_recycler_view);
         mConstraintLayout = findViewById(R.id.market_constraint_layout);

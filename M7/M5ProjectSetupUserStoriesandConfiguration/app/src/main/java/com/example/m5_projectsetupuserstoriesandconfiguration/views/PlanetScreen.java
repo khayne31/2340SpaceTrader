@@ -50,7 +50,9 @@ public class PlanetScreen extends AppCompatActivity {
         planetNameLabel.setText(planetName);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
     public void onSpaceGaragePressed(View view){
         Log.d("Test", "Space Garage Button has been pressed");

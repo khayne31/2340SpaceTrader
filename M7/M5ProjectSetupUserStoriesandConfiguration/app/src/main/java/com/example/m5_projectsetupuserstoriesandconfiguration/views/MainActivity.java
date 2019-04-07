@@ -89,7 +89,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         largeLog("UniverseResults", universe.toString());
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){

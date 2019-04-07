@@ -46,7 +46,9 @@ public class Navigation extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
         player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());

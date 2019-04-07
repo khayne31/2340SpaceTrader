@@ -24,7 +24,9 @@ public class MainMenu extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
 
     public void onNewGamePressed(View view){

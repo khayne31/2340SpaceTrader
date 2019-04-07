@@ -50,7 +50,9 @@ public class LoadScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
         try {

@@ -47,7 +47,9 @@ public class PostPlayerScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         ePtsLabel = findViewById(R.id.engineer_final_pts);
         pPtsLabel = findViewById(R.id.pilot_final_pts);
