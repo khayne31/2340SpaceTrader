@@ -83,4 +83,6 @@
     <string name="title_activity_load_screen">LoadScreen</string>
     <string name="title_activity_space_garage">SpaceGarage</string>
     <string name="title_activity_renone">RENone</string>
+    <string name="title_activity_fuel_depot">FuelDepot</string>
+    <string name="title_activity_equipment_hangar">EquipmentHangar</string>
 </resources>

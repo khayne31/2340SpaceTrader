@@ -50,6 +50,7 @@ public class RandomEvent {
     }
 
     public events generateRandomEvent(Player p){
+        //want to have nothing happen 25% of the time
         events event = events.values()[new Random().nextInt(events.values().length)];
         switch(event){
             case Wormhole:

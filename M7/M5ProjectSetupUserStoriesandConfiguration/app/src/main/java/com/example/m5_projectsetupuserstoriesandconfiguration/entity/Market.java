@@ -26,6 +26,7 @@ public class Market implements Serializable {
         itemSellList = new ArrayList<Item>();
         marketSize = new Random().nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
+        //Get rid of this, market people don't need to have money
         credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
@@ -118,6 +119,7 @@ public class Market implements Serializable {
                 returnString = "The purchase was successful!";
                 int moneyTraded =  numberOfGood * updateItem.getPrice();
                 p.setCredits(p.getCredits() - moneyTraded);
+                //deprecated
                 credits += moneyTraded;
             } else{
                 returnString = "The purchase failed";
@@ -129,6 +131,7 @@ public class Market implements Serializable {
 
     public String tradeSell(Player p, GoodType currentGood, int numberOfGood){
 
+        //deprecated
         List<Item> buyItems = getBuyItems(p);
         int position = getTradeGoodPosition(currentGood);
 
@@ -160,6 +163,7 @@ public class Market implements Serializable {
     public List<Item> getSellItems() { return itemSellList; }
 
     // get list of items that player has
+    //deprecate
     public List<Item> getBuyItems(Player p) {
         List<Item> itemBuyList = new ArrayList<>();
 

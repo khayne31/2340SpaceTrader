@@ -34,7 +34,9 @@ public class Player implements Serializable {
         this.diff = difficulty;
         myShip = new Ship(Ship.makeGnat(), 700, 200, 0);
         currentUniverse = uni;
+        //law of demeter violation
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
+        //law of demeter violation
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
         currentPlanet.playerLandedOn();
     }
@@ -137,6 +139,7 @@ public class Player implements Serializable {
         }
     }
 
+    //why isn't this used
     public SolarSystem getCurrentSystem() {
         return currentSystem;
     }
@@ -163,6 +166,7 @@ public class Player implements Serializable {
         }
 
         for(int[] coord: viableCoords){
+            //why is this hardcoded
             SolarSystem  s = currentUniverse.getUniverse().get(coord[0]).get(coord[1]);
             if(s != null){
                 for(Planet p: s.getPlanets()){
@@ -223,6 +227,7 @@ public class Player implements Serializable {
         return currentUniverse;
     }
 
+        //deprecated
     public static Player parseEntry(String line) {
         assert line != null;
         String[] tokens = line.split("\t");
@@ -235,6 +240,7 @@ public class Player implements Serializable {
         return s;
     }
 
+    //deprecated
     /**
      * Save this class in a custom save format
      * I chose to use tab (\t) to make line splitting easy for loading
