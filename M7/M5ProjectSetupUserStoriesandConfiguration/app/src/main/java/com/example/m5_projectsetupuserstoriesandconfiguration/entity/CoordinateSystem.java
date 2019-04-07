@@ -9,7 +9,7 @@ public class CoordinateSystem implements Serializable {
     private ArrayList<ArrayList<Planet>> system;
     private ArrayList<Planet> allPlanets;
     private double populationProb;
-    private final double MAX_PROB = .1;
+    private final double MAX_PROB = .05;
     private String systemName;
     private int size;
     private Resources resources;

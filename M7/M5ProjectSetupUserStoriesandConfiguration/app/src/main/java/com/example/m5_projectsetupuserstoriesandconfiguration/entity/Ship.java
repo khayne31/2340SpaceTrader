@@ -225,6 +225,7 @@ public class Ship implements Serializable {
         if(this.fuel - fuel <= 0) {
             // TODO: do something when fuel hits zero
             this.fuel = 0;
+            range = 0;
         } else {
             this.hp -= fuel;
         }

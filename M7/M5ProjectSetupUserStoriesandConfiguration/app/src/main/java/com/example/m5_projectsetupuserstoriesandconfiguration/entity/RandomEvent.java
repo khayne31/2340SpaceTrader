@@ -27,9 +27,10 @@ public class RandomEvent {
         MonsterB("Big Space Monster", "Your ship took damage from an enraged Giant Space Monster! Your ship loses " + BIG_SPACE_BOI + " hp."),
         MonsterS("Small Space Monster", "Your ship took damage from an Small Space Monster migration! Your ship loses " + SMOL_SPACE_BOI + " hp."),
         FuelLeak("Fuel Leak", "Your ship was leaking fuel. Your ship loses " + FUEL_TO_LOSE + " gallons of fuel."),
+        StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were transported to a random planet"),
+        //DONT ADD NEW THINGS AFTER THIS ONLY BEFORE
         Nothing("Nothing Happened", "Your Trip was successful"),
-        None("Nothing Happened", "Your Trip was successful"),
-        StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were transported to a random planet");
+        ;
 
         private String eventName;
         private String eventDescription;
@@ -51,7 +52,7 @@ public class RandomEvent {
 
     public events generateRandomEvent(Player p){
         //want to have nothing happen 25% of the time
-        events event = events.values()[new Random().nextInt(events.values().length)];
+        events event = events.values()[new Random().nextInt(events.values().length - 1)];
         switch(event){
             case Wormhole:
                 Universe uni = p.getCurrentUniverse();
@@ -104,8 +105,6 @@ public class RandomEvent {
                 break;
             case FuelLeak:
                 p.getMyShip().loseFuel(FUEL_TO_LOSE);
-                break;
-            case None:
                 break;
             case Nothing:
                 break;

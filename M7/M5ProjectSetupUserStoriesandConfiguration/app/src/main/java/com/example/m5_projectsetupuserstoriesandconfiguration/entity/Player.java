@@ -208,19 +208,21 @@ public class Player implements Serializable {
         myShip.setRange((myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
-        return new RandomEvent().generateRandomEvent(this);
+        p.playerLandedOn();
+        return Math.random() < .25 ? RandomEvent.events.Nothing : new RandomEvent().generateRandomEvent(this);
     }
 
     public int getFuelRequired(Planet p) {
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();
-        int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
-                + Math.pow(sysCoords[1] - currentSystem.getCoords()[1],2)));
-        int maxRadius  = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+        int dx = Math.abs(currentPlanet.getCoords()[0] - sysCoords[0]);
+        int dy = Math.abs(currentPlanet.getCoords()[1] - sysCoords[1]);
+        double maxRadius = 2 *  Math.pow(myShip.getRange(),2);
+        double actualRadius = Math.pow(dx, 2) + Math.pow(dy,2);
 
-        double percentageFuelUsed = (maxRadius - distance) / maxRadius;
+        double remainingFuel = (maxRadius - actualRadius) / actualRadius;
 
-        return (int)(myShip.getFuel() - (myShip.getFuel() * percentageFuelUsed));
+        return (int)(myShip.getFuel() - (myShip.getFuel() * remainingFuel));
     }
 
 
