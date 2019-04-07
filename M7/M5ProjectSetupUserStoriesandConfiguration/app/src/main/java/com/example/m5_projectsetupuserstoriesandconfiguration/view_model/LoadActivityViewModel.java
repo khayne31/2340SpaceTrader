@@ -8,7 +8,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 
-import java.io.File;
+
 import java.io.FileInputStream;
 import java.util.List;
 

@@ -2,7 +2,6 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.view_model;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;

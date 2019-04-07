@@ -1,11 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
-import android.widget.Toast;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 
@@ -39,14 +36,14 @@ public class Market implements Serializable {
     }
 
     private void initializeMarketInventory(){
-        int remaingGoods = marketSize;
+        int remainingGoods = marketSize;
         //TODO fix this to make more balanced
         for(GoodType g : GoodType.values()) {
 
             //if the planet has the required tech level to sell a good, add it to the market
             if(planet.getT_lvl().getLvl() >= g.getMtlp()) {
                 Random rand = new Random();
-                int quant = rand.nextInt(remaingGoods+1);
+                int quant = rand.nextInt(remainingGoods+1);
                 Log.d("MarketPrice", "Checkpoint-2");
                 //int price = generateMarketPrice(g);
                 Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));
@@ -75,7 +72,7 @@ public class Market implements Serializable {
         // we don't have to worry about this being negative bc for the planet to sell the good
         // planet tech >= item tech so planet tech - item tech >= 0
 
-        if( planet.getEvent().equals(gt.getIe()) ) {         // RadicalEvents match --> incr prices
+        if( planet.getEvent().equals(gt.getIe()) ) {         // RadicalEvents match --> increase prices
             multiplier = multiplier * 1.5;
         }
 //        if( planet.getResources().getResourceName().equals(gt.getCr().getResourceName()) ) {     // cheap resource condition

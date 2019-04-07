@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class Good implements Serializable {
-    private final double MAXPPRICEFACTOR = 3;
+    private final double MAXPRICEFACTOR = 3;
     private GoodType typeOfGood;
     private int minimumTechLvlBuy;
     private int minimumTechLvlSell;
     private Tech optimalTechLevel;
-    private int priceIncrese;
+    private int priceIncrease;
     private double variance;
     private RadicalEvent radicalPriceEvent;
     private Resources expensivePrice;
@@ -23,13 +23,13 @@ public class Good implements Serializable {
         this.minimumTechLvlBuy = typeOfGood.getMtlp();
         this.minimumTechLvlSell = typeOfGood.getMtlu();
         this.optimalTechLevel =typeOfGood.getTtp();
-        this.priceIncrese = typeOfGood.getIpl();
+        this.priceIncrease = typeOfGood.getIpl();
         this.variance = typeOfGood.getVar();
         this.radicalPriceEvent =typeOfGood.getIe();
         this.expensivePrice = typeOfGood.getCr();
         this.cheapPrice = typeOfGood.getEr();
         this.minPrice = this.typeOfGood.getBasePrice();
-        this.maxPrice = (int) (this.typeOfGood.getBasePrice()* MAXPPRICEFACTOR);
+        this.maxPrice = (int) (this.typeOfGood.getBasePrice()* MAXPRICEFACTOR);
         this.marketPrice = minPrice;
 
 
@@ -41,13 +41,13 @@ public class Good implements Serializable {
         }
 
     public Good(GoodType typeOfGood, int minimumTechLvlBuy, int minimumTechLvlSell,
-                Tech optimalTechLevel, int priceIncrese, double variance, RadicalEvent radicalPriceEvent,
+                Tech optimalTechLevel, int priceIncrease, double variance, RadicalEvent radicalPriceEvent,
                 Resources expensivePrice, Resources cheapPrice, int minPrice, int maxPrice) {
         this.typeOfGood = typeOfGood;
         this.minimumTechLvlBuy = minimumTechLvlBuy;
         this.minimumTechLvlSell = minimumTechLvlSell;
         this.optimalTechLevel = optimalTechLevel;
-        this.priceIncrese = priceIncrese;
+        this.priceIncrease = priceIncrease;
         this.variance = variance;
         this.radicalPriceEvent = radicalPriceEvent;
         this.expensivePrice = expensivePrice;
@@ -73,8 +73,8 @@ public class Good implements Serializable {
         return optimalTechLevel;
     }
 
-    public int getPriceIncrese() {
-        return priceIncrese;
+    public int getPriceIncrease() {
+        return priceIncrease;
     }
 
     public double getVariance() {
