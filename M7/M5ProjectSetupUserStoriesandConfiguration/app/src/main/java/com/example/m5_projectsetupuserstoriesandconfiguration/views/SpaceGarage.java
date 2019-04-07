@@ -36,7 +36,7 @@ public class SpaceGarage extends AppCompatActivity {
         Log.i("Test", "Going to Fuel Depot");
     }
 
-    public void onEqupimentHangarPressed(View view) {
+    public void onEquipmentHangarPressed(View view) {
         startActivity(new Intent(this, EquipmentHangar.class));
         Log.i("Test", "Going to Equipment Hangar");
     }

@@ -56,7 +56,7 @@ public class Ship implements Serializable {
     private enum weaponType {
         PL("Pulse Lasers", "PL", 1),
         BL("Beam Lasers", "BL", 5),
-        ML("Military Lassers", "ML", 10);
+        ML("Military Lasers", "ML", 10);
 
         private final String type;
         private final String id;

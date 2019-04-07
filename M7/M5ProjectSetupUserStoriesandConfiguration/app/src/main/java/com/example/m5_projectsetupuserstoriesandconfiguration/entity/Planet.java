@@ -24,7 +24,7 @@ public class Planet implements Serializable {
             Log.d("UniverseLogCat", coords+"");
             Log.d("UniverseLogCat", "inside planet constructor inside coords");
         } else{
-            Log.d("UniverseLogCat", "inside planet constructor before cdoords");
+            Log.d("UniverseLogCat", "inside planet constructor before coords");
             coords[1] = 0;
             coords[0] = 0;
         }

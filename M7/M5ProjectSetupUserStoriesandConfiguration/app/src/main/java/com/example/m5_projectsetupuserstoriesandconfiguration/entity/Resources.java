@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public enum Resources implements Serializable {
     NO(0, "NOSPECIALRESOURCES"),
-    MINRCH(1, "MINARALRICH"),
-    MINPR(2, "MINERALPOOER"),
-    DSRT(3, "DESSERT"),
+    MINRCH(1, "MINERALRICH"),
+    MINPR(2, "MINERALPOOR"),
+    DSRT(3, "DESERT"),
     LOW(4, "LOTSOFWATER"),
     RS(5, "RICHSOIL"),
     PS(6, "POORSOIL"),
