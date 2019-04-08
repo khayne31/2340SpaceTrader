@@ -32,7 +32,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), 700, 200, 0);
+        myShip = new Ship(Ship.makeGnat(), 200, 0);
         currentUniverse = uni;
         //law of demeter violation
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
@@ -204,7 +204,7 @@ public class Player implements Serializable {
         double maxRadius = 2 *  Math.pow(myShip.getRange(),2);
         double actualRadius = Math.pow(dx, 2) + Math.pow(dy,2);
 
-        double remainingFuel = (maxRadius - actualRadius) / actualRadius;
+        double remainingFuel = (maxRadius - actualRadius) / (maxRadius != 0.0 ? maxRadius: 1);
         myShip.setFuel((int)(myShip.getFuel() * remainingFuel));
         myShip.setRange((myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
@@ -221,9 +221,11 @@ public class Player implements Serializable {
         double maxRadius = 2 *  Math.pow(myShip.getRange(),2);
         double actualRadius = Math.pow(dx, 2) + Math.pow(dy,2);
 
-        double remainingFuel = (maxRadius - actualRadius) / actualRadius;
+        double remainingFuel = (maxRadius - actualRadius) / maxRadius;
 
-        return (int)(myShip.getFuel() - (myShip.getFuel() * remainingFuel));
+        //return (int)(myShip.getFuel() - (myShip.getFuel() * remainingFuel));
+        return  dx + dy * 5;
+
     }
 
 

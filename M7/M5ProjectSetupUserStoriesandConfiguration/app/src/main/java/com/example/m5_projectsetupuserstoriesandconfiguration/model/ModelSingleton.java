@@ -111,7 +111,7 @@ public class ModelSingleton implements Serializable {
     }
 
     public boolean saveBinary(FileOutputStream file) {
-        boolean success = true;
+        boolean success = false;
         ObjectOutputStream out;
         try {
             /*
@@ -123,14 +123,17 @@ public class ModelSingleton implements Serializable {
                One thing to be careful of:  You cannot serialize static data.
              */
             // We basically can save our entire data model with one write, since this will follow
-            // all the links and pointers to save everything.  Just save the top level object.
+            // all the links and pointers to save everything.  Just save the top level object.\
+            Log.d("save", file.toString());
             out = new ObjectOutputStream(file);
             SerializableStorage storage = new SerializableStorage(getPlayerInteractor(), ModelSingleton.getCurrentPlayerID());
             //Player savePlayer = getPlayerInteractor().getAllPlayers().get(currentPlayerID);
             out.writeObject(storage);
             out.close();
-            file.close();
 
+
+            file.close();
+            success = true;
             /*ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
             Repository checkRepository = (Repository) in.readObject();
             in.close();

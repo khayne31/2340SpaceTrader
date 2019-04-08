@@ -73,7 +73,9 @@ public class PlanetScreen extends AppCompatActivity {
         fileName =  planetVM.getDefaultBinaryStringName();
         try {
             out = openFileOutput(fileName, Context.MODE_PRIVATE);
+            Log.d("save", fileName);
         } catch (Exception e) {
+            Log.d("save", "failed");
             out = null;
         }
 

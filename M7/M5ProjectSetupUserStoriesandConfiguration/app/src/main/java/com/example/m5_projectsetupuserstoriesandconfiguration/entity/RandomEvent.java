@@ -80,13 +80,13 @@ public class RandomEvent {
                 p.subtractCredits(NUMBER_CREDITS_LOST);
                 break;
             case Death:
-                p.losePoints(CREDITS_TO_LOSE);
+                //p.losePoints(CREDITS_TO_LOSE);
                 break;
             case Travellers:
-                p.gainPoints(CREDITS_TO_GAIN);
+                //p.gainPoints(CREDITS_TO_GAIN);
                 break;
             case Upgrade:
-                p.getMyShip().upgradeShip();
+                //p.getMyShip().upgradeShip();
                 break;
             case Aliens:
                 p.losePoints(CREDITS_TO_LOSE);

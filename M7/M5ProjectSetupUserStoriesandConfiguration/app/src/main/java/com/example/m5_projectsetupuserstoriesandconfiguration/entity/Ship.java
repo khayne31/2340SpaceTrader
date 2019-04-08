@@ -114,9 +114,9 @@ public class Ship implements Serializable {
     private int maxfuel;
 
 
-    public Ship(shipType type, int fuel, int hp, int cargo) {
+    public Ship(shipType type, int hp, int cargo) {
         this.type = type;
-        this.fuel = fuel;
+        this.fuel = this.type.maxfuel;
         this.hp = hp;
         this.cargo = cargo;
         maxfuel = type.maxfuel;
@@ -227,7 +227,7 @@ public class Ship implements Serializable {
             this.fuel = 0;
             range = 0;
         } else {
-            this.hp -= fuel;
+            this.fuel -= fuel;
         }
     }
 }
