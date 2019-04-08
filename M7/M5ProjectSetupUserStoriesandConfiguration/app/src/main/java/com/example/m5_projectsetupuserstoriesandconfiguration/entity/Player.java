@@ -259,5 +259,22 @@ public class Player implements Serializable {
                 currentUniverse.toStringForSave());
     }
 
+    public Difficulty getDiff() {
+        return diff;
+    }
+
+    public void setDiff(Difficulty diff) {
+        this.diff = diff;
+    }
+
+    public void setMyShip(Ship myShip) {
+        this.myShip = myShip;
+    }
+
+    public void setCurrentUniverse(Universe currentUniverse) {
+        this.currentUniverse = currentUniverse;
+    }
+
+
 
 }
