@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "704122466444",
+    "firebase_url": "https://m5projectsetupuserstoriesandco.firebaseio.com",
+    "project_id": "m5projectsetupuserstoriesandco",
+    "storage_bucket": "m5projectsetupuserstoriesandco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704122466444:android:fb907d1bc60d6ada",
+        "android_client_info": {
+          "package_name": "com.example.m5_projectsetupuserstoriesandconfiguration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704122466444-eegmap9tpc8sffvn4bn51iss7l6fuppo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.m5_projectsetupuserstoriesandconfiguration",
+            "certificate_hash": "21517aea1eb4b5243de904f5ebaee48d8b8b669b"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWUr6slXFls3KzaBQPwlWRRsinnukDqoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704122466444-jn4ga0njf5billpel4t78dm393dl17ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
