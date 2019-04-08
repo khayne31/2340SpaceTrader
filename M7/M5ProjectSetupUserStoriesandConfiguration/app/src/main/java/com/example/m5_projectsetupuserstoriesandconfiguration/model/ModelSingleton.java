@@ -8,8 +8,8 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -116,7 +116,7 @@ public class ModelSingleton implements Serializable {
     public boolean saveBinary(FileOutputStream file) {
 
         Log.d("SINGLETON", "saveBinary");
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        /*FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
         Player player = getPlayerInteractor().getAllPlayers().get(0);
         Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(), player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(), player.getDiff());
@@ -127,7 +127,7 @@ public class ModelSingleton implements Serializable {
 
 
 
-
+*/
         boolean success = false;
         ObjectOutputStream out;
         try {
