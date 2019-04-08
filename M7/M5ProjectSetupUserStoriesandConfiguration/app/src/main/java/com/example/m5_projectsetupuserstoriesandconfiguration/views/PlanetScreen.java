@@ -4,8 +4,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,11 +16,8 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetScreenViewModel;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.SaveActivityViewModel;
-
-import java.io.File;
 import java.io.FileOutputStream;
 
 public class PlanetScreen extends AppCompatActivity {

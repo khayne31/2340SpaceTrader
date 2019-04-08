@@ -1,8 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.model;
 
-import android.util.Log;
-import java.util.List;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 
 /**
  * Provides the operations associated with the User entity

@@ -3,7 +3,6 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import android.util.Log;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Planet implements Serializable {
@@ -72,8 +71,8 @@ public class Planet implements Serializable {
         return resources;
     }
 
-    public Tech getT_lvl() {
-        return t_lvl;
+    public int getT_lvl() {
+        return t_lvl.getLvl();
     }
 
     public void playerLandedOn(){

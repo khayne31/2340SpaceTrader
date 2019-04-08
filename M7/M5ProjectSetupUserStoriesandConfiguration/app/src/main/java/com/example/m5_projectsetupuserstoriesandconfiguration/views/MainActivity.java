@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
-        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
             pilotpts++;
             pointcount--;
         }
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
-        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
             engineerpts++;
             pointcount--;
         }
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
-        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
             traderpts++;
             pointcount--;
         }
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
-        if (pilotpts + engineerpts + fighterpts + traderpts < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
             fighterpts++;
             pointcount--;
         }
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         if (name.equals("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
         } else {
-            if (fighterpts + pilotpts + engineerpts + traderpts == 16) {
+            if ((fighterpts + pilotpts + engineerpts + traderpts) == 16) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 name = nameField.getText().toString();
                 player = new Player(name,fighterpts, traderpts, engineerpts, pilotpts, diff, universe);

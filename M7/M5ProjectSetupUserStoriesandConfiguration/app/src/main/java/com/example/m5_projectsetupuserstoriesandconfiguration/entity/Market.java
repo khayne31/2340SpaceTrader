@@ -41,7 +41,7 @@ public class Market implements Serializable {
         for(GoodType g : GoodType.values()) {
 
             //if the planet has the required tech level to sell a good, add it to the market
-            if(planet.getT_lvl().getLvl() >= g.getMtlp()) {
+            if(planet.getT_lvl() >= g.getMtlp()) {
                 Random rand = new Random();
                 int quant = rand.nextInt(remainingGoods+1);
                 Log.d("MarketPrice", "Checkpoint-2");
@@ -63,10 +63,10 @@ public class Market implements Serializable {
         double multiplier = 1;                                 // starts as 1, as if no effective events
         // won't affect price
 
-        double variance = gt.getVar()/100.0 * gt.getBasePrice();  // the variance of price from base price (always
+        double variance = (gt.getVar()/100.0) * gt.getBasePrice();  // the variance of price from base price (always
         // applied, kind of like a item tax)
 
-        double techBal = (planet.getT_lvl().getLvl() - gt.getMtlp())/100.0 * gt.getBasePrice();
+        double techBal = (planet.getT_lvl() - gt.getMtlp())/100.0 * gt.getBasePrice();
         // re-balance prices based on diff between planet tech and item tech production lvl
         // treat the diff as a percentage increase on base price
         // we don't have to worry about this being negative bc for the planet to sell the good
@@ -82,7 +82,7 @@ public class Market implements Serializable {
 //             multiplier = multiplier * 2;
 //        }
 
-        price = (int) ((double) price * multiplier + variance + techBal);   // use the price multiplier to accommodate event effects
+        price = (int) ((double) (price * multiplier) + variance + techBal);   // use the price multiplier to accommodate event effects
         // add variance to price
         // add tech price re-balance
         return price;   // price is an int so we don't have to worry about awkward subtraction and partial credits
@@ -102,7 +102,7 @@ public class Market implements Serializable {
             returnString = "There is no items left to trade for";
         } else if(itemSellList.get(position).getQuantity() < numberOfGood){
             returnString = "There aren't enough of that good left to trade for";
-        }  else if(p.getCredits() < itemSellList.get(position).getPrice() * numberOfGood){
+        }  else if(p.getCredits() < (itemSellList.get(position).getPrice() * numberOfGood)){
             returnString = "You don't have enough credits to buy these items";
         } else if ((p.getMyShip().getCurrCargoSize() + numberOfGood) > p.getMyShip().getType().getMaxCargo()) {
             returnString = "You don't have enough cargo space left to store that good";

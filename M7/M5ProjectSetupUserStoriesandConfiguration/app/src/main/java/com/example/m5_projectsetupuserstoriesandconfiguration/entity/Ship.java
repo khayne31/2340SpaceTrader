@@ -148,7 +148,7 @@ public class Ship implements Serializable {
     }
 
     public boolean addGood(GoodType g, int numberOfGoods){
-        if(numberOfGoods >= 0 && numberOfGoods + cargo <= type.cargoSize){
+        if((numberOfGoods >= 0) && ((numberOfGoods + cargo) <= type.cargoSize)){
             goodList.put(g, goodList.get(g) + numberOfGoods);
             cargo += numberOfGoods;
             return true;
@@ -158,7 +158,7 @@ public class Ship implements Serializable {
     }
     public  boolean sellGood(GoodType g, int numberOfGoods){
         int currentNumber = goodList.get(g);
-        if(currentNumber - numberOfGoods >= 0){
+        if((currentNumber - numberOfGoods) >= 0){
             goodList.put(g, currentNumber - numberOfGoods);
             cargo -= numberOfGoods;
             return true;
@@ -200,7 +200,7 @@ public class Ship implements Serializable {
     }
 
     public void loseHp(int hp) {
-        if(this.hp - hp <= 0){
+        if((this.hp - hp) <= 0){
             //TODO: do something when hp hits zero
             this.hp = 0;
 
@@ -212,7 +212,7 @@ public class Ship implements Serializable {
     public void upgradeShip(){
         int i;
         shipType[] temp =  shipType.values();
-        for(i = 0; i < temp.length - 1; i++){
+        for(i = 0; i < (temp.length - 1); i++){
             if(type.equals(temp[i])){
                 break;
             }
@@ -222,7 +222,7 @@ public class Ship implements Serializable {
     }
 
     public void loseFuel(int fuel) {
-        if(this.fuel - fuel <= 0) {
+        if((this.fuel - fuel) <= 0) {
             // TODO: do something when fuel hits zero
             this.fuel = 0;
             range = 0;

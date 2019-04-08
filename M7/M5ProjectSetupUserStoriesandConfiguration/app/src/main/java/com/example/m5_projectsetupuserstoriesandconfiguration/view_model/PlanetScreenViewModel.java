@@ -7,19 +7,7 @@ import android.support.annotation.NonNull;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.ViewModel;
-import android.support.annotation.NonNull;
-
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
-
-import java.io.File;
 import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 

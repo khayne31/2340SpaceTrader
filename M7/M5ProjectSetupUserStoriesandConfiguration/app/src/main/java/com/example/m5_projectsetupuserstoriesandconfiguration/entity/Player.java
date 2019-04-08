@@ -61,7 +61,7 @@ public class Player implements Serializable {
 
     public void setPilotPoints(int pilotPoints) {this.pilotPoints = pilotPoints;}
 
-    public int getEngineerPoints() {return engineerPoints;};
+    public int getEngineerPoints() {return engineerPoints;}
 
     public void setEngineerPoints(int engineerPoints) {this.engineerPoints = engineerPoints; }
 
@@ -88,7 +88,7 @@ public class Player implements Serializable {
     }
 
     public void subtractCredits(int x){
-        credits = credits - x > 0 ? credits - x : 0;
+        credits = (credits - x) > 0 ? credits - x : 0;
     }
 
     public void losePoints(int x){
@@ -155,10 +155,10 @@ public class Player implements Serializable {
 
         for(int i = 0; i < currentUniverse.getSizeOfUniverse(); i++){
             for(int j = 0; j < currentUniverse.getSizeOfUniverse(); j++){
-                if(i >= currentSystem.getCoords()[0] - myShip.getRange() &&
-                        i <= currentSystem.getCoords()[0] + myShip.getRange() &&
-                        j >= currentSystem.getCoords()[1] - myShip.getRange() &&
-                        j <= currentSystem.getCoords()[1] + myShip.getRange()) {
+                if(i >= (currentSystem.getCoords()[0] - myShip.getRange()) &&
+                        i <= (currentSystem.getCoords()[0] + myShip.getRange()) &&
+                        j >= (currentSystem.getCoords()[1] - myShip.getRange()) &&
+                        j <= (currentSystem.getCoords()[1] + myShip.getRange())) {
                         viableCoords.add(new int[] {i, j});
                 }
             }
