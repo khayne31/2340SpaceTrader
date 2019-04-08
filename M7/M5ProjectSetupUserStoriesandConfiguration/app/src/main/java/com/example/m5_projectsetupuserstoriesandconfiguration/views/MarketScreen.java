@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;

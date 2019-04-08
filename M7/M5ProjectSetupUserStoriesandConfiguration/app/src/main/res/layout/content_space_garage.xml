@@ -29,17 +29,17 @@
         android:id="@+id/fuel_depot_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
+        android:onClick="onFuelDepotPressed"
         android:text="Fuel Depot"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/equipment_hangar_button"
@@ -48,7 +48,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
-        android:onClick="onBackPressed"
+        android:onClick="onEquipmentHangarPressed"
         android:text="Equipment Hangar"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"

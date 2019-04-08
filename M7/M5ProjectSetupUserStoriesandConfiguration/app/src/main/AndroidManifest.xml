@@ -12,7 +12,7 @@
         <activity
             android:name=".views.EquipmentHangar"
             android:label="@string/title_activity_equipment_hangar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.FuelDepot"
             android:label="@string/title_activity_fuel_depot"

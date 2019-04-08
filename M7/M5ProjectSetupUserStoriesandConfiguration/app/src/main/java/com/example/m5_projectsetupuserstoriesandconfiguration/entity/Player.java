@@ -1,7 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import android.util.Log;
-
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;

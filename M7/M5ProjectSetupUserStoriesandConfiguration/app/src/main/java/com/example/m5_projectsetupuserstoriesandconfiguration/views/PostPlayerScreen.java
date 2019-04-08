@@ -16,8 +16,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPlayerScreenViewModel;
 
-import java.io.Serializable;
-
 public class PostPlayerScreen extends AppCompatActivity {
 
     private int pPoints;

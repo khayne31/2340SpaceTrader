@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.GoodType;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.RandomEvent;
