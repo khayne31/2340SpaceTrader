@@ -208,7 +208,7 @@ public class Player implements Serializable {
         currentPlanet = p;
         currentSystem = p.getHomesystem();
         p.playerLandedOn();
-        return Math.random() < .25 ? RandomEvent.events.Nothing : new RandomEvent().generateRandomEvent(this);
+        return Math.random() < 0 ? RandomEvent.events.Nothing : new RandomEvent().generateRandomEvent(this);
     }
 
     public int getFuelRequired(Planet p) {
