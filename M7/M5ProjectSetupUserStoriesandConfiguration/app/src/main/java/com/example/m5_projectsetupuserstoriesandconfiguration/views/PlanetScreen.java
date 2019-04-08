@@ -39,6 +39,7 @@ public class PlanetScreen extends AppCompatActivity {
 
         planetVM = ViewModelProviders.of(this).get(PlanetScreenViewModel.class);
         player = planetVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
+        //cannot get the player when loading
         currentPlanet = player.getCurrentPlanet();
         planetNameLabel = findViewById(R.id.planet_title);
         planetName = currentPlanet.getName();

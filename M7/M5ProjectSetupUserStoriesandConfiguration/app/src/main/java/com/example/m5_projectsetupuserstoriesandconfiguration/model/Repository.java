@@ -3,15 +3,11 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.model;
 import android.util.Log;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 public class Repository implements Serializable {

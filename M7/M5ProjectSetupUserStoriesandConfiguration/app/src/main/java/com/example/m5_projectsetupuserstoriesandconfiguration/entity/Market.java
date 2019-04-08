@@ -18,6 +18,7 @@ public class Market implements Serializable {
 
     private final int QUANTITY_INDEX = 0;
     private final int PRICE_INDEX = 1;
+    private final double BIG100 = 100.0;
 
     public Market(Planet planet){
         itemSellList = new ArrayList<Item>();
@@ -63,10 +64,10 @@ public class Market implements Serializable {
         double multiplier = 1;                                 // starts as 1, as if no effective events
         // won't affect price
 
-        double variance = (gt.getVar()/100.0) * gt.getBasePrice();  // the variance of price from base price (always
+        double variance = (gt.getVar()/BIG100) * gt.getBasePrice();  // the variance of price from base price (always
         // applied, kind of like a item tax)
 
-        double techBal = (planet.getT_lvl() - gt.getMtlp())/100.0 * gt.getBasePrice();
+        double techBal = (planet.getT_lvl() - gt.getMtlp())/BIG100 * gt.getBasePrice();
         // re-balance prices based on diff between planet tech and item tech production lvl
         // treat the diff as a percentage increase on base price
         // we don't have to worry about this being negative bc for the planet to sell the good

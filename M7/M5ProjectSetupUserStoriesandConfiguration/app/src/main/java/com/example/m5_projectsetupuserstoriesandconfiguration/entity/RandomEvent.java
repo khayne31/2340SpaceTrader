@@ -28,7 +28,7 @@ public class RandomEvent {
         MonsterS("Small Space Monster", "Your ship took damage from an Small Space Monster migration! Your ship loses " + SMOL_SPACE_BOI + " hp."),
         FuelLeak("Fuel Leak", "Your ship was leaking fuel. Your ship loses " + FUEL_TO_LOSE + " gallons of fuel."),
         StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were transported to a random planet"),
-        //DONT ADD NEW THINGS AFTER THIS ONLY BEFORE
+        //DON'T ADD NEW THINGS AFTER THIS ONLY BEFORE
         Nothing("Nothing Happened", "Your Trip was successful"),
         ;
 

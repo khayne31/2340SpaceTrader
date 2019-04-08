@@ -23,9 +23,9 @@ public class PlayerInteractor extends Interactor implements Serializable {
 
     private static Repository theRepository = new Repository();
 
-    public final static String DEFAULT_JSON_FILE_NAME = "data.json";
-    public final static String DEFAULT_TEXT_FILE_NAME = "data.txt";
-    public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
+    public static final String DEFAULT_JSON_FILE_NAME = "data.json";
+    public static final String DEFAULT_TEXT_FILE_NAME = "data.txt";
+    public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
 
     private static PlayerInteractor instance = new PlayerInteractor(theRepository);
 

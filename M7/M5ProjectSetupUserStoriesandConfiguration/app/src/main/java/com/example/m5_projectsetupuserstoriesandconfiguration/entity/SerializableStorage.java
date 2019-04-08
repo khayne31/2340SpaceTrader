@@ -3,16 +3,17 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import android.graphics.ColorSpace;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 
 import java.io.Serializable;
 
 public class SerializableStorage implements Serializable {
 
-    private ModelSingleton instance;
+    private PlayerInteractor playerInt;
     private int currentID;
 
-    public SerializableStorage(ModelSingleton toSave, int currentID) {
-        instance = toSave;
+    public SerializableStorage(PlayerInteractor newPlayerInt, int currentID) {
+        playerInt = newPlayerInt;
         this.currentID = currentID;
     }
 
@@ -20,8 +21,8 @@ public class SerializableStorage implements Serializable {
         return currentID;
     }
 
-    public ModelSingleton getInstance() {
-        return instance;
+    public PlayerInteractor getPlayerInteractor() {
+        return playerInt;
     }
 
 }

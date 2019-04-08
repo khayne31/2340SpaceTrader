@@ -166,12 +166,13 @@ public class Player implements Serializable {
 
         for(int[] coord: viableCoords){
             //why is this hardcoded
-            //its not. thats how the coordinates work
+            //its not. that's how the coordinates work
             SolarSystem  s = currentUniverse.getUniverse().get(coord[0]).get(coord[1]);
             if(s != null){
                 for(Planet p: s.getPlanets()){
-                    if(!planetsAbleToVisit.contains(p) && !p.equals(currentPlanet))
+                    if(!planetsAbleToVisit.contains(p) && !p.equals(currentPlanet)) {
                         planetsAbleToVisit.add(p);
+                    }
                 }
             }
 

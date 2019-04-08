@@ -1,8 +1,12 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.model;
 
+import android.graphics.ColorSpace;
 import android.util.Log;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,6 +32,8 @@ public class ModelSingleton implements Serializable {
 
     private static ModelSingleton instance = new ModelSingleton();
 
+    private static void setInstance(ModelSingleton newInstance) {ModelSingleton.instance = newInstance;}
+
     public static ModelSingleton getInstance() {return instance;}
 
     public static int getCurrentPlayerID() {return currentPlayerID;}
@@ -48,6 +54,14 @@ public class ModelSingleton implements Serializable {
     public static Market getCurrentMarket() {return currentMarket;}
 
     public static void setCurrentMarket(Market updatedMarket) {currentMarket = updatedMarket;}
+
+    public void updatePlayer(Player player) {
+        getPlayerInteractor().getAllPlayers().set(currentPlayerID, player);
+    }
+
+    public void setPlayerInteractor(PlayerInteractor newPlayerInt) {
+        interactorMap.put("Player", newPlayerInt);
+    }
 
 
     //Make a new instance
@@ -77,11 +91,13 @@ public class ModelSingleton implements Serializable {
             Log.d("LoadTest", "This line was run2");
             ObjectInputStream in = new ObjectInputStream(file);
             // assuming we saved our top level object, we read it back in with one line of code.
-            instance = (ModelSingleton) in.readObject();
-            ModelSingleton tempInstance = (ModelSingleton) in.readObject();
+            SerializableStorage storage = (SerializableStorage) in.readObject();
             in.close();
             file.close();
-            ModelSingleton.setCurrentPlayerID(tempInstance.getNonStaticCurrentPlayerID());
+
+            ModelSingleton.setCurrentPlayerID(storage.getCurrentID());
+            ModelSingleton.getInstance().setPlayerInteractor(storage.getPlayerInteractor());
+
         } catch (IOException e) {
             Log.e("UserManagementFacade", "Error reading an entry from binary file",e);
             success = false;
@@ -109,7 +125,9 @@ public class ModelSingleton implements Serializable {
             // We basically can save our entire data model with one write, since this will follow
             // all the links and pointers to save everything.  Just save the top level object.
             out = new ObjectOutputStream(file);
-            out.writeObject(instance);
+            SerializableStorage storage = new SerializableStorage(getPlayerInteractor(), ModelSingleton.getCurrentPlayerID());
+            //Player savePlayer = getPlayerInteractor().getAllPlayers().get(currentPlayerID);
+            out.writeObject(storage);
             out.close();
             file.close();
 
