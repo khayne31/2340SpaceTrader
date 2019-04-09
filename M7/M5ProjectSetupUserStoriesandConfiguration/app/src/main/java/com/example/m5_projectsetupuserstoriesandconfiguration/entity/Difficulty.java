@@ -3,6 +3,9 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import java.io.Serializable;
 
+/**
+ * A class that denotes the difficulty a player has chosen for their game
+ */
 public enum  Difficulty implements Serializable {
     BE("BE", "Beginner"),
     EA("EA", "Easy"),
@@ -18,6 +21,12 @@ public enum  Difficulty implements Serializable {
         id = difId;
     }
 
+    /**
+     * A method to return a difficulty object based on the type given
+     * in the form of a string.
+     * @param s The inputted string to check for difficulty type
+     * @return The difficulty object based on the input
+     */
     public static Difficulty getType(String s) {
         Difficulty result;
         if (s.equals("BE")) {
@@ -34,15 +43,26 @@ public enum  Difficulty implements Serializable {
         return result;
     }
 
-
+    /**
+     * A method to return the difficulty level as a String
+     * @return The level of the difficulty as a String
+     */
     public String getLevel() {
         return level;
     }
 
+    /**
+     * A method to return the difficulty id as a string
+     * @return The id of the difficulty as a string
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * A method to convert the difficulty to a string
+     * @return The string version of a difficulty, its id
+     */
     public String toString() {
         return id;
     }

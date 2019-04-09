@@ -43,6 +43,10 @@ public enum GoodType implements Serializable {
         er = expensive;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getBasePrice() {
         return basePrice;
     }
