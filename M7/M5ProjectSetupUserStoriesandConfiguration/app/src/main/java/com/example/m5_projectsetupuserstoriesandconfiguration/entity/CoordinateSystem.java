@@ -56,7 +56,6 @@ public class CoordinateSystem implements Serializable {
                     system.get(i).add(j, null);
                     Log.d("UniverseLogCat", "inside null loop after setting to null: "+ i);
                 }
-                Log.d("UniverseLogCat", !(system.get(i).get(j) instanceof Planet) + "");
 
             }
         }

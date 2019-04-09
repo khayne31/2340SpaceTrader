@@ -54,6 +54,7 @@ public class RandomEvent {
         Log.d("rng", "rng");
         events event = events.values()[new Random().nextInt(events.values().length-1)];
         Log.d("rng", event.eventDescription + "   " + events.values());
+        System.out.print(events.values() + "\t" + event);
         switch(event){
 //            case Wormhole:
 //                Universe uni = p.getCurrentUniverse();

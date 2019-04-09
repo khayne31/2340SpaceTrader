@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Universe implements Serializable {
@@ -19,7 +20,7 @@ public class Universe implements Serializable {
         return systems;
     }
 
-    public ArrayList<ArrayList<SolarSystem>> getUniverse() {
+    public List<ArrayList<SolarSystem>> getUniverse() {
         return universe;
     }
 
@@ -36,7 +37,7 @@ public class Universe implements Serializable {
 
 
     private void generateUniverse(int size){
-        ArrayList<String> listOfNames = new ArrayList<>();
+        List<String> listOfNames = new ArrayList<>();
         for(int j = 0; j < size; j++){
             universe.add(new ArrayList<SolarSystem>());
             Log.d(DEBUG, "inside first for loop. j: "+j);

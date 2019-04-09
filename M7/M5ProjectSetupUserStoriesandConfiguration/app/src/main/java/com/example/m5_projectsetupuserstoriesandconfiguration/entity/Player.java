@@ -3,6 +3,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Player implements Serializable {
@@ -147,7 +148,7 @@ public class Player implements Serializable {
     }
 
     public ArrayList<Planet> visitablePlanets(){
-        ArrayList<int[]> viableCoords = new ArrayList<>();
+        List<int[]> viableCoords = new ArrayList<>();
         ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
         //viableCoords.add(currentSystem.getCoords());
 
