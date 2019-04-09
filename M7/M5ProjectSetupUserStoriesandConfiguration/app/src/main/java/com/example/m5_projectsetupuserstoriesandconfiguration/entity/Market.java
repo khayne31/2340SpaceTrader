@@ -38,7 +38,6 @@ public class Market implements Serializable {
 
     private void initializeMarketInventory(){
         int remainingGoods = marketSize;
-        //TODO fix this to make more balanced
         for(GoodType g : GoodType.values()) {
 
             //if the planet has the required tech level to sell a good, add it to the market
