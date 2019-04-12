@@ -17,7 +17,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetScreenViewModel;
-import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.SaveActivityViewModel;
 import java.io.FileOutputStream;
 
 /**
@@ -29,7 +28,6 @@ public class PlanetScreen extends AppCompatActivity {
     private PlanetScreenViewModel planetVM;
     private Planet currentPlanet;
     private TextView planetNameLabel;
-    private SaveActivityViewModel saveVM;
     public static final String ARG_ITEM_ID = "item_id";
 
     @Override
