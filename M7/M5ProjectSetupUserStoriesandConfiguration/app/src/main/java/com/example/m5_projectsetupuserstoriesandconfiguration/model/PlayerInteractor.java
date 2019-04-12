@@ -21,13 +21,13 @@ public class PlayerInteractor extends Interactor implements Serializable {
 
     public void updatePlayer (Player p) {getRepository().updatePlayer(p);}
 
-    private static Repository theRepository = new Repository();
+    private static final Repository theRepository = new Repository();
 
     public static final String DEFAULT_JSON_FILE_NAME = "data.json";
     public static final String DEFAULT_TEXT_FILE_NAME = "data.txt";
     public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
 
-    private static PlayerInteractor instance = new PlayerInteractor(theRepository);
+    private static final PlayerInteractor instance = new PlayerInteractor(theRepository);
 
     public static PlayerInteractor getInstance() { return instance; }
 

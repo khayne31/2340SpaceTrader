@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Item implements Serializable {
 
-    private GoodType type;
-    private String name;
+    private final GoodType type;
+    private final String name;
     private int quantity;
-    private int price;
+    private final int price;
 
     public Item(GoodType type, String name, int quantity, int price) {
         this.type = type;

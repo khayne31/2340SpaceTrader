@@ -9,8 +9,8 @@ import java.util.Random;
 public class Market implements Serializable {
     private int marketSize;
     //first integer is number of goods second integer is price of goods
-    private List<Item> itemSellList; // item {type, name, quantity, price}
-    private Planet planet;
+    private final List<Item> itemSellList; // item {type, name, quantity, price}
+    private final Planet planet;
     private Player player;
     private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
@@ -66,7 +66,7 @@ public class Market implements Serializable {
         double variance = (gt.getVar()/BIG100) * gt.getBasePrice();  // the variance of price from base price (always
         // applied, kind of like a item tax)
 
-        double techBal = (planet.getT_lvl() - gt.getMtlp())/BIG100 * gt.getBasePrice();
+        double techBal = ((planet.getT_lvl() - gt.getMtlp()) / BIG100) * gt.getBasePrice();
         // re-balance prices based on diff between planet tech and item tech production lvl
         // treat the diff as a percentage increase on base price
         // we don't have to worry about this being negative bc for the planet to sell the good

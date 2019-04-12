@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class MarketBuyScreenViewModel extends AndroidViewModel {
-    private PlayerInteractor interactor;
+    private final PlayerInteractor interactor;
 
     public MarketBuyScreenViewModel(@NonNull Application application) {
         super(application);

@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public class SerializableStorage implements Serializable {
 
-    private PlayerInteractor playerInt;
-    private int currentID;
+    private final PlayerInteractor playerInt;
+    private final int currentID;
 
     public SerializableStorage(PlayerInteractor newPlayerInt, int currentID) {
         playerInt = newPlayerInt;

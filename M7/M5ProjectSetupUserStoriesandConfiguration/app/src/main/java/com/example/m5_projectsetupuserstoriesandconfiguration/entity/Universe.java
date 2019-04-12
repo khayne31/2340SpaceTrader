@@ -10,17 +10,17 @@ import java.util.Random;
  * The universe class which holds a universe variable and systems variable
  */
 public class Universe implements Serializable {
-    private ArrayList<ArrayList<SolarSystem>> universe;
-    private ArrayList<SolarSystem> systems;
-    private int sizeOfUniverse;
-    private int systemsInUniverse;
+    private final ArrayList<ArrayList<SolarSystem>> universe;
+    private final ArrayList<SolarSystem> systems;
+    private final int sizeOfUniverse;
+    private final int systemsInUniverse;
     private final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
 
     /**
      * getter method for the systems variable
      *
-     * @return Treturns the array list which holds all the instances of the SolarSystem class
+     * @return returns the array list which holds all the instances of the SolarSystem class
      */
     public ArrayList<SolarSystem> getSystems() {
         return systems;
@@ -42,7 +42,7 @@ public class Universe implements Serializable {
      */
     public Universe(int size) {
         universe = new ArrayList<>();
-        sizeOfUniverse = size >= 10 ? size : 10;
+        sizeOfUniverse = (size >= 10) ? size : 10;
         systems = new ArrayList<>();
         Log.d(DEBUG, "inside the universe constructor before generation");
         generateUniverse(sizeOfUniverse);
@@ -54,7 +54,7 @@ public class Universe implements Serializable {
 
     /**
      * Generates a universe, represented bya  2D array with an array containing size arrays of length size.
-     * The 2D array holds instances of the SolarySystem class which hold instances of the CoordinateSystem class whiich
+     * The 2D array holds instances of the SolarSystem class which hold instances of the CoordinateSystem class which
      * which hold instances of the Planet class.
      *
      * @param size This is the size of one side of a square universe such that the generated the size of the
@@ -119,7 +119,7 @@ public class Universe implements Serializable {
     /**
      * Returns a string of the universe for the save
      *
-     * @return returs a string for the save
+     * @return returns a string for the save
      */
     public String toStringForSave() {
         return sizeOfUniverse

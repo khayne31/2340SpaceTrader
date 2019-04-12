@@ -5,8 +5,8 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
  */
 public class Game {
 
-    private Player player;
-    private Market market;
+    private final Player player;
+    private final Market market;
 
     /**
      * A constructor that generates a new game based on an inputted player

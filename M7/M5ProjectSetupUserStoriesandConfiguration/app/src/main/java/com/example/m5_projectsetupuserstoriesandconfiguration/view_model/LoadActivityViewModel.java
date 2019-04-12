@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.util.List;
 
 public class LoadActivityViewModel extends AndroidViewModel {
-    private PlayerInteractor interactor;
+    private final PlayerInteractor interactor;
 
     public LoadActivityViewModel(@NonNull Application application) {
         super(application);

@@ -16,15 +16,15 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import java.util.List;
 
 public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolder> {
-    private List<String> mItemData;
+    private final List<String> mItemData;
     private List<String> mPriceData;
-    private Context mContext;
+    private final Context mContext;
 
     public static class MViewHolder extends RecyclerView.ViewHolder {
         // currently set up if each data item is just a string
-        public TextView textViewA;
-        public TextView textViewB;
-        public LinearLayout mLinearLayout;
+        public final TextView textViewA;
+        public final TextView textViewB;
+        public final LinearLayout mLinearLayout;
         public MViewHolder(View v) {
             super(v);
             textViewA = v.findViewById(R.id.item_name);

@@ -2,7 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import java.io.Serializable;
 
-public enum GoodType implements Serializable {
+public enum GoodType {
 
     WATER(0, "Water", 0, 0, Tech.MID, 30, 3, 4, RadicalEvent.DROUGHT, Resources.LOW, Resources.DSRT),
     FURS(1, "Furs", 0, 0, Tech.PRE, 250, 10, 10, RadicalEvent.COLD, Resources.RCHF, Resources.LLN),

@@ -7,12 +7,12 @@ import java.util.Random;
 
 public class Planet implements Serializable {
     private int[] coords;
-    private String name;
-    private Tech t_lvl;
-    private RadicalEvent event;
+    private final String name;
+    private final Tech t_lvl;
+    private final RadicalEvent event;
     private  Resources resources;
     private Market market;
-    private SolarSystem homesystem;
+    private final SolarSystem homesystem;
 
     public Planet(int[] coordinates, String planetName, SolarSystem system){
         Log.d("UniverseLogCat", "inside planet constructor before coords");

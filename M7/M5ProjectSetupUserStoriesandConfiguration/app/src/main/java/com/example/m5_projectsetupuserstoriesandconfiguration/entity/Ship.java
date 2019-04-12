@@ -111,7 +111,7 @@ public class Ship implements Serializable {
     private Hashtable<GoodType, Integer> goodList;
     private List<Item> itemList;
     private int range;
-    private int maxfuel;
+    private final int maxfuel;
 
 
     public Ship(shipType type, int hp, int cargo) {

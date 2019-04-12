@@ -12,7 +12,7 @@ import java.util.List;
 
 
 public class PlanetScreenViewModel extends AndroidViewModel {
-    private PlayerInteractor interactor;
+    private final PlayerInteractor interactor;
 
     public PlanetScreenViewModel(@NonNull Application application) {
         super(application);

@@ -32,8 +32,8 @@ public class RandomEvent {
 //        StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were transported to a random planet"),
         Nothing("Nothing Happened", "You trip was successful");
 
-        private String eventName;
-        private String eventDescription;
+        private final String eventName;
+        private final String eventDescription;
 
         events(String name, String description){
             eventName = name;

@@ -10,13 +10,13 @@ import java.util.Random;
  * The solarsystem class
  */
 public class SolarSystem implements Serializable {
-    private ArrayList<Planet> planets;
-    private CoordinateSystem system;
-    private int systemSize;
-    private String systemName;
+    private final ArrayList<Planet> planets;
+    private final CoordinateSystem system;
+    private final int systemSize;
+    private final String systemName;
     private int[] coords;
-    Governments gov;
-    Tech tech;
+    final Governments gov;
+    final Tech tech;
     Resources resource;
 
     /**
@@ -174,7 +174,7 @@ public class SolarSystem implements Serializable {
                 "Zuul"			// From the first Ghostbusters movie
         };
 
-        return nameList[(int)(Math.random() * nameList.length - 1)];
+        return nameList[(int) ((Math.random() * nameList.length) - 1)];
     }
 
 

@@ -6,16 +6,16 @@ import java.util.Random;
 public class Good implements Serializable {
     private final double MAXPRICEFACTOR = 3;
     private GoodType typeOfGood;
-    private int minimumTechLvlBuy;
-    private int minimumTechLvlSell;
-    private Tech optimalTechLevel;
-    private int priceIncrease;
-    private double variance;
-    private RadicalEvent radicalPriceEvent;
-    private Resources expensivePrice;
-    private Resources cheapPrice;
-    private int minPrice;
-    private int maxPrice;
+    private final int minimumTechLvlBuy;
+    private final int minimumTechLvlSell;
+    private final Tech optimalTechLevel;
+    private final int priceIncrease;
+    private final double variance;
+    private final RadicalEvent radicalPriceEvent;
+    private final Resources expensivePrice;
+    private final Resources cheapPrice;
+    private final int minPrice;
+    private final int maxPrice;
     private int marketPrice;
 
     public Good(){

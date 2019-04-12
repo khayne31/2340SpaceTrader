@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class PostPlayerScreenViewModel extends AndroidViewModel {
-    private PlayerInteractor interactor;
+    private final PlayerInteractor interactor;
 
     public PostPlayerScreenViewModel(@NonNull Application application) {
         super(application);

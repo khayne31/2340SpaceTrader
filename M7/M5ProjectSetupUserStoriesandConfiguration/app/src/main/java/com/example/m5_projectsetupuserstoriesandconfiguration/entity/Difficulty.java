@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * A class that denotes the difficulty a player has chosen for their game
  */
-public enum  Difficulty implements Serializable {
+public enum  Difficulty {
     BE("BE", "Beginner"),
     EA("EA", "Easy"),
     NO("NO", "Normal"),

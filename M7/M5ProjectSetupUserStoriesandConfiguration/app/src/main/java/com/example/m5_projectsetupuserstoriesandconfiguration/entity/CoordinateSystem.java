@@ -8,14 +8,14 @@ import java.util.ArrayList;
  * CoordinateSystem class
  */
 public class CoordinateSystem implements Serializable {
-    private ArrayList<ArrayList<Planet>> system;
-    private ArrayList<Planet> allPlanets;
+    private final ArrayList<ArrayList<Planet>> system;
+    private final ArrayList<Planet> allPlanets;
     private double populationProb;
     private final double MAX_PROB = .05;
-    private String systemName;
-    private int size;
-    private Resources resources;
-    private SolarSystem currentSolarSystem;
+    private final String systemName;
+    private final int size;
+    private final Resources resources;
+    private final SolarSystem currentSolarSystem;
     private int  planetCounter = 0;
 
     /**

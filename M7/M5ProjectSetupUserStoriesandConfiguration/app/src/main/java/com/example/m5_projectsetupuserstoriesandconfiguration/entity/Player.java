@@ -87,7 +87,7 @@ public class Player implements Serializable {
     }
 
     public void subtractCredits(int x){
-        credits = (credits - x) > 0 ? credits - x : 0;
+        credits = ((credits - x) > 0) ? (credits - x) : 0;
     }
 
     public void losePoints(int x){
@@ -154,10 +154,10 @@ public class Player implements Serializable {
 
         for(int i = 0; i < currentUniverse.getSizeOfUniverse(); i++){
             for(int j = 0; j < currentUniverse.getSizeOfUniverse(); j++){
-                if(i >= (currentSystem.getCoords()[0] - myShip.getRange()) &&
-                        i <= (currentSystem.getCoords()[0] + myShip.getRange()) &&
-                        j >= (currentSystem.getCoords()[1] - myShip.getRange()) &&
-                        j <= (currentSystem.getCoords()[1] + myShip.getRange())) {
+                if((i >= (currentSystem.getCoords()[0] - myShip.getRange())) &&
+                        (i <= (currentSystem.getCoords()[0] + myShip.getRange())) &&
+                        (j >= (currentSystem.getCoords()[1] - myShip.getRange())) &&
+                        (j <= (currentSystem.getCoords()[1] + myShip.getRange()))) {
                         viableCoords.add(new int[] {i, j});
                 }
             }
@@ -203,13 +203,13 @@ public class Player implements Serializable {
         double maxRadius = 2 *  Math.pow(myShip.getRange(),2);
         double actualRadius = Math.pow(dx, 2) + Math.pow(dy,2);
 
-        double remainingFuel = (maxRadius - actualRadius) / (maxRadius != 0.0 ? maxRadius: 1);
+        double remainingFuel = (maxRadius - actualRadius) / ((maxRadius != 0.0) ? maxRadius : 1);
         myShip.setFuel((int)(myShip.getFuel() * remainingFuel));
         myShip.setRange((myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
         p.playerLandedOn();
-        return Math.random() < 0 ? RandomEvent.events.Nothing : new RandomEvent().generateRandomEvent(this);
+        return (Math.random() < 0) ? RandomEvent.events.Nothing : new RandomEvent().generateRandomEvent(this);
     }
 
     public int getFuelRequired(Planet p) {
@@ -223,7 +223,7 @@ public class Player implements Serializable {
         double remainingFuel = (maxRadius - actualRadius) / maxRadius;
 
         //return (int)(myShip.getFuel() - (myShip.getFuel() * remainingFuel));
-        return  dx + dy * 5;
+        return dx + (dy * 5);
 
     }
 

@@ -67,7 +67,7 @@ public class PlanetScreen extends AppCompatActivity {
         startActivity(new Intent(this, MainMenu.class));
     }
 
-    public boolean onSavePressed(View view) {
+    public void onSavePressed(View view) {//CANNOT HAVE A BOOLEAN AS A BUTTON METHOD
         String fileName;
         FileOutputStream out;
         fileName =  planetVM.getDefaultBinaryStringName();
@@ -87,6 +87,6 @@ public class PlanetScreen extends AppCompatActivity {
             Toast.makeText(this, "Player was not saved", Toast.LENGTH_SHORT).show();
 
         }
-        return returnableBool;
+        //return returnableBool;
     }
 }

@@ -4,7 +4,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.model;
  * Interface for concrete interactors
  */
 public abstract class Interactor {
-    private Repository theRepository;
+    private final Repository theRepository;
 
     protected Interactor(Repository repo) {theRepository = repo;}
 

@@ -9,7 +9,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerIntera
 import java.util.List;
 
 public class SaveActivityViewModel extends AndroidViewModel {
-    private PlayerInteractor interactor;
+    private final PlayerInteractor interactor;
 
     public SaveActivityViewModel(@NonNull Application application) {
         super(application);

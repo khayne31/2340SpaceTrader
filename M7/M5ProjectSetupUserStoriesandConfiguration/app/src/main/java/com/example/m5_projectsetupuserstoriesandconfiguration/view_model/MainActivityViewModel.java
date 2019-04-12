@@ -9,7 +9,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSinglet
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 
 public class MainActivityViewModel extends AndroidViewModel {
-    private PlayerInteractor interactor;
+    private final PlayerInteractor interactor;
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);

@@ -23,9 +23,9 @@ import java.util.Map;
 public class ModelSingleton implements Serializable {
     private static int currentPlayerID;
 
-    private Repository myRepository;
+    private final Repository myRepository;
 
-    private Map<String, Object> interactorMap;
+    private final Map<String, Object> interactorMap;
 
     private int nonStaticCurrentPlayerID;
 
