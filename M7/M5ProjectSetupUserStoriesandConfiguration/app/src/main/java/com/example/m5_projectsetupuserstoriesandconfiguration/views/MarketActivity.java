@@ -37,10 +37,6 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
     Intent intent = new Intent();
 
 
-    /**
-     * The start-up function for the screen
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

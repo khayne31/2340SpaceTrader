@@ -11,6 +11,9 @@ import android.view.View;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
+/**
+ * An activity that contains methods pertaining to the Main Menu, the opening activity
+ */
 public class MainMenu extends AppCompatActivity {
 
     @Override
@@ -26,15 +29,27 @@ public class MainMenu extends AppCompatActivity {
         }
     }
 
+    /**
+     * An onClick method that moves to the player create
+     * @param view the View of the button
+     */
     public void onNewGamePressed(View view){
         startActivity(new Intent(this, MainActivity.class));
         Log.d("Test", "New Game has begun");
     }
+    /**
+     * An onClick method that moves to the load screen
+     * @param view the View of the button
+     */
     public void onLoadGamePressed(View view){
         //startActivity(new Intent(this, LoadGame.class));
         Log.d("Test", "Load Game has been Pressed");
         startActivity(new Intent(this, LoadScreen.class));
     }
+    /**
+     * An onClick method that takes you to the settings activity
+     * @param view the View of the button
+     */
     public void onSettingsPressed(View view){
         //startActivity(new Intent(this, Settings.class));
         Log.d("Test", "Settings has been pressed");

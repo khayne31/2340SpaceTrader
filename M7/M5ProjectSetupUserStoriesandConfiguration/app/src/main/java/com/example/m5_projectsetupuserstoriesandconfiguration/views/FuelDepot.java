@@ -12,6 +12,9 @@ import android.view.View;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
+/**
+ * An activity that contains methods pertaining to the Fuel Depot
+ */
 public class FuelDepot extends AppCompatActivity {
 
     @Override
@@ -27,6 +30,10 @@ public class FuelDepot extends AppCompatActivity {
         }
     }
 
+    /**
+     * An onClick method that returns to the previous activity when a button is clicked
+     * @param view the View of the button
+     */
     public void onBackPressed(View view) {
         startActivity(new Intent(this, SpaceGarage.class));
         Log.i("Test", "Returning to Planet");

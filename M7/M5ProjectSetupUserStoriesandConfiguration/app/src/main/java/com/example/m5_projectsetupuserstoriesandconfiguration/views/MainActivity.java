@@ -25,6 +25,10 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MainAct
 
 import java.io.Serializable;
 
+
+/**
+ * An activity that contains methods pertaining to the Main Player Create Screen
+ */
 public class MainActivity extends AppCompatActivity implements Serializable {
 
 
@@ -49,10 +53,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     Intent intent = new Intent();
 
 
-    /**
-     * The start-up function for the screen
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +88,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             actionBar.hide();
         }
     }
+
+    /**
+     * An onClick method that adds to the current pilot points if the total is less that 16
+     * @param view the View of the button
+     */
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
@@ -101,6 +106,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         //finish();
     }
 
+    /**
+     * An onClick method that subtracts from the current pilot points if more than 0
+     * @param view the View of the button
+     */
     public void onPilotSubtractPressed(View view){
         Log.d("Test", "Pilot Subtract Button has been pressed");
         if (pilotpts > 0) {
@@ -113,6 +122,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         //finish();
     }
 
+    /**
+     * An onClick method that adds to the current engineer points if the total is less that 16
+     * @param view the View of the button
+     */
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
         if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
@@ -124,6 +137,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         //finish();
     }
 
+    /**
+     * An onClick method that subtracts from the current engineer points if more than 0
+     * @param view the View of the button
+     */
     public void onEngineerSubtractPressed(View view){
         Log.d("Test", "Engineer Subtract Button has been pressed");
         if (engineerpts > 0) {
@@ -135,6 +152,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         //finish();
     }
 
+    /**
+     * An onClick method that adds to the current trader points if the total is less that 16
+     * @param view the View of the button
+     */
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
         if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
@@ -146,6 +167,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
         //finish();
     }
+
+    /**
+     * An onClick method that subtracts from the current trader points if more than 0
+     * @param view the View of the button
+     */
     public void onTraderSubtractPressed(View view){
         Log.d("Test", "Trader Subtract Button has been pressed");
         if (traderpts > 0){
@@ -156,6 +182,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         pointcountLabel.setText(pointcount+ "");
         //finish();
     }
+
+    /**
+     * An onClick method that adds to the current fighter points if the total is less that 16
+     * @param view the View of the button
+     */
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
         if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
@@ -166,6 +197,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         pointcountLabel.setText(pointcount+"");
         //finish();
     }
+
+    /**
+     * An onClick method that subtracts from the current fighter points if more than 0
+     * @param view the View of the button
+     */
     public void onFighterSubtractPressed(View view){
         Log.d("Test", "Fighter Subtract Button has been pressed");
         if (fighterpts > 0) {
@@ -226,6 +262,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
     }
 
+    /**
+     * A method to create a new player with hardcoded parameters, when the Lazy Create Player Button is pressed
+     * @param view The view passed in
+     */
     public void onCreateLazyPlayerPressed(View view) {
         Log.d("Test", "Create Lazy Player Button has been pressed");
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);

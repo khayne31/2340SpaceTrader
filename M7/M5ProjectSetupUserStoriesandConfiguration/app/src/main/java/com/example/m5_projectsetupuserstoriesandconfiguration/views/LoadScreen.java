@@ -19,6 +19,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.LoadAct
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+/**
+ * An activity that contains methods pertaining to the Load Screen
+ */
 public class LoadScreen extends AppCompatActivity {
 
     private LoadActivityViewModel loadVM;
@@ -48,11 +51,19 @@ public class LoadScreen extends AppCompatActivity {
     }
 
 
+    /**
+     * An onClick method that returns to the previous activity when a button is clicked
+     * @param view the View of the button
+     */
     public void onGoBackPressed(View view) {
         startActivity(new Intent(this, MainMenu.class));
         Log.i("Test", "Returning to Main Menu");
     }
 
+    /**
+     * An onClick method that returns to a new activity with the generated player information
+     * @param view the View of the button
+     */
     public void onLoadGamePressed(View view) {
         Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT);
         Intent moveActivities = new Intent(this, PlanetScreen.class);
