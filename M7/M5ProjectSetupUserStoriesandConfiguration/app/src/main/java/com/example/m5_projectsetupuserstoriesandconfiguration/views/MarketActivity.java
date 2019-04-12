@@ -21,6 +21,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 
 import java.io.Serializable;
 
+/**
+ * An activity that contains methods pertaining to the Market Activity
+ */
 public class MarketActivity extends AppCompatActivity implements Serializable {
     private Context mContext;
 
@@ -92,6 +95,12 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /**
+     * shortens the log tag
+     * @param tag the original log tag
+     * @param content the original content of the log
+     */
     private static void largeLog(String tag, String content){
         if (content.length() > 4000){
             Log.v(tag, content.substring(0,4000));
@@ -103,9 +112,17 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
 
     }
 
+    /**
+     * An onClick method that tests the buy button
+     * @param view the View of the button
+     */
     public void onBuyPressed(View view) {
         Log.d("Test", "Buy Button has been pressed");
     }
+    /**
+     * An onClick method that tests the sell button
+     * @param view the View of the button
+     */
     public void onSellPressed(View view) {
         Log.d("Test", "Sell Button has been pressed");
     }

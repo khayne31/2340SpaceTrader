@@ -22,7 +22,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.GoodType;
-
+/**
+ * An activity that contains methods pertaining to the MarketScreen
+ */
 public class MarketScreen extends AppCompatActivity {
 
 
@@ -125,8 +127,10 @@ public class MarketScreen extends AppCompatActivity {
 
     }
 
-
-
+    /**
+     * An onClick method that buys the items selected
+     * @param view the View of the button
+     */
     public void onBuyPressed(View view) {
         Log.d("Test", "Buy Button has been pressed");
         String toastString = market.tradeBuy(player, currentGood, numToBuy);
@@ -161,6 +165,11 @@ public class MarketScreen extends AppCompatActivity {
         marketInventory.setText("" + currentMarketInventory.toString());
         currentTotalCargoLabel.setText("" + currentTotalCargo.toString());
     }
+
+    /**
+     * An onClick method that sells the items selected
+     * @param view the View of the button
+     */
     public void onSellPressed(View view) {
         Log.d("Test", "Sell Button has been pressed");
         String toastString = market.tradeSell(player, currentGood, numToSell);
@@ -195,6 +204,11 @@ public class MarketScreen extends AppCompatActivity {
         marketInventory.setText("" + currentMarketInventory);
         currentTotalCargoLabel.setText("" + currentTotalCargo);
     }
+
+    /**
+     * An onClick method that adds the number of items to be bought
+     * @param view the View of the button
+     */
     public void onBuyPlus(View view) {
         Log.d("Test", "Sell Button has been pressed");
 
@@ -204,6 +218,10 @@ public class MarketScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * An onClick method that subtracts the number of items to be bought
+     * @param view the View of the button
+     */
     public void onBuyMinus(View view) {
         Log.d("Test", "Sell Button has been pressed");
 
@@ -213,6 +231,10 @@ public class MarketScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * An onClick method that adds the number of items to be sold
+     * @param view the View of the button
+     */
     public void onSellPlus(View view) {
         Log.d("Test", "Sell Button has been pressed");
 
@@ -222,6 +244,10 @@ public class MarketScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * An onClick method that subtracts the number of items to be sold
+     * @param view the View of the button
+     */
     public void onSellMinus(View view) {
         Log.d("Test", "Sell Button has been pressed");
 
@@ -231,6 +257,10 @@ public class MarketScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * An onClick method that returns the player to the previous screen
+     * @param view the View of the button
+     */
     public void onBackPressed(View view){
         Log.d("Test", "Back Button has been pressed");
         startActivity(new Intent(this, PlanetScreen.class));

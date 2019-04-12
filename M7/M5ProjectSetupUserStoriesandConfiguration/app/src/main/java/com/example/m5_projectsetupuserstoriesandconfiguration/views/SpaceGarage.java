@@ -10,6 +10,9 @@ import android.view.View;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
+/**
+ * An activity that contains methods pertaining to the Space Garage
+ */
 public class SpaceGarage extends AppCompatActivity {
 
     @Override
@@ -26,16 +29,28 @@ public class SpaceGarage extends AppCompatActivity {
 
     }
 
+    /**
+     * An onClick method that takes you back to the previous screen
+     * @param view the View of the button
+     */
     public void onBackPressed(View view) {
         startActivity(new Intent(this, PlanetScreen.class));
         Log.i("Test", "Returning to Planet");
     }
 
+    /**
+     * An onClick method that takes the player to the fuel depot
+     * @param view the View of the button
+     */
     public void onFuelDepotPressed(View view) {
         startActivity(new Intent(this, FuelDepot.class));
         Log.i("Test", "Going to Fuel Depot");
     }
 
+    /**
+     * An onClick method that takes the player to the equipment hangar
+     * @param view the View of the button
+     */
     public void onEquipmentHangarPressed(View view) {
         startActivity(new Intent(this, EquipmentHangar.class));
         Log.i("Test", "Going to Equipment Hangar");

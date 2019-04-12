@@ -16,6 +16,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPlayerScreenViewModel;
 
+/**
+ * An activity that contains methods pertaining to the Post player screen
+ */
 public class PostPlayerScreen extends AppCompatActivity {
 
     private int pPoints;
@@ -71,6 +74,10 @@ public class PostPlayerScreen extends AppCompatActivity {
 
     }
 
+    /**
+     * An onClick method that takes you to the screen where the game officially begins.
+     * @param view the View of the button
+     */
     public void onStartGamePressed(View view){
         Log.d("Test", "Game has Started!");
 

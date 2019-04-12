@@ -15,6 +15,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
 import java.util.List;
 
+/**
+ * An activity that contains the recycler view for the market screen
+ */
 public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolder> {
     private final List<String> mItemData;
     private List<String> mPriceData;

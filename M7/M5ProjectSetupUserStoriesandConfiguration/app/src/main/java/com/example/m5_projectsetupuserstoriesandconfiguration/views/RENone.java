@@ -11,6 +11,10 @@ import android.view.View;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
+/**
+ * An activity that contains methods pertaining to the Random Event None Screen
+ * shows a short animation of a successful travel and then a buttons appears to continue
+ */
 public class RENone extends AppCompatActivity {
 
     @Override
@@ -29,6 +33,9 @@ public class RENone extends AppCompatActivity {
     }
     private Handler handler;
 
+    /**
+     * An method that shows the button after a slight delay (when the animation ends)
+     */
     private void showButtons() {
         handler = new Handler();
 
@@ -40,6 +47,10 @@ public class RENone extends AppCompatActivity {
         }, 6500);
     }
 
+    /**
+     * An onClick method that continues to the next screen on the new planet
+     * @param view the View of the button
+     */
     public void onContinuePressed(View view) {
         startActivity(new Intent(this, PlanetScreen.class));
         Log.i("Test", "Continuing to new Planet");

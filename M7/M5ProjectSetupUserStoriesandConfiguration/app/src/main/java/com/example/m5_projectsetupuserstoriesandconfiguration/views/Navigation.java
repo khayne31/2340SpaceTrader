@@ -22,6 +22,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Ship;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 
+/**
+ * An activity that contains methods pertaining to the MarketScreen
+ */
 public class Navigation extends AppCompatActivity {
 
     private Spinner planetSpinner;
@@ -83,11 +86,20 @@ public class Navigation extends AppCompatActivity {
         });
 
     }
+
+    /**
+     * An onClick method that returns the player to the previous screen
+     * @param view the View of the button
+     */
     public void onBackPressed(View view){
         Log.d("Test", "Back Button has been pressed");
         startActivity(new Intent(this, PlanetScreen.class));
     }
 
+    /**
+     * An onClick method that moves the planet the player is currently on to the one selected
+     * @param view the View of the button
+     */
     public void onTravelPressed(View view){
         Log.d("Test", "Travel Button has been pressed");
         RandomEvent.events newEvent = player.travelToPlanet(destinationPlanet);

@@ -11,6 +11,9 @@ import android.widget.Switch;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
+/**
+ * An activity that contains methods pertaining to the Settings Screen
+ */
 public class Settings extends AppCompatActivity {
 
     private Switch music;
@@ -33,6 +36,10 @@ public class Settings extends AppCompatActivity {
         isOn = music.isChecked();
     }
 
+    /**
+     * an onClick method that allows you to go back to the main menu
+     * @param view the view for the button
+     */
     public void onBackPressed(View view) {
         startActivity(new Intent(this, MainMenu.class));
         Log.i("Test", "Returning to Main Menu");
