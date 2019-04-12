@@ -60,10 +60,12 @@ public class Market implements Serializable {
         //may need to refine the event multiplier if its too difficult to put in UI
         int price = gt.getBasePrice();                         // set start price to be base price
         // this val will change according to multiplier
-        double multiplier = 1;                                 // starts as 1, as if no effective events
+        double multiplier = 1;
+        // starts as 1, as if no effective events
         // won't affect price
 
-        double variance = (gt.getVar()/BIG100) * gt.getBasePrice();  // the variance of price from base price (always
+        double variance = (gt.getVar()/BIG100) * gt.getBasePrice();
+        // the variance of price from base price (always
         // applied, kind of like a item tax)
 
         double techBal = ((planet.getT_lvl() - gt.getMtlp()) / BIG100) * gt.getBasePrice();
@@ -72,22 +74,28 @@ public class Market implements Serializable {
         // we don't have to worry about this being negative bc for the planet to sell the good
         // planet tech >= item tech so planet tech - item tech >= 0
 
-        if( planet.getEvent().equals(gt.getIe()) ) {         // RadicalEvents match --> increase prices
+        if( planet.getEvent().equals(gt.getIe()) ) {
+            // RadicalEvents match --> increase prices
             multiplier = multiplier * 1.5;
         }
-//        if( planet.getResources().getResourceName().equals(gt.getCr().getResourceName()) ) {     // cheap resource condition
+//        if( planet.getResources().getResourceName().equals(gt.getCr().getResourceName()) ) {
+// cheap resource condition
 //             multiplier = multiplier * .5;
 //        }
-//        if( planet.getResources().getResourceName().equals(gt.getEr().getResourceName()) ) {     // expensive resource condition
+//        if( planet.getResources().getResourceName().equals(gt.getEr().getResourceName()) ) {
+// expensive resource condition
 //             multiplier = multiplier * 2;
 //        }
 
-        price = (int) ((double) (price * multiplier) + variance + techBal);   // use the price multiplier to accommodate event effects
+        price = (int) ((price * multiplier) + variance + techBal);
+        // use the price multiplier to accommodate event effects
         // add variance to price
         // add tech price re-balance
-        return price;   // price is an int so we don't have to worry about awkward subtraction and partial credits
+        return price;   // price is an int so we don't have to worry about awkward
+        // subtraction and partial credits
 
-//        return  (int)(gt.getBasePrice() * ((planet.getEvent()).equals(gt.getEr()) ? gt.getBasePrice() : 1)
+//        return  (int)(gt.getBasePrice() * ((planet.getEvent()).equals(gt.getEr()) ?
+// gt.getBasePrice() : 1)
 //                * (planet.getResources().equals(gt.getEr()) ? 2 : 1)
 //                *  (planet.getResources().equals(gt.getCr()) ? .5 : 1)
 //                + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
@@ -104,7 +112,8 @@ public class Market implements Serializable {
             returnString = "There aren't enough of that good left to trade for";
         }  else if(p.getCredits() < (itemSellList.get(position).getPrice() * numberOfGood)){
             returnString = "You don't have enough credits to buy these items";
-        } else if ((p.getMyShip().getCurrCargoSize() + numberOfGood) > p.getMyShip().getType().getMaxCargo()) {
+        } else if ((p.getMyShip().getCurrCargoSize() + numberOfGood) >
+                p.getMyShip().getType().getMaxCargo()) {
             returnString = "You don't have enough cargo space left to store that good";
         }else{
 

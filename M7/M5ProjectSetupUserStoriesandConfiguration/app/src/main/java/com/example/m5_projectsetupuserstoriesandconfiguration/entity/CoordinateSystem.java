@@ -32,17 +32,20 @@ public class CoordinateSystem implements Serializable {
         size = sizeSystem;
         system = new ArrayList<>();
         allPlanets = new ArrayList<>();
-        Log.d("UniverseLogCat", "inside Coordinate System constructor before generate system");
+        Log.d("UniverseLogCat",
+                "inside Coordinate System constructor before generate system");
 
         generateSystem(size);
-        Log.d("UniverseLogCat", "inside Coordinate System constructor after generate system");
+        Log.d("UniverseLogCat",
+                "inside Coordinate System constructor after generate system");
         resources = res;
 
 
     }
 
     /**
-     * generates a system with instances of the Planet class  and nulls stored in an 2D ArrayList representing a system
+     * generates a system with instances of the Planet class  and nulls stored in an 2D ArrayList
+     * representing a system
      * and then all the planets are stored in an ArrayList
      * @param size The size of one side of the square system
      */
@@ -60,7 +63,8 @@ public class CoordinateSystem implements Serializable {
                 if(k < populationProb){
                     Log.d("UniverseLogCat", "inside generate system before " +
                             "new Planet: ");
-                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ planetCounter++ + "", currentSolarSystem, resources);
+                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+
+                            planetCounter++ + "", currentSolarSystem, resources);
                     Log.d("UniverseLogCat", "inside generate system after " +
                             "new Planet: ");
                     system.get(i).add(newPlanet);

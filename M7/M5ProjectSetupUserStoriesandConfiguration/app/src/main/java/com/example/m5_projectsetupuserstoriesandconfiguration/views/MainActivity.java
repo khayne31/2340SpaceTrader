@@ -73,10 +73,12 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         fighterptslabel = findViewById(R.id.fighter_pts);
         difSpinner = findViewById(R.id.diff_select);
         nameField = findViewById(R.id.name_input);
-        pointcountLabel = findViewById(R.id.point_count); //display how many points you have left at the top of the screen
+        pointcountLabel = findViewById(R.id.point_count);
+        //display how many points you have left at the top of the screen
         mainVM = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
-        ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
+        ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Difficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
 
@@ -244,12 +246,12 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);
         name = nameField.getText().toString();
         if (name.equals("")) {
-            Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You did not enter a name",Toast.LENGTH_SHORT).show();
         } else {
             if ((fighterpts + pilotpts + engineerpts + traderpts) == 16) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 name = nameField.getText().toString();
-                player = new Player(name,fighterpts, traderpts, engineerpts, pilotpts, diff, universe);
+                player = new Player(name,fighterpts, traderpts, engineerpts,pilotpts,diff,universe);
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
                 mainVM.addPlayer(player);
@@ -257,13 +259,15 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
                 startActivity(moveActivities);
             } else {
-                Toast.makeText(this, "You did not use all of your points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You did not use all of your points",
+                        Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     /**
-     * A method to create a new player with hardcoded parameters, when the Lazy Create Player Button is pressed
+     * A method to create a new player with hardcoded parameters, when the Lazy Create Player Button
+     * is pressed
      * @param view The view passed in
      */
     public void onCreateLazyPlayerPressed(View view) {

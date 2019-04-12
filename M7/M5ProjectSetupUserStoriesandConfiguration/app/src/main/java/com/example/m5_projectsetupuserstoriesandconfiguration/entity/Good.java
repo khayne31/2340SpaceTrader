@@ -41,7 +41,8 @@ public class Good implements Serializable {
         }
 
     public Good(GoodType typeOfGood, int minimumTechLvlBuy, int minimumTechLvlSell,
-                Tech optimalTechLevel, int priceIncrease, double variance, RadicalEvent radicalPriceEvent,
+                Tech optimalTechLevel, int priceIncrease, double variance,
+                RadicalEvent radicalPriceEvent,
                 Resources expensivePrice, Resources cheapPrice, int minPrice, int maxPrice) {
         this.typeOfGood = typeOfGood;
         this.minimumTechLvlBuy = minimumTechLvlBuy;
