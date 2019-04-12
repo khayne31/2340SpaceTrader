@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
+/**
+ * The solarsystem class
+ */
 public class SolarSystem implements Serializable {
     private ArrayList<Planet> planets;
     private CoordinateSystem system;
@@ -17,6 +19,11 @@ public class SolarSystem implements Serializable {
     Tech tech;
     Resources resource;
 
+    /**
+     * The constructor for the SolarSystem class
+     * @param size the size of a size of the SolarSystem
+     * @param coordinates an array containing the position of the system in the Universe
+     */
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
         Log.d("UniverseLogCat", "inside solarsystem constructor before random name");
@@ -39,7 +46,10 @@ public class SolarSystem implements Serializable {
         tech = Tech.values()[new Random().nextInt(Tech.values().length)];
         resource = Resources.values()[new Random().nextInt(Resources.values().length)];
     }
-
+    /**
+     * generates a random name for the system from a  predetermined list of names
+     * @return returns a string representing the name for the system
+     */
     private String generateRandomName(){
         String[] nameList = new String[]{
                 "Acamar",
@@ -167,20 +177,29 @@ public class SolarSystem implements Serializable {
         return nameList[(int)(Math.random() * nameList.length - 1)];
     }
 
-    public CoordinateSystem getSystem() { return system; }
 
+    /**
+     * getter for the planers variable
+     * @return returns the ArrayList containing the planets in the System
+     */
     public ArrayList<Planet> getPlanets() {
         return planets;
     }
 
-    public int getSystemSize() {
-        return systemSize;
-    }
 
+    /**
+     * getter for the systemName variable
+     * @return returns the system name
+     */
     public String getSystemName() {
         return systemName;
     }
 
+    /**
+     * toString method for the SolarSystem class which returns a string containing information relevant to the
+     * class
+     * @return returns the string with information about the SolarSystem
+     */
     @Override
     public String toString() {
 
@@ -194,7 +213,10 @@ public class SolarSystem implements Serializable {
                 ", resource = " + resource +
                 '}';
     }
-
+    /**
+     * getter for the coords variable
+     * @return returns array representing the coords of the system
+     */
     public int[] getCoords() {
         return coords;
     }

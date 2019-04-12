@@ -6,25 +6,41 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+/**
+ * The universe class which holds a universe variable and systems variable
+ */
 public class Universe implements Serializable {
     private ArrayList<ArrayList<SolarSystem>> universe;
     private ArrayList<SolarSystem> systems;
     private int sizeOfUniverse;
     private int systemsInUniverse;
-    private final String TAG = "UniverseResults";
     private final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
 
+    /**
+     * getter method for the systems variable
+     *
+     * @return Treturns the array list which holds all the instances of the SolarSystem class
+     */
     public ArrayList<SolarSystem> getSystems() {
         return systems;
     }
 
+    /**
+     * getter method for the universe variable
+     *
+     * @return returns the 2D array list which represents the universe
+     */
     public List<ArrayList<SolarSystem>> getUniverse() {
         return universe;
     }
 
-    public Universe(int size){
+    /**
+     * The constructor which initializes a size x size universe
+     *
+     * @param size The inputted string to check for difficulty type
+     */
+    public Universe(int size) {
         universe = new ArrayList<>();
         sizeOfUniverse = size >= 10 ? size : 10;
         systems = new ArrayList<>();
@@ -36,24 +52,34 @@ public class Universe implements Serializable {
     }
 
 
-    private void generateUniverse(int size){
+    /**
+     * Generates a universe, represented bya  2D array with an array containing size arrays of length size.
+     * The 2D array holds instances of the SolarySystem class which hold instances of the CoordinateSystem class whiich
+     * which hold instances of the Planet class.
+     *
+     * @param size This is the size of one side of a square universe such that the generated the size of the
+     *             universe, represented by a 2D array is size x size.
+     */
+    private void generateUniverse(int size) {
         List<String> listOfNames = new ArrayList<>();
-        for(int j = 0; j < size; j++){
+        for (int j = 0; j < size; j++) {
             universe.add(new ArrayList<SolarSystem>());
-            Log.d(DEBUG, "inside first for loop. j: "+j);
-            for(int i =0; i < size; i++){
-                Log.d(DEBUG, "inside second for loop. i: "+i);
+            Log.d(DEBUG, "inside first for loop. j: " + j);
+            for (int i = 0; i < size; i++) {
+                Log.d(DEBUG, "inside second for loop. i: " + i);
                 double k = Math.random();
-                if(k < SOLAR_SYSTEM_DISTRIBUTION_PROB){
-                    Log.d(DEBUG, "inside first if k: "+k);
-                    SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5)+10, new int[] {j,i});
+                if (k < SOLAR_SYSTEM_DISTRIBUTION_PROB) {
+                    Log.d(DEBUG, "inside first if k: " + k);
+                    SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5) + 10,
+                            new int[]{j, i});
                     Log.d(DEBUG, "after the creation of the new SolarSystem");
-                    while(listOfNames.contains(currentSystem.getSystemName()))
-                        currentSystem = new SolarSystem(new Random().nextInt(5)+10, new int[] {j,i});
+                    while (listOfNames.contains(currentSystem.getSystemName()))
+                        currentSystem = new SolarSystem(new Random().nextInt(5) + 10,
+                                new int[]{j, i});
                     universe.get(j).add(currentSystem);
                     systems.add(currentSystem);
                     listOfNames.add(currentSystem.getSystemName());
-                } else{
+                } else {
                     universe.get(j).add(null);
                 }
 
@@ -62,6 +88,12 @@ public class Universe implements Serializable {
 
     }
 
+
+    /**
+     * A typical toString function
+     *
+     * @return a string that represents the universe
+     */
     @Override
     public String toString() {
 
@@ -74,27 +106,21 @@ public class Universe implements Serializable {
                 '}';
     }
 
-    public void generateLogCat() {
-        int count = 10;
-        int sum = 0;
-        while (count-- > 0) {
-            SolarSystem solar = systems.get(count-1);
-            Log.v(DEBUG, "inside while loop in generateLogCat() " +
-                    "after getting the solar instantiation");
-            Log.v(TAG,solar.toString());
-            sum += solar.getPlanets().size();
-            for (int i = 0; i < solar.getPlanets().size(); i++) {
-                Log.v(TAG, solar.getPlanets().get(i).getName());
-            }
 
-        }
-        Log.v(TAG, sum+"");
-    }
-
+    /**
+     * returns the size of the universe
+     *
+     * @return returns the size of the universe
+     */
     public int getSizeOfUniverse() {
         return sizeOfUniverse;
     }
 
+    /**
+     * Returns a string of the universe for the save
+     *
+     * @return returs a string for the save
+     */
     public String toStringForSave() {
         return sizeOfUniverse
                 + "\t" + universe

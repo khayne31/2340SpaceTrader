@@ -4,7 +4,9 @@ import android.util.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * CoordinateSystem class
+ */
 public class CoordinateSystem implements Serializable {
     private ArrayList<ArrayList<Planet>> system;
     private ArrayList<Planet> allPlanets;
@@ -16,6 +18,13 @@ public class CoordinateSystem implements Serializable {
     private SolarSystem currentSolarSystem;
     private int  planetCounter = 0;
 
+    /**
+     * constructor for the CoordinateSystem class
+     * @param sizeSystem the size of a side of the CoordinateSystem
+     * @param solar the SolarSystem the CoordinateSystem is a part of
+     * @param res the resource of the CoordinateSystem
+     * @return The difficulty object based on the input
+     */
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
         currentSolarSystem = solar;
         populationProb =  MAX_PROB * Math.random();
@@ -32,6 +41,11 @@ public class CoordinateSystem implements Serializable {
 
     }
 
+    /**
+     * generates a system with instances of the Planet class  and nulls stored in an 2D ArrayList representing a system
+     * and then all the planets are stored in an ArrayList
+     * @param size The size of one side of the square system
+     */
     private void generateSystem(int size){
 
         for(int i = 0; i < size; i++){
@@ -65,23 +79,14 @@ public class CoordinateSystem implements Serializable {
         }
     }
 
-    public String getSystemName() {
-        return systemName;
-    }
-
-    public ArrayList<ArrayList<Planet>> getSystem() {
-        return system;
-    }
-
+    /**
+     * A method to return a difficulty object based on the type given
+     * in the form of a string.
+     * @return an ArrayList containing the planets that are in this CoordinateSystem
+     */
     public ArrayList<Planet> getAllPlanets() {
         return allPlanets;
     }
 
-    public double getPopulationProb() {
-        return populationProb;
-    }
 
-    public double getMAX_PROB() {
-        return MAX_PROB;
-    }
 }
