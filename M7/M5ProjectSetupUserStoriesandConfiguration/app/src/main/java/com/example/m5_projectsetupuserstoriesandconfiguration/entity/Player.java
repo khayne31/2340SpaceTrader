@@ -23,7 +23,8 @@ public class Player implements Serializable {
 
 
 
-    public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty difficulty, Universe uni) {
+    public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints,
+                  Difficulty difficulty, Universe uni) {
         this.name = name;
         credits = 1000;
         fighterPoints = fPoints;
@@ -36,7 +37,8 @@ public class Player implements Serializable {
         //law of demeter violation
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
         //law of demeter violation
-        currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(currentSystem.getPlanets().size()));
+        currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(
+                currentSystem.getPlanets().size()));
         currentPlanet.playerLandedOn();
     }
 
@@ -186,7 +188,8 @@ public class Player implements Serializable {
         int[] sysCoords = hs.getCoords();
         int distance =  (int)Math.sqrt ((Math.pow(sysCoords[0] - currentSystem.getCoords()[0], 2)
                 + Math.pow(sysCoords[1] - currentSystem.getCoords()[1],2)));
-        int maxRadius  = (int) Math.floor(myShip.getType().getRange() / (currentUniverse.getSizeOfUniverse() + 0.0));
+        int maxRadius  = (int) Math.floor(myShip.getType().getRange() /
+        (currentUniverse.getSizeOfUniverse() + 0.0));
 
         double percentageFuelUsed = (maxRadius - distance) / maxRadius;
         myShip.setFuel((int)(myShip.getFuel() * percentageFuelUsed));
@@ -209,7 +212,8 @@ public class Player implements Serializable {
         currentPlanet = p;
         currentSystem = p.getHomesystem();
         p.playerLandedOn();
-        return (Math.random() < 0) ? RandomEvent.events.Nothing : new RandomEvent().generateRandomEvent(this);
+        return (Math.random() < 0) ? RandomEvent.events.Nothing :
+                new RandomEvent().generateRandomEvent(this);
     }
 
     public int getFuelRequired(Planet p) {

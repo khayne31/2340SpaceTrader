@@ -32,7 +32,8 @@ public class ModelSingleton implements Serializable {
 
     private static ModelSingleton instance = new ModelSingleton();
 
-    private static void setInstance(ModelSingleton newInstance) {ModelSingleton.instance = newInstance;}
+    private static void setInstance(ModelSingleton newInstance)
+    {ModelSingleton.instance = newInstance;}
 
     public static ModelSingleton getInstance() {return instance;}
 
@@ -116,7 +117,9 @@ public class ModelSingleton implements Serializable {
         /*FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
         Player player = getPlayerInteractor().getAllPlayers().get(0);
-        Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(), player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(), player.getDiff());
+        Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(),
+        player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(),
+        player.getDiff());
 
         myRef.child("0").child("player").
                 setValue(player2);
@@ -140,7 +143,8 @@ public class ModelSingleton implements Serializable {
             // all the links and pointers to save everything.  Just save the top level object.\
             Log.d("save", file.toString());
             out = new ObjectOutputStream(file);
-            SerializableStorage storage = new SerializableStorage(getPlayerInteractor(), ModelSingleton.getCurrentPlayerID());
+            SerializableStorage storage = new SerializableStorage(getPlayerInteractor(),
+                    ModelSingleton.getCurrentPlayerID());
             //Player savePlayer = getPlayerInteractor().getAllPlayers().get(currentPlayerID);
             out.writeObject(storage);
             out.close();

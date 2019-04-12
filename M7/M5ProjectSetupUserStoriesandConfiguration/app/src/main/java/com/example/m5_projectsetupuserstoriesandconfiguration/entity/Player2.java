@@ -15,7 +15,8 @@ public class Player2 {
     private SolarSystem currentSystem;
     private Universe currentUniverse;
 
-    public Player2(Player p, String name, int fPoints, int tPoints, int ePoints, int pPoints, Difficulty difficulty) {
+    public Player2(Player p, String name, int fPoints, int tPoints, int ePoints, int pPoints,
+                   Difficulty difficulty) {
         name = p.getName();
         fPoints = p.getFighterPoints();
         tPoints = p.getTraderPoints();

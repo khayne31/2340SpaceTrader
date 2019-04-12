@@ -196,7 +196,8 @@ public class SolarSystem implements Serializable {
     }
 
     /**
-     * toString method for the SolarSystem class which returns a string containing information relevant to the
+     * toString method for the SolarSystem class which returns a string containing
+     * information relevant to the
      * class
      * @return returns the string with information about the SolarSystem
      */

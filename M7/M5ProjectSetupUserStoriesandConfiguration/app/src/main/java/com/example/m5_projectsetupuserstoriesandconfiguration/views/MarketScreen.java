@@ -84,7 +84,8 @@ public class MarketScreen extends AppCompatActivity {
         maxCargoLabel.setText(Integer.toString(player.getMyShip().getType().getMaxCargo()));
 
         itemSpinner = findViewById(R.id.good_select);
-        ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GoodType.values());
+        ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, GoodType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemSpinner.setAdapter(adapter);
 
@@ -95,7 +96,8 @@ public class MarketScreen extends AppCompatActivity {
                 currentGood = (GoodType) parent.getItemAtPosition(pos);
                 currentCredits = player.getCredits();
                 currentPrice = market.getTradeGoodPrice(currentGood);
-                currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+                currentCargoInventory = new Integer(
+                        player.getMyShip().getGoodList().get(currentGood));
                 if (currentCargoInventory == null) {
                     currentCargoInventory = 0;
                 }
@@ -145,15 +147,18 @@ public class MarketScreen extends AppCompatActivity {
         numSellLabel.setText("" + numToSell);
 
         // TODO: update values for view labels
-        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood)); // #item_in_cargo
+        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+        // #item_in_cargo
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
-        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood)); // #item_rem_in_market
+        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+        // #item_rem_in_market
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
         } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
-        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize()); // #updated_total_item_count
+        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize());
+        // #updated_total_item_count
         if (currentTotalCargo == null) {
             Log.d("BuyPressed", "currTotCargo is null");
             currentTotalCargo = 0;
@@ -193,7 +198,8 @@ public class MarketScreen extends AppCompatActivity {
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
         } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
-        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize()); // #updated_total_item_count
+        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize());
+        // #updated_total_item_count
         if (currentTotalCargo == null) {
             Log.d("BuyPressed", "currTotCargo is null");
             currentTotalCargo = 0;

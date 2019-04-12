@@ -7,7 +7,8 @@ import java.util.List;
 public class Ship implements Serializable {
     public enum shipType {
         //(Name, ID, cargo, range, hull, crew, wp, gad, sh, fuel)
-        FL("Flea", "FL", 7, 20, 5, 0, 0, 0, 0, 500), // cargoSize not given (on wiki) supposed to be "few"
+        FL("Flea", "FL", 7, 20, 5, 0, 0, 0, 0, 500),
+        // cargoSize not given (on wiki) supposed to be "few"
         GN("Gnat", "GN", 15, 14, 10, 0, 1, 1, 0, 700),
         FI("Firefly", "FI", 20, 8, 25, 0, 1, 1, 1, 1000),
         MO("Mosquito", "MO", 15, 6, 30, 0, 2, 1, 1, 2000),
@@ -31,7 +32,8 @@ public class Ship implements Serializable {
 
         // need hullStrength, crewSize, wpSlots, gadSlots, shSlots
 
-        shipType(String sType, String sId, int cSize, int r, int hull, int crew, int wp, int gad, int sh, int max) {
+        shipType(String sType, String sId, int cSize, int r, int hull, int crew, int wp, int gad,
+                 int sh, int max) {
             type = sType;
             id = sId;
             cargoSize = cSize;

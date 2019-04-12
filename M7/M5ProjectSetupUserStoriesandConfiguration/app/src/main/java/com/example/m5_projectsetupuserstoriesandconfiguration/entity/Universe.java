@@ -53,11 +53,14 @@ public class Universe implements Serializable {
 
 
     /**
-     * Generates a universe, represented bya  2D array with an array containing size arrays of length size.
-     * The 2D array holds instances of the SolarSystem class which hold instances of the CoordinateSystem class which
+     * Generates a universe, represented bya  2D array with an array containing size arrays of
+     * length size.
+     * The 2D array holds instances of the SolarSystem class which hold instances of the
+     * CoordinateSystem class which
      * which hold instances of the Planet class.
      *
-     * @param size This is the size of one side of a square universe such that the generated the size of the
+     * @param size This is the size of one side of a square universe such that the generated
+     *             the size of the
      *             universe, represented by a 2D array is size x size.
      */
     private void generateUniverse(int size) {
@@ -70,7 +73,8 @@ public class Universe implements Serializable {
                 double k = Math.random();
                 if (k < SOLAR_SYSTEM_DISTRIBUTION_PROB) {
                     Log.d(DEBUG, "inside first if k: " + k);
-                    SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5) + 10,
+                    SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5)
+                            + 10,
                             new int[]{j, i});
                     Log.d(DEBUG, "after the creation of the new SolarSystem");
                     while (listOfNames.contains(currentSystem.getSystemName()))
