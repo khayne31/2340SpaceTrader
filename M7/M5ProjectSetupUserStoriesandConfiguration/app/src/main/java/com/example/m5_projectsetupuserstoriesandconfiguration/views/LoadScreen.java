@@ -12,8 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
-import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.LoadActivityViewModel;
 
 

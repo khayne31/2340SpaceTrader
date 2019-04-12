@@ -60,7 +60,7 @@ public class CoordinateSystem implements Serializable {
                 if(k < populationProb){
                     Log.d("UniverseLogCat", "inside generate system before " +
                             "new Planet: ");
-                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ ++planetCounter + "", currentSolarSystem, resources);
+                    Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+ planetCounter++ + "", currentSolarSystem, resources);
                     Log.d("UniverseLogCat", "inside generate system after " +
                             "new Planet: ");
                     system.get(i).add(newPlanet);

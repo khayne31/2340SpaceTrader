@@ -1,7 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import java.io.Serializable;
-
 public enum GoodType {
 
     WATER(0, "Water", 0, 0, Tech.MID, 30, 3, 4, RadicalEvent.DROUGHT, Resources.LOW, Resources.DSRT),

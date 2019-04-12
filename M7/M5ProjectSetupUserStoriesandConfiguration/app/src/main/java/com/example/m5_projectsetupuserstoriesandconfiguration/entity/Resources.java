@@ -1,7 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import java.io.Serializable;
-
 public enum Resources {
     NO(0, "NOSPECIALRESOURCES"),
     MINRCH(1, "MINERALRICH"),

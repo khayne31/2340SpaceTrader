@@ -1,8 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 
-import java.io.Serializable;
-
 /**
  * A class that denotes the difficulty a player has chosen for their game
  */

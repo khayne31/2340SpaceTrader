@@ -1,7 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import java.io.Serializable;
-
 public enum Governments {
     Dem("Dem", "Democracy"),
     Ari("Ari", "Aristocracy"),

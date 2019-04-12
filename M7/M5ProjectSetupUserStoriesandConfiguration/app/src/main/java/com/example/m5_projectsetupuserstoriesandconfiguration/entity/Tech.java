@@ -1,7 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import java.io.Serializable;
-
 public enum Tech {
     PRE(0, "PRE"),
     AGR(1, "AGR"),
