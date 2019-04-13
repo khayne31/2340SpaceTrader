@@ -11,10 +11,9 @@ public class Market implements Serializable {
     //first integer is number of goods second integer is price of goods
     private final List<Item> itemSellList; // item {type, name, quantity, price}
     private final Planet planet;
-    private Player player;
-    private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
     private final int MAX_MARKET_SIZE = 100;
+    private int credits;
 
     private final int QUANTITY_INDEX = 0;
     private final int PRICE_INDEX = 1;
@@ -30,12 +29,6 @@ public class Market implements Serializable {
         credits = random.nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
-    }
-
-    public Market(int marketSize, Planet planet, Player player) {
-        this(planet);
-        this.marketSize = marketSize;
-        this.player = player;
     }
 
     private void initializeMarketInventory(){

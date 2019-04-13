@@ -21,18 +21,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPla
  */
 public class PostPlayerScreen extends AppCompatActivity {
 
-    private int pPoints;
-    private int ePoints;
-    private int tPoints;
-    private int fPoints;
-    private int credits;
-    private String name;
-    private TextView pPtsLabel;
-    private TextView ePtsLabel;
-    private TextView tPtsLabel;
-    private TextView fPtsLabel;
-    private TextView creditsLabel;
-    private TextView nameLabel;
+
     private PostPlayerScreenViewModel postVM;
     private Player player;
 
@@ -48,7 +37,18 @@ public class PostPlayerScreen extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-
+        int pPoints;
+        int ePoints;
+        int tPoints;
+        int fPoints;
+        int credits;
+        String name;
+        TextView pPtsLabel;
+        TextView ePtsLabel;
+        TextView tPtsLabel;
+        TextView fPtsLabel;
+        TextView creditsLabel;
+        TextView nameLabel;
         ePtsLabel = findViewById(R.id.engineer_final_pts);
         pPtsLabel = findViewById(R.id.pilot_final_pts);
         tPtsLabel = findViewById(R.id.trader_final_pts);
