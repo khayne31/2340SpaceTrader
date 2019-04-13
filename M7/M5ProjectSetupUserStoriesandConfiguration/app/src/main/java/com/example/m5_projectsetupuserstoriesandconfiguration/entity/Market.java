@@ -11,29 +11,24 @@ public class Market implements Serializable {
     //first integer is number of goods second integer is price of goods
     private final List<Item> itemSellList; // item {type, name, quantity, price}
     private final Planet planet;
-    private Player player;
-    private int credits;
     private final int MIN_NUMBER_CREDITS = 100000;
     private final int MAX_MARKET_SIZE = 100;
+    private int credits;
 
     private final int QUANTITY_INDEX = 0;
     private final int PRICE_INDEX = 1;
     private final double BIG100 = 100.0;
+    private Random random;
 
     public Market(Planet planet){
         itemSellList = new ArrayList<Item>();
-        marketSize = new Random().nextInt(MAX_MARKET_SIZE);
+        random = new Random();
+        marketSize = random.nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         //Get rid of this, market people don't need to have money
-        credits = new Random().nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
+        credits = random.nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
-    }
-
-    public Market(int marketSize, Planet planet, Player player) {
-        this(planet);
-        this.marketSize = marketSize;
-        this.player = player;
     }
 
     private void initializeMarketInventory(){
@@ -42,8 +37,7 @@ public class Market implements Serializable {
 
             //if the planet has the required tech level to sell a good, add it to the market
             if(planet.getT_lvl() >= g.getMtlp()) {
-                Random rand = new Random();
-                int quant = rand.nextInt(remainingGoods+1);
+                int quant = random.nextInt(remainingGoods+1);
                 Log.d("MarketPrice", "Checkpoint-2");
                 //int price = generateMarketPrice(g);
                 Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));
