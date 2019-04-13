@@ -394,6 +394,19 @@ public class Player implements Serializable {
         this.currentUniverse = currentUniverse;
     }
 
+    /**
+     * A method to enable the ship to lose hp
+     * @param toLose the amount of hp to lose
+     */
+    public void loseHP(int toLose) {
+        myShip.loseHp(toLose);
+    }
 
-
+    /**
+     * A method to enable the ship to lose fuel
+     * @param toLose the amount of fuel to lose
+     */
+    public void loseFuel(int toLose) {
+        myShip.loseFuel(toLose);
+    }
 }

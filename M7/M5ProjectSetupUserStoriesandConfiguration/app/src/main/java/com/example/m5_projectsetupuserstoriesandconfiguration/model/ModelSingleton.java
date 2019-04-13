@@ -136,7 +136,7 @@ public class ModelSingleton implements Serializable {
     /**
      * used for serializable implementation
      * @param file an input file on the phone
-     * @return boolean if it suceeds
+     * @return boolean if it succeeds
      */
     public boolean loadBinary(FileInputStream file) {
         Log.d("LoadTest", "This line was run");

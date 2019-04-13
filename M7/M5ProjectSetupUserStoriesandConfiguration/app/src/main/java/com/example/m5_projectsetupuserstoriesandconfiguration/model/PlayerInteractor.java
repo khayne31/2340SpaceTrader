@@ -52,7 +52,7 @@ public class PlayerInteractor extends Interactor implements Serializable {
     public static PlayerInteractor getInstance() { return instance; }
 
     /**
-     * loads from a file on adroid device. doesnt work
+     * loads from a file on android device. doesn't work
      * @param file the file to download from
      * @return a boolean if success
      */

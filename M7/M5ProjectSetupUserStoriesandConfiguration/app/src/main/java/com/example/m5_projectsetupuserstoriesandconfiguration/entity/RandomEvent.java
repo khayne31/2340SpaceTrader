@@ -47,6 +47,7 @@ public class RandomEvent {
         private final String eventName;
         private final String eventDescription;
 
+
         /**
          * the constructor for the event enum
          * @param name the name of the event
@@ -117,7 +118,7 @@ public class RandomEvent {
 //                p.setCurrentPlanet(randomPlanet1);
 //                break;
             case Asteroids:
-                p.getMyShip().loseHp(HP_LOST_ASTEROIDS);
+                p.loseHP(HP_LOST_ASTEROIDS);
                 break;
             case Pirates:
                 p.subtractCredits(NUMBER_CREDITS_LOST);
@@ -135,19 +136,19 @@ public class RandomEvent {
                 p.losePoints(CREDITS_TO_LOSE);
                 break;
             case Enemy:
-                p.getMyShip().loseHp(HP_LOST_ENEMY);
+                p.loseHP(HP_LOST_ENEMY);
                 break;
             case Tax:
                 p.subtractCredits(SPACE_TAX);
                 break;
             case MonsterB:
-                p.getMyShip().loseHp(BIG_SPACE_BOI);
+                p.loseHP(BIG_SPACE_BOI);
                 break;
             case MonsterS:
-                p.getMyShip().loseHp(SMOL_SPACE_BOI);
+                p.loseHP(SMOL_SPACE_BOI);
                 break;
             case FuelLeak:
-                p.getMyShip().loseFuel(FUEL_TO_LOSE);
+                p.loseFuel(FUEL_TO_LOSE);
                 break;
             case Nothing:
                 break;

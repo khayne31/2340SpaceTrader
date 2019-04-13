@@ -19,7 +19,7 @@ public class MarketBuyScreenViewModel extends AndroidViewModel {
 
     /**
      * Constructor for the MarketBuyScreenViewModel
-     * @param application the current applicaiton. so the game app
+     * @param application the current application. so the game app
      */
     public MarketBuyScreenViewModel(@NonNull Application application) {
         super(application);
