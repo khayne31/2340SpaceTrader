@@ -47,14 +47,28 @@ public class RandomEvent {
         private final String eventName;
         private final String eventDescription;
 
+        /**
+         * the constructor for the event enum
+         * @param name the name of the event
+         * @param description the description of the event
+         */
         events(String name, String description){
             eventName = name;
             eventDescription = description;
         }
 
+        /**
+         * gets the description of the event
+         * @return the description
+         */
         public String getEventDescription() {
             return eventDescription;
         }
+
+        /**
+         * gets the event name
+         * @return the event name
+         */
         public String getEventName() { return eventName; }
     }
 
@@ -62,6 +76,11 @@ public class RandomEvent {
 
     }
 
+    /**
+     * Generates a random event based on a random num generator
+     * @param p the current player
+     * @return a random event
+     */
     public events generateRandomEvent(Player p){
         Log.d("rng", "rng");
         events event = events.values()[new Random().nextInt(events.values().length-1)];

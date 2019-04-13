@@ -20,12 +20,20 @@ public enum Resources {
     private final int lvl;
     private final String resource;
 
-
+    /**
+     * Constructor for the resource enum
+     * @param resourceLvl the level of resources on planet
+     * @param resourceName the name of resource on planet
+     */
     Resources(int resourceLvl, String resourceName){
         lvl = resourceLvl;
         resource = resourceName;
     }
 
+    /**
+     * a string representation of the resource enum
+     * @return a string representation of the resource enum
+     */
     @Override
     public String toString() {
         return " -Resources{" +

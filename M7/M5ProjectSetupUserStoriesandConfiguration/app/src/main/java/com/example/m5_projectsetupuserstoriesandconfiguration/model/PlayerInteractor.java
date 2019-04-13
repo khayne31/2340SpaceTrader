@@ -13,12 +13,28 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
  */
 public class PlayerInteractor extends Interactor implements Serializable {
 
+    /**
+     * constructor for the player interactor
+     * @param repo the repository to set the player interactor after
+     */
     public PlayerInteractor(Repository repo) {super(repo);}
 
+    /**
+     * gets a list of all players in repo
+     * @return list of all players in repo
+     */
     public List<Player> getAllPlayers() {return getRepository().getAllPlayers();}
 
+    /**
+     * adds a player to the repo
+     * @param p the player to add
+     */
     public void addPlayer (Player p) {getRepository().addPlayer(p);}
 
+    /**
+     * updates a player in the repo
+     * @param p player in the repo
+     */
     public void updatePlayer (Player p) {getRepository().updatePlayer(p);}
 
     private static final Repository theRepository = new Repository();
@@ -29,14 +45,27 @@ public class PlayerInteractor extends Interactor implements Serializable {
 
     private static final PlayerInteractor instance = new PlayerInteractor(theRepository);
 
+    /**
+     * gets the current instance of the player interactor
+     * @return current instance of the player interactor
+     */
     public static PlayerInteractor getInstance() { return instance; }
 
-
+    /**
+     * loads from a file on adroid device. doesnt work
+     * @param file the file to download from
+     * @return a boolean if success
+     */
     public boolean loadBinary(FileInputStream file) {
         return ModelSingleton.getInstance().loadBinary(file);
 
     }
 
+    /**
+     * saves the player to an outside file on the phone
+     * @param out the file to save to
+     * @return success
+     */
     public boolean saveBinary(FileOutputStream out) {
         return ModelSingleton.getInstance().saveBinary(out);
     }

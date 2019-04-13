@@ -22,7 +22,16 @@ public class Player implements Serializable {
     private Universe currentUniverse;
 
 
-
+    /**
+     * Constructor for player
+     * @param name the players name
+     * @param fPoints fighter points
+     * @param tPoints trader points
+     * @param ePoints engineer points
+     * @param pPoints pilot points
+     * @param difficulty the difficulty level
+     * @param uni the players universe
+     */
     public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints,
                   Difficulty difficulty, Universe uni) {
         this.name = name;
@@ -42,56 +51,132 @@ public class Player implements Serializable {
         currentPlanet.playerLandedOn();
     }
 
+    /**
+     * gets the name of the player
+     * @return the name of the player
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * sets the name of the player
+     * @param name the new name of the player
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * gets the credits of the player
+     * @return the credits of the player
+     */
     public int getCredits() {
         return credits;
     }
 
+    /**
+     * sets the credits of the player
+     * @param credits the new credits of the player
+     */
     public void setCredits(int credits) {
         this.credits = credits;
     }
 
+    /**
+     * gets the pilot points of the player
+     * @return the pilot points of the player
+     */
     public int getPilotPoints() {return pilotPoints;}
 
+    /**
+     * sets the pilot points of the player
+     * @param pilotPoints the new pilot points of the player
+     */
     public void setPilotPoints(int pilotPoints) {this.pilotPoints = pilotPoints;}
 
+    /**
+     * gets the engineering points of the player
+     * @return engineering points of the player
+     */
     public int getEngineerPoints() {return engineerPoints;}
 
+    /**
+     * sets engineering points of the player
+     * @param engineerPoints new engineering points of the player
+     */
     public void setEngineerPoints(int engineerPoints) {this.engineerPoints = engineerPoints; }
 
+    /**
+     * gets the trader points of the player
+     * @return trader points of the player
+     */
     public int getTraderPoints() {return traderPoints;}
 
+    /**
+     * sets trader points of the player
+     * @param traderPoints new trader points of the player
+     */
     public void setTraderPoints(int traderPoints) {this.traderPoints = traderPoints;}
 
+    /**
+     * gets the fighter points of the player
+     * @return fighter points of the player
+     */
     public int getFighterPoints() {return fighterPoints;}
 
+    /**
+     * sets the fighter points of the player
+     * @param fighterPoints new fighter points of the player
+     */
     public void setFighterPoints(int fighterPoints) {this.fighterPoints = fighterPoints;}
 
+    /**
+     * gets the id of the player
+     * @return id of the player
+     */
     public int getId() {return id;}
 
+    /**
+     * gets the ship of the player
+     * @return the ship of the player
+     */
     public Ship getMyShip() { return myShip; }
 
+    /**
+     * sets the id of the player
+     * @param id the new id of the player
+     */
     public void setId(int id) {this.id = id;}
 
+    /**
+     * gets the current planet of the player
+     * @return current planet of the player
+     */
     public Planet getCurrentPlanet() {
         return currentPlanet;
     }
 
+    /**
+     * sets current planet of the player
+     * @param currentPlanet new current planet of the player
+     */
     public void setCurrentPlanet(Planet currentPlanet) {
         this.currentPlanet = currentPlanet;
     }
 
+    /**
+     * subtracts an amount of credits from the player
+     * @param x an amount of credits
+     */
     public void subtractCredits(int x){
         credits = ((credits - x) > 0) ? (credits - x) : 0;
     }
 
+    /**
+     * subtracts points from one of the 4 categories of points from the player
+     * @param x an amount to subtract
+     */
     public void losePoints(int x){
         int[] pointArray = {engineerPoints, fighterPoints, pilotPoints, traderPoints};
         int max = engineerPoints;
@@ -116,6 +201,10 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * adds points to one of the 4 categories of points from the player
+     * @param x the amount of points
+     */
     public void gainPoints(int x){
         int[] pointArray = {engineerPoints, fighterPoints, pilotPoints, traderPoints};
         int min = engineerPoints;
@@ -140,15 +229,28 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * gets the current solar system
+     * @return the current solar system
+     */
     //why isn't this used
     public SolarSystem getCurrentSystem() {
         return currentSystem;
     }
 
+    /**
+     * sets current solar system
+     * @param currentSystem new current solar system
+     */
     public void setCurrentSystem(SolarSystem currentSystem) {
         this.currentSystem = currentSystem;
     }
 
+    /**
+     * gets the list of planets the player can travel to based on the amount
+     * of fuel in the ship
+     * @return the list of visitable planets
+     */
     public ArrayList<Planet> visitablePlanets(){
         List<int[]> viableCoords = new ArrayList<>();
         ArrayList<Planet> planetsAbleToVisit = new ArrayList<>();
@@ -198,6 +300,11 @@ public class Player implements Serializable {
         currentSystem = p.getHomesystem();
     }*/
 
+    /**
+     * the player can travel to the planet and will encounter a random event
+     * @param p the planet of interest
+     * @return the random event to affect the player
+     */
     public RandomEvent.events travelToPlanet(Planet p){
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();
@@ -231,23 +338,14 @@ public class Player implements Serializable {
 
     }
 
-
+    /**
+     * gets the current universe of the player
+     * @return the current universe of the player
+     */
     public Universe getCurrentUniverse() {
         return currentUniverse;
     }
 
-        //deprecated
-    public static Player parseEntry(String line) {
-        assert line != null;
-        String[] tokens = line.split("\t");
-        assert tokens.length == 5;
-        Universe replacementUniverse = new Universe(10);
-        Player s = new Player(tokens[0], Integer.valueOf(tokens[1]), Integer.valueOf(tokens[2]),
-                Integer.valueOf(tokens[3]), Integer.valueOf(tokens[4]),
-                Difficulty.getType(tokens[5]), replacementUniverse);
-
-        return s;
-    }
 
     //deprecated
     /**
@@ -264,18 +362,34 @@ public class Player implements Serializable {
                 currentUniverse.toStringForSave());
     }
 
+    /**
+     * gets the difficulty of the player
+     * @return the difficulty level of the player
+     */
     public Difficulty getDiff() {
         return diff;
     }
 
+    /**
+     * sets the difficulty of the player
+     * @param diff the desired difficulty
+     */
     public void setDiff(Difficulty diff) {
         this.diff = diff;
     }
 
+    /**
+     * sets the ship that the player chooses
+     * @param myShip the ship
+     */
     public void setMyShip(Ship myShip) {
         this.myShip = myShip;
     }
 
+    /**
+     * sets the current universe of the player
+     * @param currentUniverse the new current universe of the player
+     */
     public void setCurrentUniverse(Universe currentUniverse) {
         this.currentUniverse = currentUniverse;
     }

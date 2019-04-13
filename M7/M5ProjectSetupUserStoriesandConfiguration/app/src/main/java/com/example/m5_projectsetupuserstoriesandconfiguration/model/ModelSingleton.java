@@ -17,6 +17,10 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Sets up a model that can connect to the front end views
+ * and the backend repository
+ */
 public class ModelSingleton implements Serializable {
     private static int currentPlayerID;
 
@@ -32,55 +36,108 @@ public class ModelSingleton implements Serializable {
 
     private static ModelSingleton instance = new ModelSingleton();
 
+    /**
+     * Sets a new instance of the ModelSingleton
+     * @param newInstance the new instance of the model
+     */
     private static void setInstance(ModelSingleton newInstance)
     {ModelSingleton.instance = newInstance;}
 
+    /**
+     * Gets the current instance of the model singleton
+     * @return the current instance of the model singleton
+     */
     public static ModelSingleton getInstance() {return instance;}
 
+    /**
+     * gets the current player id
+     * @return the current player id
+     */
     public static int getCurrentPlayerID() {return currentPlayerID;}
 
+    /**
+     * Sets the current player id
+     * @param ID the new current player id
+     */
     public static void setCurrentPlayerID(int ID) {
         currentPlayerID = ID;
         instance.setNonStaticCurrentPlayerID(ID);
     }
 
+    /**
+     * Sets the new nonstatic current player id
+     * @param ID the new nonstatic current player id
+     */
     public void setNonStaticCurrentPlayerID(int ID) {
         nonStaticCurrentPlayerID = ID;
     }
 
+    /**
+     * gets the current nonstatic current player id
+     * @return the current nonstatic current player id
+     */
     public int getNonStaticCurrentPlayerID() {
         return instance.nonStaticCurrentPlayerID;
     }
 
+    /**
+     * gets the current market
+     * @return the current market
+     */
     public static Market getCurrentMarket() {return currentMarket;}
 
+    /**
+     * sets the current market
+     * @param updatedMarket the current market is set to this param
+     */
     public static void setCurrentMarket(Market updatedMarket) {currentMarket = updatedMarket;}
 
+    /**
+     * updates the player similar to view models
+     * @param player the player to be updated
+     */
     public void updatePlayer(Player player) {
         getPlayerInteractor().getAllPlayers().set(currentPlayerID, player);
     }
 
+    /**
+     * sets the new player interactor
+     * @param newPlayerInt the new player interactor to be put into the map
+     */
     public void setPlayerInteractor(PlayerInteractor newPlayerInt) {
         interactorMap.put("Player", newPlayerInt);
     }
 
 
-    //Make a new instance
+    /**
+     * Makes a new model singleton instance
+     */
     private ModelSingleton() {
         myRepository = new Repository();
         interactorMap = new HashMap<>();
         registerInteractors();
     }
 
-    //Make a set of interactors to use for the application
+    /**
+     * Make a set of interactors to use for the application
+     */
     private void registerInteractors() {
         interactorMap.put("Player", new PlayerInteractor(myRepository));
     }
 
+    /**
+     * gets the current player interactor
+     * @return the current player interactor
+     */
     public PlayerInteractor getPlayerInteractor() {
         return (PlayerInteractor) interactorMap.get("Player");
     }
 
+    /**
+     * used for serializable implementation
+     * @param file an input file on the phone
+     * @return boolean if it suceeds
+     */
     public boolean loadBinary(FileInputStream file) {
         Log.d("LoadTest", "This line was run");
         boolean success = true;
@@ -111,6 +168,11 @@ public class ModelSingleton implements Serializable {
 
     }
 
+    /**
+     * saves the current instance to fire base
+     * @param file output file to save on android phone
+     * @return boolean if success
+     */
     public boolean saveBinary(FileOutputStream file) {
 
         Log.d("SINGLETON", "saveBinary");
