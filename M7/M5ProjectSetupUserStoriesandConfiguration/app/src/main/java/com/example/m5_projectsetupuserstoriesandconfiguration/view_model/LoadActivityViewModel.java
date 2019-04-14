@@ -17,7 +17,8 @@ public class LoadActivityViewModel extends AndroidViewModel {
 
     public LoadActivityViewModel(@NonNull Application application) {
         super(application);
-        interactor = ModelSingleton.getInstance().getPlayerInteractor();
+        ModelSingleton model = ModelSingleton.getInstance();
+        interactor = model.getPlayerInteractor();
     }
 
     public void updatePlayer(Player player ) {

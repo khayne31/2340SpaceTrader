@@ -1,12 +1,15 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,7 +78,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         nameField = findViewById(R.id.name_input);
         pointcountLabel = findViewById(R.id.point_count);
         //display how many points you have left at the top of the screen
-        mainVM = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+        ViewModelProvider mainVMs = ViewModelProviders.of(this);
+        mainVM = mainVMs.get(MainActivityViewModel.class);
+
 
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, Difficulty.values());
@@ -218,7 +223,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -244,23 +250,28 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     public void onCreatePlayerPressed(View view){
         Log.d("Test", "Create Player Button has been pressed");
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);
-        name = nameField.getText().toString();
+        Editable nameOne = nameField.getText();
+        name = nameOne.toString();
         if (name.equals("")) {
-            Toast.makeText(this, "You did not enter a name",Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(this, "You did not enter a name",Toast.LENGTH_SHORT);
+            toast.show();
         } else {
             if ((fighterpts + pilotpts + engineerpts + traderpts) == 16) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
-                name = nameField.getText().toString();
+                Editable nameTwo = nameField.getText();
+                name = nameTwo.toString();
                 player = new Player(name,fighterpts, traderpts, engineerpts,pilotpts,diff,universe);
                 Log.i("Test", "New player successfully created!");
                 Log.i("Confirmation", "Your name is " + player.getName());
                 mainVM.addPlayer(player);
                 ModelSingleton.setCurrentPlayerID(player.getId());
-                Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(this, "New Player Created", Toast.LENGTH_SHORT);
+                toast.show();
                 startActivity(moveActivities);
             } else {
-                Toast.makeText(this, "You did not use all of your points",
-                        Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(this, "You did not use all of your points",
+                        Toast.LENGTH_SHORT);
+                toast.show();
             }
         }
     }
@@ -280,7 +291,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Log.i("Confirmation", "Your name is " + player.getName());
         mainVM.addPlayer(player);
         ModelSingleton.setCurrentPlayerID(player.getId());
-        Toast.makeText(this, "New Lazy Player Created", Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(this, "New Lazy Player Created", Toast.LENGTH_SHORT);
+        toast.show();
         startActivity(moveActivities);
     }
 

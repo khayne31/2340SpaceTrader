@@ -72,9 +72,6 @@ public class MarketScreen extends AppCompatActivity {
         TextView maxCargoLabel = findViewById(R.id.MaxCargo_label);
         currentTotalCargoLabel = findViewById(R.id.CurrentTotalCargo_label);
         currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
-        if(currentTotalCargo == null) {
-            currentTotalCargo = 0;
-        }
         currentTotalCargoLabel.setText("" + currentTotalCargo.toString());
 
         Log.d("onCreate", "screen init");
@@ -93,8 +90,7 @@ public class MarketScreen extends AppCompatActivity {
                 currentGood = (GoodType) parent.getItemAtPosition(pos);
                 currentCredits = player.getCredits();
                 currentPrice = market.getTradeGoodPrice(currentGood);
-                currentCargoInventory = Integer.valueOf(
-                        player.getMyShip().getGoodList().get(currentGood));
+                currentCargoInventory = player.getMyShip().getGoodList().get(currentGood);
                 if (currentCargoInventory == null) {
                     currentCargoInventory = 0;
                 }
@@ -144,7 +140,7 @@ public class MarketScreen extends AppCompatActivity {
         numSellLabel.setText("" + numToSell);
 
         // TODO: update values for view labels
-        currentCargoInventory = Integer.valueOf(player.getMyShip().getGoodList().get(currentGood));
+        currentCargoInventory = player.getMyShip().getGoodList().get(currentGood);
         // #item_in_cargo
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
@@ -187,7 +183,7 @@ public class MarketScreen extends AppCompatActivity {
         numSellLabel.setText("" + numToSell);
 
         // TODO: update values for view labels
-        currentCargoInventory = Integer.valueOf(player.getMyShip().getGoodList().get(currentGood));
+        currentCargoInventory = player.getMyShip().getGoodList().get(currentGood);
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");

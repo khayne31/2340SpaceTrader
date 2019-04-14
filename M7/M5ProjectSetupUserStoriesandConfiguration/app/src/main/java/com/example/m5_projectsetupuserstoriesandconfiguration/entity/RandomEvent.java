@@ -3,6 +3,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class RandomEvent {
@@ -87,8 +88,8 @@ public class RandomEvent {
         Log.d("rng", "rng");
         Log.d("UniverseLogCat", "test");
         events event = events.values()[new Random().nextInt(events.values().length-1)];
-        Log.d("rng", event.eventDescription + "   " + events.values());
-        System.out.print(events.values() + "\t" + event);
+        Log.d("rng", event.eventDescription + "   " + Arrays.toString(events.values()));
+        System.out.print(Arrays.toString(events.values()) + "\t" + event);
         switch(event){
             case Wormhole:
                 Universe uni = p.getCurrentUniverse();

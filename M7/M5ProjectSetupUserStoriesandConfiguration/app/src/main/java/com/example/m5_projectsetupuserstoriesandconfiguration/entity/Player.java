@@ -20,6 +20,7 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
+    private final int hp = 200;
 
 
     /**
@@ -41,7 +42,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), 200, 0);
+        myShip = new Ship(Ship.makeGnat(), hp, 0);
         currentUniverse = uni;
         //law of demeter violation
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
@@ -184,7 +185,6 @@ public class Player implements Serializable {
         int i;
         for(i = 1; i < 4; i++){
             if(pointArray[i] > max){
-                max = pointArray[i];
                 index = i;
                 break;
             }
@@ -212,7 +212,6 @@ public class Player implements Serializable {
         int i;
         for(i = 1; i < 4; i++){
             if(pointArray[i] < min){
-                min = pointArray[i];
                 index = i;
                 break;
             }

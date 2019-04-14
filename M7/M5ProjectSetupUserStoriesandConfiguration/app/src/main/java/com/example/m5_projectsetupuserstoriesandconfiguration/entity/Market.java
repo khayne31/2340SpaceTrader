@@ -12,6 +12,9 @@ public class Market implements Serializable {
     private final List<Item> itemSellList; // item {type, name, quantity, price}
     private final Planet planet;
     private int credits;
+    private final int minCredits = 100000;
+    private final double bigOneHundred = 100.0;
+    private final double onePointFive = 1.5;
 
     private Random random;
 
@@ -22,7 +25,7 @@ public class Market implements Serializable {
         marketSize = random.nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         //Get rid of this, market people don't need to have money
-        int MIN_NUMBER_CREDITS = 100000;
+        int MIN_NUMBER_CREDITS = minCredits;
         credits = random.nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
@@ -57,7 +60,7 @@ public class Market implements Serializable {
 
         //private final int QUANTITY_INDEX = 0;
         //private final int PRICE_INDEX = 1;
-        double BIG100 = 100.0;
+        double BIG100 = bigOneHundred;
         double variance = (gt.getVar()/ BIG100) * gt.getBasePrice();
         // the variance of price from base price (always
         // applied, kind of like a item tax)
@@ -67,10 +70,10 @@ public class Market implements Serializable {
         // treat the diff as a percentage increase on base price
         // we don't have to worry about this being negative bc for the planet to sell the good
         // planet tech >= item tech so planet tech - item tech >= 0
-
-        if( planet.getEvent().equals(gt.getIe()) ) {
+        RadicalEvent planetEvent = planet.getEvent();
+        if( planetEvent.equals(gt.getIe()) ) {
             // RadicalEvents match --> increase prices
-            multiplier = multiplier * 1.5;
+            multiplier = multiplier * onePointFive;
         }
 //        if( planet.getResources().getResourceName().equals(gt.getCr().getResourceName()) ) {
 // cheap resource condition

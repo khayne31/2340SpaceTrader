@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +39,8 @@ public class LoadScreen extends AppCompatActivity {
             actionBar.hide();
         }
 
-        LoadActivityViewModel loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
+        ViewModelProvider loadVMs = ViewModelProviders.of(this);
+        LoadActivityViewModel loadVM = loadVMs.get(LoadActivityViewModel.class);
         try {
             loadVM.loadBinary(openFileInput("data.bin"));
         } catch (Exception e) {
@@ -62,7 +64,8 @@ public class LoadScreen extends AppCompatActivity {
      * @param view the View of the button
      */
     public void onLoadGamePressed(View view) {
-        Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT);
+        toast.show();
         Intent moveActivities = new Intent(this, PlanetScreen.class);
 
         //int id = ModelSingleton.getCurrentPlayerID();
