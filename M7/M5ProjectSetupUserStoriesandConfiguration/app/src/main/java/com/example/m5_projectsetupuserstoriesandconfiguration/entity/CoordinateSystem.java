@@ -11,9 +11,7 @@ import java.util.List;
     private final List<ArrayList<Planet>> system;
     private final ArrayList<Planet> allPlanets;
     private double populationProb;
-    private final double MAX_PROB = .05;
     private final String systemName;
-    private final int size;
     private final Resources resources;
     private final SolarSystem currentSolarSystem;
     private int  planetCounter = 0;
@@ -27,9 +25,10 @@ import java.util.List;
      */
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
         currentSolarSystem = solar;
+        double MAX_PROB = .05;
         populationProb =  MAX_PROB * Math.random();
         systemName = solar.getSystemName();
-        size = sizeSystem;
+        int size = sizeSystem;
         system = new ArrayList<>();
         allPlanets = new ArrayList<>();
 

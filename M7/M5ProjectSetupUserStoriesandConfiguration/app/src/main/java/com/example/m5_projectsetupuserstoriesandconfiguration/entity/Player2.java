@@ -17,21 +17,14 @@ public class Player2 {
 
     /**
      * Constructor for player
-     * @param name the players name
-     * @param fPoints fighter points
-     * @param tPoints trader points
-     * @param ePoints engineer points
-     * @param pPoints pilot points
-     * @param difficulty the difficulty level
      */
-    public Player2(Player p, String name, int fPoints, int tPoints, int ePoints, int pPoints,
-                   Difficulty difficulty) {
-        name = p.getName();
-        fPoints = p.getFighterPoints();
-        tPoints = p.getTraderPoints();
-        ePoints = p.getEngineerPoints();
-        pPoints = p.getPilotPoints();
-        difficulty = p.getDiff();
+    public Player2(Player p) {
+        String name = p.getName();
+        int fPoints = p.getFighterPoints();
+        int tPoints = p.getTraderPoints();
+        int ePoints = p.getEngineerPoints();
+        int pPoints = p.getPilotPoints();
+        Difficulty difficulty = p.getDiff();
     }
     /**
      * gets the name of the player

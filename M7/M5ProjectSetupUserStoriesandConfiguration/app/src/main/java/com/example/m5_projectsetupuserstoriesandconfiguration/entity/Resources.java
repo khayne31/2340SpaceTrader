@@ -17,7 +17,6 @@ public enum Resources {
     RCHF(13, "RICHFAUNA"),
     NEVER(14, "NEVER");
 
-    private final int lvl;
     private final String resource;
 
     /**
@@ -26,7 +25,7 @@ public enum Resources {
      * @param resourceName the name of resource on planet
      */
     Resources(int resourceLvl, String resourceName){
-        lvl = resourceLvl;
+        int lvl = resourceLvl;
         resource = resourceName;
     }
 

@@ -9,13 +9,11 @@ public enum RadicalEvent {
     PLAGUE("Plague"),
     LACKOFWORKERS("LackOfWorkers");
 
-    private final String name;
-
     /**
      * the constructor for the radical event enum
      * @param name the name of the radical event
      */
     RadicalEvent(String name) {
-        this.name = name;
+        String name1 = name;
     }
 }

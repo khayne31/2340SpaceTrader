@@ -10,7 +10,6 @@ public enum Governments {
     Reb("Reb", "Republic");
 
 
-    private final String id;
     private final String government;
 
     @Override
@@ -21,7 +20,7 @@ public enum Governments {
     }
 
     Governments(String govId, String gov) {
-        id = govId;
+        String id = govId;
         government = gov;
 
     }

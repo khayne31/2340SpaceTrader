@@ -106,7 +106,8 @@ public class RandomEvent {
                 Universe universe = p.getCurrentUniverse();
                 SolarSystem randSys = universe.getSystems().get(new Random().nextInt(
  universe.getSystems().size()));
-                Planet randPlanet = randSys.getPlanets().get(new Random().nextInt(randSys.getPlanets().size()));
+                Planet randPlanet = randSys.getPlanets().get(new Random()
+                        .nextInt(randSys.getPlanets().size()));
                 p.setCurrentPlanet(randPlanet);
                 break;
             case StarGate:

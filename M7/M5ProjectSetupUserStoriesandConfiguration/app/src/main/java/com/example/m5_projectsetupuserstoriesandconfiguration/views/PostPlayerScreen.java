@@ -22,7 +22,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PostPla
 public class PostPlayerScreen extends AppCompatActivity {
 
 
-    private PostPlayerScreenViewModel postVM;
     private Player player;
 
     @Override
@@ -56,8 +55,8 @@ public class PostPlayerScreen extends AppCompatActivity {
         creditsLabel = findViewById(R.id.credits);
         nameLabel = findViewById(R.id.player_label);
 
-        postVM = ViewModelProviders.of(this).get(PostPlayerScreenViewModel.class);
-        player = postVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
+        PostPlayerScreenViewModel postVM = ViewModelProviders.of(this).get(PostPlayerScreenViewModel.class);
+        player = postVM.getPlayer(ModelSingleton.getCurrentPlayerID());
         pPoints = player.getPilotPoints();
         ePoints = player.getEngineerPoints();
         tPoints = player.getTraderPoints();

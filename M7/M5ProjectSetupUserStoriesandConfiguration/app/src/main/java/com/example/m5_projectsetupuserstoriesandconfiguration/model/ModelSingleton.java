@@ -6,7 +6,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.DatabaseReference;
@@ -18,7 +17,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +25,7 @@ import java.util.Map;
  * Sets up a model that can connect to the front end views
  * and the backend repository
  */
-public class ModelSingleton implements Serializable {
+public final class ModelSingleton implements Serializable {
     private static int currentPlayerID;
 
     private final Repository myRepository;
@@ -189,9 +187,8 @@ public class ModelSingleton implements Serializable {
 
         myRef.child("1").setValue("test2");
         Player player = getPlayerInteractor().getAllPlayers().get(0);
-        Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(),
-                player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(),
-                player.getDiff());
+        Player2 player2 = new Player2(player
+        );
 
         myRef.child("p").child("player").
                 setValue(player2);

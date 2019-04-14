@@ -28,11 +28,8 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
     private Context mContext;
 
     ConstraintLayout mConstraintLayout;
-    private RecyclerView recyclerView;
-    private Button mSellButton;
 
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     private Market market;
 
@@ -52,15 +49,15 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
             actionBar.hide();
         }
         // get referenced widgets
-        recyclerView = findViewById(R.id.items_recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.items_recycler_view);
         mConstraintLayout = findViewById(R.id.market_constraint_layout);
-        mSellButton = findViewById(R.id.sell_button);
+        Button mSellButton = findViewById(R.id.sell_button);
 
         // fix size of recycler view (less object don't make it look shorter)
         recyclerView.setHasFixedSize(true);
 
         // using a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         // specify adapter

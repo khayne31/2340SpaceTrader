@@ -11,7 +11,6 @@ import java.util.Random;
  */
 public class SolarSystem implements Serializable {
     private final ArrayList<Planet> planets;
-    private final CoordinateSystem system;
     private final int systemSize;
     private final String systemName;
     private int[] coords;
@@ -27,7 +26,7 @@ public class SolarSystem implements Serializable {
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
         systemName = generateRandomName();
-        system = new CoordinateSystem(systemSize, this, resource);
+        CoordinateSystem system = new CoordinateSystem(systemSize, this, resource);
 
 
         planets = system.getAllPlanets();

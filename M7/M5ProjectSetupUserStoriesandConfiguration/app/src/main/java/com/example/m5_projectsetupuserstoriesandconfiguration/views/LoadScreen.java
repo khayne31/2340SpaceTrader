@@ -22,7 +22,6 @@ import static android.widget.Toast.LENGTH_SHORT;
  */
 public class LoadScreen extends AppCompatActivity {
 
-    private LoadActivityViewModel loadVM;
     private TextView currentPlayerID;
     private Player currentPlayer;
 
@@ -39,7 +38,7 @@ public class LoadScreen extends AppCompatActivity {
             actionBar.hide();
         }
 
-        loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
+        LoadActivityViewModel loadVM = ViewModelProviders.of(this).get(LoadActivityViewModel.class);
         try {
             loadVM.loadBinary(openFileInput("data.bin"));
         } catch (Exception e) {

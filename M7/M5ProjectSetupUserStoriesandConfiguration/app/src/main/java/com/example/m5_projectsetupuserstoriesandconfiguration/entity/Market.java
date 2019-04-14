@@ -11,21 +11,18 @@ public class Market implements Serializable {
     //first integer is number of goods second integer is price of goods
     private final List<Item> itemSellList; // item {type, name, quantity, price}
     private final Planet planet;
-    private final int MIN_NUMBER_CREDITS = 100000;
-    private final int MAX_MARKET_SIZE = 100;
     private int credits;
 
-    //private final int QUANTITY_INDEX = 0;
-    //private final int PRICE_INDEX = 1;
-    private final double BIG100 = 100.0;
     private Random random;
 
     public Market(Planet planet){
         itemSellList = new ArrayList<Item>();
         random = new Random();
+        int MAX_MARKET_SIZE = 100;
         marketSize = random.nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         //Get rid of this, market people don't need to have money
+        int MIN_NUMBER_CREDITS = 100000;
         credits = random.nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
@@ -58,7 +55,10 @@ public class Market implements Serializable {
         // starts as 1, as if no effective events
         // won't affect price
 
-        double variance = (gt.getVar()/BIG100) * gt.getBasePrice();
+        //private final int QUANTITY_INDEX = 0;
+        //private final int PRICE_INDEX = 1;
+        double BIG100 = 100.0;
+        double variance = (gt.getVar()/ BIG100) * gt.getBasePrice();
         // the variance of price from base price (always
         // applied, kind of like a item tax)
 

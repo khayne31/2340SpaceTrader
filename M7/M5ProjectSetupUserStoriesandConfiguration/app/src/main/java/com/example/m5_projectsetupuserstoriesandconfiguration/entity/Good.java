@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class Good implements Serializable {
-    private final double MAXPRICEFACTOR = 3;
     private GoodType typeOfGood;
     private final int minimumTechLvlBuy;
     private final int minimumTechLvlSell;
@@ -16,7 +15,6 @@ public class Good implements Serializable {
     private final Resources cheapPrice;
     private final int minPrice;
     private final int maxPrice;
-    private int marketPrice;
 
     public Good(){
         this.typeOfGood = GoodType.values()[new Random().nextInt(GoodType.values().length)];
@@ -29,8 +27,9 @@ public class Good implements Serializable {
         this.expensivePrice = typeOfGood.getCr();
         this.cheapPrice = typeOfGood.getEr();
         this.minPrice = this.typeOfGood.getBasePrice();
+        double MAXPRICEFACTOR = 3;
         this.maxPrice = (int) (this.typeOfGood.getBasePrice()* MAXPRICEFACTOR);
-        this.marketPrice = minPrice;
+        int marketPrice = minPrice;
 
 
     }

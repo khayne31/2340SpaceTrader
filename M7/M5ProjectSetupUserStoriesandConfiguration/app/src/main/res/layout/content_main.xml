@@ -40,7 +40,8 @@
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/table_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <!--STATS-->
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"

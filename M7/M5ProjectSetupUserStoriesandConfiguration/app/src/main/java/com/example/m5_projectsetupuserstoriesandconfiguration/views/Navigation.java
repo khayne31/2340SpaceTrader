@@ -27,14 +27,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketB
  */
 public class Navigation extends AppCompatActivity {
 
-    private Spinner planetSpinner;
     private MarketBuyScreenViewModel buyVM;
     private Player player;
-    private Ship playerShip;
-    private Planet currentPlanet;
     private Planet destinationPlanet;
-    private TextView planetNameLabel;
-    private TextView currentFuelLabel;
     private TextView requiredFuelLabel;
 
 
@@ -51,11 +46,11 @@ public class Navigation extends AppCompatActivity {
         }
 
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
-        player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
-        playerShip = player.getMyShip();
-        currentPlanet = player.getCurrentPlanet();
-        planetNameLabel = findViewById(R.id.planet_title);
-        currentFuelLabel = findViewById(R.id.fuel_label);
+        player = buyVM.getPlayer(ModelSingleton.getCurrentPlayerID());
+        Ship playerShip = player.getMyShip();
+        Planet currentPlanet = player.getCurrentPlanet();
+        TextView planetNameLabel = findViewById(R.id.planet_title);
+        TextView currentFuelLabel = findViewById(R.id.fuel_label);
         requiredFuelLabel = findViewById(R.id.required_fuel_label);
 
 
@@ -63,9 +58,7 @@ public class Navigation extends AppCompatActivity {
         currentFuelLabel.setText(Integer.toString(playerShip.getFuel()));
 
 
-
-
-        planetSpinner = findViewById(R.id.planet_select);
+        Spinner planetSpinner = findViewById(R.id.planet_select);
         ArrayAdapter<Planet> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, player.visitablePlanets());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

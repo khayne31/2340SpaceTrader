@@ -31,8 +31,6 @@ public class MarketScreen extends AppCompatActivity {
     private MarketBuyScreenViewModel buyVM;
     private Player player;
     private Market market;
-    private Planet currentPlanet;
-    private Spinner itemSpinner;
     private TextView cargoInventory;
     private TextView marketInventory;
     private int numToBuy;
@@ -43,7 +41,6 @@ public class MarketScreen extends AppCompatActivity {
     private TextView creditsLabel;
     private TextView priceLabel;
     private TextView currentTotalCargoLabel;
-    private TextView maxCargoLabel;
     private Integer currentCargoInventory;
     private Integer currentTotalCargo;
     private Integer currentMarketInventory;
@@ -68,13 +65,13 @@ public class MarketScreen extends AppCompatActivity {
         }
 
         buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
-        player = buyVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
-        currentPlanet = player.getCurrentPlanet();
+        player = buyVM.getPlayer(ModelSingleton.getCurrentPlayerID());
+        Planet currentPlanet = player.getCurrentPlanet();
         market = currentPlanet.getMarket();
 
-        maxCargoLabel = findViewById(R.id.MaxCargo_label);
+        TextView maxCargoLabel = findViewById(R.id.MaxCargo_label);
         currentTotalCargoLabel = findViewById(R.id.CurrentTotalCargo_label);
-        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize());
+        currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
         if(currentTotalCargo == null) {
             currentTotalCargo = 0;
         }
@@ -83,7 +80,7 @@ public class MarketScreen extends AppCompatActivity {
         Log.d("onCreate", "screen init");
         maxCargoLabel.setText(Integer.toString(player.getMyShip().getType().getMaxCargo()));
 
-        itemSpinner = findViewById(R.id.good_select);
+        Spinner itemSpinner = findViewById(R.id.good_select);
         ArrayAdapter<GoodType> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, GoodType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -96,13 +93,13 @@ public class MarketScreen extends AppCompatActivity {
                 currentGood = (GoodType) parent.getItemAtPosition(pos);
                 currentCredits = player.getCredits();
                 currentPrice = market.getTradeGoodPrice(currentGood);
-                currentCargoInventory = new Integer(
+                currentCargoInventory = Integer.valueOf(
                         player.getMyShip().getGoodList().get(currentGood));
                 if (currentCargoInventory == null) {
                     currentCargoInventory = 0;
                 }
 
-                currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+                currentMarketInventory = Integer.valueOf(market.getTradeGoodQuantity(currentGood));
                 if (currentMarketInventory == null) {
                     currentMarketInventory = 0;
                 }
@@ -147,17 +144,17 @@ public class MarketScreen extends AppCompatActivity {
         numSellLabel.setText("" + numToSell);
 
         // TODO: update values for view labels
-        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+        currentCargoInventory = Integer.valueOf(player.getMyShip().getGoodList().get(currentGood));
         // #item_in_cargo
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
-        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+        currentMarketInventory = Integer.valueOf(market.getTradeGoodQuantity(currentGood));
         // #item_rem_in_market
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
         } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
-        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize());
+        currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
         // #updated_total_item_count
         if (currentTotalCargo == null) {
             Log.d("BuyPressed", "currTotCargo is null");
@@ -190,15 +187,15 @@ public class MarketScreen extends AppCompatActivity {
         numSellLabel.setText("" + numToSell);
 
         // TODO: update values for view labels
-        currentCargoInventory = new Integer(player.getMyShip().getGoodList().get(currentGood));
+        currentCargoInventory = Integer.valueOf(player.getMyShip().getGoodList().get(currentGood));
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
-        currentMarketInventory = new Integer(market.getTradeGoodQuantity(currentGood));
+        currentMarketInventory = Integer.valueOf(market.getTradeGoodQuantity(currentGood));
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
         } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
-        currentTotalCargo = new Integer(player.getMyShip().getCurrCargoSize());
+        currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
         // #updated_total_item_count
         if (currentTotalCargo == null) {
             Log.d("BuyPressed", "currTotCargo is null");

@@ -5,16 +5,13 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
  */
 public class Game {
 
-    private final Player player;
-    private final Market market;
-
     /**
      * A constructor that generates a new game based on an inputted player
      * @param newPlayer The new player to create a game for
      */
     public Game(Player newPlayer) {
-        player = newPlayer;
-        market = new Market(player.getCurrentPlanet());
+        Player player = newPlayer;
+        Market market = new Market(player.getCurrentPlanet());
     }
 
 }
