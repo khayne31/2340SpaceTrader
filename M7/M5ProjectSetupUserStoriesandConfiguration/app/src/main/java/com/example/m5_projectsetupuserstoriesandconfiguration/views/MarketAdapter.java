@@ -42,13 +42,13 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolde
         mContext = context;
     }
 
+    @Override
     public MarketAdapter.MViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         TextView v = (TextView) LayoutInflater.from(mContext)
                 .inflate(R.layout.item_view, parent, false);
         // customize stuff here
-        MViewHolder vh = new MViewHolder(v);
-        return vh;
+        return new MViewHolder(v);
     }
 
     @Override

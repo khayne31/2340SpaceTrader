@@ -20,7 +20,6 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
-    private final int hp = 200;
 
 
     /**
@@ -42,6 +41,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
+        int hp = 200;
         myShip = new Ship(Ship.shipType.GN, hp, 0);
         currentUniverse = uni;
         //law of demeter violation
@@ -192,10 +192,13 @@ public class Player implements Serializable {
         switch(index){
             case 1:
                 fighterPoints -= x;
+                break;
             case 2:
                 pilotPoints -= x;
+                break;
             case 3:
                 traderPoints -= x;
+                break;
             default:
                 engineerPoints -= x;
         }
@@ -219,10 +222,13 @@ public class Player implements Serializable {
         switch(index){
             case 1:
                 fighterPoints += x;
+                break;
             case 2:
                 pilotPoints += x;
+                break;
             case 3:
                 traderPoints += x;
+                break;
             default:
                 engineerPoints += x;
         }

@@ -10,8 +10,7 @@ class Game {
      * @param newPlayer The new player to create a game for
      */
     public Game(Player newPlayer) {
-        Player player = newPlayer;
-        Market market = new Market(player.getCurrentPlanet());
+        Market market = new Market(newPlayer.getCurrentPlanet());
     }
 
 }

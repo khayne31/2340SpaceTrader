@@ -20,7 +20,6 @@ public enum Governments {
     }
 
     Governments(String govId, String gov) {
-        String id = govId;
         government = gov;
 
     }

@@ -27,8 +27,6 @@ import java.io.Serializable;
 public class MarketActivity extends AppCompatActivity implements Serializable {
     private Context mContext;
 
-    private ConstraintLayout mConstraintLayout;
-
     private RecyclerView.Adapter mAdapter;
 
     private Market market;
@@ -50,7 +48,7 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
         }
         // get referenced widgets
         RecyclerView recyclerView = findViewById(R.id.items_recycler_view);
-        mConstraintLayout = findViewById(R.id.market_constraint_layout);
+        ConstraintLayout mConstraintLayout = findViewById(R.id.market_constraint_layout);
         Button mSellButton = findViewById(R.id.sell_button);
 
         // fix size of recycler view (less object don't make it look shorter)

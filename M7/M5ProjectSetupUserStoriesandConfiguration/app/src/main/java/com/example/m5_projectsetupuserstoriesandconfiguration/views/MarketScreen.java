@@ -85,6 +85,7 @@ public class MarketScreen extends AppCompatActivity {
 
         itemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
                 currentGood = (GoodType) parent.getItemAtPosition(pos);
@@ -114,6 +115,7 @@ public class MarketScreen extends AppCompatActivity {
                 priceLabel.setText("" + currentPrice);
             }
 
+            @Override
             public void onNothingSelected(AdapterView<?> arg0) {
                 // TODO Auto-generated method stub
 

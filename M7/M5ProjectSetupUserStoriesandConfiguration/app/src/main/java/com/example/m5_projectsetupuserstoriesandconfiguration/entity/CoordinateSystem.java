@@ -14,9 +14,7 @@ import java.util.List;
     private final String systemName;
     private final Resources resources;
     private final SolarSystem currentSolarSystem;
-    private int  planetCounter = 0;
-    private final double prob = .05;
-    private final double multiplier = .1;
+    private int  planetCounter;
 
 
     /**
@@ -28,15 +26,14 @@ import java.util.List;
      */
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
         currentSolarSystem = solar;
-        double MAX_PROB = prob;
-        populationProb =  MAX_PROB * Math.random();
+        double prob = .05;
+        populationProb =  prob * Math.random();
         systemName = solar.getSystemName();
-        int size = sizeSystem;
         system = new ArrayList<>();
         allPlanets = new ArrayList<>();
 
 
-        generateSystem(size);
+        generateSystem(sizeSystem);
 
         resources = res;
 
@@ -70,6 +67,7 @@ import java.util.List;
             }
         }
         if(allPlanets.size() < 10){
+            double multiplier = .1;
             populationProb += multiplier * populationProb;
           generateSystem(size);
         }

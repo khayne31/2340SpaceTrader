@@ -14,6 +14,5 @@ public enum RadicalEvent {
      * @param name the name of the radical event
      */
     RadicalEvent(String name) {
-        String name1 = name;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 
 class Repository implements Serializable {
 
-    private static int next_id = 0;
+    private static int next_id;
 
     private static int getNextUniqueID() {
         next_id++;
@@ -65,8 +65,7 @@ class Repository implements Serializable {
     }
 
     public Player loadPlayer(int id) {
-        Player p = allPlayers.get(id);
-        return p;
+        return allPlayers.get(id);
     }
 
 }

@@ -66,6 +66,7 @@ public class Navigation extends AppCompatActivity {
 
         planetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
                 destinationPlanet = (Planet) parent.getItemAtPosition(pos);
@@ -73,6 +74,7 @@ public class Navigation extends AppCompatActivity {
                         Integer.toString(player.getFuelRequired(destinationPlanet)));
             }
 
+            @Override
             public void onNothingSelected(AdapterView<?> arg0) {
                 // TODO Auto-generated method stub
 

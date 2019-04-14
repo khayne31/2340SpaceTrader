@@ -25,7 +25,6 @@ public enum Resources {
      * @param resourceName the name of resource on planet
      */
     Resources(int resourceLvl, String resourceName){
-        int lvl = resourceLvl;
         resource = resourceName;
     }
 

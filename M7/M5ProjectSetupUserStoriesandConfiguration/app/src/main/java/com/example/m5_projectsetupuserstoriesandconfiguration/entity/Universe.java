@@ -76,9 +76,10 @@ public class Universe implements Serializable {
                     SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5)
                             + 10,
                             new int[]{j, i});
-                    while (listOfNames.contains(currentSystem.getSystemName()))
+                    while (listOfNames.contains(currentSystem.getSystemName())) {
                         currentSystem = new SolarSystem(new Random().nextInt(5) + 10,
                                 new int[]{j, i});
+                    }
                     universe.get(j).add(currentSystem);
                     systems.add(currentSystem);
                     listOfNames.add(currentSystem.getSystemName());

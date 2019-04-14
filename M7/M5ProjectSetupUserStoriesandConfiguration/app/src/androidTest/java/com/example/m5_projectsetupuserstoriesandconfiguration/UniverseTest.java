@@ -25,8 +25,7 @@ public class UniverseTest {
 
     private void testingUniverseConstructor(int sze){
         if(sze <= 0){
-            int size = sze;
-            Universe uni =  new Universe(size);
+            Universe uni =  new Universe(sze);
             assertEquals(uni.getSizeOfUniverse(), uni.MIN_SIZE);
             List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
@@ -45,7 +44,7 @@ public class UniverseTest {
 
             for(int i = 0; i < u.size(); i++){
                 for(int j = 0; j < u.get(0).size(); j++){
-                    if(u.get(i).get(j) != null && u.get(i).get(j) instanceof SolarSystem){
+                    if((u.get(i).get(j) != null) && (u.get(i).get(j) instanceof SolarSystem)){
                         count++;
                     }
                 }
@@ -55,8 +54,8 @@ public class UniverseTest {
         else{
             int size = sze;
             Universe uni =  new Universe(size);
-            assertEquals(uni.getSizeOfUniverse(), size < uni.MAX_SIZE ? size: uni.MAX_SIZE);
-            size = size > uni.MAX_SIZE ? uni.MAX_SIZE : size ;
+            assertEquals(uni.getSizeOfUniverse(), (size < uni.MAX_SIZE) ? size : uni.MAX_SIZE);
+            size = (size > uni.MAX_SIZE) ? uni.MAX_SIZE : size;
             List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
@@ -74,7 +73,7 @@ public class UniverseTest {
 
             for(int i = 0; i < u.size(); i++){
                 for(int j = 0; j < u.get(0).size(); j++){
-                    if(u.get(i).get(j) != null && u.get(i).get(j) instanceof SolarSystem){
+                    if((u.get(i).get(j) != null) && (u.get(i).get(j) instanceof SolarSystem)){
                         count++;
                     }
                 }

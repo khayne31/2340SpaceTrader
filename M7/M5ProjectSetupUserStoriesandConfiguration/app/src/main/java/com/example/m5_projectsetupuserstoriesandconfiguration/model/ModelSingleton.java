@@ -142,7 +142,7 @@ public final class ModelSingleton implements Serializable {
      * @param file an input file on the phone
      * @return boolean if it succeeds
      */
-    public boolean loadBinary(FileInputStream file) {
+    public void loadBinary(FileInputStream file) {
         Log.d("LoadTest", "This line was run");
         boolean success = true;
         try {
@@ -167,8 +167,6 @@ public final class ModelSingleton implements Serializable {
             Log.e("UserManagementFacade", "Error casting a class from the binary file",e);
             success = false;
         }
-
-        return success;
 
     }
 
@@ -196,11 +194,7 @@ public final class ModelSingleton implements Serializable {
 //myRef.child("0").child("playerUniverse").setValue(player.getCurrentUniverse());
 
 
-
-
-
-         boolean success = false;
-//        ObjectOutputStream out;
+        //        ObjectOutputStream out;
 //        try {
 //            /*
 //               For binary, we use Serialization, so everything we write has to implement
@@ -244,6 +238,6 @@ public final class ModelSingleton implements Serializable {
             e.printStackTrace();
         }
         */
-        return success;
+        return false;
     }
 }

@@ -32,12 +32,11 @@ public class Market implements Serializable {
     }
 
     private void initializeMarketInventory(){
-        int remainingGoods = marketSize;
         for(GoodType g : GoodType.values()) {
 
             //if the planet has the required tech level to sell a good, add it to the market
             if(planet.getT_lvl() >= g.getMtlp()) {
-                int quant = random.nextInt(remainingGoods+1);
+                int quant = random.nextInt(marketSize +1);
                 Log.d("MarketPrice", "Checkpoint-2");
                 //int price = generateMarketPrice(g);
                 Item i = new Item(g, g.getName(), quant, generateMarketPrice(g));

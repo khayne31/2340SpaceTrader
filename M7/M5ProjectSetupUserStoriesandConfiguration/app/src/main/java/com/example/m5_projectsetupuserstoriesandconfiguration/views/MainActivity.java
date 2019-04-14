@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private TextView pilotptslabel;
     private TextView traderptslabel;
     private TextView pointcountLabel;
-    private int fighterpts = 0;
-    private int traderpts = 0;
-    private int pilotpts = 0;
-    private int engineerpts = 0;
+    private int fighterpts;
+    private int traderpts;
+    private int pilotpts;
+    private int engineerpts;
     private int pointcount = 16;
     private String name;
     private Spinner difSpinner;
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Intent moveActivities = new Intent(this, PostPlayerScreen.class);
         Editable nameOne = nameField.getText();
         name = nameOne.toString();
-        if (name.equals("")) {
+        if ("".equals(name)) {
             Toast toast = Toast.makeText(this, "You did not enter a name",Toast.LENGTH_SHORT);
             toast.show();
         } else {
