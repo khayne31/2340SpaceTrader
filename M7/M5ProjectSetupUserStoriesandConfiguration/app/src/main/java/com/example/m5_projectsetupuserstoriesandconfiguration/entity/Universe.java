@@ -16,6 +16,8 @@ public class Universe implements Serializable {
     private final int systemsInUniverse;
     private final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
+    public final int MAX_SIZE = 20;
+    public final int MIN_SIZE = 10;
 
     /**
      * getter method for the systems variable
@@ -42,7 +44,13 @@ public class Universe implements Serializable {
      */
     public Universe(int size) {
         universe = new ArrayList<>();
-        sizeOfUniverse = (size >= 10) ? size : 10;
+       if(size <= MIN_SIZE){
+           sizeOfUniverse = MIN_SIZE;
+       } else if(size >= MAX_SIZE){
+           sizeOfUniverse = MAX_SIZE;
+       } else{
+           sizeOfUniverse = size;
+       }
         systems = new ArrayList<>();
         Log.d(DEBUG, "inside the universe constructor before generation");
         generateUniverse(sizeOfUniverse);

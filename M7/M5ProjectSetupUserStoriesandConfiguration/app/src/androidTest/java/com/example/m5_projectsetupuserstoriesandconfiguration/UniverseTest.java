@@ -16,24 +16,27 @@ import java.util.List;
 public class UniverseTest {
     @Test
     public void testUniverse(){
-        testingUniverseConstructor(-10);
+        testingUniverseConstructor(Integer.MIN_VALUE);
         testingUniverseConstructor(0);
+        testingUniverseConstructor(10);
+        testingUniverseConstructor(14);
         testingUniverseConstructor(20);
+        testingUniverseConstructor(Integer.MAX_VALUE);
     }
 
     public void testingUniverseConstructor(int sze){
         if(sze <= 0){
             int size = sze;
             Universe uni =  new Universe(size);
-            assertEquals(uni.getSizeOfUniverse(), 10);
+            assertEquals(uni.getSizeOfUniverse(), uni.MIN_SIZE);
             ArrayList<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
             assertNotEquals(u, null);
-            assertEquals(u.size(), 10);
+            assertEquals(u.size(), uni.MIN_SIZE);
             for(int i = 0; i < 10; i++){
                 assertNotEquals(u.get(i), null);
-                assertEquals(u.get(i).size(), 10);
+                assertEquals(u.get(i).size(), uni.MIN_SIZE);
             }
 
             for(int i=0; i < s.size(); i++){
@@ -53,13 +56,14 @@ public class UniverseTest {
         else{
             int size = sze;
             Universe uni =  new Universe(size);
-            assertEquals(uni.getSizeOfUniverse(), size);
+            assertEquals(uni.getSizeOfUniverse(), size < uni.MAX_SIZE ? size: uni.MAX_SIZE);
+            size = size > uni.MAX_SIZE ? uni.MAX_SIZE : size ;
             ArrayList<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
             assertNotEquals(u, null);
             assertEquals(u.size(), size);
-            for(int i = 0; i < 10; i++){
+            for(int i = 0; i < size; i++){
                 assertNotEquals(u.get(i), null);
                 assertEquals(u.get(i).size(), size);
             }
