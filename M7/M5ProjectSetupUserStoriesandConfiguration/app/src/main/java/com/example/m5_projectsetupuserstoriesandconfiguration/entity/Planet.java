@@ -14,20 +14,14 @@ public class Planet implements Serializable {
     private Market market;
     private final SolarSystem homesystem;
 
-    public Planet(int[] coordinates, String planetName, SolarSystem system){
+    private Planet(int[] coordinates, String planetName, SolarSystem system){
         Log.d("UniverseLogCat", "inside planet constructor before coords");
         if(coordinates.length >= 2){
-            Log.d("UniverseLogCat", coordinates[0]+", " + coordinates[1]+ ", "
-                    + coordinates.length);
             coords = coordinates;
-            Log.d("UniverseLogCat", coords+"");
-            Log.d("UniverseLogCat", "inside planet constructor inside coords");
         } else{
-            Log.d("UniverseLogCat", "inside planet constructor before coords");
             coords[1] = 0;
             coords[0] = 0;
         }
-        Log.d("UniverseLogCat", "inside planet constructor after coords");
         name = planetName;
         t_lvl = Tech.values()[new Random().nextInt(Tech.values().length)];
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
@@ -67,9 +61,7 @@ public class Planet implements Serializable {
         return event;
     }
 
-    public Resources getResources() {
-        return resources;
-    }
+
 
     public int getT_lvl() {
         return t_lvl.getLvl();
@@ -81,7 +73,6 @@ public class Planet implements Serializable {
 
     public Market getMarket() {return market;}
 
-    public void setMarket(Market inputMarket) {market = inputMarket;}
 
     public SolarSystem getHomesystem() {
         return homesystem;

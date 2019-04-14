@@ -20,17 +20,13 @@ public enum Governments {
                 '}';
     }
 
-    Governments(String govId, String gov ){
+    Governments(String govId, String gov) {
         id = govId;
         government = gov;
 
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public String getGovernment() {
-        return government;
-    }
 }
+
+

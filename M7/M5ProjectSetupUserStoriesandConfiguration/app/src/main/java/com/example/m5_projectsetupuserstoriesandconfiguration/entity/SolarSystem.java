@@ -15,9 +15,9 @@ public class SolarSystem implements Serializable {
     private final int systemSize;
     private final String systemName;
     private int[] coords;
-    final Governments gov;
-    final Tech tech;
-    Resources resource;
+    private final Governments gov;
+    private final Tech tech;
+    private Resources resource;
 
     /**
      * The constructor for the SolarSystem class
@@ -26,12 +26,9 @@ public class SolarSystem implements Serializable {
      */
     public  SolarSystem(int size, int[] coordinates){
         systemSize = size;
-        Log.d("UniverseLogCat", "inside solarsystem constructor before random name");
         systemName = generateRandomName();
-        Log.d("UniverseLogCat", "inside solarsystem constructor after random name");
         system = new CoordinateSystem(systemSize, this, resource);
-        Log.d("UniverseLogCat", "inside solarsystem constructor " +
-                "after Coordinate System is made");
+
 
         planets = system.getAllPlanets();
         if(coordinates.length >= 2){
