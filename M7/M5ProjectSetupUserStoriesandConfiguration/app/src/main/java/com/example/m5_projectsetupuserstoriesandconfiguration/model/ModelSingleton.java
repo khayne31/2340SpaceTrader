@@ -6,6 +6,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.DatabaseReference;
@@ -179,20 +182,19 @@ public class ModelSingleton implements Serializable {
     public boolean saveBinary(FileOutputStream file) {
 
         Log.d("SINGLETON", "saveBinary");
+        
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
 
-//FirebaseApp.initializeApp(this);
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference();
-//
-//
-//        myRef.child("1").setValue("test2");
-//        Player player = getPlayerInteractor().getAllPlayers().get(0);
-//        Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(),
-//                player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(),
-//                player.getDiff());
-//
-//        myRef.child("p").child("player").
-//                setValue(player2);
+
+        myRef.child("1").setValue("test2");
+        Player player = getPlayerInteractor().getAllPlayers().get(0);
+        Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(),
+                player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(),
+                player.getDiff());
+
+        myRef.child("p").child("player").
+                setValue(player2);
 
 //myRef.child("0").child("playerUniverse").setValue(player.getCurrentUniverse());
 
