@@ -31,13 +31,12 @@ public class RENone extends AppCompatActivity {
 
         showButtons();
     }
-    private Handler handler;
 
     /**
      * An method that shows the button after a slight delay (when the animation ends)
      */
     private void showButtons() {
-        handler = new Handler();
+        Handler handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
