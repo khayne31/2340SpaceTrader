@@ -32,12 +32,13 @@
         android:background="@color/design_default_color_primary_dark"
         android:fontFamily="@font/aldrich"
         android:onClick="onBackPressed"
-        android:text="Go Back"
+        android:text="@string/go_back"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -4,7 +4,10 @@ import android.util.Log;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 
@@ -176,61 +179,68 @@ public class ModelSingleton implements Serializable {
     public boolean saveBinary(FileOutputStream file) {
 
         Log.d("SINGLETON", "saveBinary");
-        /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+//FirebaseApp.initializeApp(this);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
+
+
+        myRef.child("1").setValue("test2");
         Player player = getPlayerInteractor().getAllPlayers().get(0);
         Player2 player2 = new Player2(player, player.getName(), player.getFighterPoints(),
-        player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(),
-        player.getDiff());
+                player.getTraderPoints(), player.getEngineerPoints(), player.getPilotPoints(),
+                player.getDiff());
 
-        myRef.child("0").child("player").
+        myRef.child("p").child("player").
                 setValue(player2);
 
+//myRef.child("0").child("playerUniverse").setValue(player.getCurrentUniverse());
 
 
 
-*/
-        boolean success = false;
-        ObjectOutputStream out;
-        try {
-            /*
-               For binary, we use Serialization, so everything we write has to implement
-               the Serializable interface.  Fortunately all the collection classes and APi classes
-               that we might use are already Serializable.  You just have to make sure your
-               classes implement Serializable.
-               We have to use an ObjectOutputStream to write objects.
-               One thing to be careful of:  You cannot serialize static data.
-             */
-            // We basically can save our entire data model with one write, since this will follow
-            // all the links and pointers to save everything.  Just save the top level object.\
-            Log.d("save", file.toString());
-            out = new ObjectOutputStream(file);
-            SerializableStorage storage = new SerializableStorage(getPlayerInteractor(),
-                    ModelSingleton.getCurrentPlayerID());
-            //Player savePlayer = getPlayerInteractor().getAllPlayers().get(currentPlayerID);
-            out.writeObject(storage);
-            out.close();
 
 
-            file.close();
-            success = true;
-            /*ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
-            Repository checkRepository = (Repository) in.readObject();
-            in.close();
-            List<Player> checkList = checkRepository.getAllPlayers();
-            String checkString;
-            if (checkList.size() == 0) {
-                checkString = "Size is zero";
-            } else {
-                checkString = checkList.toString();
-                checkString = checkList.get(0).getName();
-            }
-            Log.d("SaveTest", checkString);
-
-        */} catch (IOException e) {
-            Log.d("UserManagerFacade", "Error writing an entry from binary file",e);
-            success = false;
-        }
+         boolean success = false;
+//        ObjectOutputStream out;
+//        try {
+//            /*
+//               For binary, we use Serialization, so everything we write has to implement
+//               the Serializable interface.  Fortunately all the collection classes and APi classes
+//               that we might use are already Serializable.  You just have to make sure your
+//               classes implement Serializable.
+//               We have to use an ObjectOutputStream to write objects.
+//               One thing to be careful of:  You cannot serialize static data.
+//             */
+//            // We basically can save our entire data model with one write, since this will follow
+//            // all the links and pointers to save everything.  Just save the top level object.\
+//            Log.d("save", file.toString());
+//            out = new ObjectOutputStream(file);
+//            SerializableStorage storage = new SerializableStorage(getPlayerInteractor(),
+//                    ModelSingleton.getCurrentPlayerID());
+//            //Player savePlayer = getPlayerInteractor().getAllPlayers().get(currentPlayerID);
+//            out.writeObject(storage);
+//            out.close();
+//
+//
+//            file.close();
+//            success = true;
+//            /*ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+//            Repository checkRepository = (Repository) in.readObject();
+//            in.close();
+//            List<Player> checkList = checkRepository.getAllPlayers();
+//            String checkString;
+//            if (checkList.size() == 0) {
+//                checkString = "Size is zero";
+//            } else {
+//                checkString = checkList.toString();
+//                checkString = checkList.get(0).getName();
+//            }
+//            Log.d("SaveTest", checkString);
+//
+//        */} catch (IOException e) {
+//            Log.d("UserManagerFacade", "Error writing an entry from binary file",e);
+//            success = false;
+//        }
         /*} catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

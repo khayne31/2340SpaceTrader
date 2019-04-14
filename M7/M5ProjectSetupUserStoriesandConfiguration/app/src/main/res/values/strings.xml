@@ -85,4 +85,36 @@
     <string name="title_activity_renone">RENone</string>
     <string name="title_activity_fuel_depot">FuelDepot</string>
     <string name="title_activity_equipment_hangar">EquipmentHangar</string>
+    <string name="go_back">Go Back</string>
+    <string name="load_game">LOAD GAME</string>
+    <string name="load">Load</string>
+    <string name="input_your_name">Input your name</string>
+    <string name="points">Points: </string>
+    <string name="sixteen">16</string>
+    <string name="pilot">Pilot</string>
+    <string name="engineer">Engineer</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="plus">+</string>
+    <string name="trader">Trader</string>
+    <string name="fighter">Fighter</string>
+    <string name="create_player">Create Player</string>
+    <string name="create_lazy_player">Create Lazy Player</string>
+    <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="deluxe">DELUXE</string>
+    <string name="space_traders">SPACE TRADERS</string>
+    <string name="new_game">NEW GAME</string>
+    <string name="settings">SETTINGS</string>
+    <string name="market">MARKET</string>
+    <string name="item_price">Item Price</string>
+    <string name="current_credits">Current Credits</string>
+    <string name="current_total_cargo">Current Total Cargo</string>
+    <string name="max_cargo_limit">Maximum Cargo Limit</string>
+    <string name="market_inventory">Market Inventory</string>
+    <string name="cargo_inventory">Cargo Inventory</string>
+    <string name="number_to_buy">Number To Buy</string>
+    <string name="number_to_sell">Number To Sell</string>
+    <string name="buy_items">BUY ITEMS</string>
+    <string name="sell_items">SELL ITEMS</string>
+
 </resources>

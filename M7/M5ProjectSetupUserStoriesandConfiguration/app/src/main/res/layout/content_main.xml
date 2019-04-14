@@ -32,11 +32,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
         android:layout_marginTop="70dp"
         android:ems="10"
         android:fontFamily="@font/aldrich"
-        android:hint="Input your name"
+        android:hint="@string/input_your_name"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -69,8 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:gravity="right"
-                android:text="Points: "
+                android:gravity="end"
+                android:text="@string/points"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
@@ -81,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:gravity="start"
-                android:text="16"
+                android:text="@string/sixteen"
                 android:textColor="#FFFFFF" />
 
         </TableRow>
@@ -98,7 +97,7 @@
                 android:layout_column="0"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:text="Pilot"
+                android:text="@string/pilot"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
@@ -110,7 +109,7 @@
                 android:layout_column="1"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:text="Engineer"
+                android:text="@string/engineer"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
@@ -129,12 +128,11 @@
                 android:layout_height="35dp"
                 android:layout_column="0"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onPilotSubtractPressed"
-                android:text="-"
+                android:text="@string/minus"
                 android:textColor="@android:color/background_light"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -147,7 +145,7 @@
                 android:layout_weight=".25"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="0" />
+                android:text="@string/zero" />
 
             <Button
                 android:id="@+id/button_pilot_add"
@@ -155,12 +153,11 @@
                 android:layout_height="35dp"
                 android:layout_column="0"
                 android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onPilotAddPressed"
-                android:text="+"
+                android:text="@string/plus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -171,12 +168,11 @@
                 android:layout_height="35dp"
                 android:layout_column="1"
                 android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onEngineerSubtractPressed"
-                android:text="-"
+                android:text="@string/minus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -188,7 +184,7 @@
                 android:layout_weight=".25"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="0" />
+                android:text="@string/zero" />
 
             <Button
                 android:id="@+id/button_engineer_add"
@@ -196,12 +192,11 @@
                 android:layout_height="35dp"
                 android:layout_column="1"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onEngineerAddPressed"
-                android:text="+"
+                android:text="@string/plus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -219,7 +214,7 @@
                 android:layout_column="0"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:text="Trader"
+                android:text="@string/trader"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
@@ -231,7 +226,7 @@
                 android:layout_column="1"
                 android:layout_weight=".5"
                 android:gravity="center"
-                android:text="Fighter"
+                android:text="@string/fighter"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="@font/aldrich" />
@@ -251,12 +246,11 @@
                 android:layout_height="35dp"
                 android:layout_column="0"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onTraderSubtractPressed"
-                android:text="-"
+                android:text="@string/minus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -268,7 +262,7 @@
                 android:layout_weight=".25"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="0" />
+                android:text="@string/zero" />
 
             <Button
                 android:id="@+id/button_trader_add"
@@ -276,12 +270,11 @@
                 android:layout_height="35dp"
                 android:layout_column="0"
                 android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onTraderAddPressed"
-                android:text="+"
+                android:text="@string/plus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -292,12 +285,11 @@
                 android:layout_height="35dp"
                 android:layout_column="1"
                 android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onFighterSubtractPressed"
-                android:text="-"
+                android:text="@string/minus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -310,7 +302,7 @@
                 android:layout_weight=".25"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="0" />
+                android:text="@string/zero" />
 
             <Button
                 android:id="@+id/button_fighter_add"
@@ -318,12 +310,11 @@
                 android:layout_height="35dp"
                 android:layout_column="1"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_weight=".25"
                 android:background="@color/design_default_color_primary_dark"
                 android:gravity="center"
                 android:onClick="onFighterAddPressed"
-                android:text="+"
+                android:text="@string/plus"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
@@ -353,7 +344,7 @@
     android:layout_marginTop="16dp"
     android:background="@color/design_default_color_primary_dark"
     android:onClick="onCreatePlayerPressed"
-    android:text="Create Player"
+    android:text="@string/create_player"
     android:textColor="@android:color/background_light"
     android:textStyle="bold"
     app:fontFamily="@font/aldrich"
@@ -368,7 +359,7 @@
         android:layout_marginTop="50dp"
         android:background="@color/design_default_color_primary_dark"
         android:onClick="onCreateLazyPlayerPressed"
-        android:text="Create Lazy Player"
+        android:text="@string/create_lazy_player"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
         app:fontFamily="@font/aldrich"
@@ -380,10 +371,10 @@
         android:id="@+id/diff_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="28dp"
-        android:layout_marginRight="40dp"
-        android:text="Choose Difficulty:"
+        android:layout_marginEnd="40dp"
+        android:text="@string/choose_difficulty"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
         app:fontFamily="@font/aldrich"
