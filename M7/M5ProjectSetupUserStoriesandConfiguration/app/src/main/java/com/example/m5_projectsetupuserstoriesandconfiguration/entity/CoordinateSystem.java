@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * CoordinateSystem class
  */
-public class CoordinateSystem implements Serializable {
+ class CoordinateSystem implements Serializable {
     private final ArrayList<ArrayList<Planet>> system;
     private final ArrayList<Planet> allPlanets;
     private double populationProb;
@@ -32,12 +32,10 @@ public class CoordinateSystem implements Serializable {
         size = sizeSystem;
         system = new ArrayList<>();
         allPlanets = new ArrayList<>();
-        Log.d("UniverseLogCat",
-                "inside Coordinate System constructor before generate system");
+
 
         generateSystem(size);
-        Log.d("UniverseLogCat",
-                "inside Coordinate System constructor after generate system");
+
         resources = res;
 
 
@@ -53,26 +51,16 @@ public class CoordinateSystem implements Serializable {
 
         for(int i = 0; i < size; i++){
             system.add(new ArrayList<Planet>());
-            Log.d("UniverseLogCat", "inside generate system for loop i: "+ i);
             for(int j = 0; j < size; j++){
-                Log.d("UniverseLogCat", "inside generate system for loop j: "+ j);
                 double k = Math.random();
-                Log.d("UniverseLogCat", "inside generate system k: "+ k
-                        + " populationProb: "+ populationProb);
-                Log.d("UniverseLogCat", (system.get(i)) + "");
                 if(k < populationProb){
-                    Log.d("UniverseLogCat", "inside generate system before " +
-                            "new Planet: ");
+
                     Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+
                             planetCounter++ + "", currentSolarSystem, resources);
-                    Log.d("UniverseLogCat", "inside generate system after " +
-                            "new Planet: ");
                     system.get(i).add(newPlanet);
                     allPlanets.add(newPlanet);
                 } else{
-                    Log.d("UniverseLogCat", "inside null loop before setting to null: "+ i);
                     system.get(i).add(j, null);
-                    Log.d("UniverseLogCat", "inside null loop after setting to null: "+ i);
                 }
 
             }

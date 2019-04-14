@@ -14,8 +14,9 @@ public class Universe implements Serializable {
     private final ArrayList<SolarSystem> systems;
     private final int sizeOfUniverse;
     private final int systemsInUniverse;
-    private final String DEBUG = "UniverseLogCat";
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
+    public final int MAX_SIZE = 20;
+    public final int MIN_SIZE = 10;
 
     /**
      * getter method for the systems variable
@@ -42,11 +43,15 @@ public class Universe implements Serializable {
      */
     public Universe(int size) {
         universe = new ArrayList<>();
-        sizeOfUniverse = (size >= 10) ? size : 10;
+       if(size <= MIN_SIZE){
+           sizeOfUniverse = MIN_SIZE;
+       } else if(size >= MAX_SIZE){
+           sizeOfUniverse = MAX_SIZE;
+       } else{
+           sizeOfUniverse = size;
+       }
         systems = new ArrayList<>();
-        Log.d(DEBUG, "inside the universe constructor before generation");
         generateUniverse(sizeOfUniverse);
-        Log.d(DEBUG, "inside universe constructor after generation");
         systemsInUniverse = systems.size();
 
     }
@@ -67,16 +72,12 @@ public class Universe implements Serializable {
         List<String> listOfNames = new ArrayList<>();
         for (int j = 0; j < size; j++) {
             universe.add(new ArrayList<SolarSystem>());
-            Log.d(DEBUG, "inside first for loop. j: " + j);
             for (int i = 0; i < size; i++) {
-                Log.d(DEBUG, "inside second for loop. i: " + i);
                 double k = Math.random();
                 if (k < SOLAR_SYSTEM_DISTRIBUTION_PROB) {
-                    Log.d(DEBUG, "inside first if k: " + k);
                     SolarSystem currentSystem = new SolarSystem(new Random().nextInt(5)
                             + 10,
                             new int[]{j, i});
-                    Log.d(DEBUG, "after the creation of the new SolarSystem");
                     while (listOfNames.contains(currentSystem.getSystemName()))
                         currentSystem = new SolarSystem(new Random().nextInt(5) + 10,
                                 new int[]{j, i});

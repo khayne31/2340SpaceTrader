@@ -15,8 +15,8 @@ public class Market implements Serializable {
     private final int MAX_MARKET_SIZE = 100;
     private int credits;
 
-    private final int QUANTITY_INDEX = 0;
-    private final int PRICE_INDEX = 1;
+    //private final int QUANTITY_INDEX = 0;
+    //private final int PRICE_INDEX = 1;
     private final double BIG100 = 100.0;
     private Random random;
 
@@ -132,7 +132,6 @@ public class Market implements Serializable {
     public String tradeSell(Player p, GoodType currentGood, int numberOfGood){
 
         //deprecated
-        List<Item> buyItems = getBuyItems(p);
         int position = getTradeGoodPosition(currentGood);
 
         String returnString;
@@ -160,16 +159,13 @@ public class Market implements Serializable {
     }
 
     // get list of items that are available in the market (aka sell quantity > 0)
-    public List<Item> getSellItems() { return itemSellList; }
 
     // get list of items that player has
     //deprecate
-    public List<Item> getBuyItems(Player p) {
+    private List<Item> getBuyItems(Player p) {
         List<Item> itemBuyList = new ArrayList<>();
 
         for(GoodType g : p.getMyShip().getGoodList().keySet()) {
-            GoodType type = g;
-            String name = g.getName();
             int quant = p.getMyShip().getGoodList().get(g); // gets the quantity owned
             //This is the problem line, below (now fixed)
             int price = getTradeGoodPrice(g);
@@ -197,7 +193,7 @@ public class Market implements Serializable {
         return 0;
     }
 
-    public int getTradeGoodPosition(GoodType currentGood) {
+    private int getTradeGoodPosition(GoodType currentGood) {
         int positionCount = 0;
         for (Item item : itemSellList) {
             if (item.getType() == currentGood) {

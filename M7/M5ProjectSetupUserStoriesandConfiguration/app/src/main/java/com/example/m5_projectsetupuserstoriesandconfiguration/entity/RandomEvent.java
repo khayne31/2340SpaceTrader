@@ -2,6 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomEvent {
@@ -16,9 +17,9 @@ public class RandomEvent {
     private static final int FUEL_TO_LOSE = 20;
 
     public enum events{
-//        Wormhole("Wormhole", "You have encountered a wormhole and are being transported to a
-// random planet."),
-//        Lost("Bad Navigation", "Your crew went off route! You went to a different planet."),
+        Wormhole("Wormhole", "You have encountered a wormhole and are being transported to a"
+ + "random planet."),
+        Lost("Bad Navigation", "Your crew went off route! You went to a different planet."),
         Asteroids("Asteroid Field","Your ship has encountered an asteroid field! Your ship loses "
         + HP_LOST_ASTEROIDS +" hp."),
         Pirates("Space Pirates", "During the course of travel you encountered space pirates and " +
@@ -40,8 +41,8 @@ public class RandomEvent {
                 "migration! Your ship loses " + SMOL_SPACE_BOI + " hp."),
         FuelLeak("Fuel Leak", "Your ship was leaking fuel. Your ship loses " + FUEL_TO_LOSE +
                 " gallons of fuel."),
-//        StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were
-// transported to a random planet"),
+        StarGate("Star Gate", "You have encountered a star gate, of unimaginable power and were"
+  + "transported to a random planet"),
         Nothing("Nothing Happened", "You trip was successful");
 
         private final String eventName;
@@ -84,39 +85,38 @@ public class RandomEvent {
      */
     public events generateRandomEvent(Player p){
         Log.d("rng", "rng");
+        Log.d("UniverseLogCat", "test");
         events event = events.values()[new Random().nextInt(events.values().length-1)];
         Log.d("rng", event.eventDescription + "   " + events.values());
         System.out.print(events.values() + "\t" + event);
         switch(event){
-//            case Wormhole:
-//                Universe uni = p.getCurrentUniverse();
-//                Log.d("rng", uni + "");
-//                SolarSystem randomSystem = uni.getSystems().get(
-// new Random().nextInt(uni.getSystems().size()));
-//                Log.d("rng", randomSystem+"");
-//                Planet randomPlanet = randomSystem.getPlanets().get(
-// randomSystem.getPlanets().size());
-//                Log.d("rng",  randomPlanet + "");
-//                p.setCurrentPlanet(randomPlanet);
-//
-//                break;
+            case Wormhole:
+                Universe uni = p.getCurrentUniverse();
+                SolarSystem randomSystem = uni.getSystems().get(
+                    new Random().nextInt(uni.getSystems().size()));
+                ArrayList<Planet> rip = randomSystem.getPlanets();
+
+                Planet randomPlanet = rip.get(new Random().nextInt(rip.size()));
+                p.setCurrentPlanet(randomPlanet);
+
+                break;
                 //TODO implement loss and gain of skill points, ship dmg, credit gain and loss,
             // fuel gain and loss, ship upgrade, fighting
-//            case Lost:
-//                Universe universe = p.getCurrentUniverse();
-//                SolarSystem randSys = universe.getSystems().get(new Random().nextInt(
-// universe.getSystems().size()));
-//                Planet randPlanet = randSys.getPlanets().get(randSys.getPlanets().size());
-//                p.setCurrentPlanet(randPlanet);
-//                break;
-//            case StarGate:
-//                Universe uni1 = p.getCurrentUniverse();
-//                SolarSystem randomSystem1 = uni1.getSystems().get(new Random().nextInt(
-// uni1.getSystems().size()));
-//                Planet randomPlanet1 = randomSystem1.getPlanets().get(
-// randomSystem1.getPlanets().size());
-//                p.setCurrentPlanet(randomPlanet1);
-//                break;
+            case Lost:
+                Universe universe = p.getCurrentUniverse();
+                SolarSystem randSys = universe.getSystems().get(new Random().nextInt(
+ universe.getSystems().size()));
+                Planet randPlanet = randSys.getPlanets().get(new Random().nextInt(randSys.getPlanets().size()));
+                p.setCurrentPlanet(randPlanet);
+                break;
+            case StarGate:
+                Universe uni1 = p.getCurrentUniverse();
+                SolarSystem randomSystem1 = uni1.getSystems().get(new Random().nextInt(
+ uni1.getSystems().size()));
+                Planet randomPlanet1 = randomSystem1.getPlanets().get(
+ new Random().nextInt(randomSystem1.getPlanets().size()));
+                p.setCurrentPlanet(randomPlanet1);
+                break;
             case Asteroids:
                 p.loseHP(HP_LOST_ASTEROIDS);
                 break;
@@ -130,7 +130,7 @@ public class RandomEvent {
                 p.gainPoints(CREDITS_TO_GAIN);
                 break;
             case Upgrade:
-                //p.getMyShip().upgradeShip();
+                p.getMyShip().upgradeShip();
                 break;
             case Aliens:
                 p.losePoints(CREDITS_TO_LOSE);

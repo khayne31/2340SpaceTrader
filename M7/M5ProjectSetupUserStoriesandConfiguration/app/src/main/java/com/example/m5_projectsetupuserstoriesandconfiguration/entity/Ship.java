@@ -46,7 +46,7 @@ public class Ship implements Serializable {
             maxfuel = max;
         }
 
-        public int getRange() {
+        int getRange() {
             return range;
         }
 
@@ -130,7 +130,6 @@ public class Ship implements Serializable {
 
 
     public int getCurrCargoSize() { return cargo; }
-    public boolean isCargoFull() { return (cargo < type.cargoSize); }
 
     public static shipType makeGnat() {
         return shipType.GN;
@@ -171,10 +170,6 @@ public class Ship implements Serializable {
     public Hashtable<GoodType, Integer> getGoodList() {
         return goodList;
     }
-    public void setGoodList(Hashtable<GoodType, Integer> input) {goodList = input;}
-
-    public List<Item> getItemList() {return itemList;}
-    public void setItemList(List<Item> iList) {itemList = iList;}
 
     public shipType getType() {
         return type;

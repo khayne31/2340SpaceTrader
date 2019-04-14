@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difSpinner.setAdapter(adapter);
 
-        Log.v("UniverseResults", universe.toString());
-        largeLog("UniverseResults", universe.toString());
+        //Log.v("UniverseResults", universe.toString());
+        //largeLog("UniverseResults", universe.toString());
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
