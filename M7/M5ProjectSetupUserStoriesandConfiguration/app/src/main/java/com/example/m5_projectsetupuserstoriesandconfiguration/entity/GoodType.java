@@ -50,10 +50,6 @@ public enum GoodType {
         er = expensive;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getBasePrice() {
         return basePrice;
     }

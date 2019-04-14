@@ -13,15 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UniverseTest {
-    private final int size14 = 14;
-    private final int size20 = 20;
     @Test
     public void testUniverse(){
         testingUniverseConstructor(Integer.MIN_VALUE);
         testingUniverseConstructor(0);
         testingUniverseConstructor(10);
-        testingUniverseConstructor(size14);
-        testingUniverseConstructor(size20);
+        testingUniverseConstructor(14);
+        testingUniverseConstructor(20);
         testingUniverseConstructor(Integer.MAX_VALUE);
     }
 

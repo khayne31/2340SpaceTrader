@@ -45,7 +45,7 @@ class Repository implements Serializable {
 
     public void addPlayer(Player player) {
         player.setId(Repository.getNextUniqueID());
-        allPlayers.add(player.getId(), player);
+        allPlayers.add(player);
         Log.d("Test", "A new player was added to the database!");
 
     }

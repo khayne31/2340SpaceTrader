@@ -25,7 +25,7 @@ public class Market implements Serializable {
         marketSize = random.nextInt(MAX_MARKET_SIZE);
         this.planet = planet;
         //Get rid of this, market people don't need to have money
-        int MIN_NUMBER_CREDITS = minCredits;
+        int MIN_NUMBER_CREDITS = 100000;
         credits = random.nextInt(MIN_NUMBER_CREDITS) + MIN_NUMBER_CREDITS;
         initializeMarketInventory();
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
@@ -60,7 +60,7 @@ public class Market implements Serializable {
 
         //private final int QUANTITY_INDEX = 0;
         //private final int PRICE_INDEX = 1;
-        double BIG100 = bigOneHundred;
+        double BIG100 = 100.0;
         double variance = (gt.getVar()/ BIG100) * gt.getBasePrice();
         // the variance of price from base price (always
         // applied, kind of like a item tax)
@@ -73,7 +73,7 @@ public class Market implements Serializable {
         RadicalEvent planetEvent = planet.getEvent();
         if( planetEvent.equals(gt.getIe()) ) {
             // RadicalEvents match --> increase prices
-            multiplier = multiplier * onePointFive;
+            multiplier = multiplier*1.5;
         }
 //        if( planet.getResources().getResourceName().equals(gt.getCr().getResourceName()) ) {
 // cheap resource condition

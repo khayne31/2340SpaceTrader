@@ -15,10 +15,10 @@ class Good implements Serializable {
     private final Resources cheapPrice;
     private final int minPrice;
     private final int maxPrice;
-    private final Random rand = new Random();
+
 
     private Good(){
-        this.typeOfGood = GoodType.values()[rand.nextInt(GoodType.values().length)];
+        this.typeOfGood = GoodType.values()[new Random().nextInt(GoodType.values().length)];
         this.minimumTechLvlBuy = typeOfGood.getMtlp();
         this.minimumTechLvlSell = typeOfGood.getMtlu();
         this.optimalTechLevel =typeOfGood.getTtp();
