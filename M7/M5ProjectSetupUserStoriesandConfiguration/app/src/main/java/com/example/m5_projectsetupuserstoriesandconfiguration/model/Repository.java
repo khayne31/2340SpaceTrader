@@ -14,7 +14,10 @@ public class Repository implements Serializable {
 
     private static int next_id = 0;
 
-    private static int getNextUniqueID() {return next_id++;}
+    private static int getNextUniqueID() {
+        next_id++;
+        return next_id;
+    }
 
     private static List<Player> allPlayers;
 

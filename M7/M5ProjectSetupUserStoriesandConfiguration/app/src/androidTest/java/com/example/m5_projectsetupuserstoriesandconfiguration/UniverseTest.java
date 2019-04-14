@@ -5,7 +5,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SolarSystem
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
@@ -29,7 +28,7 @@ public class UniverseTest {
             int size = sze;
             Universe uni =  new Universe(size);
             assertEquals(uni.getSizeOfUniverse(), uni.MIN_SIZE);
-            ArrayList<SolarSystem> s = uni.getSystems();
+            List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
             assertNotEquals(u, null);
@@ -58,7 +57,7 @@ public class UniverseTest {
             Universe uni =  new Universe(size);
             assertEquals(uni.getSizeOfUniverse(), size < uni.MAX_SIZE ? size: uni.MAX_SIZE);
             size = size > uni.MAX_SIZE ? uni.MAX_SIZE : size ;
-            ArrayList<SolarSystem> s = uni.getSystems();
+            List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
             assertNotEquals(u, null);

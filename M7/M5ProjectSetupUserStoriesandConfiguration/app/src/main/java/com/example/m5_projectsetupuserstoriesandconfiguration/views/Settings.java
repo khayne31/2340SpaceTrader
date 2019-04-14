@@ -16,9 +16,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
  */
 public class Settings extends AppCompatActivity {
 
-    private Switch music;
-    private Boolean isOn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +28,9 @@ public class Settings extends AppCompatActivity {
             actionBar.hide();
         }
 
-        music = findViewById(R.id.music_toggle);
+        Switch music = findViewById(R.id.music_toggle);
         music.setChecked(true);
-        isOn = music.isChecked();
+        Boolean isOn = music.isChecked();
     }
 
     /**

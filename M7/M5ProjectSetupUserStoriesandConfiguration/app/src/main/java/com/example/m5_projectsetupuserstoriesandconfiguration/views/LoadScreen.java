@@ -63,7 +63,7 @@ public class LoadScreen extends AppCompatActivity {
      * @param view the View of the button
      */
     public void onLoadGamePressed(View view) {
-        Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT);
+        Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT).show();
         Intent moveActivities = new Intent(this, PlanetScreen.class);
 
         //int id = ModelSingleton.getCurrentPlayerID();

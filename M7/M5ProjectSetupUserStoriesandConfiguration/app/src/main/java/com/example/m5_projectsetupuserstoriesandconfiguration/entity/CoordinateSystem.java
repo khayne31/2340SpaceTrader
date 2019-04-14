@@ -1,14 +1,14 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import android.util.Log;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
 /**
  * CoordinateSystem class
  */
  class CoordinateSystem implements Serializable {
-    private final ArrayList<ArrayList<Planet>> system;
+    private final List<ArrayList<Planet>> system;
     private final ArrayList<Planet> allPlanets;
     private double populationProb;
     private final double MAX_PROB = .05;
@@ -54,9 +54,9 @@ import java.util.ArrayList;
             for(int j = 0; j < size; j++){
                 double k = Math.random();
                 if(k < populationProb){
-
+                    planetCounter++;
                     Planet newPlanet =  new Planet(new int[] {i,j}, systemName +"-"+
-                            planetCounter++ + "", currentSolarSystem, resources);
+                            planetCounter + "", currentSolarSystem, resources);
                     system.get(i).add(newPlanet);
                     allPlanets.add(newPlanet);
                 } else{

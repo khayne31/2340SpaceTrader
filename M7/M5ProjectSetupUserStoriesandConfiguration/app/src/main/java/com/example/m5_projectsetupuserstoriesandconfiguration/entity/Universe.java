@@ -1,7 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
-import android.util.Log;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.Random;
  * The universe class which holds a universe variable and systems variable
  */
 public class Universe implements Serializable {
-    private final ArrayList<ArrayList<SolarSystem>> universe;
+    private final List<ArrayList<SolarSystem>> universe;
     private final ArrayList<SolarSystem> systems;
     private final int sizeOfUniverse;
     private final int systemsInUniverse;

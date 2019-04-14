@@ -23,11 +23,8 @@ import java.io.FileOutputStream;
  * An activity that contains methods pertaining to the Planet Screen
  */
 public class PlanetScreen extends AppCompatActivity {
-    private String planetName;
     private Player player;
     private PlanetScreenViewModel planetVM;
-    private Planet currentPlanet;
-    private TextView planetNameLabel;
     public static final String ARG_ITEM_ID = "item_id";
 
     @Override
@@ -41,9 +38,9 @@ public class PlanetScreen extends AppCompatActivity {
         planetVM = ViewModelProviders.of(this).get(PlanetScreenViewModel.class);
         player = planetVM.getPlayer(ModelSingleton.getInstance().getCurrentPlayerID());
         //cannot get the player when loading
-        currentPlanet = player.getCurrentPlanet();
-        planetNameLabel = findViewById(R.id.planet_title);
-        planetName = currentPlanet.getName();
+        Planet currentPlanet = player.getCurrentPlanet();
+        TextView planetNameLabel = findViewById(R.id.planet_title);
+        String planetName = currentPlanet.getName();
         planetNameLabel.setText(planetName);
 
         ActionBar actionBar = getSupportActionBar();
