@@ -27,16 +27,22 @@ public enum  Difficulty {
      */
     public static Difficulty getType(String s) {
         Difficulty result;
-        if (s.equals("BE")) {
-            result = BE;
-        } else if (s.equals("EA")) {
-            result = EA;
-        } else if (s.equals("NO")) {
-            result = NO;
-        } else if (s.equals("HA")) {
-            result = HA;
-        } else {
-            result = IM;
+        switch (s) {
+            case "BE":
+                result = BE;
+                break;
+            case "EA":
+                result = EA;
+                break;
+            case "NO":
+                result = NO;
+                break;
+            case "HA":
+                result = HA;
+                break;
+            default:
+                result = IM;
+                break;
         }
         return result;
     }

@@ -1,4 +1,4 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration;
 
-public class CoordinateSystemTest {
+class CoordinateSystemTest {
 }

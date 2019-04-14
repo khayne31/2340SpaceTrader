@@ -25,10 +25,10 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolde
 
     public static class MViewHolder extends RecyclerView.ViewHolder {
         // currently set up if each data item is just a string
-        public final TextView textViewA;
-        public final TextView textViewB;
-        public final LinearLayout mLinearLayout;
-        public MViewHolder(View v) {
+        final TextView textViewA;
+        final TextView textViewB;
+        final LinearLayout mLinearLayout;
+        MViewHolder(View v) {
             super(v);
             textViewA = v.findViewById(R.id.item_name);
             textViewB = v.findViewById(R.id.item_price);
@@ -97,7 +97,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolde
         return mItemData.size();
     }
 
-    protected void applyEmbossMaskFilter(TextView tv){
+    private void applyEmbossMaskFilter(TextView tv){
         EmbossMaskFilter embossFilter = new EmbossMaskFilter(
                 new float[]{1f, 5f, 1f}, // direction of the light source
                 0.8f, // ambient light between 0 to 1

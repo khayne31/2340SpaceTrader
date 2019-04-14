@@ -25,7 +25,7 @@ public class UniverseTest {
         testingUniverseConstructor(Integer.MAX_VALUE);
     }
 
-    public void testingUniverseConstructor(int sze){
+    private void testingUniverseConstructor(int sze){
         if(sze <= 0){
             int size = sze;
             Universe uni =  new Universe(size);

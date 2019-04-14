@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Market implements Serializable {
-    private int marketSize;
+    private final int marketSize;
     //first integer is number of goods second integer is price of goods
     private final List<Item> itemSellList; // item {type, name, quantity, price}
     private final Planet planet;
@@ -16,10 +16,10 @@ public class Market implements Serializable {
     private final double bigOneHundred = 100.0;
     private final double onePointFive = 1.5;
 
-    private Random random;
+    private final Random random;
 
     public Market(Planet planet){
-        itemSellList = new ArrayList<Item>();
+        itemSellList = new ArrayList<>();
         random = new Random();
         int MAX_MARKET_SIZE = 100;
         marketSize = random.nextInt(MAX_MARKET_SIZE);

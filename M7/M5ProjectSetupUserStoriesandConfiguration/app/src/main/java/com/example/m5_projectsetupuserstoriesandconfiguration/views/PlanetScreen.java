@@ -16,6 +16,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.PlanetScreenViewModel;
 import java.io.FileOutputStream;
 
@@ -91,7 +92,7 @@ public class PlanetScreen extends AppCompatActivity {
     public void onSavePressed(View view) {//CANNOT HAVE A BOOLEAN AS A BUTTON METHOD
         String fileName;
         FileOutputStream out;
-        fileName =  planetVM.getDefaultBinaryStringName();
+        fileName = PlayerInteractor.DEFAULT_BINARY_FILE_NAME;
         try {
             out = openFileOutput(fileName, Context.MODE_PRIVATE);
             Log.d("save", fileName);
@@ -101,7 +102,7 @@ public class PlanetScreen extends AppCompatActivity {
         }
 
 
-        Boolean returnableBool = planetVM.saveBinary(out);
+        boolean returnableBool = planetVM.saveBinary(out);
         if (returnableBool) {
             Toast.makeText(this, "Player was saved", Toast.LENGTH_SHORT).show();
         } else {

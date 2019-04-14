@@ -6,7 +6,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.model;
  * Relates the Model and the UI
  *
  */
-public class MarketInteractor extends Interactor {
+class MarketInteractor extends Interactor {
 
     public MarketInteractor(Repository repo) {super(repo);}
 

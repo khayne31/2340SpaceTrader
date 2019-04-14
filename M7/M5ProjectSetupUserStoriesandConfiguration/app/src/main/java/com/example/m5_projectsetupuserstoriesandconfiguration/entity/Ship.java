@@ -110,7 +110,7 @@ public class Ship implements Serializable {
     private int fuel;
     private int hp;
     private int cargo;
-    private Hashtable<GoodType, Integer> goodList;
+    private final Hashtable<GoodType, Integer> goodList;
     private List<Item> itemList;
     private int range;
     private final int maxfuel;
@@ -131,9 +131,7 @@ public class Ship implements Serializable {
 
     public int getCurrCargoSize() { return cargo; }
 
-    public static shipType makeGnat() {
-        return shipType.GN;
-    }
+
 
     private void initializeGoods(){
         goodList.put(GoodType.values()[0], 0);

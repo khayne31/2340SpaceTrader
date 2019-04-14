@@ -71,7 +71,7 @@ public class MarketScreen extends AppCompatActivity {
 
         TextView maxCargoLabel = findViewById(R.id.MaxCargo_label);
         currentTotalCargoLabel = findViewById(R.id.CurrentTotalCargo_label);
-        currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
+        currentTotalCargo = player.getMyShip().getCurrCargoSize();
         currentTotalCargoLabel.setText("" + currentTotalCargo.toString());
 
         Log.d("onCreate", "screen init");
@@ -95,7 +95,7 @@ public class MarketScreen extends AppCompatActivity {
                     currentCargoInventory = 0;
                 }
 
-                currentMarketInventory = Integer.valueOf(market.getTradeGoodQuantity(currentGood));
+                currentMarketInventory = market.getTradeGoodQuantity(currentGood);
                 if (currentMarketInventory == null) {
                     currentMarketInventory = 0;
                 }
@@ -145,12 +145,12 @@ public class MarketScreen extends AppCompatActivity {
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
-        currentMarketInventory = Integer.valueOf(market.getTradeGoodQuantity(currentGood));
+        currentMarketInventory = market.getTradeGoodQuantity(currentGood);
         // #item_rem_in_market
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
         } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
-        currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
+        currentTotalCargo = player.getMyShip().getCurrCargoSize();
         // #updated_total_item_count
         if (currentTotalCargo == null) {
             Log.d("BuyPressed", "currTotCargo is null");
@@ -187,11 +187,11 @@ public class MarketScreen extends AppCompatActivity {
         if (currentCargoInventory == null) {
             currentCargoInventory = 0;
         } Log.d("BuyPressed", "currCargoInv is " + currentCargoInventory + ".");
-        currentMarketInventory = Integer.valueOf(market.getTradeGoodQuantity(currentGood));
+        currentMarketInventory = market.getTradeGoodQuantity(currentGood);
         if (currentMarketInventory == null) {
             currentMarketInventory = 0;
         } Log.d("BuyPressed", "currMarInv is " + currentMarketInventory + ".");
-        currentTotalCargo = Integer.valueOf(player.getMyShip().getCurrCargoSize());
+        currentTotalCargo = player.getMyShip().getCurrCargoSize();
         // #updated_total_item_count
         if (currentTotalCargo == null) {
             Log.d("BuyPressed", "currTotCargo is null");

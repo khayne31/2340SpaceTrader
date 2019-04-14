@@ -10,7 +10,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerIntera
 import java.util.List;
 
 
-public class MarketSellScreenViewModel extends AndroidViewModel {
+class MarketSellScreenViewModel extends AndroidViewModel {
     private final PlayerInteractor interactor;
 
     public MarketSellScreenViewModel(@NonNull Application application) {

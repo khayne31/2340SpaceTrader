@@ -27,7 +27,7 @@ import java.io.Serializable;
 public class MarketActivity extends AppCompatActivity implements Serializable {
     private Context mContext;
 
-    ConstraintLayout mConstraintLayout;
+    private ConstraintLayout mConstraintLayout;
 
     private RecyclerView.Adapter mAdapter;
 

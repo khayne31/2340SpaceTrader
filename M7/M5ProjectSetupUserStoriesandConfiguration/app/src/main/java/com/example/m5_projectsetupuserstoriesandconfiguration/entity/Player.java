@@ -42,7 +42,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        myShip = new Ship(Ship.makeGnat(), hp, 0);
+        myShip = new Ship(Ship.shipType.GN, hp, 0);
         currentUniverse = uni;
         //law of demeter violation
         currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));

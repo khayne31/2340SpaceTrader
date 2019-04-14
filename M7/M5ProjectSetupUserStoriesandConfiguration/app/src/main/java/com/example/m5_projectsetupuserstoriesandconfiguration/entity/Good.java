@@ -3,7 +3,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 import java.io.Serializable;
 import java.util.Random;
 
-public class Good implements Serializable {
+class Good implements Serializable {
     private GoodType typeOfGood;
     private final int minimumTechLvlBuy;
     private final int minimumTechLvlSell;
@@ -15,9 +15,9 @@ public class Good implements Serializable {
     private final Resources cheapPrice;
     private final int minPrice;
     private final int maxPrice;
-    Random rand = new Random();
+    private final Random rand = new Random();
 
-    public Good(){
+    private Good(){
         this.typeOfGood = GoodType.values()[rand.nextInt(GoodType.values().length)];
         this.minimumTechLvlBuy = typeOfGood.getMtlp();
         this.minimumTechLvlSell = typeOfGood.getMtlu();

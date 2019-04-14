@@ -72,7 +72,7 @@ public final class ModelSingleton implements Serializable {
      * Sets the new nonstatic current player id
      * @param ID the new nonstatic current player id
      */
-    public void setNonStaticCurrentPlayerID(int ID) {
+    private void setNonStaticCurrentPlayerID(int ID) {
         nonStaticCurrentPlayerID = ID;
     }
 
@@ -108,7 +108,7 @@ public final class ModelSingleton implements Serializable {
      * sets the new player interactor
      * @param newPlayerInt the new player interactor to be put into the map
      */
-    public void setPlayerInteractor(PlayerInteractor newPlayerInt) {
+    private void setPlayerInteractor(PlayerInteractor newPlayerInt) {
         interactorMap.put("Player", newPlayerInt);
     }
 

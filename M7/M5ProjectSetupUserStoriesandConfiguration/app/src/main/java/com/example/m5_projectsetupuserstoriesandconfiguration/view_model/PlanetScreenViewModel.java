@@ -41,9 +41,7 @@ public class PlanetScreenViewModel extends AndroidViewModel {
         return returnPlayer;
     }
 
-    public String getDefaultBinaryStringName () {
-        return PlayerInteractor.DEFAULT_BINARY_FILE_NAME;
-    }
+
 
     public boolean saveBinary(FileOutputStream out) {
         return interactor.saveBinary(out);

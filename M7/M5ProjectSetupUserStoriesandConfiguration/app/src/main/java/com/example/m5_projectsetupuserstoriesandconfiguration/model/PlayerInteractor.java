@@ -56,8 +56,8 @@ public class PlayerInteractor extends Interactor implements Serializable {
      * @param file the file to download from
      * @return a boolean if success
      */
-    public boolean loadBinary(FileInputStream file) {
-        return ModelSingleton.getInstance().loadBinary(file);
+    public void loadBinary(FileInputStream file) {
+        ModelSingleton.getInstance().loadBinary(file);
 
     }
 
