@@ -21,7 +21,7 @@ public class LoadActivityViewModel extends AndroidViewModel {
         interactor = model.getPlayerInteractor();
     }
 
-    public void updatePlayer(Player player ) {
+    public void updatePlayer(Player player) {
         interactor.updatePlayer(player);
     }
 
@@ -49,7 +49,7 @@ public class LoadActivityViewModel extends AndroidViewModel {
     }
 
 
-    public void loadBinary(FileInputStream file) {
-        interactor.loadBinary(file);
+    public void loadBinary() {
+        interactor.loadBinary();
     }
 }

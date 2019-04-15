@@ -10,21 +10,30 @@ public class Player2 {
     private int credits;
     private int id;
     private Difficulty diff;
-    private Ship myShip;
+    private String myShip;
     private Planet currentPlanet;
-    private SolarSystem currentSystem;
-    private Universe currentUniverse;
+    private int currentUniverseSize;
+    private int myShipCargo;
+    private int myShipHp;
 
     /**
      * Constructor for player
      */
     public Player2(Player p) {
-        String name = p.getName();
-        int fPoints = p.getFighterPoints();
-        int tPoints = p.getTraderPoints();
-        int ePoints = p.getEngineerPoints();
-        int pPoints = p.getPilotPoints();
-        Difficulty difficulty = p.getDiff();
+        name = p.getName();
+        id = p.getId();
+        fighterPoints = p.getFighterPoints();
+        traderPoints = p.getTraderPoints();
+        engineerPoints = p.getEngineerPoints();
+        engineerPoints = p.getPilotPoints();
+        diff = p.getDiff();
+        credits = p.getCredits();
+        currentPlanet = p.getCurrentPlanet();
+        currentUniverseSize = p.getCurrentUniverse().getSizeOfUniverse();
+        myShip = p.getMyShip().getType().name();
+        myShipCargo = p.getMyShip().getCurrCargoSize();
+        myShipHp = p.getMyShip().getHp();
+
     }
     /**
      * gets the name of the player
@@ -115,7 +124,7 @@ public class Player2 {
      * gets the ship of the player
      * @return the ship of the player
      */
-    public Ship getMyShip() { return myShip; }
+    public String getMyShip() { return myShip; }
     /**
      * gets the difficulty of the player
      * @return the difficulty level of the player

@@ -6,8 +6,11 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.DatabaseReference;
@@ -139,34 +142,50 @@ public final class ModelSingleton implements Serializable {
 
     /**
      * used for serializable implementation
-     * @param file an input file on the phone
      * @return boolean if it succeeds
      */
-    public void loadBinary(FileInputStream file) {
-        Log.d("LoadTest", "This line was run");
-        boolean success = true;
-        try {
-        /*
-          To read, we must use the ObjectInputStream since we want to read our model in with
-          a single read.
-         */
-            Log.d("LoadTest", "This line was run2");
-            ObjectInputStream in = new ObjectInputStream(file);
-            // assuming we saved our top level object, we read it back in with one line of code.
-            SerializableStorage storage = (SerializableStorage) in.readObject();
-            in.close();
-            file.close();
-
-            ModelSingleton.setCurrentPlayerID(storage.getCurrentID());
-            ModelSingleton.getInstance().setPlayerInteractor(storage.getPlayerInteractor());
-
-        } catch (IOException e) {
-            Log.e("UserManagementFacade", "Error reading an entry from binary file",e);
-            success = false;
-        } catch (ClassNotFoundException e) {
-            Log.e("UserManagementFacade", "Error casting a class from the binary file",e);
-            success = false;
-        }
+    public void loadBinary() {
+//        Log.d("LoadTest", "This line was run");
+//        boolean success = true;
+//        try {
+//        /*
+//          To read, we must use the ObjectInputStream since we want to read our model in with
+//          a single read.
+//         */
+//            Log.d("LoadTest", "This line was run2");
+//            ObjectInputStream in = new ObjectInputStream(file);
+//            // assuming we saved our top level object, we read it back in with one line of code.
+//            SerializableStorage storage = (SerializableStorage) in.readObject();
+//            in.close();
+//            file.close();
+//
+//            ModelSingleton.setCurrentPlayerID(storage.getCurrentID());
+//            ModelSingleton.getInstance().setPlayerInteractor(storage.getPlayerInteractor());
+//
+//        } catch (IOException e) {
+//            Log.e("UserManagementFacade", "Error reading an entry from binary file",e);
+//            success = false;
+//        } catch (ClassNotFoundException e) {
+//            Log.e("UserManagementFacade", "Error casting a class from the binary file",e);
+//            success = false;
+        //}
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference myRef = database.getReference();
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                // This method is called once with the initial value and again
+//                // whenever data at this location is updated.
+//                String value = dataSnapshot.getValue(String.class);
+//                Log.d("TAG", "Value is: " + value);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                // Failed to read value
+//                Log.w("TAG", "Failed to read value.", error.toException());
+//            }
+//        });
 
     }
 
@@ -182,14 +201,16 @@ public final class ModelSingleton implements Serializable {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-
-        myRef.child("1").setValue("test2");
         Player player = getPlayerInteractor().getAllPlayers().get(0);
-        Player2 player2 = new Player2(player
-        );
+        Player2 player2 = new Player2(player);
 
-        myRef.child("p").child("player").
-                setValue(player2);
+        myRef.child("0").child("player1")
+                .setValue(player2);
+
+//        myRef.child("1").child("playerUniverse")
+//                 .setValue(player.getCurrentUniverse().getSystems());
+//        myRef.child("2").child("playerCurrentPlanet")
+//                .setValue(player.getCurrentPlanet());
 
 //myRef.child("0").child("playerUniverse").setValue(player.getCurrentUniverse());
 
