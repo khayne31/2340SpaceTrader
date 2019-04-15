@@ -9,6 +9,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 
+
+//Author: Owen McCarty
+
+
 public class LosePointsTest {
     @Test
     public void LoseTest() {
