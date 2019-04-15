@@ -202,6 +202,8 @@ public class Ship implements Serializable {
         this.range = range;
     }
 
+    public void setCargo(int cargo) {this.cargo = cargo;}
+
     public void loseHp(int hp) {
         if((this.hp - hp) <= 0){
             //TODO: do something when hp hits zero

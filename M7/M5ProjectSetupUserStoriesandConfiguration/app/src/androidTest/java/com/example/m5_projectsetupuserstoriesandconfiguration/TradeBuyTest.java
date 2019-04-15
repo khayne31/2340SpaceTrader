@@ -7,6 +7,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Resources;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SolarSystem;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Tech;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 
 import org.junit.Test;
@@ -20,46 +21,74 @@ public class TradeBuyTest {
         p1 = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
         Boolean flag = true;
         Planet dummyPlanet;
-        dummyPlanet = new Planet("DummyPlanet",Resources.NO );
+        dummyPlanet = new Planet("DummyPlanet",Resources.NO, Tech.PRE );
 
 
         Market market = new Market(dummyPlanet);
         p1.setCredits(0);
         String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"You have no money to spend" );
+        assertEquals("You have no money to spend",testString );
     }
-/*
+
     @Test public void outOfStockTest() {
+        Player p1;
+        p1 = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
+        Planet dummyPlanet;
+        dummyPlanet = new Planet("DummyPlanet",Resources.NO, Tech.HIT);
+        Market market = new Market(dummyPlanet);
+
+        market.updateSellList(GoodType.WATER, 0);
         String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"There are no items left to trade for" );
+        assertEquals("There are no items left to trade for", testString );
     }
 
     @Test public void insufficientItemsTest() {
 
-        String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"There aren't enough of that good left to trade for");
+        Player p1;
+        p1 = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
+        Planet dummyPlanet;
+        dummyPlanet = new Planet("DummyPlanet",Resources.NO, Tech.HIT );
+        Market market = new Market(dummyPlanet);
+        market.updateSellList(GoodType.WATER, 1);
+        String testString = market.tradeBuy(p1, GoodType.WATER, 2);
+        assertEquals("There aren't enough of that good left to trade for", testString);
 
     }
 
     @Test public void insufficientFundsTest() {
+        Player p1;
+        p1 = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
+        Planet dummyPlanet;
+        dummyPlanet = new Planet("DummyPlanet",Resources.NO, Tech.PRE );
+
+
+        Market market = new Market(dummyPlanet);
+        p1.setCredits(1);
         String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"You don't have enough credits to buy these items");
+        assertEquals("You don't have enough credits to buy these items",testString);
     }
 
     @Test public void insufficientSpaceTest() {
+        Player p1;
+        p1 = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
+        Planet dummyPlanet;
+        dummyPlanet = new Planet("DummyPlanet",Resources.NO, Tech.PRE );
+        Market market = new Market(dummyPlanet);
+        p1.getMyShip().setCargo(20);
         String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"You don't have enough cargo space left to store that good");
+        assertEquals("You don't have enough cargo space left to store that good", testString);
     }
 
     @Test public void successfulPurchaseTest() {
-        String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"The purchase was successful!");
-    }
+        Player p1;
+        p1 = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
 
-    @Test public void failedPurchaseTest() {
-        String testString = market.tradeBuy(p1, GoodType.WATER, 1);
-        assertEquals(testString,"The purchase failed");
-    }
+        Planet dummyPlanet;
+        dummyPlanet = new Planet("DummyPlanet",Resources.NO , Tech.PRE);
 
-*/
+
+        Market market = new Market(dummyPlanet);
+        String testString = market.tradeBuy(p1, GoodType.WATER, 1);
+        assertEquals("The purchase was successful!",testString);
+    }
 }

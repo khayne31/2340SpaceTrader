@@ -42,9 +42,9 @@ public class Planet implements Serializable {
      * @param planetName the name to be given to the planet
      * @param res the resource classification of the planet
      */
-    public Planet(String planetName, Resources res) {
+    public Planet(String planetName, Resources res, Tech tech) {
         name = planetName;
-        t_lvl = Tech.PRE;
+        t_lvl = tech;
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
         resources = Resources.values()[new Random().nextInt(Resources.values().length)];
         homesystem = new SolarSystem("DummySystem");

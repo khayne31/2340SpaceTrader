@@ -58,6 +58,7 @@ public class SolarSystem implements Serializable {
     /**
      * A solarsystem constructor used for testing the market class
      *
+     * @param name The name of the new system
      */
     public SolarSystem(String name) {
         gov = Governments.values()[new Random().nextInt(Governments.values().length)];
