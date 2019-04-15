@@ -37,15 +37,17 @@ public class SolarSystem implements Serializable {
 
 
         planets = system.getAllPlanets();
-        if(coordinates.length == 2){
-            coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
-            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
+        if(coordinates.length >= 2){
+            //coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
+            //coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
+            coords = coordinates;
             Log.d("UniverseLogCat", "inside solar system constructor coords: "
                     + coordinates[0] + " "+ coordinates[1]);
-        } else if(coordinates.length > 2){
-            coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
-            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
         }
+//        } else if(coordinates.length > 2){
+//            //coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
+//            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
+//        }
         else{
             coords[1] = 0;
             coords[0] = 0;
