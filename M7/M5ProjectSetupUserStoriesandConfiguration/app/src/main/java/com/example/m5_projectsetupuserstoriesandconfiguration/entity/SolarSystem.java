@@ -23,13 +23,13 @@ public class SolarSystem implements Serializable {
      * @param size the size of a size of the SolarSystem
      * @param coordinates an array containing the position of the system in the Universe
      */
-    public  SolarSystem(int size, int[] coordinates){
+    public  SolarSystem(int size, int[] coordinates) {
         coords = new int[2];
-        if(size <= Universe.MIN_SIZE){
+        if (size <= Universe.MIN_SIZE) {
             systemSize = Universe.MIN_SIZE;
-        } else if(size >= Universe.MAX_SIZE){
+        } else if (size >= Universe.MAX_SIZE) {
             systemSize = Universe.MAX_SIZE;
-        } else{
+        } else {
             systemSize = size;
         }
 
@@ -38,25 +38,33 @@ public class SolarSystem implements Serializable {
 
 
         planets = system.getAllPlanets();
-        if(coordinates.length >= 2){
-            //coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
-            //coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
-            coords = coordinates;
+
+        if (coordinates.length >= 2) {
+            coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
+            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
+            //coords = coordinates;
+            Log.d("UniverseLogCat", "inside solar system constructor coords: "
+                    + coordinates[0] + " " + coordinates[1]);
+        /*if(coordinates.length == 2){
+            coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
+            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
             Log.d("UniverseLogCat", "inside solar system constructor coords: "
                     + coordinates[0] + " "+ coordinates[1]);
-        }
+        } */
+
 //        } else if(coordinates.length > 2){
 //            //coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
 //            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
 //        }
-        else{
-            coords[1] = 0;
-            coords[0] = 0;
+            }
+            else {
+                coords = new int[]{0, 0};
+            }
+            gov = Governments.values()[new Random().nextInt(Governments.values().length)];
+            tech = Tech.values()[new Random().nextInt(Tech.values().length)];
+            resource = Resources.values()[new Random().nextInt(Resources.values().length)];
         }
-        gov = Governments.values()[new Random().nextInt(Governments.values().length)];
-        tech = Tech.values()[new Random().nextInt(Tech.values().length)];
-        resource = Resources.values()[new Random().nextInt(Resources.values().length)];
-    }
+
 
     /**
      * A solarsystem constructor used for testing the market class

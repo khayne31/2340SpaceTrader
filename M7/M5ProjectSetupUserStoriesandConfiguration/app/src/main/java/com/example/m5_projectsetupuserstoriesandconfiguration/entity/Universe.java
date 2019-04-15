@@ -53,6 +53,31 @@ public class Universe implements Serializable {
         systemsInUniverse = systems.size();
 
     }
+    /**
+     * The constructor which initializes a size x size universe from an arraylist of SolarSystems
+     * @param s an ArrayList of SolarSystems
+     * @param size The inputted string to check for difficulty type
+     */
+    public Universe(ArrayList<SolarSystem> s, int size){
+        systems = s;
+        universe = new ArrayList(size);
+        if(size <= MIN_SIZE){
+            sizeOfUniverse = MIN_SIZE;
+        } else if(size >= MAX_SIZE){
+            sizeOfUniverse = MAX_SIZE;
+        } else{
+            sizeOfUniverse = size;
+        }
+        systemsInUniverse = systems.size();
+        for(int i=0; i < sizeOfUniverse; i++){
+            universe.add(new ArrayList<SolarSystem>(sizeOfUniverse));
+        }
+
+        for(SolarSystem sys: systems){
+            universe.get(sys.getCoords()[0]).set(sys.getCoords()[1], sys);
+        }
+
+    }
 
 
     /**
