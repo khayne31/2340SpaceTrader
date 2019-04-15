@@ -34,6 +34,20 @@ public class Planet implements Serializable {
     public Planet(int[] coordinates, String planetName, SolarSystem system, Resources res){
         this(coordinates, planetName, system);
         resources = res;
+
+    }
+
+    /**
+     * A planet constructor for testing the market class
+     * @param planetName the name to be given to the planet
+     * @param res the resource classification of the planet
+     */
+    public Planet(String planetName, Resources res, Tech tech) {
+        name = planetName;
+        t_lvl = tech;
+        event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
+        resources = Resources.values()[new Random().nextInt(Resources.values().length)];
+        homesystem = new SolarSystem("DummySystem");
     }
 
 
@@ -66,6 +80,7 @@ public class Planet implements Serializable {
     public int getT_lvl() {
         return t_lvl.getLvl();
     }
+
 
     public void playerLandedOn(){
         market = new Market(this);

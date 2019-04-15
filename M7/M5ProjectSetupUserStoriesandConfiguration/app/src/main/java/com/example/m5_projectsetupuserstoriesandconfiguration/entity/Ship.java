@@ -116,6 +116,14 @@ public class Ship implements Serializable {
     private final int maxfuel;
 
 
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     public Ship(shipType type, int hp, int cargo) {
         this.type = type;
         this.fuel = this.type.maxfuel;
@@ -193,6 +201,8 @@ public class Ship implements Serializable {
     public void setRange(int range) {
         this.range = range;
     }
+
+    public void setCargo(int cargo) {this.cargo = cargo;}
 
     public void loseHp(int hp) {
         if((this.hp - hp) <= 0){

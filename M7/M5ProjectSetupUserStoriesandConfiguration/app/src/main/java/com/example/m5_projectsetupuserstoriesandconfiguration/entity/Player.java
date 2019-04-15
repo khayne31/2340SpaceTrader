@@ -53,6 +53,28 @@ public class Player implements Serializable {
     }
 
     /**
+     * A constructor for player that is used for testing the market class
+     * @param name the players name
+     * @param fPoints fighter points
+     * @param tPoints trader points
+     * @param ePoints engineer points
+     * @param pPoints pilot points
+     * @param difficulty the difficulty level
+     */
+    public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints,
+                  Difficulty difficulty) {
+        this.name = name;
+        credits = 1000;
+        fighterPoints = fPoints;
+        traderPoints = tPoints;
+        engineerPoints = ePoints;
+        pilotPoints = pPoints;
+        this.diff = difficulty;
+        int hp = 200;
+        myShip = new Ship(Ship.shipType.GN, hp, 0);
+    }
+
+    /**
      * gets the name of the player
      * @return the name of the player
      */

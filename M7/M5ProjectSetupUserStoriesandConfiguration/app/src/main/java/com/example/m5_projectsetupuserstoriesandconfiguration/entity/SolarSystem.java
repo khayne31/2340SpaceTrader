@@ -56,6 +56,23 @@ public class SolarSystem implements Serializable {
         tech = Tech.values()[new Random().nextInt(Tech.values().length)];
         resource = Resources.values()[new Random().nextInt(Resources.values().length)];
     }
+
+    /**
+     * A solarsystem constructor used for testing the market class
+     *
+     * @param name The name of the new system
+     */
+    public SolarSystem(String name) {
+        gov = Governments.values()[new Random().nextInt(Governments.values().length)];
+        tech = Tech.values()[new Random().nextInt(Tech.values().length)];
+        resource = Resources.values()[new Random().nextInt(Resources.values().length)];
+        systemSize = 1;
+        systemName = name;
+        planets = new ArrayList<Planet>();
+    }
+
+
+
     /**
      * generates a random name for the system from a  predetermined list of names
      * @return returns a string representing the name for the system

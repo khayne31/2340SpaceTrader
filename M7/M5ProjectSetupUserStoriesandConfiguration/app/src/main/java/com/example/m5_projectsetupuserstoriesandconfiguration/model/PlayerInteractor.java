@@ -53,12 +53,10 @@ public class PlayerInteractor extends Interactor implements Serializable {
 
     /**
      * loads from a file on android device. doesn't work
-     * @param file the file to download from
      * @return a boolean if success
      */
-    public void loadBinary(FileInputStream file) {
-        ModelSingleton.getInstance().loadBinary(file);
-
+    public void loadBinary() {
+        ModelSingleton.getInstance().loadBinary();
     }
 
     /**

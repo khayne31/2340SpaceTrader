@@ -103,7 +103,7 @@ public class Market implements Serializable {
         if(p.getCredits() <= 0){
             returnString = "You have no money to spend";
         } else if(itemSellList.get(position).getQuantity() == 0){
-            returnString = "There is no items left to trade for";
+            returnString = "There are no items left to trade for";
         } else if(itemSellList.get(position).getQuantity() < numberOfGood){
             returnString = "There aren't enough of that good left to trade for";
         }  else if(p.getCredits() < (itemSellList.get(position).getPrice() * numberOfGood)){
@@ -137,6 +137,7 @@ public class Market implements Serializable {
         int position = getTradeGoodPosition(currentGood);
 
         String returnString;
+        returnString = "The purchase failed!";
         if(p.getMyShip().getCurrCargoSize() == 0){
             returnString = "You have no items to sell";
         } else if(p.getMyShip().getGoodList().get(currentGood) == 0){
@@ -151,11 +152,7 @@ public class Market implements Serializable {
                 updateItem.setQuantity(currentQuantity + numberOfGood);
                 itemSellList.set(position, updateItem);
                 p.setCredits(p.getCredits() + moneyTraded);
-            } else {
-                returnString = "The sale was unsuccessful";
             }
-
-
         }
         return returnString;
     }
@@ -206,6 +203,13 @@ public class Market implements Serializable {
         return positionCount;
 
 
+    }
+
+    public void updateSellList(GoodType good, int newNum) {
+        int position = getTradeGoodPosition(good);
+        Item updateItem = itemSellList.get(getTradeGoodPosition(good));
+        updateItem.setQuantity(newNum);
+        itemSellList.set(position, updateItem);
     }
 
 }
