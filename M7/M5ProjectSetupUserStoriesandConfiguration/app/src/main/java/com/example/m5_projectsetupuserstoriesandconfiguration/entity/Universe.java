@@ -13,8 +13,8 @@ public class Universe implements Serializable {
     private final int sizeOfUniverse;
     private final int systemsInUniverse;
     private final double SOLAR_SYSTEM_DISTRIBUTION_PROB = .25;
-    public final int MAX_SIZE = 20;
-    public final int MIN_SIZE = 10;
+    public static final int MAX_SIZE = 20;
+    public static final int MIN_SIZE = 10;
 
     /**
      * getter method for the systems variable
