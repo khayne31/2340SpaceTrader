@@ -8,7 +8,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Resources;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SolarSystem;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Tech;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 
 import org.junit.Test;
 
