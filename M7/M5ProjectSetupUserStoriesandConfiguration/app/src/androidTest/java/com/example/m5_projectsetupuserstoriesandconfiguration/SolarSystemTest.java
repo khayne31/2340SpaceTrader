@@ -5,8 +5,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 
 import org.junit.Test;
 
-import java.util.Random;
-
 import static org.junit.Assert.*;
 
 class SolarSystemTest {

@@ -30,7 +30,7 @@ public class Settings extends AppCompatActivity {
 
         Switch music = findViewById(R.id.music_toggle);
         music.setChecked(true);
-        Boolean isOn = music.isChecked();
+        //Boolean isOn = music.isChecked();
     }
 
     /**

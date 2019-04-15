@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
 public class Player implements Serializable {
@@ -278,9 +277,11 @@ public class Player implements Serializable {
      * @return the current solar system
      */
     //why isn't this used
+    /*
     public SolarSystem getCurrentSystem() {
         return currentSystem;
     }
+    */
 
     /**
      * sets current solar system
@@ -375,7 +376,7 @@ public class Player implements Serializable {
         double maxRadius = 2 *  Math.pow(myShip.getRange(),2);
         double actualRadius = Math.pow(dx, 2) + Math.pow(dy,2);
 
-        double remainingFuel = (maxRadius - actualRadius) / maxRadius;
+        //double remainingFuel = (maxRadius - actualRadius) / maxRadius;
 
         //return (int)(myShip.getFuel() - (myShip.getFuel() * remainingFuel));
         return dx + (dy * 5);

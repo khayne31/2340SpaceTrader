@@ -1,6 +1,5 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.model;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.Serializable;
 import java.util.List;

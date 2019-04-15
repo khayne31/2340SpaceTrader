@@ -6,7 +6,6 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Resources;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SolarSystem;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Tech;
 
 import org.junit.Test;

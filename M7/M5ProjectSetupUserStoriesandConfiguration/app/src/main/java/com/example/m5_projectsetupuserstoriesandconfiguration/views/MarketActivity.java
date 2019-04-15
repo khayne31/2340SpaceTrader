@@ -32,7 +32,6 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
     private Market market;
 
     private Player player;
-    Intent intent = new Intent();
 
 
     @Override

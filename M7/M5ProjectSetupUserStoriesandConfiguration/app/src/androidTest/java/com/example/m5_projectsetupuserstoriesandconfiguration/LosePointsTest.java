@@ -1,12 +1,10 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Difficulty;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 

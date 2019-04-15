@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private Universe universe;
 
     private Player player;
-    Intent intent = new Intent();
 
 
     @Override
