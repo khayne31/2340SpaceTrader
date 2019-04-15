@@ -93,10 +93,10 @@ public class LoadScreen extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<Player> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, playerList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        playerSpinner.setAdapter(adapter);
+//        ArrayAdapter<Player> adapter = new ArrayAdapter<>(this,
+//                android.R.layout.simple_spinner_item, playerList);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        playerSpinner.setAdapter(adapter);
 
     }
 
