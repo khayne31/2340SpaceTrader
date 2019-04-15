@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * An enum that stores the different types of governments a system can have
+ */
 public enum Governments {
     Dem("Dem", "Democracy"),
     Ari("Ari", "Aristocracy"),

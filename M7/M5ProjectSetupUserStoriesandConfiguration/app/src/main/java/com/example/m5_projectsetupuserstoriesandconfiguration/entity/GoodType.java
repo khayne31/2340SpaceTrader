@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * An enum that holds the various types of goods available for purchase
+ */
 public enum GoodType {
 
     WATER(0, "Water", 0, 0, Tech.MID, 30, 3, 4, RadicalEvent.DROUGHT, Resources.LOW,
@@ -50,17 +53,30 @@ public enum GoodType {
         er = expensive;
     }
 
+    /**
+     * A method to get the base price of a GoodType
+     * @return the base price of the GoodType
+     */
     public int getBasePrice() {
         return basePrice;
     }
 
+    /**
+     * A method to get the id of a GoodType
+     * @return the id of the GoodType
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * A method to get the name of a GoodType
+     * @return the name of the GoodType
+     */
     public String getName() {
         return name;
     }
+
 
     public int getMtlp() {
         return mtlp;
