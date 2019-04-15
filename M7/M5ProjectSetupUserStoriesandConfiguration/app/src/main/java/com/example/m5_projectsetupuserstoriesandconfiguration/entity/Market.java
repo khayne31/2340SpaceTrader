@@ -103,7 +103,7 @@ public class Market implements Serializable {
         if(p.getCredits() <= 0){
             returnString = "You have no money to spend";
         } else if(itemSellList.get(position).getQuantity() == 0){
-            returnString = "There is no items left to trade for";
+            returnString = "There are no items left to trade for";
         } else if(itemSellList.get(position).getQuantity() < numberOfGood){
             returnString = "There aren't enough of that good left to trade for";
         }  else if(p.getCredits() < (itemSellList.get(position).getPrice() * numberOfGood)){
