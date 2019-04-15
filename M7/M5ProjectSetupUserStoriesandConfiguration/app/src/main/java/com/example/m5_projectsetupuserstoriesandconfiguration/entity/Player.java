@@ -191,15 +191,31 @@ public class Player implements Serializable {
         }
         switch(index){
             case 1:
+                if (fighterPoints <= 0) {
+                    fighterPoints = 0;
+                    return;
+                }
                 fighterPoints -= x;
                 break;
             case 2:
+                if (pilotPoints <= 0) {
+                    pilotPoints = 0;
+                    return;
+                }
                 pilotPoints -= x;
                 break;
             case 3:
+                if (traderPoints <= 0) {
+                    traderPoints = 0;
+                    return;
+                }
                 traderPoints -= x;
                 break;
             default:
+                if (engineerPoints <= 0) {
+                    engineerPoints = 0;
+                    return;
+                }
                 engineerPoints -= x;
         }
     }

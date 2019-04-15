@@ -24,17 +24,29 @@ public class SolarSystem implements Serializable {
      * @param coordinates an array containing the position of the system in the Universe
      */
     public  SolarSystem(int size, int[] coordinates){
-        systemSize = size;
+        if(size <= Universe.MIN_SIZE){
+            systemSize = Universe.MIN_SIZE;
+        } else if(size >= Universe.MAX_SIZE){
+            systemSize = Universe.MAX_SIZE;
+        } else{
+            systemSize = size;
+        }
+
         systemName = generateRandomName();
         CoordinateSystem system = new CoordinateSystem(systemSize, this, resource);
 
 
         planets = system.getAllPlanets();
-        if(coordinates.length >= 2){
-            coords = coordinates;
+        if(coordinates.length == 2){
+            coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
+            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
             Log.d("UniverseLogCat", "inside solar system constructor coords: "
                     + coordinates[0] + " "+ coordinates[1]);
-        } else{
+        } else if(coordinates.length > 2){
+            coords[0] = coordinates[0] >= 0 ? coordinates[0] : Math.abs(coordinates[0]);
+            coords[1] = coordinates[1] >= 0 ? coordinates[1] : Math.abs(coordinates[1]) ;
+        }
+        else{
             coords[1] = 0;
             coords[0] = 0;
         }

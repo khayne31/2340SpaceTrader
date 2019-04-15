@@ -17,9 +17,9 @@ public class UniverseTest {
     public void testUniverse(){
         testingUniverseConstructor(Integer.MIN_VALUE);
         testingUniverseConstructor(0);
-        testingUniverseConstructor(10);
+        testingUniverseConstructor(Universe.MIN_SIZE);
         testingUniverseConstructor(14);
-        testingUniverseConstructor(20);
+        testingUniverseConstructor(Universe.MAX_SIZE);
         testingUniverseConstructor(Integer.MAX_VALUE);
     }
 
@@ -32,7 +32,7 @@ public class UniverseTest {
             assertNotEquals(s, null);
             assertNotEquals(u, null);
             assertEquals(u.size(), uni.MIN_SIZE);
-            for(int i = 0; i < 10; i++){
+            for(int i = 0; i < uni.MIN_SIZE; i++){
                 assertNotEquals(u.get(i), null);
                 assertEquals(u.get(i).size(), uni.MIN_SIZE);
             }
