@@ -5,23 +5,15 @@ import android.util.Log;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
-import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SolarSystem;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -147,7 +139,7 @@ public final class ModelSingleton implements Serializable {
      * @return boolean if it succeeds
      */
     public void loadBinary() {
-//        Log.d("LoadTest", "This line was run");
+        Log.d("LoadTest", "This line was run");
 //        boolean success = true;
 //        try {
 //        /*

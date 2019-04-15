@@ -25,7 +25,7 @@ import java.io.FileOutputStream;
  */
 public class PlanetScreen extends AppCompatActivity {
     private PlanetScreenViewModel planetVM;
-    public static final String ARG_ITEM_ID = "item_id";
+    //public static final String ARG_ITEM_ID = "item_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

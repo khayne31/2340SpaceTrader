@@ -8,13 +8,13 @@ public class Player2 {
     private int traderPoints;
     private int fighterPoints;
     private int credits;
-    private int id;
-    private Difficulty diff;
-    private String myShip;
-    private Planet currentPlanet;
-    private int currentUniverseSize;
-    private int myShipCargo;
-    private int myShipHp;
+    private final int id;
+    private final Difficulty diff;
+    private final String myShip;
+    private final Planet currentPlanet;
+    private final int currentUniverseSize;
+    private final int myShipCargo;
+    private final int myShipHp;
 
     /**
      * Constructor for player

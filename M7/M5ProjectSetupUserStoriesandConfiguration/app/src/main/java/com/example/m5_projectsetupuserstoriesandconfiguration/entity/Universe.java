@@ -2,6 +2,7 @@ package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 /**
@@ -92,7 +93,7 @@ public class Universe implements Serializable {
      *             universe, represented by a 2D array is size x size.
      */
     private void generateUniverse(int size) {
-        List<String> listOfNames = new ArrayList<>();
+        Collection<String> listOfNames = new ArrayList<>();
         for (int j = 0; j < size; j++) {
             universe.add(new ArrayList<SolarSystem>());
             for (int i = 0; i < size; i++) {
