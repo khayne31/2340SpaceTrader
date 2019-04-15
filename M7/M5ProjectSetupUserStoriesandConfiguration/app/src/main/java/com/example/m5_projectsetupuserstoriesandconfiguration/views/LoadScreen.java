@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
@@ -28,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -38,6 +41,8 @@ public class LoadScreen extends AppCompatActivity {
 
     private int currentPlayerID;
     private Player currentPlayer;
+    private Spinner playerSpinner;
+    private List<Player> playerList;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private MainActivityViewModel mainVM;
@@ -59,6 +64,7 @@ public class LoadScreen extends AppCompatActivity {
 
         ViewModelProvider mainVMs = ViewModelProviders.of(this);
         mainVM = mainVMs.get(MainActivityViewModel.class);
+        playerSpinner = findViewById(R.id.player_select);
 
 //        ViewModelProvider loadVMs = ViewModelProviders.of(this);
 //        LoadActivityViewModel loadVM = loadVMs.get(LoadActivityViewModel.class);
@@ -74,7 +80,7 @@ public class LoadScreen extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                currentPlayer = showData(dataSnapshot);
+                playerList = showData(dataSnapshot);
                 currentPlayerID = currentPlayer.getId();
                 //String value = dataSnapshot.getValue(String.class);
                 //Log.d("TAG", "Value is: " + value);
@@ -87,11 +93,16 @@ public class LoadScreen extends AppCompatActivity {
             }
         });
 
+        ArrayAdapter<Player> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, playerList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        playerSpinner.setAdapter(adapter);
 
     }
 
-    private Player showData(DataSnapshot dataSnapshot) {
-        Player result = null;
+    private List<Player> showData(DataSnapshot dataSnapshot) {
+        List<Player> result = null;
+        List<Player> playerlist = new ArrayList<>();
         for (DataSnapshot ds : dataSnapshot.getChildren()) {
             Player p = new Player(ds.getValue(PlayerInformation.class).getName(),
                     ds.getValue(PlayerInformation.class).getFighterPoints(),
@@ -100,8 +111,9 @@ public class LoadScreen extends AppCompatActivity {
                     ds.getValue(PlayerInformation.class).getPilotPoints(),
                     ds.getValue(PlayerInformation.class).getDiff(),
                     new Universe(15));
-            result = p;
+            playerlist.add(p);
         }
+        result = playerlist;
         return result;
     }
 
@@ -124,12 +136,14 @@ public class LoadScreen extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT);
         toast.show();
         Intent moveActivities = new Intent(this, PlanetScreen.class);
-
+        currentPlayer = (Player) playerSpinner.getSelectedItem();
         mainVM.addPlayer(currentPlayer);
         ModelSingleton.setCurrentPlayerID(currentPlayer.getId());
 
         startActivity(moveActivities);
 
     }
+
+
 
 }

@@ -39,7 +39,9 @@ public class LosePointsTest {
             p.losePoints(0);
             assertEquals(p.getEngineerPoints(), engineerPoints);
             p.losePoints(1);
-            assertNotEquals(p.getEngineerPoints(), engineerPoints);
+            if (p.getEngineerPoints() != 0) {
+                assertNotEquals(p.getEngineerPoints(), engineerPoints);
+            }
         } else if (p.getFighterPoints() > p.getEngineerPoints()
                 && p.getFighterPoints() > p.getTraderPoints()
                 && p.getFighterPoints() > p.getPilotPoints()) {
