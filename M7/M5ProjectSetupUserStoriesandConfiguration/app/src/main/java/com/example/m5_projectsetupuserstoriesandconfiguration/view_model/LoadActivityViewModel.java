@@ -12,15 +12,26 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerIntera
 import java.io.FileInputStream;
 import java.util.List;
 
+/**
+ * A viewmodel that links the LoadScreen to the backend for loading a previous game
+ */
 public class LoadActivityViewModel extends AndroidViewModel {
     private final PlayerInteractor interactor;
 
+    /**
+     * a constructor method for the LoadActivityViewModel
+     * @param application the current application
+     */
     public LoadActivityViewModel(@NonNull Application application) {
         super(application);
         ModelSingleton model = ModelSingleton.getInstance();
         interactor = model.getPlayerInteractor();
     }
 
+    /**
+     * A method to update the backend with a new player
+     * @param player The updated player to send to the database
+     */
     public void updatePlayer(Player player) {
         interactor.updatePlayer(player);
     }

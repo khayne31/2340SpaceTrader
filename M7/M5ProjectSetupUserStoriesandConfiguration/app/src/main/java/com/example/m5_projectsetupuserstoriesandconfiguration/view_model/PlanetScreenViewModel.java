@@ -19,6 +19,10 @@ public class PlanetScreenViewModel extends AndroidViewModel {
         interactor = ModelSingleton.getInstance().getPlayerInteractor();
     }
 
+    /**
+     * A method to update the backend with a new player
+     * @param player The updated player to send to the database
+     */
     public void updatePlayer(Player player ) {
         interactor.updatePlayer(player);
     }

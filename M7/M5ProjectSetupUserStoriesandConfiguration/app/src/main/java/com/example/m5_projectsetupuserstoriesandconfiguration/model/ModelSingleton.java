@@ -6,6 +6,8 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player2;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SerializableStorage;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.SolarSystem;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Universe;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -197,15 +199,38 @@ public final class ModelSingleton implements Serializable {
     public boolean saveBinary(FileOutputStream file) {
 
         Log.d("SINGLETON", "saveBinary");
-        
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
+        try {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference();
 
-        Player player = getPlayerInteractor().getAllPlayers().get(0);
-        Player2 player2 = new Player2(player);
+            Player player = getPlayerInteractor().getAllPlayers().get(0);
 
-        myRef.child("0").child("player1")
-                .setValue(player2);
+            Player2 player2 = new Player2(player);
+            String id = player2.getName();
+            Universe u = player.getCurrentUniverse();
+//            myRef.child("0").child(id);
+//            int count = 0;
+//            for (int i = 0; i < u.getSystems().size(); i++) {
+//                SolarSystem s = u.getSystems().get(i);
+//                myRef.child("0").child(id).child("" + count);
+//                String xcoord = "" + s.getCoords()[0];
+//                String ycoord = "" + s.getCoords()[1];
+//                myRef.child("0").child(id).child("" + count).child(xcoord);
+//                myRef.child("0").child(id).child("" + count).child(ycoord);
+//                for (int j = 0; j < s.getPlanets().size(); j++) {
+//                    String p = s.getPlanets().get(j).getName();
+//                    myRef.child("0").child(id).child("" + count).child(p);
+//                }
+//                count++;
+//            }
+            myRef.child("0").child(id)
+                    .setValue(player2);
+            return true;
+
+        } catch (Exception e) {
+            return false;
+        }
+//
 
 //        myRef.child("1").child("playerUniverse")
 //                 .setValue(player.getCurrentUniverse().getSystems());
@@ -259,6 +284,5 @@ public final class ModelSingleton implements Serializable {
             e.printStackTrace();
         }
         */
-        return false;
     }
 }
