@@ -5,6 +5,15 @@
       <scope name="Tests" level="WARNING" enabled="false">
         <option name="ignoreTestCases" value="false" />
       </scope>
+      <scope name="Tests" level="WARNING" enabled="false">
+        <option name="ignoreTestCases" value="false" />
+      </scope>
+      <scope name="Tests" level="WARNING" enabled="false">
+        <option name="ignoreTestCases" value="false" />
+      </scope>
+      <scope name="Tests" level="WARNING" enabled="false">
+        <option name="ignoreTestCases" value="false" />
+      </scope>
       <option name="ignoreTestCases" value="false" />
     </inspection_tool>
   </profile>

@@ -14,14 +14,16 @@ import static org.junit.Assert.*;
 
 
 public class LosePointsTest {
+    private final int UNIVERSE_SIZE = 15;
+
     @Test
     public void LoseTest() {
-        testingForPointsLost(new Player("name", 0, 0, 0, 0, Difficulty.BE, new Universe(15)));
-        testingForPointsLost(new Player("name", 1, 1, 1, 1, Difficulty.BE, new Universe(15)));
-        testingForPointsLost(new Player("name", 1, 2, 3, 4, Difficulty.BE, new Universe(15)));
-        testingForPointsLost(new Player("name", 2, 3, 4, 1, Difficulty.BE, new Universe(15)));
-        testingForPointsLost(new Player("name", 3, 4, 1, 2, Difficulty.BE, new Universe(15)));
-        testingForPointsLost(new Player("name", 4, 1, 2, 3, Difficulty.BE, new Universe(15)));
+        testingForPointsLost(new Player("name", 0, 0, 0, 0, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
+        testingForPointsLost(new Player("name", 1, 1, 1, 1, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
+        testingForPointsLost(new Player("name", 1, 2, 3, 4, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
+        testingForPointsLost(new Player("name", 2, 3, 4, 1, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
+        testingForPointsLost(new Player("name", 3, 4, 1, 2, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
+        testingForPointsLost(new Player("name", 4, 1, 2, 3, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
     }
 
     public void testingForPointsLost(Player p) {
