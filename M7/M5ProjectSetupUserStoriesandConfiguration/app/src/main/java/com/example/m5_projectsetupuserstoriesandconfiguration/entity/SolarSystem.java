@@ -24,6 +24,7 @@ public class SolarSystem implements Serializable {
      * @param coordinates an array containing the position of the system in the Universe
      */
     public  SolarSystem(int size, int[] coordinates){
+        coords = new int[2];
         if(size <= Universe.MIN_SIZE){
             systemSize = Universe.MIN_SIZE;
         } else if(size >= Universe.MAX_SIZE){
