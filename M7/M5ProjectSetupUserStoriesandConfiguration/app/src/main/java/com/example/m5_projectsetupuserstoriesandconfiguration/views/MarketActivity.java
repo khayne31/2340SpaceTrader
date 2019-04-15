@@ -1,7 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;

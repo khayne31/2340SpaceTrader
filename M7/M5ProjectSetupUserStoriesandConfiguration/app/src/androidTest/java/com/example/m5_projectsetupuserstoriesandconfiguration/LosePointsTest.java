@@ -33,18 +33,18 @@ public class LosePointsTest {
         int engineerPoints = p.getEngineerPoints();
         int traderPoints = p.getTraderPoints();
         int pilotPoints = p.getPilotPoints();
-        if (p.getFighterPoints() == p.getEngineerPoints()
-                && p.getFighterPoints() == p.getTraderPoints()
-                && p.getFighterPoints() == p.getPilotPoints()) {
+        if ((p.getFighterPoints() == p.getEngineerPoints())
+                && (p.getFighterPoints() == p.getTraderPoints())
+                && (p.getFighterPoints() == p.getPilotPoints())) {
             p.losePoints(0);
             assertEquals(p.getEngineerPoints(), engineerPoints);
             p.losePoints(1);
             if (p.getEngineerPoints() != 0) {
                 assertNotEquals(p.getEngineerPoints(), engineerPoints);
             }
-        } else if (p.getFighterPoints() > p.getEngineerPoints()
-                && p.getFighterPoints() > p.getTraderPoints()
-                && p.getFighterPoints() > p.getPilotPoints()) {
+        } else if ((p.getFighterPoints() > p.getEngineerPoints())
+                && (p.getFighterPoints() > p.getTraderPoints())
+                && (p.getFighterPoints() > p.getPilotPoints())) {
             p.losePoints(0);
             assertEquals(p.getFighterPoints(), fighterPoints);
             p.losePoints(1);
@@ -54,9 +54,9 @@ public class LosePointsTest {
             p.setFighterPoints(0);
             p.losePoints(1);
             assertNotEquals(p.getFighterPoints(), -1);
-        } else if (p.getEngineerPoints() > p.getFighterPoints()
-                && p.getEngineerPoints() > p.getTraderPoints()
-                && p.getEngineerPoints() > p.getPilotPoints()) {
+        } else if ((p.getEngineerPoints() > p.getFighterPoints())
+                && (p.getEngineerPoints() > p.getTraderPoints())
+                && (p.getEngineerPoints() > p.getPilotPoints())) {
             p.losePoints(0);
             assertEquals(p.getEngineerPoints(), engineerPoints);
             p.losePoints(1);
@@ -66,9 +66,9 @@ public class LosePointsTest {
             p.setEngineerPoints(0);
             p.losePoints(1);
             assertNotEquals(p.getEngineerPoints(), -1);
-        } else if (p.getTraderPoints() > p.getFighterPoints()
-                && p.getTraderPoints() > p.getEngineerPoints()
-                && p.getTraderPoints() > p.getPilotPoints()) {
+        } else if ((p.getTraderPoints() > p.getFighterPoints())
+                && (p.getTraderPoints() > p.getEngineerPoints())
+                && (p.getTraderPoints() > p.getPilotPoints())) {
             p.losePoints(0);
             assertEquals(p.getTraderPoints(), traderPoints);
             p.losePoints(1);

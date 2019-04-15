@@ -11,10 +11,6 @@ public class PlayerInformation {
     private Difficulty diff;
     private String myShip;
 
-    public PlayerInformation() {
-
-    }
-
     public Planet getCurrentPlanet() {
         return currentPlanet;
     }

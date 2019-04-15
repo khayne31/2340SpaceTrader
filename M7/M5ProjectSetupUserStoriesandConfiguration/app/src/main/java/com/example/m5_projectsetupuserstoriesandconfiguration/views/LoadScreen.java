@@ -96,7 +96,7 @@ public class LoadScreen extends AppCompatActivity {
     }
 
     private List<Player> showData(DataSnapshot dataSnapshot) {
-        List<Player> result = null;
+        List<Player> result;
         List<Player> playerlist = new ArrayList<>();
         for (DataSnapshot ds : dataSnapshot.getChildren()) {
             Player p = new Player(ds.getValue(PlayerInformation.class).getName(),
