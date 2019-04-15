@@ -46,7 +46,7 @@ public class LoadScreen extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private MainActivityViewModel mainVM;
-
+    private String child = "Maxwell, a Lazy Player";
 
 
 
@@ -62,9 +62,9 @@ public class LoadScreen extends AppCompatActivity {
             actionBar.hide();
         }
 
-        ViewModelProvider mainVMs = ViewModelProviders.of(this);
-        mainVM = mainVMs.get(MainActivityViewModel.class);
-        playerSpinner = findViewById(R.id.player_select);
+          ViewModelProvider mainVMs = ViewModelProviders.of(this);
+          mainVM = mainVMs.get(MainActivityViewModel.class);
+//        playerSpinner = findViewById(R.id.player_select);
 
 //        ViewModelProvider loadVMs = ViewModelProviders.of(this);
 //        LoadActivityViewModel loadVM = loadVMs.get(LoadActivityViewModel.class);
@@ -80,16 +80,14 @@ public class LoadScreen extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                playerList = showData(dataSnapshot);
+                currentPlayer = showData(dataSnapshot);
                 currentPlayerID = currentPlayer.getId();
                 //String value = dataSnapshot.getValue(String.class);
                 //Log.d("TAG", "Value is: " + value);
             }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", error.toException());
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
@@ -98,24 +96,34 @@ public class LoadScreen extends AppCompatActivity {
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        playerSpinner.setAdapter(adapter);
 
+
+
     }
 
-    private List<Player> showData(DataSnapshot dataSnapshot) {
-        List<Player> result = null;
-        List<Player> playerlist = new ArrayList<>();
+
+    private Player showData(DataSnapshot dataSnapshot) {
+        Player result = null;
+        /*List<Player> playerlist = new ArrayList<>();*/
         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-            Player p = new Player(ds.getValue(PlayerInformation.class).getName(),
-                    ds.getValue(PlayerInformation.class).getFighterPoints(),
-                    ds.getValue(PlayerInformation.class).getTraderPoints(),
-                    ds.getValue(PlayerInformation.class).getEngineerPoints(),
-                    ds.getValue(PlayerInformation.class).getPilotPoints(),
-                    ds.getValue(PlayerInformation.class).getDiff(),
-                    new Universe(15));
-            playerlist.add(p);
+            PlayerInformation p = new PlayerInformation();
+            p.setName(ds.child(child).getValue(PlayerInformation.class).getName());
+            p.setFighterPoints(ds.child(child).getValue(PlayerInformation.class).getFighterPoints());
+            p.setTraderPoints(ds.child(child).getValue(PlayerInformation.class).getTraderPoints());
+            p.setEngineerPoints(ds.child(child).getValue(PlayerInformation.class).getEngineerPoints());
+            p.setPilotPoints(ds.child(child).getValue(PlayerInformation.class).getPilotPoints());
+            p.setDiff(ds.child(child).getValue(PlayerInformation.class).getDiff());
+
+            Player player = new Player(p.getName(),
+                    p.getFighterPoints(), p.getTraderPoints(),
+                    p.getEngineerPoints(), p.getPilotPoints(),
+                    p.getDiff(), new Universe(15));
+            result = player;
+
         }
-        result = playerlist;
+
         return result;
     }
+
 
 
     /**
@@ -133,17 +141,15 @@ public class LoadScreen extends AppCompatActivity {
      */
     public void onLoadGamePressed(View view) {
 
-        Toast toast = Toast.makeText(this, "LET ME IN!!!!", LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, "Welcome Back " + currentPlayer.getName(), LENGTH_SHORT);
         toast.show();
         Intent moveActivities = new Intent(this, PlanetScreen.class);
-        currentPlayer = (Player) playerSpinner.getSelectedItem();
         mainVM.addPlayer(currentPlayer);
         ModelSingleton.setCurrentPlayerID(currentPlayer.getId());
 
         startActivity(moveActivities);
 
     }
-
 
 
 }
