@@ -184,10 +184,9 @@ public final class ModelSingleton implements Serializable {
 
     /**
      * saves the current instance to fire base
-     * @param file output file to save on android phone
      * @return boolean if success
      */
-    public boolean saveBinary(FileOutputStream file) {
+    public boolean saveBinary() {
 
         Log.d("SINGLETON", "saveBinary");
         try {

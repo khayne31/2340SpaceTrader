@@ -59,11 +59,10 @@ public class PlayerInteractor extends Interactor implements Serializable {
 
     /**
      * saves the player to an outside file on the phone
-     * @param out the file to save to
      * @return success
      */
-    public boolean saveBinary(FileOutputStream out) {
-        return ModelSingleton.getInstance().saveBinary(out);
+    public boolean saveBinary() {
+        return ModelSingleton.getInstance().saveBinary();
     }
 
 

@@ -90,25 +90,14 @@ public class PlanetScreen extends AppCompatActivity {
      * @param view the View of the button
      */
     public void onSavePressed(View view) {//CANNOT HAVE A BOOLEAN AS A BUTTON METHOD
-        String fileName;
-        /*@org.jetbrains.annotations.Nullable FileOutputStream out;
-        fileName = PlayerInteractor.DEFAULT_BINARY_FILE_NAME;
-        try {
-            out = openFileOutput(fileName, Context.MODE_PRIVATE);
-            Log.d("save", fileName);
-        } catch (Exception e) {
-            Log.d("save", "failed");
-            out = null;
-        }
 
-
-        boolean returnableBool = planetVM.saveBinary(out);
+        boolean returnableBool = planetVM.saveBinary();
         if (returnableBool) {
             Toast.makeText(this, "Player was saved", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Player was not saved", Toast.LENGTH_SHORT).show();
 
-        }*/
+        }
         //return returnableBool;
     }
 }

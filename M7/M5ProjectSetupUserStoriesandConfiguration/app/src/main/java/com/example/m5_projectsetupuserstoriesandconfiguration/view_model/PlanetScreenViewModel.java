@@ -62,10 +62,9 @@ public class PlanetScreenViewModel extends AndroidViewModel {
 
     /**
      * A method that saves information as binary code in a file
-     * @param out The FileOutputStream to be passed on to the interactor
      * @return a boolean that says whether it was successful or not
      */
-    public boolean saveBinary(FileOutputStream out) {
-        return interactor.saveBinary(out);
+    public boolean saveBinary() {
+        return interactor.saveBinary();
     }
 }
