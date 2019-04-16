@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * A class to help load information from a previous app state via firebase
+ */
 public class PlayerInformation {
     private String name;
     private int pilotPoints;
@@ -11,18 +14,31 @@ public class PlayerInformation {
     private Difficulty diff;
     private String myShip;
 
+
     public Planet getCurrentPlanet() {
         return currentPlanet;
     }
 
+    /**
+     * gets the pilot points of the player
+     * @return the pilot points of the player
+     */
     public int getPilotPoints() {
         return pilotPoints;
     }
 
+    /**
+     * sets the pilot points of the player
+     * @param pilotPoints the new pilot points of the player
+     */
     public void setPilotPoints(int pilotPoints) {
         this.pilotPoints = pilotPoints;
     }
 
+    /**
+     * gets the credits of the player
+     * @return the credits of the player
+     */
     public int getCredits() {
         return credits;
     }
@@ -43,30 +59,58 @@ public class PlayerInformation {
         this.id = id;
     }
 
+    /**
+     * sets the credits of the player
+     * @param credits the new credits of the player
+     */
     public void setCredits(int credits) {
         this.credits = credits;
     }
 
+    /**
+     * gets the fighter points of the player
+     * @return fighter points of the player
+     */
     public int getFighterPoints() {
         return fighterPoints;
     }
 
+    /**
+     * sets the fighter points of the player
+     * @param fighterPoints new fighter points of the player
+     */
     public void setFighterPoints(int fighterPoints) {
         this.fighterPoints = fighterPoints;
     }
 
+    /**
+     * gets the trader points of the player
+     * @return trader points of the player
+     */
     public int getTraderPoints() {
         return traderPoints;
     }
 
+    /**
+     * sets trader points of the player
+     * @param traderPoints new trader points of the player
+     */
     public void setTraderPoints(int traderPoints) {
         this.traderPoints = traderPoints;
     }
 
+    /**
+     * gets the engineering points of the player
+     * @return engineering points of the player
+     */
     public int getEngineerPoints() {
         return engineerPoints;
     }
 
+    /**
+     * sets engineering points of the player
+     * @param engineerPoints new engineering points of the player
+     */
     public void setEngineerPoints(int engineerPoints) {
         this.engineerPoints = engineerPoints;
     }

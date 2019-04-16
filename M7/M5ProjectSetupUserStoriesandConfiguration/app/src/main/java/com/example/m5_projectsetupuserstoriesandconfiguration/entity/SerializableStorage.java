@@ -12,6 +12,11 @@ public class SerializableStorage implements Serializable {
     private final PlayerInteractor playerInt;
     private final int currentID;
 
+    /**
+     * The constructor method for SerializableStorage
+     * @param newPlayerInt The PlayerInteractor to be stored
+     * @param currentID the currentID from the model singleton to be stored
+     */
     public SerializableStorage(PlayerInteractor newPlayerInt, int currentID) {
         playerInt = newPlayerInt;
         this.currentID = currentID;
