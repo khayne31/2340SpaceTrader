@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * A class used to facilitate transactions between a Player and a Planet
+ */
 public class Market implements Serializable {
     private final int marketSize;
     //first integer is number of goods second integer is price of goods
@@ -18,6 +21,10 @@ public class Market implements Serializable {
 
     private final Random random;
 
+    /**
+     * A constructor method for the planet
+     * @param planet The planet whose market is being created
+     */
     public Market(Planet planet){
         itemSellList = new ArrayList<>();
         random = new Random();
@@ -31,6 +38,9 @@ public class Market implements Serializable {
         //Log.v("Test", "price: "+ goodList.get(GoodType.values()[0])[1]);
     }
 
+    /**
+     * A method used to create the inventory (itemSellList) for the market instance
+     */
     private void initializeMarketInventory(){
         for(GoodType g : GoodType.values()) {
 
@@ -49,6 +59,11 @@ public class Market implements Serializable {
         }
     }
 
+    /**
+     * A method used to generate prices for a GoodType
+     * @param gt The GoodType to generate a price for
+     * @return The generated price
+     */
     private int generateMarketPrice(GoodType gt){
         //may need to refine the event multiplier if its too difficult to put in UI
         int price = gt.getBasePrice();                         // set start price to be base price
@@ -97,6 +112,14 @@ public class Market implements Serializable {
 //                + (Tech.values().length - gt.getMtlp())/(Tech.values().length + 0.0)
 //                + gt.getVar()/100.0 * gt.getBasePrice());
     }
+
+    /**
+     * A method where the player purchases items from the market
+     * @param p The player who will be making the purchase
+     * @param currentGood The GoodType the player is purchasing
+     * @param numberOfGood The amount of the good the player is purchasing
+     * @return A string to display as a toast in the UI about the status of the purchase
+     */
     public String tradeBuy(Player p, GoodType currentGood, int numberOfGood){
         String returnString;
         int position = getTradeGoodPosition(currentGood);
@@ -131,6 +154,13 @@ public class Market implements Serializable {
         return returnString;
     }
 
+    /**
+     * A method to help the player to sell items to the market
+     * @param p The player who will be selling items
+     * @param currentGood The current good being sold
+     * @param numberOfGood The amount of that good being sold
+     * @return A string to display as a toast in the UI about the status of the sale
+     */
     public String tradeSell(Player p, GoodType currentGood, int numberOfGood){
 
         //deprecated
@@ -161,6 +191,12 @@ public class Market implements Serializable {
 
     // get list of items that player has
     //deprecate
+
+    /**
+     * The list of items that the player can sell to the market
+     * @param p The player who is selling to the market
+     * @return A list of Items that the player can sell to the market
+     */
     private List<Item> getBuyItems(Player p) {
         List<Item> itemBuyList = new ArrayList<>();
 
@@ -174,6 +210,11 @@ public class Market implements Serializable {
         return itemBuyList;
     }
 
+    /**
+     * A method to return the current quantity for a particular trade good in the market
+     * @param currentGood The GoodType who's quantity is being requested
+     * @return The quantity of that GoodType
+     */
     public int getTradeGoodQuantity(GoodType currentGood) {
         for (Item item : itemSellList) {
             if (item.getType() == currentGood) {
@@ -183,6 +224,11 @@ public class Market implements Serializable {
         return 0;
     }
 
+    /**
+     * A method to return the current price for a particular trade good in the market
+     * @param currentGood The GoodType who's price is being requested
+     * @return The price of that GoodType
+     */
     public int getTradeGoodPrice(GoodType currentGood) {
         for (Item item : itemSellList) {
             if (item.getType() == currentGood) {
@@ -192,6 +238,12 @@ public class Market implements Serializable {
         return 0;
     }
 
+    /**
+     * A method to return the current position for a particular trade good
+     * in the market itemSellList
+     * @param currentGood The GoodType who's position is being requested
+     * @return The position of that GoodType
+     */
     private int getTradeGoodPosition(GoodType currentGood) {
         int positionCount = 0;
         for (Item item : itemSellList) {
@@ -205,6 +257,11 @@ public class Market implements Serializable {
 
     }
 
+    /**
+     * A method to update the itemSellList once a purchase/sale has been made
+     * @param good The GoodType being updated in an Item
+     * @param newNum The new number of goods associated with that Item
+     */
     public void updateSellList(GoodType good, int newNum) {
         int position = getTradeGoodPosition(good);
         Item updateItem = itemSellList.get(getTradeGoodPosition(good));
