@@ -10,10 +10,16 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerIntera
 import java.io.FileOutputStream;
 import java.util.List;
 
-
+/**
+ * A viewmodel that links the UI of the planet screen to an interactor
+ */
 public class PlanetScreenViewModel extends AndroidViewModel {
     private final PlayerInteractor interactor;
 
+    /**
+     * a constructor method for the PlanetScreenViewModel
+     * @param application the current application
+     */
     public PlanetScreenViewModel(@NonNull Application application) {
         super(application);
         interactor = ModelSingleton.getInstance().getPlayerInteractor();
@@ -27,9 +33,17 @@ public class PlanetScreenViewModel extends AndroidViewModel {
         interactor.updatePlayer(player);
     }
 
-
+    /**
+     * A method to add a player to the interactor
+     * @param player The player to be added
+     */
     public void addPlayer (Player player) {interactor.addPlayer(player);}
 
+    /**
+     * A method that retrieves a Player based on the inputted ID
+     * @param iD The iD of the Player that needs to be retrieved
+     * @return The Player requested
+     */
     public Player getPlayer (int iD) {
         List<Player> playerList = interactor.getAllPlayers();
         Player returnPlayer = null;
@@ -46,7 +60,11 @@ public class PlanetScreenViewModel extends AndroidViewModel {
     }
 
 
-
+    /**
+     * A method that saves information as binary code in a file
+     * @param out The FileOutputStream to be passed on to the interactor
+     * @return a boolean that says whether it was successful or not
+     */
     public boolean saveBinary(FileOutputStream out) {
         return interactor.saveBinary(out);
     }

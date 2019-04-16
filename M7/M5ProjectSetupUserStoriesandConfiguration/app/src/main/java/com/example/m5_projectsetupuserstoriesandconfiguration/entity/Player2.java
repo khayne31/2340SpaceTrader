@@ -14,10 +14,6 @@ public class Player2 {
     private final int id;
     private final Difficulty diff;
     private final String myShip;
-    private final Planet currentPlanet;
-    private final int currentUniverseSize;
-    private final int myShipCargo;
-    private final int myShipHp;
 
     /**
      * Constructor for player2
@@ -32,11 +28,11 @@ public class Player2 {
         engineerPoints = p.getPilotPoints();
         diff = p.getDiff();
         credits = p.getCredits();
-        currentPlanet = p.getCurrentPlanet();
-        currentUniverseSize = p.getCurrentUniverse().getSizeOfUniverse();
+        Planet currentPlanet = p.getCurrentPlanet();
+        int currentUniverseSize = p.getCurrentUniverse().getSizeOfUniverse();
         myShip = p.getMyShip().getType().name();
-        myShipCargo = p.getMyShip().getCurrCargoSize();
-        myShipHp = p.getMyShip().getHp();
+        int myShipCargo = p.getMyShip().getCurrCargoSize();
+        int myShipHp = p.getMyShip().getHp();
 
     }
     /**

@@ -41,8 +41,6 @@ public class LoadScreen extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private MainActivityViewModel mainVM;
-    private String child = "Maxwell, a Lazy Player";
-
 
 
     @Override
@@ -101,6 +99,7 @@ public class LoadScreen extends AppCompatActivity {
         /*List<Player> playerlist = new ArrayList<>();*/
         for (DataSnapshot ds : dataSnapshot.getChildren()) {
             PlayerInformation p = new PlayerInformation();
+            String child = "Maxwell, a Lazy Player";
             p.setName(ds.child(child).getValue(PlayerInformation.class).getName());
             p.setFighterPoints(ds.child(child).getValue(PlayerInformation.class).getFighterPoints());
             p.setTraderPoints(ds.child(child).getValue(PlayerInformation.class).getTraderPoints());
