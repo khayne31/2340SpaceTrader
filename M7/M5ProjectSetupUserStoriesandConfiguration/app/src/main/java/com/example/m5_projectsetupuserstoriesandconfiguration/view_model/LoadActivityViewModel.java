@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * A viewmodel that links the LoadScreen to the backend for loading a previous game
  */
-public class LoadActivityViewModel extends AndroidViewModel {
+class LoadActivityViewModel extends AndroidViewModel {
     private final PlayerInteractor interactor;
 
     /**

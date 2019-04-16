@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private Difficulty diff;
     private MainActivityViewModel mainVM;
     private Universe universe;
-    private final static int LONG_LOG_LENGTH = 4000;
+    private static final int LONG_LOG_LENGTH = 4000;
 
     private Player player;
 

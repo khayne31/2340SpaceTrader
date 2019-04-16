@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * A class that was meant to help store information for the serialization process
  */
-public class SerializableStorage implements Serializable {
+class SerializableStorage implements Serializable {
 
     private final PlayerInteractor playerInt;
     private final int currentID;

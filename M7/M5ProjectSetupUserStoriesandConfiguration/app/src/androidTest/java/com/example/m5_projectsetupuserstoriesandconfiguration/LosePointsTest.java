@@ -35,11 +35,7 @@ public class LosePointsTest {
      * A test to see if the player loses their specialization points properly
      * @param p The example player being tested
      */
-    public void testingForPointsLost(Player p) {
-        assertNotNull(p.getFighterPoints());
-        assertNotNull(p.getPilotPoints());
-        assertNotNull(p.getEngineerPoints());
-        assertNotNull(p.getTraderPoints());
+    private void testingForPointsLost(Player p) {
         int fighterPoints = p.getFighterPoints();
         int engineerPoints = p.getEngineerPoints();
         int traderPoints = p.getTraderPoints();

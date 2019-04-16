@@ -91,7 +91,7 @@ public class PlanetScreen extends AppCompatActivity {
      */
     public void onSavePressed(View view) {//CANNOT HAVE A BOOLEAN AS A BUTTON METHOD
         String fileName;
-        @org.jetbrains.annotations.Nullable FileOutputStream out;
+        /*@org.jetbrains.annotations.Nullable FileOutputStream out;
         fileName = PlayerInteractor.DEFAULT_BINARY_FILE_NAME;
         try {
             out = openFileOutput(fileName, Context.MODE_PRIVATE);
@@ -108,7 +108,7 @@ public class PlanetScreen extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Player was not saved", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
         //return returnableBool;
     }
 }

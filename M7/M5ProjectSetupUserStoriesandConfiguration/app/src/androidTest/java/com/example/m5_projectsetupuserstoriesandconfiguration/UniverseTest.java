@@ -22,7 +22,7 @@ public class UniverseTest {
      */
     @Test
     public void testUniverse(){
-        Universe u1 = testingUniverseConstructor(Integer.MIN_VALUE);
+        Universe u1 = testingUniverseConstructor();
         //Universe u2 = testingUniverseConstructor(0);
         //Universe u3 = testingUniverseConstructor(Universe.MIN_SIZE);
         //Universe u4 = testingUniverseConstructor(14);
@@ -38,18 +38,18 @@ public class UniverseTest {
         //testingUniverseConstructor(u6.getSystems(), Integer.MAX_VALUE);
     }
 
-    private Universe testingUniverseConstructor(int sze){
-        if(sze <= 0){
-            Universe uni =  new Universe(sze);
-            assertEquals(uni.getSizeOfUniverse(), uni.MIN_SIZE);
+    private Universe testingUniverseConstructor(){
+        if(Integer.MIN_VALUE <= 0){
+            Universe uni =  new Universe(Integer.MIN_VALUE);
+            assertEquals(uni.getSizeOfUniverse(), Universe.MIN_SIZE);
             List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
             assertNotEquals(u, null);
-            assertEquals(u.size(), uni.MIN_SIZE);
-            for(int i = 0; i < uni.MIN_SIZE; i++){
+            assertEquals(u.size(), Universe.MIN_SIZE);
+            for(int i = 0; i < Universe.MIN_SIZE; i++){
                 assertNotEquals(u.get(i), null);
-                assertEquals(u.get(i).size(), uni.MIN_SIZE);
+                assertEquals(u.get(i).size(), Universe.MIN_SIZE);
             }
 
             for(int i=0; i < s.size(); i++){
@@ -68,10 +68,10 @@ public class UniverseTest {
             return uni;
         }
         else{
-            int size = sze;
+            int size = Integer.MIN_VALUE;
             Universe uni =  new Universe(size);
-            assertEquals(uni.getSizeOfUniverse(), (size < uni.MAX_SIZE) ? size : uni.MAX_SIZE);
-            size = (size > uni.MAX_SIZE) ? uni.MAX_SIZE : size;
+            assertEquals(uni.getSizeOfUniverse(), (size < Universe.MAX_SIZE) ? size : Universe.MAX_SIZE);
+            size = (size > Universe.MAX_SIZE) ? Universe.MAX_SIZE : size;
             List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
@@ -103,17 +103,17 @@ public class UniverseTest {
     private void testingUniverseConstructor(ArrayList<SolarSystem> systems, int size){
         if(size <= 0){
             Universe uni =  new Universe(systems, size);
-            assertEquals(uni.getSizeOfUniverse(), uni.MIN_SIZE);
+            assertEquals(uni.getSizeOfUniverse(), Universe.MIN_SIZE);
             List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);
             assertNotEquals(u, null);
-            assertEquals(u.size(), uni.MIN_SIZE);
+            assertEquals(u.size(), Universe.MIN_SIZE);
             assertArrayEquals(systems.toArray(), s.toArray());
 
-            for(int i = 0; i < uni.MIN_SIZE; i++){
+            for(int i = 0; i < Universe.MIN_SIZE; i++){
                 assertNotEquals(u.get(i), null);
-                assertEquals(u.get(i).size(), uni.MIN_SIZE);
+                assertEquals(u.get(i).size(), Universe.MIN_SIZE);
             }
 
             for(int i=0; i < s.size(); i++){
@@ -139,8 +139,8 @@ public class UniverseTest {
         }else{
             int sze = size;
             Universe uni =  new Universe(systems,sze);
-            assertEquals(uni.getSizeOfUniverse(), (size < uni.MAX_SIZE) ? size : uni.MAX_SIZE);
-            size = (size > uni.MAX_SIZE) ? uni.MAX_SIZE : size;
+            assertEquals(uni.getSizeOfUniverse(), (size < Universe.MAX_SIZE) ? size : Universe.MAX_SIZE);
+            size = (size > Universe.MAX_SIZE) ? Universe.MAX_SIZE : size;
             List<SolarSystem> s = uni.getSystems();
             List<ArrayList<SolarSystem>> u = uni.getUniverse();
             assertNotEquals(s, null);

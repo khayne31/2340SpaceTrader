@@ -38,8 +38,8 @@ public class LoadScreen extends AppCompatActivity {
     private Player currentPlayer;
     private Spinner playerSpinner;
     private List<Player> playerList;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private final DatabaseReference myRef = database.getReference();
     private MainActivityViewModel mainVM;
 
     private static  final int UNIVERSE_SIZE = 15;
