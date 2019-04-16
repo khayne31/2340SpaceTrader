@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private int traderpts;
     private int pilotpts;
     private int engineerpts;
-    private int pointcount = 16;
+    private final int POINT_TOTAL = 16;
+    private int pointcount;
     private String name;
     private Spinner difSpinner;
     private Difficulty diff;
     private MainActivityViewModel mainVM;
     private Universe universe;
+    private final static int LONG_LOG_LENGTH = 4000;
 
     private Player player;
 
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
             pilotpts++;
             pointcount--;
         }
@@ -134,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
             engineerpts++;
             pointcount--;
         }
@@ -164,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
             traderpts++;
             pointcount--;
         }
@@ -195,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < 16) {
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
             fighterpts++;
             pointcount--;
         }
@@ -255,7 +257,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             Toast toast = Toast.makeText(this, "You did not enter a name",Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            if ((fighterpts + pilotpts + engineerpts + traderpts) == 16) {
+            if ((fighterpts + pilotpts + engineerpts + traderpts) == POINT_TOTAL) {
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 Editable nameTwo = nameField.getText();
                 name = nameTwo.toString();
@@ -296,9 +298,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     private static void largeLog(String tag, String content){
-        if (content.length() > 4000){
-            Log.v(tag, content.substring(0,4000));
-            largeLog(tag, content.substring(4000));
+        if (content.length() > LONG_LOG_LENGTH){
+            Log.v(tag, content.substring(0,LONG_LOG_LENGTH));
+            largeLog(tag, content.substring(LONG_LOG_LENGTH));
 
         } else {
             Log.v(tag, content);
