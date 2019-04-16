@@ -16,6 +16,7 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
  * shows a short animation of a successful travel and then a buttons appears to continue
  */
 public class RENone extends AppCompatActivity {
+    private static  final int DELAY = 6500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class RENone extends AppCompatActivity {
             public void run() {
                 (findViewById(R.id.continue_button)).setVisibility(View.VISIBLE);
             }
-        }, 6500);
+        }, DELAY);
     }
 
     /**

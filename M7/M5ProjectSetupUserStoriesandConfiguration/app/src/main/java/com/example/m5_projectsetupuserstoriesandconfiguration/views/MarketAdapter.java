@@ -22,6 +22,11 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolde
     private final List<String> mItemData;
     private List<String> mPriceData;
     private final Context mContext;
+    private static  final float FIVE = 5f;
+    private static  final float POINT_EIGHT = .8f;
+    private static  final float SEVEN = 7f;
+
+
 
     public static class MViewHolder extends RecyclerView.ViewHolder {
         // currently set up if each data item is just a string
@@ -104,10 +109,10 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolde
 
     private void applyEmbossMaskFilter(TextView tv){
         EmbossMaskFilter embossFilter = new EmbossMaskFilter(
-                new float[]{1f, 5f, 1f}, // direction of the light source
-                0.8f, // ambient light between 0 to 1
+                new float[]{1f, FIVE, 1f}, // direction of the light source
+                POINT_EIGHT, // ambient light between 0 to 1
                 8, // specular highlights
-                7f // blur before applying lighting
+                SEVEN // blur before applying lighting
         );
         tv.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
         tv.getPaint().setMaskFilter(embossFilter);

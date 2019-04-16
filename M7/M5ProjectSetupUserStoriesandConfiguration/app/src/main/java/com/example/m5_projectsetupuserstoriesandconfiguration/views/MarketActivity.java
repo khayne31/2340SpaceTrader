@@ -89,21 +89,7 @@ public class MarketActivity extends AppCompatActivity implements Serializable {
     }
 
 
-    /**
-     * shortens the log tag
-     * @param tag the original log tag
-     * @param content the original content of the log
-     */
-    private static void largeLog(String tag, String content){
-        if (content.length() > 4000){
-            Log.v(tag, content.substring(0,4000));
-            largeLog(tag, content.substring(4000));
 
-        } else {
-            Log.v(tag, content);
-        }
-
-    }
 
     /**
      * An onClick method that tests the buy button

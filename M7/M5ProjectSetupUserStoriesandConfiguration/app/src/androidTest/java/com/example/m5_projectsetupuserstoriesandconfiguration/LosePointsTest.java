@@ -15,7 +15,8 @@ import static org.junit.Assert.*;
  */
 public class LosePointsTest {
 
-    private final int UNIVERSE_SIZE = 15;
+    private static  final int UNIVERSE_SIZE = 15;
+
     /**
      * The main method for the test, runs multiple smaller tests inside
      */

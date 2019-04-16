@@ -41,7 +41,8 @@ public class LoadScreen extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private MainActivityViewModel mainVM;
-    private final int UNIVERSE_SIZE = 15;
+
+    private static  final int UNIVERSE_SIZE = 15;
 
 
     @Override

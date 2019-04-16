@@ -34,6 +34,7 @@ import java.io.Serializable;
  */
 public class MainActivity extends AppCompatActivity implements Serializable {
 
+    private static  final int MAX_PTS = 16;
 
     private EditText nameField;
     private TextView fighterptslabel;
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private int traderpts;
     private int pilotpts;
     private int engineerpts;
-    private final int POINT_TOTAL = 16;
-    private int pointcount;
+
+    private int pointcount = MAX_PTS;
     private String name;
     private Spinner difSpinner;
     private Difficulty diff;
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
         Log.v("UniverseResults", universe.toString());
 
-        largeLog("UniverseResults", universe.toString());
 
         engineerptslabel = findViewById(R.id.engineer_pts);
         traderptslabel = findViewById(R.id.trader_pts);
@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     //** ADD AND SUBTRACT POINTS BUTTONS **//
     public void onPilotAddPressed(View view){
         Log.d("Test", "Pilot Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
+
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < MAX_PTS) {
             pilotpts++;
             pointcount--;
         }
@@ -136,7 +137,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onEngineerAddPressed(View view){
         Log.d("Test", "Engineer Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
+
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < MAX_PTS) {
             engineerpts++;
             pointcount--;
         }
@@ -166,7 +168,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onTraderAddPressed(View view){
         Log.d("Test", "Trader Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
+
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < MAX_PTS) {
             traderpts++;
             pointcount--;
         }
@@ -197,7 +200,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onFighterAddPressed(View view){
         Log.d("Test", "Fighter Add Button has been pressed");
-        if ((pilotpts + engineerpts + fighterpts + traderpts) < POINT_TOTAL) {
+
+        if ((pilotpts + engineerpts + fighterpts + traderpts) < MAX_PTS) {
             fighterpts++;
             pointcount--;
         }
@@ -257,7 +261,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             Toast toast = Toast.makeText(this, "You did not enter a name",Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            if ((fighterpts + pilotpts + engineerpts + traderpts) == POINT_TOTAL) {
+
+            if ((fighterpts + pilotpts + engineerpts + traderpts) == MAX_PTS) {
+
                 diff = (Difficulty) difSpinner.getSelectedItem();
                 Editable nameTwo = nameField.getText();
                 name = nameTwo.toString();
@@ -297,16 +303,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         startActivity(moveActivities);
     }
 
-    private static void largeLog(String tag, String content){
-        if (content.length() > LONG_LOG_LENGTH){
-            Log.v(tag, content.substring(0,LONG_LOG_LENGTH));
-            largeLog(tag, content.substring(LONG_LOG_LENGTH));
+//    private static void largeLog(String tag, String content){
+//        if (content.length() > 4000){
+//            Log.v(tag, content.substring(0,4000));
+//            largeLog(tag, content.substring(4000));
+//
+//        } else {
+//            Log.v(tag, content);
+//        }
+//
+//    }
 
-        } else {
-            Log.v(tag, content);
-        }
-
-    }
 
 
 
