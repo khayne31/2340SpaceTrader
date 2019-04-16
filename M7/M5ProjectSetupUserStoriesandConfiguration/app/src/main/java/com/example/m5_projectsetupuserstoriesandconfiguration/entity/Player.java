@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
+/**
+ * The main class of the game that stores a user's related info,
+ * such as ship, credits, etc., as well as their unique universe
+ */
 public class Player implements Serializable {
 
     private String name;
@@ -272,12 +276,12 @@ public class Player implements Serializable {
         }
     }
 
-    /**
-     * gets the current solar system
-     * @return the current solar system
-     */
+
     //why isn't this used
     /*
+     * gets the current solar system
+     * @return the current solar system
+
     public SolarSystem getCurrentSystem() {
         return currentSystem;
     }
@@ -368,6 +372,11 @@ public class Player implements Serializable {
                 new RandomEvent().generateRandomEvent(this);
     }
 
+    /**
+     * A method that tests to see how much fuel is required to travel to a planet
+     * @param p The planet to travel to
+     * @return The amount of fuel required to travel there, as an int
+     */
     public int getFuelRequired(Planet p) {
         SolarSystem hs = p.getHomesystem();
         int[] sysCoords = hs.getCoords();

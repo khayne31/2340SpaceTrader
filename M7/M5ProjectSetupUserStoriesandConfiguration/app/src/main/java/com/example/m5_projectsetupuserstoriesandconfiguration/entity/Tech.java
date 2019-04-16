@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * An enum that stores the Tech values for a planet
+ */
 public enum Tech {
     PRE(0, "PRE"),
     AGR(1, "AGR"),
@@ -27,6 +30,10 @@ public enum Tech {
                 '}';
     }
 
+    /**
+     * A method that returns the level of the Tech enum
+     * @return The tech level, as an int
+     */
     public int getLvl() {
         return lvl;
     }

@@ -22,7 +22,6 @@ import java.util.List;
      * @param sizeSystem the size of a side of the CoordinateSystem
      * @param solar the SolarSystem the CoordinateSystem is a part of
      * @param res the resource of the CoordinateSystem
-     * @return The difficulty object based on the input
      */
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
         currentSolarSystem = solar;

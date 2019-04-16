@@ -35,9 +35,17 @@ public class LoadActivityViewModel extends AndroidViewModel {
         interactor.updatePlayer(player);
     }
 
-
+    /**
+     * A method to add a player to the interactor
+     * @param player The player to be added
+     */
     public void addPlayer (Player player) {interactor.addPlayer(player);}
 
+    /**
+     * A method that retrieves a Player based on the inputted ID
+     * @param iD The iD of the Player that needs to be retrieved
+     * @return The Player requested
+     */
     public Player getPlayer (int iD) {
         List<Player> playerList = interactor.getAllPlayers();
         Player returnPlayer = null;
@@ -53,12 +61,18 @@ public class LoadActivityViewModel extends AndroidViewModel {
         return returnPlayer;
     }
 
+    /**
+     * A method that gets all the players from the interactor
+     * @return A list object containing Player objects
+     */
     public List<Player> getAllPlayers () {
         return interactor.getAllPlayers();
 
     }
 
-
+    /**
+     * A method that loads the binary file to implement serialization (deprecated)
+     */
     public void loadBinary() {
         interactor.loadBinary();
     }

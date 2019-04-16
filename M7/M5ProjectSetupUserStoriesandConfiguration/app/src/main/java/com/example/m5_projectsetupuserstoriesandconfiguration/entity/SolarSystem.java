@@ -77,7 +77,7 @@ public class SolarSystem implements Serializable {
         resource = Resources.values()[new Random().nextInt(Resources.values().length)];
         systemSize = 1;
         systemName = name;
-        planets = new ArrayList<Planet>();
+        planets = new ArrayList<>();
     }
 
 

@@ -31,6 +31,13 @@ public class Planet implements Serializable {
 
     }
 
+    /**
+     * A constructor for the planet class
+     * @param coordinates The new coordinates of the planet
+     * @param planetName The new name for the planet
+     * @param system The planet's home system
+     * @param res The planet's specific resources
+     */
     public Planet(int[] coordinates, String planetName, SolarSystem system, Resources res){
         this(coordinates, planetName, system);
         resources = res;
@@ -41,6 +48,7 @@ public class Planet implements Serializable {
      * A planet constructor for testing the market class
      * @param planetName the name to be given to the planet
      * @param res the resource classification of the planet
+     * @param tech The Tech level of the new planet
      */
     public Planet(String planetName, Resources res, Tech tech) {
         name = planetName;

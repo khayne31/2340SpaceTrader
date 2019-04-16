@@ -12,7 +12,14 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A test class for the Universe Constructor
+ */
 public class UniverseTest {
+    /**
+     * A test method for the universe constructor, contains multiple,
+     * smaller tests
+     */
     @Test
     public void testUniverse(){
         Universe u1 = testingUniverseConstructor(Integer.MIN_VALUE);

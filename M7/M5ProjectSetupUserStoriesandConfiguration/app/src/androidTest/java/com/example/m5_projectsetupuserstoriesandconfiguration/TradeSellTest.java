@@ -12,7 +12,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * A class to test the tradeSell method in the Market class
+ */
 public class TradeSellTest {
+    /**
+     * A test method to check for proper behavior if the player has no items to sell
+     */
     @Test
     public void noCargoTest() {
         Player p;
@@ -27,6 +33,10 @@ public class TradeSellTest {
         assertEquals("You have no items to sell" ,testString );
     }
 
+    /**
+     * A test method to check for proper behavior if the player has no item of
+     * the requested GoodType to sell
+     */
     @Test public void outOfResourceTypeTest() {
         Player p;
         p = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);
@@ -41,7 +51,9 @@ public class TradeSellTest {
         assertEquals("You have no items of that type to sell", testString );
     }
 
-
+    /**
+     * A test method to check for proper behavior if the player successfully sells an item
+     */
     @Test public void successfulSellTest() {
         Player p;
         p = new Player("TestPlayer", 4, 4, 4, 4, Difficulty.BE);

@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * A class to store the Player info for firebase (unsure if this is still used or not)
+ */
 public class Player2 {
 
     private String name;
@@ -17,7 +20,8 @@ public class Player2 {
     private final int myShipHp;
 
     /**
-     * Constructor for player
+     * Constructor for player2
+     * @param p The player that will be used to create a player2
      */
     public Player2(Player p) {
         name = p.getName();
