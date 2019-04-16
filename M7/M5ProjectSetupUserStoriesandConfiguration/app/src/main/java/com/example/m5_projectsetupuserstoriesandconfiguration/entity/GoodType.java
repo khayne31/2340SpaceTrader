@@ -77,35 +77,66 @@ public enum GoodType {
         return name;
     }
 
-
+    /**
+     * A function that returns the minimum tech level required to produce a goodType
+     * @return The minimum level, as an int
+     */
     public int getMtlp() {
         return mtlp;
     }
 
+    /**
+     * A function that returns the minimum tech level required to use a goodType
+     * @return The minimum level, as an int
+     */
     public int getMtlu() {
         return mtlu;
     }
 
+    /**
+     * A method to return the associated tech level of an GoodType
+     * @return The GoodType's tech level, as a Tech object
+     */
     public Tech getTtp() {
         return ttp;
     }
 
+    /**
+     * A method to return the increase in price level for a GoodType
+     * @return The increase in price, as an int
+     */
     public int getIpl() {
         return ipl;
     }
 
+    /**
+     * A method to return the variance in price associated with the GoodType
+     * @return The variance in price, as an int
+     */
     public int getVar() {
         return var;
     }
 
+    /**
+     * A method that returns the GoodType's associated RadicalEvent
+     * @return The RadicalEvent for the GoodType
+     */
     public RadicalEvent getIe() {
         return ie;
     }
 
+    /**
+     * A method to return the condition that result in this being (bought, sold? idk)
+     * @return A Resources object that (again, idk)
+     */
     public Resources getCr() {
         return cr;
     }
 
+    /**
+     * A method that returns the resources that make a GoodType expensive
+     * @return A Resources object that is associated with an expensive price
+     */
     public Resources getEr() {
         return er;
     }
