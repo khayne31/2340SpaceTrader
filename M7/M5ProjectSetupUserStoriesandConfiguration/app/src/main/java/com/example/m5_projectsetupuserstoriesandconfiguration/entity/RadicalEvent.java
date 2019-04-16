@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * An enum that describes RadicalEvents for planets
+ */
 public enum RadicalEvent {
     DROUGHT ("Drought"),
     COLD("Cold"),

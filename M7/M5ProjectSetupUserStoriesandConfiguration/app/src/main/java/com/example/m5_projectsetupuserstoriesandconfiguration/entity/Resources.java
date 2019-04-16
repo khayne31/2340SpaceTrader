@@ -1,5 +1,8 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+/**
+ * An enum that defines the kinds of resources a planet can have
+ */
 public enum Resources {
     NO(0, "NOSPECIALRESOURCES"),
     MINRCH(1, "MINERALRICH"),

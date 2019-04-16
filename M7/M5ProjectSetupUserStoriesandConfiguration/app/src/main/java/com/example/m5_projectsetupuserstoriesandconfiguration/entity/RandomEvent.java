@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * A class that defines random events that can happen to the player while traveling
+ * between planets
+ */
 public class RandomEvent {
     private static final int HP_LOST_ASTEROIDS = 15;
     private static final int HP_LOST_ENEMY = 20;
