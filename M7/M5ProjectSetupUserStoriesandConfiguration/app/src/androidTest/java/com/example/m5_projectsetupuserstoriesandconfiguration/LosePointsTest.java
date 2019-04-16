@@ -10,10 +10,15 @@ import static org.junit.Assert.*;
 
 //Author: Owen McCarty
 
-
+/**
+ * A test class used to check the losePoints method
+ */
 public class LosePointsTest {
     private final int UNIVERSE_SIZE = 15;
 
+    /**
+     * The main method for the test, runs multiple smaller tests inside
+     */
     @Test
     public void LoseTest() {
         testingForPointsLost(new Player("name", 0, 0, 0, 0, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
@@ -24,6 +29,10 @@ public class LosePointsTest {
         testingForPointsLost(new Player("name", 4, 1, 2, 3, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
     }
 
+    /**
+     * A test to see if the player loses their specialization points properly
+     * @param p The example player being tested
+     */
     public void testingForPointsLost(Player p) {
         assertNotNull(p.getFighterPoints());
         assertNotNull(p.getPilotPoints());

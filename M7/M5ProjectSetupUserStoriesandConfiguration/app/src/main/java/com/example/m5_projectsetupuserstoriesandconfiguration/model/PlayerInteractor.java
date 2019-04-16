@@ -52,7 +52,6 @@ public class PlayerInteractor extends Interactor implements Serializable {
 
     /**
      * loads from a file on android device. doesn't work
-     * @return a boolean if success
      */
     public void loadBinary() {
         ModelSingleton.getInstance().loadBinary();

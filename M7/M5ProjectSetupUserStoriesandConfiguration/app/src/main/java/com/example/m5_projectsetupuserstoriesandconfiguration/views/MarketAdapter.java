@@ -36,6 +36,11 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MViewHolde
         }
     }
 
+    /**
+     * A constructor for the market adaptor
+     * @param context The context of the adaptor
+     * @param myItemDataset The dataset to be loaded into the adapter
+     */
     // constructor --> depends on the dataset
     public MarketAdapter(Context context, List<String> myItemDataset) {
         mItemData = myItemDataset;

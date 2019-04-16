@@ -135,8 +135,7 @@ public final class ModelSingleton implements Serializable {
     }
 
     /**
-     * used for serializable implementation
-     * @return boolean if it succeeds
+     * used for serializable implementation (now deprecated)
      */
     public void loadBinary() {
         Log.d("LoadTest", "This line was run");

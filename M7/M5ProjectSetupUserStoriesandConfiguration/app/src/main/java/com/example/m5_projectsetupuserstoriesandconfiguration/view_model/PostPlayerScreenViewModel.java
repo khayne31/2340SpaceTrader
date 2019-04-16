@@ -9,10 +9,16 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSinglet
 import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerInteractor;
 import java.util.List;
 
-
+/**
+ * A viewmodel that connects the UI to an interactor
+ */
 public class PostPlayerScreenViewModel extends AndroidViewModel {
     private final PlayerInteractor interactor;
 
+    /**
+     * The constructor class for the PostPlayerScreenViewModel
+     * @param application The current application
+     */
     public PostPlayerScreenViewModel(@NonNull Application application) {
         super(application);
         interactor = ModelSingleton.getInstance().getPlayerInteractor();
@@ -26,9 +32,17 @@ public class PostPlayerScreenViewModel extends AndroidViewModel {
         interactor.updatePlayer(player);
     }
 
-
+    /**
+     * A method that adds a player to the interactor
+     * @param player The player to be added
+     */
     public void addPlayer (Player player) {interactor.addPlayer(player);}
 
+    /**
+     * A method that retrieves a Player based on the inputted ID
+     * @param iD The iD of the Player that needs to be retrieved
+     * @return The Player requested
+     */
     public Player getPlayer (int iD) {
         List<Player> playerList = interactor.getAllPlayers();
         Player returnPlayer = null;
