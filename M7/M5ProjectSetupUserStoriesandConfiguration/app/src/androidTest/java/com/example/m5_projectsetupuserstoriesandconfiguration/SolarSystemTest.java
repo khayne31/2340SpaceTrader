@@ -7,8 +7,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * A test class to see if the SolarSystem class is working properly
+ */
 class SolarSystemTest {
 
+    /**
+     * A test to see if the SolarSystem constructor works
+     */
     @Test
     public void SolarSystemTest(){
         testingSolarSystemConstructor(Integer.MIN_VALUE, new int[] {});

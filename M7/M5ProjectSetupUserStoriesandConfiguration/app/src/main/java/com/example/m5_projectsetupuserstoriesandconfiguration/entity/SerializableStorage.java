@@ -4,6 +4,9 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.model.PlayerIntera
 
 import java.io.Serializable;
 
+/**
+ * A class that was meant to help store information for the serialization process
+ */
 public class SerializableStorage implements Serializable {
 
     private final PlayerInteractor playerInt;
@@ -14,10 +17,18 @@ public class SerializableStorage implements Serializable {
         this.currentID = currentID;
     }
 
+    /**
+     * A method that gets the current ID stored in the Serializable Storage object
+     * @return the currentID, an int
+     */
     public int getCurrentID() {
         return currentID;
     }
 
+    /**
+     * A method that gets the player interactor stored in the Serializable Storage object
+     * @return the PlayerInteractor object
+     */
     public PlayerInteractor getPlayerInteractor() {
         return playerInt;
     }
