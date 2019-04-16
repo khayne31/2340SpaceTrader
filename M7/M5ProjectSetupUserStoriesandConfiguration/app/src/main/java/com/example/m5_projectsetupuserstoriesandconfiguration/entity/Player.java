@@ -24,6 +24,7 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
+    private static  final int INITAL_HP = 200;
 
 
     /**
@@ -45,7 +46,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        int hp = 200;
+        int hp = INITAL_HP;
         myShip = new Ship(Ship.shipType.GN, hp, 0);
         currentUniverse = uni;
         //law of demeter violation
@@ -74,7 +75,7 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         pilotPoints = pPoints;
         this.diff = difficulty;
-        int hp = 200;
+        int hp = INITAL_HP;
         myShip = new Ship(Ship.shipType.GN, hp, 0);
     }
 

@@ -14,13 +14,14 @@ import static org.junit.Assert.*;
  * A test class used to check the losePoints method
  */
 public class LosePointsTest {
-
+    private static  final int UNIVERSE_SIZE = 15;
     /**
      * The main method for the test, runs multiple smaller tests inside
      */
     @Test
     public void LoseTest() {
-        int UNIVERSE_SIZE = 15;
+
+
         testingForPointsLost(new Player("name", 0, 0, 0, 0, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
         testingForPointsLost(new Player("name", 1, 1, 1, 1, Difficulty.BE, new Universe(UNIVERSE_SIZE)));
         testingForPointsLost(new Player("name", 1, 2, 3, 4, Difficulty.BE, new Universe(UNIVERSE_SIZE)));

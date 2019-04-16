@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  * A class that tests the tradeBuy method in the market class
  */
 public class TradeBuyTest {
-
+    private static  final int CARGO_SIZE = 20;
     /**
      * A test method that checks for proper method behavior when the Player has no credits
      */
@@ -89,7 +89,7 @@ public class TradeBuyTest {
         Planet dummyPlanet;
         dummyPlanet = new Planet("DummyPlanet",Resources.NO, Tech.PRE );
         Market market = new Market(dummyPlanet);
-        p1.getMyShip().setCargo(20);
+        p1.getMyShip().setCargo(CARGO_SIZE);
         String testString = market.tradeBuy(p1, GoodType.WATER, 1);
         assertEquals("You don't have enough cargo space left to store that good", testString);
     }

@@ -41,6 +41,7 @@ public class LoadScreen extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private MainActivityViewModel mainVM;
+    private static  final int UNIVERSE_SIZE = 15;
 
 
     @Override
@@ -110,7 +111,7 @@ public class LoadScreen extends AppCompatActivity {
             Player player = new Player(p.getName(),
                     p.getFighterPoints(), p.getTraderPoints(),
                     p.getEngineerPoints(), p.getPilotPoints(),
-                    p.getDiff(), new Universe(15));
+                    p.getDiff(), new Universe(UNIVERSE_SIZE));
             result = player;
 
         }
