@@ -4,12 +4,16 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="Space Trader Deluxe"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".views.REBigBoi"
+            android:label="@string/title_activity_rebig_boi"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".views.MarketActivity"
             android:label="@string/title_activity_market_screen"

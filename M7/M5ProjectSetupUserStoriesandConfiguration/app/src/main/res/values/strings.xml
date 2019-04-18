@@ -1,9 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="action_settings">Settings</string>
-    <string name="title_activity_start_screen"
-        tools:keep="@string/title_activity_start_screen">StartScreen</string>
-    <string name="title_activity_post_player_screen"
-        tools:keep="@string/title_activity_post_player_screen">PostPlayerScreen</string>
+    <string name="title_activity_start_screen" tools:keep="@string/title_activity_start_screen">StartScreen</string>
+    <string name="title_activity_post_player_screen" tools:keep="@string/title_activity_post_player_screen">PostPlayerScreen</string>
     <string name="title_activity_planet_screen">PlanetScreen</string>
     <string name="title_activity_market_screen">MarketScreen</string>
     <string name="title_activity_main_menu">MainMenu</string>
@@ -55,15 +53,13 @@
         <item>-1</item>
     </string-array>
 
-    <string-array name="list_preference_entries"
-        tools:keep="@array/list_preference_entries">
+    <string-array name="list_preference_entries" tools:keep="@array/list_preference_entries">
         <item>Entry 1</item>
         <item>Entry 2</item>
         <item>Entry 3</item>
     </string-array>
 
-    <string-array name="multi_select_list_preference_default_value"
-        tools:keep="@array/multi_select_list_preference_default_value" />
+    <string-array name="multi_select_list_preference_default_value" tools:keep="@array/multi_select_list_preference_default_value" />
 
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
@@ -113,5 +109,6 @@
     <string name="number_to_sell">Number To Sell</string>
     <string name="buy_items">BUY ITEMS</string>
     <string name="sell_items">SELL ITEMS</string>
+    <string name="title_activity_rebig_boi">REBigBoi</string>
 
 </resources>
