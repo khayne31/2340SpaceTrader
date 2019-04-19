@@ -110,5 +110,6 @@
     <string name="buy_items">BUY ITEMS</string>
     <string name="sell_items">SELL ITEMS</string>
     <string name="title_activity_rebig_boi">REBigBoi</string>
+    <string name="title_activity_resmall_boi">RESmallBoi</string>
 
 </resources>

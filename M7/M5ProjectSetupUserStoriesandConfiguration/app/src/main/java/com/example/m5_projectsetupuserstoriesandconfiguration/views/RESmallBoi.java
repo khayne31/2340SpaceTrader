@@ -11,17 +11,14 @@ import android.view.View;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
 
-/**
- * An activity that contains methods pertaining to the Random Event None Screen
- * shows a short animation of a successful travel and then a buttons appears to continue
- */
-public class RENone extends AppCompatActivity {
+public class RESmallBoi extends AppCompatActivity {
+
     private static final int DELAY = 6500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_renone);
+        setContentView(R.layout.activity_resmall_boi);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,9 +30,6 @@ public class RENone extends AppCompatActivity {
         showButtons();
     }
 
-    /**
-     * An method that shows the button after a slight delay (when the animation ends)
-     */
     private void showButtons() {
         Handler handler = new Handler();
 

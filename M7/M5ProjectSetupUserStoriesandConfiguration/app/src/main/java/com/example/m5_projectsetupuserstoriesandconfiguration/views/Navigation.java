@@ -101,7 +101,7 @@ public class Navigation extends AppCompatActivity {
         RandomEvent.events newEvent = player.travelToPlanet(destinationPlanet);
         buyVM.updatePlayer(player);
         Toast.makeText(this, newEvent.getEventDescription(), Toast.LENGTH_LONG).show();
-        //startActivity(new Intent(this, REBigBoi.class));
+        //startActivity(new Intent(this, RESmallBoi.class));
         //String event = newEvent.getEventName();
         switch (newEvent.getEventName()){
             case "Wormhole":
@@ -138,7 +138,7 @@ public class Navigation extends AppCompatActivity {
                 startActivity(new Intent(this, REBigBoi.class));
                 break;
             case "Small Space Monster":
-                startActivity(new Intent(this, RENone.class));
+                startActivity(new Intent(this, RESmallBoi.class));
                 break;
             case "Fuel Leak":
                 startActivity(new Intent(this, RENone.class));
