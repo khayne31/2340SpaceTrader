@@ -136,4 +136,8 @@ public class Planet implements Serializable {
     public SolarSystem getHomesystem() {
         return homesystem;
     }
+
+    public Resources getResources() {
+        return resources;
+    }
 }

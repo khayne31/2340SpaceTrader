@@ -16,7 +16,7 @@ class SolarSystemTest {
      * A test to see if the SolarSystem constructor works
      */
     @Test
-    public void SolarSystemTest(){
+    public  static void SolarSystemTest(){
         testingSolarSystemConstructor(Integer.MIN_VALUE, new int[] {});
         testingSolarSystemConstructor(Integer.MAX_VALUE, new int[] {});
         int[] inputArray = new int[100];
@@ -31,7 +31,7 @@ class SolarSystemTest {
         testingSolarSystemConstructor(Universe.MIN_SIZE, inputArray);
 
     }
-    private void testingSolarSystemConstructor(int size, int[] coords){
+    private static void testingSolarSystemConstructor(int size, int[] coords){
 
         SolarSystem s = new SolarSystem(size, coords);
         if(coords.length < 2){

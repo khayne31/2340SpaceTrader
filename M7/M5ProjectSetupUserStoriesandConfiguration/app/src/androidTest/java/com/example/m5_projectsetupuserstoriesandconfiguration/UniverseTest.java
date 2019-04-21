@@ -21,7 +21,7 @@ public class UniverseTest {
      * smaller tests
      */
     @Test
-    public void testUniverse(){
+    public static void testUniverse(){
         Universe u1 = testingUniverseConstructor();
         //Universe u2 = testingUniverseConstructor(0);
         //Universe u3 = testingUniverseConstructor(Universe.MIN_SIZE);
@@ -38,7 +38,7 @@ public class UniverseTest {
         //testingUniverseConstructor(u6.getSystems(), Integer.MAX_VALUE);
     }
 
-    private Universe testingUniverseConstructor(){
+    private static Universe testingUniverseConstructor(){
         if(Integer.MIN_VALUE <= 0){
             Universe uni =  new Universe(Integer.MIN_VALUE);
             assertEquals(uni.getSizeOfUniverse(), Universe.MIN_SIZE);
@@ -100,7 +100,7 @@ public class UniverseTest {
 
     }
 
-    private void testingUniverseConstructor(ArrayList<SolarSystem> systems, int size){
+    private static void testingUniverseConstructor(ArrayList<SolarSystem> systems, int size){
         if(size <= 0){
             Universe uni =  new Universe(systems, size);
             assertEquals(uni.getSizeOfUniverse(), Universe.MIN_SIZE);

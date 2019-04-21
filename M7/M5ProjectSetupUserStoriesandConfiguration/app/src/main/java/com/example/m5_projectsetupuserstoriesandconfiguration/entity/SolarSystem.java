@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.graphics.CornerPathEffect;
 import android.util.Log;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class SolarSystem implements Serializable {
     private final Governments gov;
     private final Tech tech;
     private Resources resource;
+    private CoordinateSystem coordinateSystem;
 
     /**
      * The constructor for the SolarSystem class
@@ -34,10 +36,10 @@ public class SolarSystem implements Serializable {
         }
 
         systemName = generateRandomName();
-        CoordinateSystem system = new CoordinateSystem(systemSize, this, resource);
+        coordinateSystem = new CoordinateSystem(systemSize, this, resource);
 
 
-        planets = system.getAllPlanets();
+        planets = coordinateSystem.getAllPlanets();
 
         if (coordinates.length >= 2) {
             coords[0] = (coordinates[0] >= 0) ? coordinates[0] : Math.abs(coordinates[0]);
@@ -256,5 +258,17 @@ public class SolarSystem implements Serializable {
      */
     public int[] getCoords() {
         return coords;
+    }
+
+    public CoordinateSystem getCoordinateSystem() {
+        return coordinateSystem;
+    }
+
+    public Tech getTech() {
+        return tech;
+    }
+
+    public Resources getResource() {
+        return resource;
     }
 }

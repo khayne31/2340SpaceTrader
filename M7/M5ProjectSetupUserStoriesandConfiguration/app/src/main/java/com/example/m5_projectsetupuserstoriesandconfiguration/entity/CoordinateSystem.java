@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * CoordinateSystem class
  */
- class CoordinateSystem implements Serializable {
+ public class CoordinateSystem implements Serializable {
     private final List<ArrayList<Planet>> system;
     private final ArrayList<Planet> allPlanets;
     private double populationProb;
@@ -15,6 +15,7 @@ import java.util.List;
     private final Resources resources;
     private final SolarSystem currentSolarSystem;
     private int  planetCounter;
+    private int size;
     private static final double PROB = .05;
     private static final double MULTIPLIER = .1;
 
@@ -26,6 +27,13 @@ import java.util.List;
      * @param res the resource of the CoordinateSystem
      */
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
+        if(sizeSystem <= 0){
+            size = Universe.MIN_SIZE;
+        } else if(sizeSystem >= Universe.MAX_SIZE){
+            size = Universe.MAX_SIZE;
+        } else{
+            size = sizeSystem;
+        }
         currentSolarSystem = solar;
         populationProb =  PROB * Math.random();
         systemName = solar.getSystemName();
@@ -81,5 +89,15 @@ import java.util.List;
         return allPlanets;
     }
 
+    public int getSize() {
+        return size;
+    }
 
+    public int getPlanetCounter() {
+        return planetCounter;
+    }
+
+    public String getSystemName() {
+        return systemName;
+    }
 }
