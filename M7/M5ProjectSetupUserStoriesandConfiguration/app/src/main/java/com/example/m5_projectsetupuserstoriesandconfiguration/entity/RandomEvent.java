@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+
 /**
  * A class that defines random events that can happen to the player while traveling
  * between planets
@@ -14,7 +15,7 @@ public class RandomEvent {
     private static final int HP_LOST_ASTEROIDS = 15;
     private static final int HP_LOST_ENEMY = 20;
     private static final int NUMBER_CREDITS_LOST = 100;
-    private static final int CREDITS_TO_LOSE = 2;
+    private static final int CREDITS_TO_LOSE = 4;
     private static final int CREDITS_TO_GAIN = 2;
     private static final int SPACE_TAX = 50;
     private static final int BIG_SPACE_BOI = 25;
@@ -79,7 +80,7 @@ public class RandomEvent {
         public String getEventName() { return eventName; }
     }
 
-    RandomEvent(){
+    public RandomEvent(){
 
     }
 
@@ -88,40 +89,17 @@ public class RandomEvent {
      * @param p the current player
      * @return a random event
      */
-    public events generateRandomEvent(Player p){
-        Log.d("rng", "rng");
-        Log.d("UniverseLogCat", "test");
+    public static events generateRandomEvent(Player p){
         events event = events.values()[new Random().nextInt(events.values().length-1)];
-        Log.d("rng", event.eventDescription + "   " + Arrays.toString(events.values()));
-        System.out.print(Arrays.toString(events.values()) + "\t" + event);
         switch(event){
             case Wormhole:
-                Universe uni = p.getCurrentUniverse();
-                SolarSystem randomSystem = uni.getSystems().get(
-                    new Random().nextInt(uni.getSystems().size()));
-                ArrayList<Planet> rip = randomSystem.getPlanets();
-
-                Planet randomPlanet = rip.get(new Random().nextInt(rip.size()));
-                p.setCurrentPlanet(randomPlanet);
-
+                transported(p);
                 break;
-                //TODO implement loss and gain of skill points, ship dmg, credit gain and loss,
-            // fuel gain and loss, ship upgrade, fighting
             case Lost:
-                Universe universe = p.getCurrentUniverse();
-                SolarSystem randSys = universe.getSystems().get(new Random().nextInt(
- universe.getSystems().size()));
-                Planet randPlanet = randSys.getPlanets().get(new Random()
-                        .nextInt(randSys.getPlanets().size()));
-                p.setCurrentPlanet(randPlanet);
+                transported(p);
                 break;
             case StarGate:
-                Universe uni1 = p.getCurrentUniverse();
-                SolarSystem randomSystem1 = uni1.getSystems().get(new Random().nextInt(
- uni1.getSystems().size()));
-                Planet randomPlanet1 = randomSystem1.getPlanets().get(
- new Random().nextInt(randomSystem1.getPlanets().size()));
-                p.setCurrentPlanet(randomPlanet1);
+                transported(p);
                 break;
             case Asteroids:
                 p.loseHP(HP_LOST_ASTEROIDS);
@@ -160,5 +138,66 @@ public class RandomEvent {
                 break;
         }
         return event;
+    }
+
+
+    public static RandomEvent.events generateSpecifiedEvent(RandomEvent.events e, Player p){
+        switch(e){
+            case Wormhole:
+                transported(p);
+                break;
+            case Lost:
+                transported(p);
+                break;
+            case StarGate:
+                transported(p);
+                break;
+            case Asteroids:
+                p.loseHP(HP_LOST_ASTEROIDS);
+                break;
+            case Pirates:
+                p.subtractCredits(NUMBER_CREDITS_LOST);
+                break;
+            case Death:
+                p.losePoints(CREDITS_TO_LOSE);
+                break;
+            case Travellers:
+                p.gainPoints(CREDITS_TO_GAIN);
+                break;
+            case Upgrade:
+                p.getMyShip().upgradeShip();
+                break;
+            case Aliens:
+                p.losePoints(CREDITS_TO_LOSE);
+                break;
+            case Enemy:
+                p.loseHP(HP_LOST_ENEMY);
+                break;
+            case Tax:
+                p.subtractCredits(SPACE_TAX);
+                break;
+            case MonsterB:
+                p.loseHP(BIG_SPACE_BOI);
+                break;
+            case MonsterS:
+                p.loseHP(SMOL_SPACE_BOI);
+                break;
+            case FuelLeak:
+                p.loseFuel(FUEL_TO_LOSE);
+                break;
+            case Nothing:
+                break;
+        }
+        return e;
+
+    }
+    private static void transported(Player p){
+        Universe uni = p.getCurrentUniverse();
+        SolarSystem randomSystem = uni.getSystems().get(
+                new Random().nextInt(uni.getSystems().size()));
+        ArrayList<Planet> rip = randomSystem.getPlanets();
+
+        Planet randomPlanet = rip.get(new Random().nextInt(rip.size()));
+        p.setCurrentPlanet(randomPlanet);
     }
 }

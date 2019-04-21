@@ -1,5 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +63,7 @@ public class Universe implements Serializable {
      */
     public Universe(ArrayList<SolarSystem> s, int size){
         systems = s;
-        universe = new ArrayList(size);
+
         if(size <= MIN_SIZE){
             sizeOfUniverse = MIN_SIZE;
         } else if(size >= MAX_SIZE){
@@ -69,14 +71,22 @@ public class Universe implements Serializable {
         } else{
             sizeOfUniverse = size;
         }
+        universe = new ArrayList();
         systemsInUniverse = systems.size();
         for(int i=0; i < sizeOfUniverse; i++){
             universe.add(new ArrayList<SolarSystem>(sizeOfUniverse));
+            for(int j = 0 ; j < sizeOfUniverse; j++){
+                universe.get(i).add(null);
+            }
         }
-
+        Log.d("uunit", universe.toString());
         for(SolarSystem sys: systems){
-            universe.get(sys.getCoords()[0]).set(sys.getCoords()[1], sys);
+            if(sys != null)
+                universe.get(sys.getCoords()[0]).set(sys.getCoords()[1], sys);
         }
+        Log.d("uunit", universe.toString());
+
+
 
     }
 
@@ -106,9 +116,11 @@ public class Universe implements Serializable {
                         currentSystem = new SolarSystem(new Random().nextInt(5) + 10,
                                 new int[]{j, i});
                     }
+
                     universe.get(j).add(currentSystem);
                     systems.add(currentSystem);
                     listOfNames.add(currentSystem.getSystemName());
+
                 } else {
                     universe.get(j).add(null);
                 }

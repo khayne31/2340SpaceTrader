@@ -79,6 +79,8 @@ public class Player implements Serializable {
         myShip = new Ship(Ship.shipType.GN, hp, 0);
     }
 
+
+
     /**
      * gets the name of the player
      * @return the name of the player
@@ -370,7 +372,7 @@ public class Player implements Serializable {
         currentSystem = p.getHomesystem();
         p.playerLandedOn();
         return (Math.random() < 0) ? RandomEvent.events.Nothing :
-                new RandomEvent().generateRandomEvent(this);
+                RandomEvent.generateRandomEvent(this);
     }
 
     /**

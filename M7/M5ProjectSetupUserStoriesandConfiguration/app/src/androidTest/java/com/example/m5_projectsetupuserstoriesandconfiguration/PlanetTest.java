@@ -1,5 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration;
 
+import android.util.Log;
+
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.CoordinateSystem;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Market;
 import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Planet;
@@ -11,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class PlanetTest {
     @Test
-    public static void PlanetTest(){
+    public void PlanetTest(){
         int size = 15;
         int[] coords = new int[] {1,2};
         SolarSystem s  = new SolarSystem(size, coords);
@@ -20,10 +22,13 @@ public class PlanetTest {
         testingPlanetConstuctor(name, s, cs);
     }
 
-    private static void testingPlanetConstuctor(String str, SolarSystem s, CoordinateSystem cs){
+    private void testingPlanetConstuctor(String str, SolarSystem s, CoordinateSystem cs){
         Planet p = new Planet(new int[] {0,0}, str, s, s.getResource());
-        assertEquals(p.getName().substring(0, p.getName().length() - 1), s.getSystemName());
-        assertEquals(p.getName().substring(0, p.getName().length() - 1), cs.getSystemName());
+        Log.d("punit", p.getName());
+        Log.d("punit", s.getSystemName());
+        Log.d("punit", cs.getSystemName());
+        assertEquals(s.getSystemName(), p.getName());
+        assertEquals(cs.getSystemName(), p.getName());
         assertEquals(p.getResources(), s.getResource());
         assertNotEquals(p.getT_lvl(), null);
         Market oldmarket = p.getMarket();
@@ -34,15 +39,15 @@ public class PlanetTest {
 
         p = new Planet(str, s.getResource(), s.getTech());
         assertNotEquals(p.getT_lvl(), s.getTech());
-        assertEquals(p.getName().substring(0, p.getName().length() - 1), s.getSystemName());
-        assertEquals(p.getName().substring(0, p.getName().length() - 1), cs.getSystemName());
+        assertEquals(s.getSystemName(), p.getName());
+        assertEquals(cs.getSystemName(), p.getName());
         assertEquals(p.getResources(), s.getResource());
         assertNotEquals(p.getT_lvl(), null);
         oldmarket = p.getMarket();
-        assertNotEquals(oldmarket, null);
+        assertNotEquals(null, oldmarket);
         p.playerLandedOn();
         assertNotEquals(oldmarket, p.getMarket());
-        assertEquals(p.getHomesystem(), s);
+
 
     }
 }

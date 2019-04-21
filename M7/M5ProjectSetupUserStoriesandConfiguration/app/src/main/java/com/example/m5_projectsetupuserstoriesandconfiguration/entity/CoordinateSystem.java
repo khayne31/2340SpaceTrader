@@ -27,7 +27,7 @@ import java.util.List;
      * @param res the resource of the CoordinateSystem
      */
     public CoordinateSystem(int sizeSystem, SolarSystem solar, Resources res){
-        if(sizeSystem <= 0){
+        if(sizeSystem <= Universe.MIN_SIZE){
             size = Universe.MIN_SIZE;
         } else if(sizeSystem >= Universe.MAX_SIZE){
             size = Universe.MAX_SIZE;
@@ -41,7 +41,7 @@ import java.util.List;
         allPlanets = new ArrayList<>();
 
 
-        generateSystem(sizeSystem);
+        generateSystem(size);
 
         resources = res;
 

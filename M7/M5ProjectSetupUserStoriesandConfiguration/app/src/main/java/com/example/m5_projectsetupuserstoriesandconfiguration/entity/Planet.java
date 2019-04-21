@@ -23,7 +23,6 @@ public class Planet implements Serializable {
      * @param system A instance of the SolarSystem class representing the home system of the planet
      */
     private Planet(int[] coordinates, String planetName, SolarSystem system){
-        Log.d("UniverseLogCat", "inside planet constructor before coords");
         if(coordinates.length >= 2){
             coords = coordinates;
         } else{
@@ -62,7 +61,8 @@ public class Planet implements Serializable {
         name = planetName;
         t_lvl = tech;
         event = RadicalEvent.values()[new Random().nextInt(RadicalEvent.values().length)];
-        resources = Resources.values()[new Random().nextInt(Resources.values().length)];
+        resources = res;
+        market = new Market(this);
         homesystem = new SolarSystem("DummySystem");
     }
 

@@ -4,16 +4,36 @@ import org.junit.Test;
 
 public class TestRunner {
     @Test
-    public static void runAllTests(){
-        UniverseTest.testUniverse();
-        PlanetTest.PlanetTest();
-        CoordinateSystemTest.CoordinateSystemTest();
-        SolarSystemTest.SolarSystemTest();
+    public  void runAllTests(){
+        UniverseTest();
+        CoordinateSystemTest();
+        PlanetTest();
+        SolarSystemTest();
+        RandomEventTest();
     }
 
-
-
-    public static void main(String[] args){
-        runAllTests();
+    @Test
+    public void UniverseTest(){
+        new UniverseTest().testUniverse();
     }
+
+    @Test
+    public void CoordinateSystemTest(){
+        new CoordinateSystemTest().CoordinateSystemTest();
+    }
+
+    @Test
+    public void PlanetTest(){
+        new PlanetTest().PlanetTest();
+    }
+
+    @Test
+    public void SolarSystemTest(){
+        new SolarSystemTest().SolarSystemTest();
+    }
+    @Test
+    public   void RandomEventTest(){
+        new RandomEventTest().RandomEventTest();
+    }
+
 }

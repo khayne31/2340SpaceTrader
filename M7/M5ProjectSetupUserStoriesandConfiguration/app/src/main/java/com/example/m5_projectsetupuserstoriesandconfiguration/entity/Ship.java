@@ -1,5 +1,7 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.Hashtable;
 import java.util.List;
@@ -291,7 +293,10 @@ public class Ship implements Serializable {
                 break;
             }
         }
+        Log.d("junit1", temp.toString());
+        Log.d("junit1", type+"");
         type = temp[i + 1];
+        Log.d("junit1", type+"");
 
     }
     /**
