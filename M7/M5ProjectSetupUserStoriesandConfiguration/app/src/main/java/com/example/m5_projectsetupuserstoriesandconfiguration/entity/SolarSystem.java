@@ -268,6 +268,10 @@ public class SolarSystem implements Serializable {
         return tech;
     }
 
+    public Governments getGov() {
+        return gov;
+    }
+
     public Resources getResource() {
         return resource;
     }

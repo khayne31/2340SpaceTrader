@@ -129,7 +129,8 @@ public class Ship implements Serializable {
     private final Hashtable<GoodType, Integer> goodList;
     private List<Item> itemList;
     private int range;
-    private final int maxfuel;
+    private  int maxfuel;
+    private final int maxhp;
 
 
     /**
@@ -150,6 +151,7 @@ public class Ship implements Serializable {
         this.type = type;
         this.fuel = this.type.maxfuel;
         this.hp = hp;
+        maxhp = hp;
         this.cargo = cargo;
         maxfuel = type.maxfuel;
         goodList = new Hashtable<>();
@@ -311,5 +313,13 @@ public class Ship implements Serializable {
         } else {
             this.fuel -= fuel;
         }
+    }
+
+    public int getMaxfuel() {
+        return maxfuel;
+    }
+
+    public int getMaxhp() {
+        return maxhp;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.views;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,8 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.m5_projectsetupuserstoriesandconfiguration.R;
+import com.example.m5_projectsetupuserstoriesandconfiguration.entity.Player;
+import com.example.m5_projectsetupuserstoriesandconfiguration.model.ModelSingleton;
+import com.example.m5_projectsetupuserstoriesandconfiguration.view_model.MarketBuyScreenViewModel;
 
 /**
  * An activity that contains methods pertaining to the Random Event None Screen
@@ -17,6 +22,8 @@ import com.example.m5_projectsetupuserstoriesandconfiguration.R;
  */
 public class RENone extends AppCompatActivity {
     private static final int DELAY = 6500;
+    private MarketBuyScreenViewModel buyVM;
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +36,12 @@ public class RENone extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+        buyVM = ViewModelProviders.of(this).get(MarketBuyScreenViewModel.class);
+        player = buyVM.getPlayer(ModelSingleton.getCurrentPlayerID());
+        Toast.makeText(this, player.getMessage(), Toast.LENGTH_LONG).show();
 
         showButtons();
+
     }
 
     /**

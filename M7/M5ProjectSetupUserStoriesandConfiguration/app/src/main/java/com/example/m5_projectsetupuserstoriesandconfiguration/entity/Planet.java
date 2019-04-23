@@ -118,9 +118,87 @@ public class Planet implements Serializable {
     /**
      * creates a new market on this planet
      */
-    public void playerLandedOn(){
+    public String playerLandedOn(Player p){
         market = new Market(this);
-    }
+        Governments gov = homesystem.getGov();
+        if(p.getCredits() >= gov.getTax())
+            p.subtractCredits(gov.getTax());
+        switch (gov){
+            case Theo:
+                if(Math.random() < .5){
+                    p.getMyShip().upgradeShip();
+                    p.gainPoints(1);
+                    return "Theocracy: The people have blessed you. You get a ship upgrade and gain a crew member credits!";
+                }
+                else{
+                    p.losePoints(1);
+                    return "Theocracy: A sacrifice is required. Lose one crew  member!";
+                }
+            case Ari:
+                if(p.getCredits() > 700){
+                    p.gainPoints(1);
+                    return "Aristocracy: You have " + p.getCredits() + " credits, the leaders consider you worthy, " +
+                            "gain one crew member";
+                } else if (p.getCredits() > 400){
+                    p.subtractCredits(100);
+                    return "Aristocracy: You have " + p.getCredits() + " credits, as you are not poor the council will allow" +
+                            "safe passage with an additional tax of 100 credits";
+                } else{
+                    p.setMyShip(new Ship(Ship.shipType.FL, p.getMyShip().getHp(), Ship.shipType.FL.getMaxfuel()));
+                    return "Aristocracy: You have " + p.getCredits() + " credits. The council despises poor worthless beings " +
+                            "like you. You are forced sell you ship to the lowest tier if you want to continue. " +
+                            "PATHETIC!";
+                }
+            case Aut:
+                int sum = p.getEngineerPoints() + p.getPilotPoints() + p.getFighterPoints() + p.getTraderPoints();
+                p.losePoints(sum);
+                return "Autocracy: Lose you entire crew. Your lucky to be alive scum!";
+            case Dict:
+                double rnd =  Math.random();
+                p.setMyShip(new Ship(Ship.shipType.FL, p.getMyShip().getHp(), Ship.shipType.FL.getMaxfuel()));
+                if(p.getMyShip().getHp() <= p.getMyShip().getMaxhp() * rnd){
+                    return "Dictatorship: You ship is below " + (int)(rnd*100) + "percent hp. You are weak!" +
+                            " Relinquish you ship and crew. You deserve to fly rubble.";
+                } else{
+                    p.gainPoints(1);
+                    return "Dictatorship: You ship is above " + (int)(rnd*100) + "percent hp. You are strong!" +
+                            " Gain a crew member.";
+                }
+            case Oli:
+                if(Math.random() < 1/3){
+                    p.addCredits(gov.getTax());
+                    return "Oligarchy: The leaders turn out to be pacifists. Proceed unharmed with you tax returned";
+                } else if(Math.random() < 2/3){
+                    p.setFighterPoints(new Random().nextInt(p.getMax_pts()));
+                    p.setEngineerPoints(new Random().nextInt(p.getMax_pts()) - p.getFighterPoints());
+                    p.setPilotPoints(new Random().nextInt(p.getMax_pts()) - p.getFighterPoints() - p.getEngineerPoints());
+                    p.setTraderPoints( p.getMax_pts()- p.getFighterPoints() - p.getEngineerPoints() - p.getPilotPoints());
+                    return "Oligarchy: The crew members have been abducted by the leaders for research. " +
+                            "Don't worry you get new ones.";
+                } else{
+                    p.getMyShip().upgradeShip();
+                    p.getMyShip().upgradeShip();
+                    p.getMyShip().upgradeShip();
+                    return "Oligarchy: Such gracious memebers have recognized you potential and have upgraded you ship!";
+                }
+            case Dem:
+                if(Math.random() < .5){
+                    return "Democracy: There was a vote... your allowed to pass safely";
+                } else{
+                    p.losePoints(3);
+                    return "There was a vote amoung the people. The people want a gladitor show. RIP three of your crew";
+                }
+            case Reb:
+                p.subtractCredits((int)(gov.getTax() * .5));
+                return "There was a vote amoung the people who decided to let you pass...but it didn't matter. " +
+                        "The representatives want more tax!";
+            default:
+                return "Safe passage";
+        }
+
+
+        }
+
 
     /**
      * getter for the market variable

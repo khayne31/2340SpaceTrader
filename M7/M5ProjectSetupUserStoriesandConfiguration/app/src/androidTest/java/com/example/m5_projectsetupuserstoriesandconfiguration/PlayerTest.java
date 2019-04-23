@@ -19,8 +19,7 @@ public class PlayerTest {
         testConstructor("hi", 10,2,3,1, Difficulty.NO, uni);
         testConstructor(null, -1,-2,-3,-4, null, null);
         testConstructor("testing", 1,2,3,0, null, uni);
-        Player p = new Player(null, 1,2,3,4,null, null);
-        getter_and_setter_tests(p);
+
     }
 
     private void testConstructor(String name, int fPoints, int tPoints, int ePoints, int pPoints,
@@ -81,43 +80,6 @@ public class PlayerTest {
 
     }
 
-    private void getter_and_setter_tests(Player p){
-        String current_name = p.getName();
-        p.setName(null);
-        assertEquals(current_name, p.getName());
 
-        int current_credits = p.getCredits();
-        p.setCredits(Integer.MIN_VALUE);
-        assertEquals(current_credits, p.getCredits());
-
-        int current_ppts = p.getPilotPoints();
-        p.setCredits(Integer.MIN_VALUE);
-        assertEquals(current_ppts, p.getPilotPoints());
-        p.setCredits(Integer.MAX_VALUE);
-        assertEquals(current_ppts, p.getPilotPoints());
-
-        int current_epts = p.getEngineerPoints();
-        p.setCredits(Integer.MIN_VALUE);
-        assertEquals(current_epts, p.getEngineerPoints());
-        p.setCredits(Integer.MAX_VALUE);
-        assertEquals(current_epts, p.getEngineerPoints());
-
-        int current_fpts = p.getFighterPoints();
-        p.setCredits(Integer.MIN_VALUE);
-        assertEquals(current_fpts, p.getFighterPoints());
-        p.setCredits(Integer.MAX_VALUE);
-        assertEquals(current_fpts, p.getFighterPoints());
-
-        int current_tpts = p.getTraderPoints();
-        p.setCredits(Integer.MIN_VALUE);
-        assertEquals(current_tpts, p.getTraderPoints());
-        p.setCredits(Integer.MAX_VALUE);
-        assertEquals(current_tpts, p.getTraderPoints());
-
-        Planet current_planet = p.getCurrentPlanet();
-        p.setCurrentPlanet(null);
-        assertEquals(current_planet, p.getCurrentPlanet());
-
-    }
 
 }

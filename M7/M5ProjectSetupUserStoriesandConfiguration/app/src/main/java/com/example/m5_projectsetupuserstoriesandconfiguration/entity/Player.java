@@ -31,6 +31,7 @@ public class Player implements Serializable {
     private int max_pts = MainActivity.MAX_PTS;
     private static  final int INITAL_HP = 200;
     private static final String DEFAULT_NAME = "Player";
+    private String message = "";
 
 
     /**
@@ -93,7 +94,7 @@ public class Player implements Serializable {
         //law of demeter violation
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(
                 currentSystem.getPlanets().size()));
-        currentPlanet.playerLandedOn();
+        currentPlanet.playerLandedOn(this);
     }
 
     /**
@@ -152,7 +153,7 @@ public class Player implements Serializable {
         //law of demeter violation
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(
                 currentSystem.getPlanets().size()));
-        currentPlanet.playerLandedOn();
+        currentPlanet.playerLandedOn(this);
 
     }
 
@@ -190,6 +191,12 @@ public class Player implements Serializable {
     public void setCredits(int credits) {
         if(credits >= 0)
             this.credits = credits;
+    }
+
+    public  void addCredits(int x){
+        if(x >= 0){
+            credits += x;
+        }
     }
 
     /**
@@ -293,45 +300,50 @@ public class Player implements Serializable {
      * @param x an amount to subtract
      */
     public void losePoints(int x){
-        int[] pointArray = {engineerPoints, fighterPoints, pilotPoints, traderPoints};
-        int max = engineerPoints;
-        int index = 0;
-        int i;
-        for(i = 1; i < 4; i++){
-            if(pointArray[i] > max){
-                index = i;
-                break;
+        if(engineerPoints + fighterPoints + pilotPoints + traderPoints - x >= 0 || x == 0){
+            int[] pointArray = {engineerPoints, fighterPoints, pilotPoints, traderPoints};
+            int max = engineerPoints;
+            int index = 0;
+            int i;
+            for(i = 1; i < 4; i++){
+                if(pointArray[i] > max){
+                    index = i;
+                    break;
+                }
             }
+            switch(index){
+                case 1:
+                    if (fighterPoints <= 0) {
+                        fighterPoints = 0;
+                        return;
+                    }
+                    fighterPoints -= x;
+                    break;
+                case 2:
+                    if (pilotPoints <= 0) {
+                        pilotPoints = 0;
+                        return;
+                    }
+                    pilotPoints -= x;
+                    break;
+                case 3:
+                    if (traderPoints <= 0) {
+                        traderPoints = 0;
+                        return;
+                    }
+                    traderPoints -= x;
+                    break;
+                default:
+                    if (engineerPoints <= 0) {
+                        engineerPoints = 0;
+                        return;
+                    }
+                    engineerPoints -= x;
+            }
+        } else{
+            losePoints(x-1);
         }
-        switch(index){
-            case 1:
-                if (fighterPoints <= 0) {
-                    fighterPoints = 0;
-                    return;
-                }
-                fighterPoints -= x;
-                break;
-            case 2:
-                if (pilotPoints <= 0) {
-                    pilotPoints = 0;
-                    return;
-                }
-                pilotPoints -= x;
-                break;
-            case 3:
-                if (traderPoints <= 0) {
-                    traderPoints = 0;
-                    return;
-                }
-                traderPoints -= x;
-                break;
-            default:
-                if (engineerPoints <= 0) {
-                    engineerPoints = 0;
-                    return;
-                }
-                engineerPoints -= x;
-        }
+
     }
 
     /**
@@ -362,6 +374,8 @@ public class Player implements Serializable {
             default:
                 engineerPoints += x;
         }
+        if(engineerPoints + pilotPoints + fighterPoints + traderPoints > max_pts)
+            max_pts = engineerPoints + pilotPoints + fighterPoints + traderPoints;
     }
 
 
@@ -455,7 +469,7 @@ public class Player implements Serializable {
         myShip.setRange((myShip.getFuel()/myShip.getType().getMaxfuel()) * myShip.getRange());
         currentPlanet = p;
         currentSystem = p.getHomesystem();
-        p.playerLandedOn();
+        message = p.playerLandedOn(this);
         return (Math.random() < 0) ? RandomEvent.events.Nothing :
                 RandomEvent.generateRandomEvent(this);
     }
@@ -565,4 +579,14 @@ public class Player implements Serializable {
     public SolarSystem getCurrentSystem() {
         return currentSystem;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
 }
