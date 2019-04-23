@@ -1,5 +1,9 @@
 package com.example.m5_projectsetupuserstoriesandconfiguration.entity;
 
+import android.util.Log;
+
+import com.example.m5_projectsetupuserstoriesandconfiguration.views.MainActivity;
+
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +28,9 @@ public class Player implements Serializable {
     private Planet currentPlanet;
     private SolarSystem currentSystem;
     private Universe currentUniverse;
+    private int max_pts = MainActivity.MAX_PTS;
     private static  final int INITAL_HP = 200;
+    private static final String DEFAULT_NAME = "Player";
 
 
     /**
@@ -39,18 +45,51 @@ public class Player implements Serializable {
      */
     public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints,
                   Difficulty difficulty, Universe uni) {
-        this.name = name;
+        this.name = name != null ? name : DEFAULT_NAME;
         credits = 1000;
-        fighterPoints = fPoints;
-        traderPoints = tPoints;
-        engineerPoints = ePoints;
-        pilotPoints = pPoints;
-        this.diff = difficulty;
+        if(fPoints < 0 || fPoints > max_pts){
+            fighterPoints = new Random().nextInt(max_pts);
+        } else{
+            fighterPoints = fPoints;
+        }
+        if(tPoints < 0 || tPoints > max_pts){
+            traderPoints = new Random().nextInt(max_pts - fighterPoints);
+        } else{
+            traderPoints = tPoints;
+        }
+        if(ePoints < 0 || ePoints > max_pts){
+            engineerPoints = new Random().nextInt(max_pts - fighterPoints - traderPoints);
+        } else{
+            engineerPoints = ePoints;
+        }
+        if(pPoints < 0 || pPoints > max_pts){
+            pilotPoints = max_pts - fighterPoints - engineerPoints - traderPoints;
+        } else{
+            pilotPoints = pPoints;
+        }
+
+        int diffrence = max_pts - fighterPoints - engineerPoints - traderPoints - pilotPoints;
+        Log.d("playertests", (diffrence) + "");
+        for(int i = 0; i < diffrence; i++){
+            if(i % 4 == 0)
+                pilotPoints++;
+            else if(i % 4 == 1)
+                engineerPoints++;
+            else if(i % 4 == 2)
+                traderPoints++;
+            else
+                fighterPoints++;
+            Log.d("playertests", i+"");
+        }
+
+        this.diff = difficulty != null ? difficulty : Difficulty.NO;
         int hp = INITAL_HP;
         myShip = new Ship(Ship.shipType.GN, hp, 0);
-        currentUniverse = uni;
+
+        currentUniverse = uni != null ? uni : new Universe(Universe.MIN_SIZE);
         //law of demeter violation
-        currentSystem = uni.getSystems().get(new Random().nextInt(uni.getSystems().size()));
+        currentSystem = currentUniverse.getSystems().get(new Random().nextInt(
+                currentUniverse.getSystems().size()));
         //law of demeter violation
         currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(
                 currentSystem.getPlanets().size()));
@@ -68,15 +107,53 @@ public class Player implements Serializable {
      */
     public Player(String name, int fPoints, int tPoints, int ePoints, int pPoints,
                   Difficulty difficulty) {
-        this.name = name;
+
+        this.name = name != null ? name : DEFAULT_NAME;
         credits = 1000;
-        fighterPoints = fPoints;
-        traderPoints = tPoints;
-        engineerPoints = ePoints;
-        pilotPoints = pPoints;
-        this.diff = difficulty;
+        if(fPoints < 0 || fPoints > max_pts){
+            fighterPoints = new Random().nextInt(max_pts);
+        } else{
+            fighterPoints = fPoints;
+        }
+        if(tPoints < 0 || tPoints > max_pts){
+            traderPoints = new Random().nextInt(max_pts - fighterPoints);
+        } else{
+            traderPoints = tPoints;
+        }
+        if(ePoints < 0 || ePoints > max_pts){
+            engineerPoints = new Random().nextInt(max_pts - fighterPoints - traderPoints);
+        } else{
+            engineerPoints = ePoints;
+        }
+        if(pPoints < 0 || pPoints > max_pts){
+            pilotPoints = max_pts - fighterPoints - engineerPoints - traderPoints;
+        } else{
+            pilotPoints = pPoints;
+        }
+        int diffrence = max_pts - fighterPoints - engineerPoints - traderPoints - pilotPoints;
+        Log.d("playertests", (diffrence) + "");
+        for(int i = 0; i < diffrence; i++){
+            if(i % 4 == 0)
+                pilotPoints++;
+            else if(i % 4 == 1)
+                engineerPoints++;
+            else if(i % 4 == 2)
+                traderPoints++;
+            else
+                fighterPoints++;
+            Log.d("playertests", i+"");
+        }
+        this.diff = difficulty != null ? difficulty : Difficulty.NO;
         int hp = INITAL_HP;
         myShip = new Ship(Ship.shipType.GN, hp, 0);
+        currentUniverse = new Universe(Universe.MIN_SIZE);
+        currentSystem = currentUniverse.getSystems().get(new Random().nextInt(
+                currentUniverse.getSystems().size()));
+        //law of demeter violation
+        currentPlanet = currentSystem.getPlanets().get(new Random().nextInt(
+                currentSystem.getPlanets().size()));
+        currentPlanet.playerLandedOn();
+
     }
 
 
@@ -94,7 +171,8 @@ public class Player implements Serializable {
      * @param name the new name of the player
      */
     public void setName(String name) {
-        this.name = name;
+        if(name!= null)
+            this.name = name;
     }
 
     /**
@@ -110,7 +188,8 @@ public class Player implements Serializable {
      * @param credits the new credits of the player
      */
     public void setCredits(int credits) {
-        this.credits = credits;
+        if(credits >= 0)
+            this.credits = credits;
     }
 
     /**
@@ -123,7 +202,8 @@ public class Player implements Serializable {
      * sets the pilot points of the player
      * @param pilotPoints the new pilot points of the player
      */
-    public void setPilotPoints(int pilotPoints) {this.pilotPoints = pilotPoints;}
+    public void setPilotPoints(int pilotPoints) { if(pilotPoints >= 0 && pilotPoints + engineerPoints
+            + traderPoints + fighterPoints <= max_pts) this.pilotPoints = pilotPoints;}
 
     /**
      * gets the engineering points of the player
@@ -135,7 +215,8 @@ public class Player implements Serializable {
      * sets engineering points of the player
      * @param engineerPoints new engineering points of the player
      */
-    public void setEngineerPoints(int engineerPoints) {this.engineerPoints = engineerPoints; }
+    public void setEngineerPoints(int engineerPoints) {if(engineerPoints >= 0 && pilotPoints + engineerPoints
+            + traderPoints + fighterPoints <= max_pts) this.engineerPoints = engineerPoints; }
 
     /**
      * gets the trader points of the player
@@ -147,7 +228,8 @@ public class Player implements Serializable {
      * sets trader points of the player
      * @param traderPoints new trader points of the player
      */
-    public void setTraderPoints(int traderPoints) {this.traderPoints = traderPoints;}
+    public void setTraderPoints(int traderPoints) {if(traderPoints >= 0 && pilotPoints + engineerPoints
+            + traderPoints + fighterPoints <= max_pts) this.traderPoints = traderPoints;}
 
     /**
      * gets the fighter points of the player
@@ -159,7 +241,8 @@ public class Player implements Serializable {
      * sets the fighter points of the player
      * @param fighterPoints new fighter points of the player
      */
-    public void setFighterPoints(int fighterPoints) {this.fighterPoints = fighterPoints;}
+    public void setFighterPoints(int fighterPoints) {if(fighterPoints >= 0 && pilotPoints + engineerPoints
+            + traderPoints + fighterPoints <= max_pts) this.fighterPoints = fighterPoints;}
 
     /**
      * gets the id of the player
@@ -192,7 +275,8 @@ public class Player implements Serializable {
      * @param currentPlanet new current planet of the player
      */
     public void setCurrentPlanet(Planet currentPlanet) {
-        this.currentPlanet = currentPlanet;
+        if(currentPlanet != null)
+            this.currentPlanet = currentPlanet;
     }
 
     /**
@@ -200,7 +284,8 @@ public class Player implements Serializable {
      * @param x an amount of credits
      */
     public void subtractCredits(int x){
-        credits = ((credits - x) > 0) ? (credits - x) : 0;
+        if(x >= 0)
+            credits = ((credits - x) > 0) ? (credits - x) : 0;
     }
 
     /**
@@ -440,7 +525,8 @@ public class Player implements Serializable {
      * @param myShip the ship
      */
     public void setMyShip(Ship myShip) {
-        this.myShip = myShip;
+        if(myShip != null)
+            this.myShip = myShip;
     }
 
     /**
@@ -448,7 +534,8 @@ public class Player implements Serializable {
      * @param currentUniverse the new current universe of the player
      */
     public void setCurrentUniverse(Universe currentUniverse) {
-        this.currentUniverse = currentUniverse;
+        if(currentUniverse != null)
+            this.currentUniverse = currentUniverse;
     }
 
     /**
@@ -465,5 +552,17 @@ public class Player implements Serializable {
      */
     public void loseFuel(int toLose) {
         myShip.loseFuel(toLose);
+    }
+
+    public int getMax_pts() {
+        return max_pts;
+    }
+
+    public static int getInitalHp() {
+        return INITAL_HP;
+    }
+
+    public SolarSystem getCurrentSystem() {
+        return currentSystem;
     }
 }

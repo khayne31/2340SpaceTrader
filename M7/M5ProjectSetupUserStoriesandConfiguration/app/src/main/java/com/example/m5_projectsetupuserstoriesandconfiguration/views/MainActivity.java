@@ -34,7 +34,7 @@ import java.io.Serializable;
  */
 public class MainActivity extends AppCompatActivity implements Serializable {
 
-    private static  final int MAX_PTS = 16;
+    public static  final int MAX_PTS = 16;
 
     private EditText nameField;
     private TextView fighterptslabel;
