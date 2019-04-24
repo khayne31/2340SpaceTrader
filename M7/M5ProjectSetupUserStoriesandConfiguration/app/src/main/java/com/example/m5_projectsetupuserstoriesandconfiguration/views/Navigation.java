@@ -126,7 +126,7 @@ public class Navigation extends AppCompatActivity {
                 startActivity(new Intent(this, RENone.class));
                 break;
             case "Alien Abduction":
-                startActivity(new Intent(this, RENone.class));
+                startActivity(new Intent(this, REAlien.class));
                 break;
             case "Enemy Attack":
                 startActivity(new Intent(this, RENone.class));

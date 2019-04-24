@@ -11,9 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".views.REAlien"
+            android:label="@string/title_activity_realien"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".views.RESmallBoi"
             android:label="@string/title_activity_resmall_boi"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.REBigBoi"
             android:label="@string/title_activity_rebig_boi"
