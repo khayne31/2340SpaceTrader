@@ -41,6 +41,8 @@ public class RENone extends AppCompatActivity {
         Toast.makeText(this, player.getMessage(), Toast.LENGTH_LONG).show();
 
         showButtons();
+        Toast.makeText(this, player.getMessage(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, player.getMessage(), Toast.LENGTH_LONG).show();
 
     }
 

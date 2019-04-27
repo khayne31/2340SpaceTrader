@@ -186,11 +186,11 @@ public class Planet implements Serializable {
                     return "Democracy: There was a vote... your allowed to pass safely";
                 } else{
                     p.losePoints(3);
-                    return "There was a vote amoung the people. The people want a gladitor show. RIP three of your crew";
+                    return "Democracy: There was a vote amoung the people. The people want a gladitor show. RIP three of your crew";
                 }
             case Reb:
                 p.subtractCredits((int)(gov.getTax() * .5));
-                return "There was a vote amoung the people who decided to let you pass...but it didn't matter. " +
+                return "Republic: There was a vote amoung the people who decided to let you pass...but it didn't matter. " +
                         "The representatives want more tax!";
             default:
                 return "Safe passage";

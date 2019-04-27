@@ -103,7 +103,11 @@ public class Navigation extends AppCompatActivity {
         Toast.makeText(this, newEvent.getEventDescription(), Toast.LENGTH_LONG).show();
         //startActivity(new Intent(this, RESmallBoi.class));
         //String event = newEvent.getEventName();
-        switch (newEvent.getEventName()){
+        switch("Alien Abduction"){
+        //switch("Big Space Monster"){
+        //switch("Small Space Monster"){
+        //switch("Wormhole"){
+        //switch (newEvent.getEventName()){
             case "Wormhole":
                 startActivity(new Intent(this, RENone.class));
                 break;
