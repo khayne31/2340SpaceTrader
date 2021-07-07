@@ -1,0 +1,116 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_start_screen" tools:keep="@string/title_activity_start_screen">StartScreen</string>
+    <string name="title_activity_post_player_screen" tools:keep="@string/title_activity_post_player_screen">PostPlayerScreen</string>
+    <string name="title_activity_planet_screen">PlanetScreen</string>
+    <string name="title_activity_market_screen">MarketScreen</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries" tools:keep="@array/list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" tools:keep="@array/multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent" tools:keep="@string/pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="title_activity_load_screen">LoadScreen</string>
+    <string name="title_activity_space_garage">SpaceGarage</string>
+    <string name="title_activity_renone">RENone</string>
+    <string name="title_activity_fuel_depot">FuelDepot</string>
+    <string name="title_activity_equipment_hangar">EquipmentHangar</string>
+    <string name="go_back">Go Back</string>
+    <string name="load_game">LOAD GAME</string>
+    <string name="load">Load</string>
+    <string name="input_your_name">Input your name</string>
+    <string name="points">Points: </string>
+    <string name="sixteen">16</string>
+    <string name="pilot">Pilot</string>
+    <string name="engineer">Engineer</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="plus">+</string>
+    <string name="trader">Trader</string>
+    <string name="fighter">Fighter</string>
+    <string name="create_player">Create Player</string>
+    <string name="create_lazy_player">Create Lazy Player</string>
+    <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="deluxe">DELUXE</string>
+    <string name="space_traders">SPACE TRADERS</string>
+    <string name="new_game">NEW GAME</string>
+    <string name="settings">SETTINGS</string>
+    <string name="market">MARKET</string>
+    <string name="item_price">Item Price</string>
+    <string name="current_credits">Current Credits</string>
+    <string name="current_total_cargo">Current Total Cargo</string>
+    <string name="max_cargo_limit">Maximum Cargo Limit</string>
+    <string name="market_inventory">Market Inventory</string>
+    <string name="cargo_inventory">Cargo Inventory</string>
+    <string name="number_to_buy">Number To Buy</string>
+    <string name="number_to_sell">Number To Sell</string>
+    <string name="buy_items">BUY ITEMS</string>
+    <string name="sell_items">SELL ITEMS</string>
+    <string name="title_activity_rebig_boi">REBigBoi</string>
+    <string name="title_activity_resmall_boi">RESmallBoi</string>
+    <string name="title_activity_realien">REAlien</string>
+
+</resources>
